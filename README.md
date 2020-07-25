@@ -1,0 +1,1 @@
+This repo contains all the K8s manifests to deploy Spring Petclinic
