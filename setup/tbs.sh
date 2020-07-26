@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+PETCLINIC_REVISION=$1
+
 # Make the Ingress TLS cert
 mkcert \
 -cert-file tls.crt \
@@ -28,5 +30,5 @@ kp image create petclinic \
 harbor.lab.home/library/petclinic \
 --namespace petclinic \
 --git https://github.com/techgnosis/spring-petclinic.git \
---git-revision main
+--git-revision $PETCLINIC_REVISION
 
