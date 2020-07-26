@@ -1,8 +1,11 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: petclinic
   namespace: petclinic
+  annotations:
+    fluxcd.io/automated: 'true'
 spec:
   replicas: 1
   selector:
@@ -14,7 +17,7 @@ spec:
         app: petclinic
     spec:
       containers:
-        - name: petclinic
-          image: harbor.lab.home/library/petclinic:b1.20200726.020006
-          ports:
-            - containerPort: 8080
+      - name: petclinic
+        image: harbor.lab.home/library/petclinic:b1.20200726.020006
+        ports:
+        - containerPort: 8080
