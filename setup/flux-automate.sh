@@ -3,7 +3,8 @@
 set -euo pipefail
 
 fluxctl automate \
---workload=petclinic:deployment/petclinic \
+--workload=deployment/petclinic \
+--namespace petclinic \
 --k8s-fwd-ns petclinic
 
 
