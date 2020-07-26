@@ -1,0 +1,1 @@
+{"jobID":"99db6dc1-c3f0-39a4-bc00-6419767554b3","spec":{"type":"policy","cause":{"Message":"","User":"James Musselwhite \u003cjmusselwhite@pivotal.io\u003e"},"spec":{"petclinic:deployment/petclinic":{"add":{"automated":"true"},"remove":{}}}},"result":null}
