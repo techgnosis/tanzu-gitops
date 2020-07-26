@@ -19,13 +19,9 @@ kubectl create secret tls petclinic-tls \
 --cert=./tls.crt \
 --key=./tls.key
 
-# Setup Registry secret for TBS and Flux to talk to Harbor
-REGISTRY_PASSWORD=Harbor12345 kp secret create harbor2-creds \
---namespace petclinic \
---registry harbor.lab.home \
---registry-user admin
-
 # Setup TBS to build PetClinic
+# TBS will install a secret into the namespace you create the Image in
+# That secret allows private registry access
 kp image create petclinic \
 harbor.lab.home/library/petclinic \
 --namespace petclinic \
