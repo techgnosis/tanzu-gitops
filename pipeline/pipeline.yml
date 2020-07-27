@@ -92,6 +92,15 @@ jobs:
     - task: kapp deploy
       image: concourse-helper
       file: concourse/tasks/kapp-deploy/kapp-deploy.yml
+      input_mapping:
+        deploy-source: deploy-petclinic
+      params:
+        tkgicluster: ((tkgicluster))
+        tkgiapi: ((tkgiapi))
+        tkgiuser: ((tkgiuser))
+        tkgipassword: ((tkgipassword))
+        namespace: ((namespace))
+        imagename: ((imagename))
     - task: create wavefront event
       image: concourse-helper
       file: concourse/tasks/wavefront-event/wavefront-event.yml
