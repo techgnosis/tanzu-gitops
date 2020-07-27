@@ -5,9 +5,8 @@ set -euo pipefail
 VERB=$1
 
 fluxctl install \
---git-user=flux-user \
 --git-email=flux@lab.home \
---git-url=https://github.com/techgnosis/k8s-petclinic.git \
+--git-url=https://github.com/techgnosis/k8s-petclinic \
 --git-readonly \
---git-path="manifests" \
+--git-path="." \
 --namespace=petclinic | kubectl $VERB -f -
