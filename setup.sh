@@ -19,7 +19,7 @@ kubectl create secret tls petclinic-tls \
 --cert=./tls.crt \
 --key=./tls.key
 
-# Make registry secret for TBS and Flux
+# Make registry secret for TBS
 REGISTRY_PASSWORD=Harbor12345 kp secret create harbor2-creds \
 --namespace petclinic \
 --registry harbor.lab.home \
@@ -30,6 +30,6 @@ kp image create petclinic \
 harbor.lab.home/library/petclinic \
 --namespace petclinic \
 --git https://github.com/techgnosis/spring-petclinic.git \
---git-revision main
+--git-revision $PETCLINIC_REVISION
 
 
