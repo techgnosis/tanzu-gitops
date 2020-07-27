@@ -1,10 +1,3 @@
-# Solves "Validate Commit" and "Build Image"
-
-# Run kp patch to trigger TBS
-
-# Image hitting Harbor will trigger Flux
-# Flux will write to a Git repo when its done, which will trigger the CD pipeline
-
 resources:
 # Source Code
 - name: spring-petclinic
@@ -12,10 +5,10 @@ resources:
   source:
     uri: https://github.com/techgnosis/spring-petclinic.git
     branch: main
-- name: k8s-petclinic
+- name: deploy-petclinic
   type: git
   source:
-    uri: https://github.com/techgnosis/k8s-petclinic.git
+    uri: https://github.com/techgnosis/deploy-petclinic.git
     branch: master
 # Tasks
 - name: concourse
@@ -59,20 +52,28 @@ jobs:
   - get: adoptopenjdk
   - get: concourse-helper
   - get: concourse
-  - task: tests
-    file: concourse/pipelines/petclinic/tasks/test.yml
+  - task: maven-test
+    file: concourse/tasks/maven-test/maven-test.yml
     image: adoptopenjdk
-  - task: checkstyle
+    input_mapping:
+      app-source: spring-petclinic
+  - task: maven-checkstyle
     image: adoptopenjdk
-    file: concourse/pipelines/petclinic/tasks/checkstyle.yml
-  - task: build
+    file: concourse/tasks/maven-checkstyle/maven-checkstyle.yml
+    input_mapping:
+      app-source: spring-petclinic
+  - task: tbs-build
     image: concourse-helper
-    file: concourse/pipelines/petclinic/tasks/build.yml
+    file: concourse/tasks/tbs-build/tbs-build.yml
+    input_mapping:
+      app-source: spring-petclinic
     params:
       tkgicluster: ((tkgicluster))
       tkgiapi: ((tkgiapi))
       tkgiuser: ((tkgiuser))
       tkgipassword: ((tkgipassword))
+      namespace: ((namespace))
+      imagename: ((imagename))
 
 
 - name: deploy image via kapp
@@ -84,14 +85,14 @@ jobs:
 - name: deploy via kapp
   public: true
   plan:
-    - get: k8s-petclinic
+    - get: deploy-petclinic
       trigger: true
     - get: concourse-helper
     - get: concourse
     - task: kapp deploy
       image: concourse-helper
-      file: concourse/pipelines/petclinic/tasks/kapp-deploy.yml
+      file: concourse/tasks/kapp-deploy/kapp-deploy.yml
     - task: create wavefront event
       image: concourse-helper
-      file: concourse/pipelines/petclinic/tasks/wavefront.yml
+      file: concourse/tasks/wavefront-event/wavefront-event.yml
 
