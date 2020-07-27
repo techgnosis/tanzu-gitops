@@ -33,3 +33,13 @@ harbor.lab.home/library/petclinic \
 --git-revision $PETCLINIC_REVISION
 
 
+# Keeping this commented out until fluxctl can
+# take a CA cert
+
+# kp image create petclinic-dockerhub \
+# index.docker.io/techgnosis/petclinic \
+# --namespace petclinic \
+# --git https://github.com/techgnosis/spring-petclinic.git \
+# --git-revision $PETCLINIC_REVISION
+
+
