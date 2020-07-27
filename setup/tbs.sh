@@ -28,10 +28,4 @@ harbor.lab.home/library/petclinic \
 --git https://github.com/techgnosis/spring-petclinic.git \
 --git-revision $PETCLINIC_REVISION
 
-fluxctl install \
---git-user=flux-user \
---git-email=flux@lab.home \
---git-url=git@github.com:techgnosis/k8s-petclinic.git \
---git-path="manifests" \
---namespace=petclinic | kubectl apply -f -
 
