@@ -89,6 +89,7 @@ jobs:
       image: concourse-helper
       input_mapping:
         deploy-source: deploy-petclinic
+        image: spring-petclinic-image
       params:
         tkgicluster: ((tkgicluster))
         tkgiapi: ((tkgiapi))
