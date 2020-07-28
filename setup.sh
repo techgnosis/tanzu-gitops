@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-PETCLINIC_REVISION=$1
-
 # Make the namespace for the PetClinic K8s resources
 kubectl create ns petclinic
 
@@ -30,6 +28,6 @@ kp image create petclinic \
 harbor.lab.home/library/petclinic \
 --namespace petclinic \
 --git https://github.com/techgnosis/spring-petclinic.git \
---git-revision $PETCLINIC_REVISION
+--git-revision HEAD
 
 
