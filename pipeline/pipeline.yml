@@ -4,7 +4,7 @@ resources:
   type: git
   source:
     uri: https://github.com/techgnosis/spring-petclinic.git
-    branch: main
+    branch: demo
 - name: deploy-petclinic
   type: git
   source:
