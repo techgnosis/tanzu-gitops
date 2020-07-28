@@ -8,8 +8,17 @@ resources:
 - name: deploy-petclinic
   type: git
   source:
-    uri: https://github.com/techgnosis/deploy-petclinic.git
+    uri: git@github.com:techgnosis/deploy-petclinic.git
     branch: master
+    private_key: |
+      ((privatekey))
+    git-config:
+        - name: user.email
+          value: concourse@lab.home
+        - name: author.email
+          value: concourse@lab.home
+        - name: committer.email
+          value: concourse@lab.home
 # Tasks
 - name: concourse
   type: git
@@ -97,6 +106,8 @@ jobs:
         tkgipassword: ((tkgipassword))
         namespace: ((namespace))
         imagename: ((imagename))
+    - put: deploy-petclinic
+      params: {repository: deploy-petclinic}
 
 - name: deploy-infra-changes
   public: true

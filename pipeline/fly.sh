@@ -13,5 +13,6 @@ fly set-pipeline -t lab \
 -v tkgipassword="${TKGIPASSWORD}" \
 -v harborca="${HARBORCA}" \
 -v namespace="${NAMESPACE}" \
--v imagename="${IMAGENAME}"
+-v imagename="${IMAGENAME}" \
+-v privatekey="${PRIVATEKEY}"
 
