@@ -81,6 +81,21 @@ jobs:
   plan:
     - get: spring-petclinic-image
       trigger: true
+    - get: deploy-petclinic
+    - get: concourse
+    - get: concourse-helper
+    - task: deploy image
+      file: concourse/tasks/deploy-image/deploy-image.yml
+      image: concourse-helper
+      input_mapping:
+        deploy-source: deploy-petclinic
+      params:
+        tkgicluster: ((tkgicluster))
+        tkgiapi: ((tkgiapi))
+        tkgiuser: ((tkgiuser))
+        tkgipassword: ((tkgipassword))
+        namespace: ((namespace))
+        imagename: ((imagename))
 
 - name: deploy via kapp
   public: true

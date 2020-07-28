@@ -1,3 +1,4 @@
+#@ load("@ytt:data", "data")
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -16,6 +17,6 @@ spec:
     spec:
       containers:
       - name: petclinic
-        image: harbor.lab.home/library/petclinic:latest
+        image: #@ "harbor.lab.home/library/petclinic:" + data.values.tag
         ports:
         - containerPort: 8080
