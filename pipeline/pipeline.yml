@@ -34,7 +34,7 @@ resources:
   type: docker-image
   source:
     repository: harbor.lab.home/library/concourse-helper
-    tag: "7"
+    tag: latest
     ca_certs:
     - domain: harbor.lab.home
       cert: |
