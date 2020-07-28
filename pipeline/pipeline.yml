@@ -101,7 +101,7 @@ jobs:
         namespace: ((namespace))
         imagename: ((imagename))
     - put: deploy-petclinic
-      params: {repository: deploy-petclinic-modified}
+      params: {repository: deploy-source-modified}
 
 - name: deploy-infra-changes
   public: true
