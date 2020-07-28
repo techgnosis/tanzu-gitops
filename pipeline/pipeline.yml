@@ -44,7 +44,7 @@ resources:
 
 
 jobs:
-- name: test and build with TBS
+- name: test-and-build-with-TBS
   public: true
   plan:
   - get: spring-petclinic
@@ -76,7 +76,7 @@ jobs:
       imagename: ((imagename))
 
 
-- name: deploy image via kapp
+- name: deploy-new-image
   public: true
   plan:
     - get: spring-petclinic-image
@@ -98,7 +98,7 @@ jobs:
         namespace: ((namespace))
         imagename: ((imagename))
 
-- name: deploy via kapp
+- name: deploy-infra-changes
   public: true
   plan:
     - get: deploy-petclinic
