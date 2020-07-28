@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: petclinic
-        image: #@ "harbor.lab.home/library/petclinic:" + data.values.tag
+        image: #@ "harbor.lab.home/library/petclinic" + data.values.id
         ports:
         - containerPort: 8080
