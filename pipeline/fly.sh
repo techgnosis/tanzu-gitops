@@ -14,5 +14,7 @@ fly set-pipeline -t lab \
 -v harborca="${HARBORCA}" \
 -v namespace="${NAMESPACE}" \
 -v imagename="${IMAGENAME}" \
--v privatekey="${PRIVATEKEY}"
+-v privatekey="${PRIVATEKEY}" \
+-v role_id="${ROLE_ID}" \
+-v secret_id="${SECRET_ID}"
 
