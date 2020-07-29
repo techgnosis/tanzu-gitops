@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: petclinic
-        image: harbor.lab.home/library/petclinic@sha256:e42d47d946e0429e9d4d06ad624f69b5f629331e97a5ee19bb5eb88e0372b762
+        image: harbor.lab.home/library/petclinic@sha256:6cade02d3720886cefd381761b7ebb900f406c63ef36391fd8e7abefccb581da
         ports:
         - containerPort: 8080
