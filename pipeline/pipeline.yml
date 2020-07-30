@@ -84,12 +84,12 @@ jobs:
     input_mapping:
       app-source: spring-petclinic
     params:
-      tkgicluster: ((tkgicluster))
-      tkgiapi: ((tkgiapi))
-      tkgiuser: ((tkgiuser))
-      tkgipassword: ((tkgipassword))
-      namespace: ((namespace))
-      imagename: ((imagename))
+      tkgicluster: ((vault:tkgicluster))
+      tkgiapi: ((vault:tkgiapi))
+      tkgiuser: ((vault:tkgiuser))
+      tkgipassword: ((vault:tkgipassword))
+      namespace: ((vault:namespace))
+      imagename: ((vault:imagename))
 
 
 - name: deploy-new-image
@@ -107,12 +107,12 @@ jobs:
         deploy-source: deploy-petclinic
         image: spring-petclinic-image
       params:
-        tkgicluster: ((tkgicluster))
-        tkgiapi: ((tkgiapi))
-        tkgiuser: ((tkgiuser))
-        tkgipassword: ((tkgipassword))
-        namespace: ((namespace))
-        imagename: ((imagename))
+        tkgicluster: ((vault:tkgicluster))
+        tkgiapi: ((vault:tkgiapi))
+        tkgiuser: ((vault:tkgiuser))
+        tkgipassword: ((vault:tkgipassword))
+        namespace: ((vault:namespace))
+        imagename: ((vault:imagename))
     - put: deploy-petclinic
       params: {repository: deploy-source-modified}
 
@@ -129,12 +129,12 @@ jobs:
       input_mapping:
         deploy-source: deploy-petclinic
       params:
-        tkgicluster: ((tkgicluster))
-        tkgiapi: ((tkgiapi))
-        tkgiuser: ((tkgiuser))
-        tkgipassword: ((tkgipassword))
-        namespace: ((namespace))
-        imagename: ((imagename))
+        tkgicluster: ((vault:tkgicluster))
+        tkgiapi: ((vault:tkgiapi))
+        tkgiuser: ((vault:tkgiuser))
+        tkgipassword: ((vault:tkgipassword))
+        namespace: ((vault:namespace))
+        imagename: ((vault:imagename))
     - task: create wavefront event
       image: concourse-helper
       file: concourse/tasks/wavefront-event/wavefront-event.yml
