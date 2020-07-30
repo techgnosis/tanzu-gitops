@@ -64,6 +64,7 @@ resources:
 jobs:
 - name: spring-petclinic-test-and-build-with-TBS
   public: true
+  serial: true
   plan:
   - get: spring-petclinic
     trigger: true
