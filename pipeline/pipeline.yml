@@ -23,6 +23,8 @@ resources:
   source:
     uri: git@github.com:techgnosis/deploy-tanzulab.git
     branch: master
+    paths:
+      - manifests/**/*
     private_key: |
       ((vault:concourse_github_privatekey))
 
