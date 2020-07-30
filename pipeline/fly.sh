@@ -8,7 +8,4 @@ fly set-pipeline -t lab \
 -p tanzulab \
 -c pipeline.yml \
 -v role_id="${ROLE_ID}" \
--v secret_id="${SECRET_ID}" \
--v ca_cert="${CACERT}" \
--v concourse_github_privatekey="${PRIVATEKEY}"
-
+-v secret_id="${SECRET_ID}"

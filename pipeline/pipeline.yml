@@ -6,7 +6,7 @@ var_sources:
     path_prefix: concourse
     auth_backend: approle
     ca_cert: |
-      ((ca_cert))
+      ((vault:ca_cert))
     auth_params:
       role_id: ((role_id))
       secret_id: ((secret_id))
@@ -24,7 +24,7 @@ resources:
     uri: git@github.com:techgnosis/deploy-petclinic.git
     branch: master
     private_key: |
-      ((concourse_github_privatekey))
+      ((vault:concourse_github_privatekey))
 
 # Tasks
 - name: concourse
@@ -45,7 +45,7 @@ resources:
     ca_certs:
     - domain: harbor.lab.home
       cert: |
-        ((ca_cert))
+        ((vault:ca_cert))
 - name: concourse-helper
   type: docker-image
   source:
@@ -54,7 +54,7 @@ resources:
     ca_certs:
     - domain: harbor.lab.home
       cert: |
-        ((ca_cert))
+        ((vault:ca_cert))
 
   
 
