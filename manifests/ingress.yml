@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: petclinic
-  namespace: petclinic
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
