@@ -1,19 +1,19 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: petclinic
+  name: spring-petclinic
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: petclinic.lab.home
+  - host: spring-petclinic.lab.home
     http:
       paths:
       - backend:
-          serviceName: petclinic
+          serviceName: spring-petclinic
           servicePort: http
         path: /
   tls:
   - hosts:
-    - petclinic.lab.home
-    secretName: petclinic-tls
+    - spring-petclinic.lab.home
+    secretName: spring-petclinic-tls

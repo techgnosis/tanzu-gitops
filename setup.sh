@@ -9,10 +9,10 @@ kubectl create ns tanzulab
 mkcert \
 -cert-file tls.crt \
 -key-file tls.key \
-petclinic.lab.home
+spring-petclinic.lab.home
 
 # Make the TLS secret for PetClinic Ingress using the on-disk pem files
-kubectl create secret tls petclinic-tls \
+kubectl create secret tls spring-petclinic-tls \
 --namespace tanzulab \
 --cert=./tls.crt \
 --key=./tls.key
@@ -24,10 +24,10 @@ REGISTRY_PASSWORD=Harbor12345 kp secret create harbor2-creds \
 --registry-user admin
 
 # Setup TBS to build PetClinic
-kp image create petclinic \
-harbor.lab.home/library/petclinic \
+kp image create spring-petclinic \
+harbor.lab.home/library/spring-petclinic \
 --namespace tanzulab \
 --git https://github.com/techgnosis/spring-petclinic.git \
---git-revision HEAD
+--git-revision bedb97afb61dd4422d6719c30838194841c5caec
 
 

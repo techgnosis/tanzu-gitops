@@ -60,7 +60,7 @@ resources:
 
 
 jobs:
-- name: test-and-build-with-TBS
+- name: spring-petclinic-test-and-build-with-TBS
   public: true
   plan:
   - get: spring-petclinic
@@ -88,12 +88,13 @@ jobs:
       tkgiapi: ((vault:tkgiapi))
       tkgiuser: ((vault:tkgiuser))
       tkgipassword: ((vault:tkgipassword))
-      namespace: ((vault:namespace))
-      imagename: ((vault:imagename))
+      namespace: tanzulab
+      imagename: spring-petclinic
 
 
-- name: deploy-new-petclinic-image
+- name: spring-petclinic-deploy-new-image
   public: true
+  serial: true
   plan:
     - get: spring-petclinic-image
       trigger: true
@@ -112,12 +113,13 @@ jobs:
         tkgiuser: ((vault:tkgiuser))
         tkgipassword: ((vault:tkgipassword))
         namespace: tanzulab
-        imagename: petclinic
+        imagename: spring-petclinic
     - put: deploy-tanzulab
       params: {repository: deploy-source-modified}
 
-- name: deploy-infra-changes
+- name: deploy
   public: true
+  serial: true
   plan:
     - get: deploy-tanzulab
       trigger: true
@@ -133,7 +135,7 @@ jobs:
         tkgiapi: ((vault:tkgiapi))
         tkgiuser: ((vault:tkgiuser))
         tkgipassword: ((vault:tkgipassword))
-        namespace: ((vault:namespace))
+        namespace: tanzulab
     - task: create wavefront event
       image: concourse-helper
       file: concourse/tasks/wavefront-event/wavefront-event.yml

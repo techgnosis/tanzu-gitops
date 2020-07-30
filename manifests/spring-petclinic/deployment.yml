@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-petclinic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-petclinic
+  template:
+    metadata:
+      labels:
+        app: spring-petclinic
+    spec:
+      containers:
+      - name: spring-petclinic
+        image: harbor.lab.home/library/spring-petclinic@sha256:6cade02d3720886cefd381761b7ebb900f406c63ef36391fd8e7abefccb581da
+        ports:
+        - containerPort: 8080
