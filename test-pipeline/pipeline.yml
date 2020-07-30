@@ -1,0 +1,26 @@
+var_sources:
+- name: vault
+  type: vault
+  config:
+    url: https://vault.lab.home
+    path_prefix: concourse
+    auth_backend: approle
+    ca_cert: |
+      ((ca_cert))
+    auth_params:
+      role_id: ((role_id))
+      secret_id: ((secret_id))
+
+jobs:
+  - name: job-hello-world
+    public: true
+    plan:
+      - task: hello-world
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: busybox}
+          run:
+            path: echo
+            args: [((vault:tkgicluster))]

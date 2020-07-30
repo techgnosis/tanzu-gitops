@@ -24,7 +24,7 @@ resources:
     uri: git@github.com:techgnosis/deploy-petclinic.git
     branch: master
     private_key: |
-      ((privatekey))
+      ((concourse_github_privatekey))
 
 # Tasks
 - name: concourse
@@ -45,7 +45,7 @@ resources:
     ca_certs:
     - domain: harbor.lab.home
       cert: |
-        ((harborca))
+        ((ca_cert))
 - name: concourse-helper
   type: docker-image
   source:
@@ -54,7 +54,7 @@ resources:
     ca_certs:
     - domain: harbor.lab.home
       cert: |
-        ((harborca))
+        ((ca_cert))
 
   
 
