@@ -3,38 +3,29 @@ This repo has all the steps you need to create a modern GitOps style workflow wi
 ### Pre-reqs
 * A vanilla Kubernetes cluster
 * A default `StorageClass` resource installed in the cluster
-
-## Installation
-The tools used to prepare the cluster are:
 * `helm` to install the Helm operator
 * `bash` to run all the install scripts
-* `kp` CLI to create initial TBS Image resource
 * `kubectl` to create Namespaces and Secrets
 * `mkcert` for all TLS certs
 
-[INSTALL STEPS](INSTALL.md)
+## Installation
+1. Starting with a new cluster with a default StorageClass
+1. `helm-operator/install.sh`
+1. `kapp deploy -a sealed-secrets -f manifests/sealed-secrets`
+1. `./setup-secrets.sh`
+1. `kapp deploy -a ingress-nginx -f manifests/ingress-nginx`
+1. `kapp deploy -a harbor -f manifests/harbor`
+1. Install [TBS](https://github.com/techgnosis/tanzu-build-service)
+1. `kapp deploy -a concourse -f manifests/concourse`
+1. Build and push Concourse Helper with `cd concourse/Helper && ./concourse/Helper/build.sh 1`
+1. `setup-pipeline-secrets.sh`
+1. `kapp deploy -a concourse-secrets -f manifests/concourse-main`
+1. `cd concourse/pipeline`
+1. `./fly.sh`
+1. `cd ..`
+1. Unpause the pipeline
 
 # Stack Overview
-
-### Hardware
-AMD EPYC 64-core CPUs
-
-### Hypervisor stack
-vSphere
-
-### TKGI
-Use [TKGI](https://github.com/techgnosis/tkgi) to provide managed K8s clusters on vSphere or any major cloud provider.
-
-### IdP
-IdPs provide a stable user auth service. I use [Okta](https://www.okta.com).
-
-TKGI comes with UAA which, aside from its usual responsibility of federating with a SAML or LDAP IdP, is itself an IdP with its own database and you can use it when needed.
-
-### vRealize Log Insight
-vRealize Log Insight provides a log sink for BOSH and all the containers running in any K8s cluster. It is an [easy to install .ova](https://docs.vmware.com/en/vRealize-Log-Insight/index.html).
-
-### Vault
-[Vault](https://github.com/techgnosis/vault) or some other secret management tool is needed when managing an environment of any size or complexity. There are too many TLS certs and keys, usernames, passwords, SSH keys, etc, for anyone to keep track of and you can't check them into Git. I'm choosing Vault because it's the most well known of the options.
 
 ### Ingress
 Ingress controllers are easier to manage than NodePorts for every app. Use the [Kubernetes in-tree nginx Ingress controller](https://github.com/techgnosis/ingress). It works fine for a lab environment. This implementation uses `hostNetwork: true` to bind port 443 for convenience.
@@ -53,15 +44,6 @@ Use TBS to build [Spring PetClinic](https://github.com/spring-projects/spring-pe
 
 ### K8s manifests
 Your app is defined entirely in [Kubernetes manifests](https://github.com/techgnosis/deploy-petclinic). `kapp` is used to deploy those manifests as part of a Concourse pipeline.
-
-
-### Service Brokers
-[Service brokers](https://github.com/techgnosis/service-brokers) implements the Open Service Broker API (OSBAPI). Brokers create containers for services like MySQL or RabbitMQ and then provide credentials for other containers to use. You can use the [Kubernetes Service Catalog](https://github.com/techgnosis/service-brokers/blob/master/install-service-catalog.sh) to interface with OSBAPI brokers via `kubectl`.
-
-* [KSM](https://github.com/techgnosis/service-brokers/tree/master/ksm) uses Helm to deploy services. Service instances are defined as [offerings](https://github.com/techgnosis/offerings).
-* [Minibroker](https://github.com/techgnosis/service-brokers/tree/master/minibroker) is another Helm broker that is a more official part of K8s
-* [The official GCP broker](https://github.com/techgnosis/service-brokers/tree/master/gcp) deploys GCP resources
-
 
 
 ### PetClinic
