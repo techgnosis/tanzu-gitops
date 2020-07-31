@@ -89,3 +89,5 @@ PetClinic is a good example of a Spring Boot app. Use Flux to monitor the [PetCl
 * How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC
 * Switch from nginx to Contour using the Bitnami chart
 * Switch to Bitnami for Harbor
+
+The pipeline does not watch Harbor, Concourse, or nginx. Those are version controlled but not automated.

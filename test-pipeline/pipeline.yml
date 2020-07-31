@@ -6,7 +6,7 @@ var_sources:
     path_prefix: concourse
     auth_backend: approle
     ca_cert: |
-      ((vault:ca_cert))
+      ((ca_cert))
     auth_params:
       role_id: ((role_id))
       secret_id: ((secret_id))
@@ -23,4 +23,4 @@ jobs:
             source: {repository: busybox}
           run:
             path: echo
-            args: [((vault:tkgicluster))]
+            args: [((tkgicluster))]

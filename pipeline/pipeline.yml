@@ -1,16 +1,3 @@
-var_sources:
-- name: vault
-  type: vault
-  config:
-    url: https://vault.lab.home
-    path_prefix: concourse
-    auth_backend: approle
-    ca_cert: |
-      ((ca_cert))
-    auth_params:
-      role_id: ((role_id))
-      secret_id: ((secret_id))
-
 resources:
 # Source Code
 - name: spring-petclinic
@@ -24,9 +11,9 @@ resources:
     uri: git@github.com:techgnosis/tanzu-gitops.git
     branch: master
     paths:
-      - manifests/**/*
+      - manifests/spring-petclinic/*
     private_key: |
-      ((vault:concourse_github_privatekey))
+      ((concourse_github_privatekey))
 
 # Tasks
 - name: concourse
@@ -47,7 +34,7 @@ resources:
     ca_certs:
     - domain: harbor.lab.home
       cert: |
-        ((vault:ca_cert))
+        ((ca_cert))
 - name: concourse-helper
   type: docker-image
   source:
@@ -56,7 +43,7 @@ resources:
     ca_certs:
     - domain: harbor.lab.home
       cert: |
-        ((vault:ca_cert))
+        ((ca_cert))
 
   
 
@@ -87,10 +74,10 @@ jobs:
     input_mapping:
       app-source: spring-petclinic
     params:
-      tkgicluster: ((vault:tkgicluster))
-      tkgiapi: ((vault:tkgiapi))
-      tkgiuser: ((vault:tkgiuser))
-      tkgipassword: ((vault:tkgipassword))
+      tkgicluster: ((tkgicluster))
+      tkgiapi: ((tkgiapi))
+      tkgiuser: ((tkgiuser))
+      tkgipassword: ((tkgipassword))
       namespace: spring-petclinic
       imagename: spring-petclinic
 
@@ -111,10 +98,10 @@ jobs:
         deploy-source: tanzu-gitops
         image: spring-petclinic-image
       params:
-        tkgicluster: ((vault:tkgicluster))
-        tkgiapi: ((vault:tkgiapi))
-        tkgiuser: ((vault:tkgiuser))
-        tkgipassword: ((vault:tkgipassword))
+        tkgicluster: ((tkgicluster))
+        tkgiapi: ((tkgiapi))
+        tkgiuser: ((tkgiuser))
+        tkgipassword: ((tkgipassword))
         imagename: spring-petclinic
     - put: tanzu-gitops
       params: {repository: deploy-source-modified}
@@ -133,11 +120,11 @@ jobs:
       input_mapping:
         deploy-source: tanzu-gitops
       params:
-        tkgicluster: ((vault:tkgicluster))
-        tkgiapi: ((vault:tkgiapi))
-        tkgiuser: ((vault:tkgiuser))
-        tkgipassword: ((vault:tkgipassword))
-        appname: tanzu-gitops
+        tkgicluster: ((tkgicluster))
+        tkgiapi: ((tkgiapi))
+        tkgiuser: ((tkgiuser))
+        tkgipassword: ((tkgipassword))
+        appname: spring-petclinic
     - task: create wavefront event
       image: concourse-helper
       file: concourse/tasks/wavefront-event/wavefront-event.yml
