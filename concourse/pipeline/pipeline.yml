@@ -1,5 +1,4 @@
 resources:
-# Source Code
 - name: spring-petclinic
   type: git
   source:
@@ -14,14 +13,6 @@ resources:
       - manifests/spring-petclinic/*
     private_key: |
       ((tanzu-gitops.concourse_github_privatekey))
-
-# Tasks
-- name: concourse
-  type: git
-  source:
-    uri: https://github.com/techgnosis/concourse.git
-    branch: master
-# Images
 - name: adoptopenjdk
   type: registry-image
   source:
@@ -57,20 +48,20 @@ jobs:
     trigger: true
   - get: adoptopenjdk
   - get: concourse-helper
-  - get: concourse
+  - get: tanzu-gitops
   - task: maven-test
-    file: concourse/tasks/maven-test/maven-test.yml
+    file: tanzu-gitops/concourse/tasks/maven-test/maven-test.yml
     image: adoptopenjdk
     input_mapping:
       app-source: spring-petclinic
   - task: maven-checkstyle
     image: adoptopenjdk
-    file: concourse/tasks/maven-checkstyle/maven-checkstyle.yml
+    file: tanzu-gitops/concourse/tasks/maven-checkstyle/maven-checkstyle.yml
     input_mapping:
       app-source: spring-petclinic
   - task: tbs-build
     image: concourse-helper
-    file: concourse/tasks/tbs-build/tbs-build.yml
+    file: tanzu-gitops/concourse/tasks/tbs-build/tbs-build.yml
     input_mapping:
       app-source: spring-petclinic
     params:
@@ -89,10 +80,9 @@ jobs:
     - get: spring-petclinic-image
       trigger: true
     - get: tanzu-gitops
-    - get: concourse
     - get: concourse-helper
     - task: deploy image
-      file: concourse/tasks/deploy-image/deploy-image.yml
+      file: tanzu-gitops/concourse/tasks/deploy-image/deploy-image.yml
       image: concourse-helper
       input_mapping:
         deploy-source: tanzu-gitops
@@ -113,10 +103,9 @@ jobs:
     - get: tanzu-gitops
       trigger: true
     - get: concourse-helper
-    - get: concourse
     - task: kapp deploy
       image: concourse-helper
-      file: concourse/tasks/kapp-deploy/kapp-deploy.yml
+      file: tanzu-gitops/concourse/tasks/kapp-deploy/kapp-deploy.yml
       input_mapping:
         deploy-source: tanzu-gitops
       params:
@@ -127,5 +116,5 @@ jobs:
         appname: spring-petclinic
     - task: create wavefront event
       image: concourse-helper
-      file: concourse/tasks/wavefront-event/wavefront-event.yml
+      file: tanzu-gitops/concourse/tasks/wavefront-event/wavefront-event.yml
 

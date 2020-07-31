@@ -1,0 +1,21 @@
+platform: linux
+
+
+inputs:
+  - name: tanzu-gitops
+  - name: deploy-source
+  - name: image
+
+outputs:
+  - name: deploy-source-modified
+
+
+params:
+  tkgicluster:
+  tkgiapi:
+  tkgiuser:
+  tkgipassword:
+  imagename:
+
+run:
+  path: "tanzu-gitops/concourse/tasks/deploy-image/deploy-image.sh"
