@@ -1,6 +1,5 @@
-1. Make cluster
-1. Install StorageClass
-1. Install [helm operator](https://github.com/techgnosis/helm-operator)
+1. Starting with a new cluster with a default StorageClass
+1. `helm-operator/install.sh`
 1. `kapp deploy -a sealed-secrets -f manifests/sealed-secrets`
 1. `setup-secrets.sh`
 1. `kapp deploy -a ingress-nginx manifests/ingress-nginx`
@@ -9,5 +8,5 @@
 1. `kapp deploy -a concourse -f manifests/concourse`
 1. Build and push Concourse Helper with `concourse/Helper/build.sh 1`
 1. `setup-pipeline-secrets.sh`
-1. `pipeline/fly.sh`
+1. `concourse/pipeline/fly.sh`
 1. Unpause the pipeline
