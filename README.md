@@ -87,16 +87,5 @@ PetClinic is a good example of a Spring Boot app. Use Flux to monitor the [PetCl
 * Download BOSH manifest to TKGI repo
 * How to install everything at once
 * How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC
-* Get KES installed so everything can be in YAML. Otherwise GitOps does not work.
 * Switch from nginx to Contour using the Bitnami chart
 * Switch to Bitnami for Harbor
-* Switch to HelmReleases using Helm operator
-
-
-Everything you need to deploy the Tanzu Lab application. Tanzu Lab is made up of Spring PetClinic and some other service I haven't decided on yet.
-
-`setup.sh` - creates the Namespace, creates a TLS secret for Ingress, creates a Registry secret for TBS, and creates the TBS Images for PetClinic and the other service
-
-`manifests` - all the K8s manifests to deploy Tanzu Lab
-
-`pipeline` - all the files needed to create the pipeline for Tanzu Lab.
