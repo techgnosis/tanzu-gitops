@@ -1,11 +1,15 @@
 This repo has all the steps you need to create a modern GitOps style workflow with Kubernetes.
 
+GitOps is the next evolution of Infrastructure-as-Code. With GitOps, 100% of your infrastructure is in code and you use standard Git workflows like GitHub Pull Requests to make changes to your infrastructure. The Git repo containing your infrastructure code is constantly monitored by a tool that syncs the state in the repo with the Kubernetes cluster.
+
+In this repo we have chosen Concourse to sync the Git state with the Kubernetes cluster. There are popular tools like Flux and Argo that can do this for us but I wanted to get a better idea of how to use `kapp` which Concourse uses to do all the actual deploying.
+
 ### Pre-reqs
 * A vanilla Kubernetes cluster
 * A default `StorageClass` resource installed in the cluster
 * `helm` to install the Helm operator
 * `bash` to run all the install scripts
-* `kubectl` to create Namespaces and Secrets
+* `kubectl` and `kubeseal` to create `SealedSecrets`
 * `mkcert` for all TLS certs
 
 ## Installation
@@ -57,6 +61,6 @@ PetClinic is a good example of a Spring Boot app. Use Flux to monitor the [PetCl
 * Need to deploy MySQL for PetClinic
 * Write Wavefront Concourse task
 * How to install everything at once
-* How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC
+* How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
 * Switch from nginx to Contour using the Bitnami chart
 * Switch to Bitnami for Harbor

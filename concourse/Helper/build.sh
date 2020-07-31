@@ -2,9 +2,8 @@
 
 set -euo pipefail
 
-TAG=$1
-
-IMAGE=harbor.lab.home/library/concourse-helper
+IMAGE=$1
+TAG=$2
 
 IMAGE_TAG=$IMAGE:$TAG
 

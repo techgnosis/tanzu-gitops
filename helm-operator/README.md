@@ -1,5 +1,5 @@
 There are a few ways to manage supporting infrastructure in a GitOps manner:
-1. Handwritten YAML that is deployed like all your other K8s manifests
+1. Handwritten YAML that is deployed like all your other K8s manifests from Git
 1. `helm template` to disk and then commit it to Git
 1. Only track the helm chart version in Git
 1. Custom operators, with CRDs checked into Git
