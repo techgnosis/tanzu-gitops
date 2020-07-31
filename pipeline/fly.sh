@@ -4,6 +4,12 @@ set -euo pipefail
 
 source vars.sh
 
+fly login \
+--target=lab \
+--concourse-url="https://concourse.lab.home" \
+--username=test \
+--password=test
+
 fly set-pipeline -t lab \
 -p tanzulab \
 -c pipeline.yml \
