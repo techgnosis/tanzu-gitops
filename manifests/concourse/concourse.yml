@@ -3,11 +3,6 @@ kind: Namespace
 metadata:
   name: concourse
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: concourse-secrets-main
----
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:

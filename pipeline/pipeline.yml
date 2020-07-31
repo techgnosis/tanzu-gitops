@@ -13,7 +13,7 @@ resources:
     paths:
       - manifests/spring-petclinic/*
     private_key: |
-      ((concourse_github_privatekey))
+      ((tanzu-gitops.concourse_github_privatekey))
 
 # Tasks
 - name: concourse
@@ -34,7 +34,7 @@ resources:
     ca_certs:
     - domain: harbor.lab.home
       cert: |
-        ((ca_cert))
+        ((tanzu-gitops.ca_cert))
 - name: concourse-helper
   type: docker-image
   source:
@@ -43,7 +43,7 @@ resources:
     ca_certs:
     - domain: harbor.lab.home
       cert: |
-        ((ca_cert))
+        ((tanzu-gitops.ca_cert))
 
   
 
@@ -74,10 +74,10 @@ jobs:
     input_mapping:
       app-source: spring-petclinic
     params:
-      tkgicluster: ((tkgicluster))
-      tkgiapi: ((tkgiapi))
-      tkgiuser: ((tkgiuser))
-      tkgipassword: ((tkgipassword))
+      tkgicluster: ((tanzu-gitops.tkgicluster))
+      tkgiapi: ((tanzu-gitops.tkgiapi))
+      tkgiuser: ((tanzu-gitops.tkgiuser))
+      tkgipassword: ((tanzu-gitops.tkgipassword))
       namespace: spring-petclinic
       imagename: spring-petclinic
 
@@ -98,10 +98,10 @@ jobs:
         deploy-source: tanzu-gitops
         image: spring-petclinic-image
       params:
-        tkgicluster: ((tkgicluster))
-        tkgiapi: ((tkgiapi))
-        tkgiuser: ((tkgiuser))
-        tkgipassword: ((tkgipassword))
+        tkgicluster: ((tanzu-gitops.tkgicluster))
+        tkgiapi: ((tanzu-gitops.tkgiapi))
+        tkgiuser: ((tanzu-gitops.tkgiuser))
+        tkgipassword: ((tanzu-gitops.tkgipassword))
         imagename: spring-petclinic
     - put: tanzu-gitops
       params: {repository: deploy-source-modified}
@@ -120,10 +120,10 @@ jobs:
       input_mapping:
         deploy-source: tanzu-gitops
       params:
-        tkgicluster: ((tkgicluster))
-        tkgiapi: ((tkgiapi))
-        tkgiuser: ((tkgiuser))
-        tkgipassword: ((tkgipassword))
+        tkgicluster: ((tanzu-gitops.tkgicluster))
+        tkgiapi: ((tanzu-gitops.tkgiapi))
+        tkgiuser: ((tanzu-gitops.tkgiuser))
+        tkgipassword: ((tanzu-gitops.tkgipassword))
         appname: spring-petclinic
     - task: create wavefront event
       image: concourse-helper
