@@ -70,24 +70,11 @@ PetClinic is a good example of a Spring Boot app. Use Flux to monitor the [PetCl
 ### Tips to make life easier
 1. I used Ubuntu instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run a particular Golang binary in Alpine.
 
-### Structure
-* An "app" is made of "services"
-* Make one repo called `app-<whatever>`
-* Each "service" is a Deployment + Service + maybe an Ingress
-* Each service is a repo called `service-<whatever>-<servicename>`
-* Each service knows NOTHING about how it gets built or any pipelines or anything. 
-* All files related to deploying your app belong in a `app-<whatever>` Git repo. This contains everything needed to deploy the services, including app namespace creation, secret creation, TBS resource creation, all other K8s manifests, and a Concourse pipeline
 
 ### TODO
-* Need to deploy a second Service into the App
-* Figure out how to share maven dependencies between concourse runs
-* Need more Flux-like functionality like auto-rollbacks, etc..
+* Need to deploy MySQL for PetClinic
 * Write Wavefront Concourse task
-* Get Okta integration working in TKGI
-* Download BOSH manifest to TKGI repo
 * How to install everything at once
 * How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC
 * Switch from nginx to Contour using the Bitnami chart
 * Switch to Bitnami for Harbor
-
-The pipeline does not watch Harbor, Concourse, or nginx. Those are version controlled but not automated.

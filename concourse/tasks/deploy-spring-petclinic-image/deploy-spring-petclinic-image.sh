@@ -16,7 +16,7 @@ export DIGEST=$(cat spring-petclinic-image/digest)
 sd harbor.lab.home/library/spring-petclinic.+ harbor.lab.home/library/spring-petclinic@$DIGEST tanzu-gitops-modified/manifests/spring-petclinic/deployment.yml
 
 # deploy it
-kapp deploy -a spring-petclinic -c -y -f tanzu-gitops-modified/manifests
+kapp deploy -a spring-petclinic -c -y -f tanzu-gitops-modified/manifests/spring-petclinic
 
 git config --global user.email "concourse@lab.home"
 git config --global user.name "Concourse"

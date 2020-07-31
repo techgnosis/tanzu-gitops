@@ -9,8 +9,6 @@ resources:
   source:
     uri: git@github.com:techgnosis/tanzu-gitops.git
     branch: master
-    paths:
-      - manifests/spring-petclinic/*
     private_key: |
       ((tanzu-gitops.concourse_github_privatekey))
 - name: adoptopenjdk
