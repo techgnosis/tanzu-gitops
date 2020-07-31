@@ -15,13 +15,24 @@ spec:
     name: harbor
     version: "1.4.1"
   values:
-    clair.enabled: false
-    chartmuseum.enabled: false
-    trivy.enabled: true
-    notary.enabled: false
-    expose.type: ingress
-    expose.tls.enabled: true
-    expose.tls.secretName: harbor
-    expose.ingress.hosts.core: harbor.lab.home
+    clair:
+      enabled: false
+    chartmuseum:
+      enabled: false
+    trivy:
+      enabled: true
+    notary:
+      enabled: false
+    expose:
+      type: ingress
+      tls:
+        enabled: true
+        secretName: harbor
+      ingress:
+        hosts:
+          core: harbor.lab.home
     externalURL: "https://harbor.lab.home"
-    persistence.persistentVolumeClaim.registry.size: 100Gi
+    persistence:
+      persistentVolumeClaim:
+        registry:
+          size: 100Gi
