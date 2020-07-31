@@ -1,11 +1,13 @@
 1. Make cluster
 1. Install StorageClass
-1. Install helm operator
+1. Install [helm operator](https://github.com/techgnosis/helm-operator)
+1. Install [TBS](https://github.com/techgnosis/tanzu-build-service)
 1. `kapp deploy -a sealed-secrets -f manifests/sealed-secrets`
-1. `kapp deploy -a ingress-nginx -f manifests/ingress-nginx`
+1. `setup-concourse.sh`
 1. `setup-harbor.sh`
-1. `kapp deploy -a harbor -f manifests/harbor`
-1. Make a TBS project in Harbor
+1. `setup-spring-petclinic.sh`
+
+
 1. Relocate the TBS images with `tanzu-build-service/install/relocate.sh`
 1. Install TBS with `tanzu-build-service/install/install.sh`
 1. `./setup-concourse.sh`

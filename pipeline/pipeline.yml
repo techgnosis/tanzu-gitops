@@ -137,6 +137,7 @@ jobs:
         tkgiapi: ((vault:tkgiapi))
         tkgiuser: ((vault:tkgiuser))
         tkgipassword: ((vault:tkgipassword))
+        appname: tanzu-gitops
     - task: create wavefront event
       image: concourse-helper
       file: concourse/tasks/wavefront-event/wavefront-event.yml
