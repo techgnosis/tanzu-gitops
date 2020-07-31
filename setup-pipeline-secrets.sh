@@ -3,10 +3,10 @@
 set -euo pipefail
 
 
-export TKGI_URL="https://pks.lab.home:9021"
-export TKGI_USER="admin"
-export TKGI_PASSWORD="x4GV_994Mkhx7FBnwLgUmmfG3oIGVRGb"
-export TKGI_CLUSTER="cluster1"
+read -p "TKGI URL: " TKGI_URL
+read -p "TKGI_USER: " TKGI_USER
+read -p "TKGI_PASSWORD: " TKGI_PASSWORD
+read -p "TKGI_CLUSTER: " TKGI_CLUSTER
 export CONCOURSE_GITHUB_PRIVATEKEY="$(cat $HOME/.ssh/concourse)"
 
 
@@ -18,7 +18,7 @@ kubectl create secret generic tanzu-gitops \
 --from-literal=tkgi_user="${TKGI_USER}" \
 --from-literal=tkgi_password="${TKGI_PASSWORD}" \
 --from-file=ca_cert="$(mkcert -CAROOT)/rootCA.pem" \
---from-file=concourse_github_privatekey="${CONCOURSE_GITHUB_PRIVATEKEY}" \
+--from-literal=concourse_github_privatekey="${CONCOURSE_GITHUB_PRIVATEKEY}" \
 --dry-run=client \
 -o json | kubeseal > manifests/concourse-main/pipeline-secrets.json
 

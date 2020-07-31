@@ -74,10 +74,10 @@ jobs:
     input_mapping:
       app-source: spring-petclinic
     params:
-      tkgicluster: ((tanzu-gitops.tkgicluster))
-      tkgiapi: ((tanzu-gitops.tkgiapi))
-      tkgiuser: ((tanzu-gitops.tkgiuser))
-      tkgipassword: ((tanzu-gitops.tkgipassword))
+      tkgicluster: ((tanzu-gitops.tkgi_cluster))
+      tkgiapi: ((tanzu-gitops.tkgi_url))
+      tkgiuser: ((tanzu-gitops.tkgi_user))
+      tkgipassword: ((tanzu-gitops.tkgi_password))
       namespace: spring-petclinic
       imagename: spring-petclinic
 
@@ -98,15 +98,15 @@ jobs:
         deploy-source: tanzu-gitops
         image: spring-petclinic-image
       params:
-        tkgicluster: ((tanzu-gitops.tkgicluster))
-        tkgiapi: ((tanzu-gitops.tkgiapi))
-        tkgiuser: ((tanzu-gitops.tkgiuser))
-        tkgipassword: ((tanzu-gitops.tkgipassword))
+        tkgicluster: ((tanzu-gitops.tkgi_cluster))
+        tkgiapi: ((tanzu-gitops.tkgi_url))
+        tkgiuser: ((tanzu-gitops.tkgi_user))
+        tkgipassword: ((tanzu-gitops.tkgi_password))
         imagename: spring-petclinic
     - put: tanzu-gitops
       params: {repository: deploy-source-modified}
 
-- name: deploy
+- name: spring-petclinic-deploy
   public: true
   serial: true
   plan:
@@ -120,10 +120,10 @@ jobs:
       input_mapping:
         deploy-source: tanzu-gitops
       params:
-        tkgicluster: ((tanzu-gitops.tkgicluster))
-        tkgiapi: ((tanzu-gitops.tkgiapi))
-        tkgiuser: ((tanzu-gitops.tkgiuser))
-        tkgipassword: ((tanzu-gitops.tkgipassword))
+        tkgicluster: ((tanzu-gitops.tkgi_cluster))
+        tkgiapi: ((tanzu-gitops.tkgi_url))
+        tkgiuser: ((tanzu-gitops.tkgi_user))
+        tkgipassword: ((tanzu-gitops.tkgi_password))
         appname: spring-petclinic
     - task: create wavefront event
       image: concourse-helper
