@@ -1,8 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: harbor
+---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: harbor
-  namespace: helm-operator
+  namespace: harbor
 spec:
   helmVersion: v3
   targetNamespace: harbor

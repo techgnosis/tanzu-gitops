@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-petclinic
+  namespace: spring-petclinic
 spec:
   replicas: 1
   selector:
@@ -15,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-petclinic
-        image: harbor.lab.home/library/spring-petclinic@sha256:796219338e1f66cf0767f81d9d5e399fbc6889d1de2465fae9649513ba76561a
+        image: harbor.lab.home/library/spring-petclinic@sha256:0549a7f3da8b7bd7869ab77d8f49eb4416f5b69eb0abd24afd428dc364e1e39c
         ports:
         - containerPort: 8080

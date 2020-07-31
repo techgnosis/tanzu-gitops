@@ -7,7 +7,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: ingress-nginx
-  namespace: helm-operator
+  namespace: ingress-nginx
 spec:
   helmVersion: v3
   targetNamespace: ingress-nginx

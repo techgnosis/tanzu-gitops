@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: spring-petclinic-image
+---
+apiVersion: build.pivotal.io/v1alpha1
+kind: Image
+metadata:
+  name: spring-petclinic
+  namespace: spring-petclinic-image
+spec:
+  tag: harbor.lab.home/library/spring-petclinic
+  serviceAccount: tbs-service-account
+  builder:
+    name: default
+    kind: CustomClusterBuilder
+  source:
+    git:
+      url: https://github.com/techgnosis/spring-petclinic.git
+      revision: demo
+

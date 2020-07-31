@@ -18,10 +18,10 @@ resources:
   source:
     uri: https://github.com/techgnosis/spring-petclinic.git
     branch: demo
-- name: deploy-tanzulab
+- name: tanzu-gitops
   type: git
   source:
-    uri: git@github.com:techgnosis/deploy-tanzulab.git
+    uri: git@github.com:techgnosis/tanzu-gitops.git
     branch: master
     paths:
       - manifests/**/*
@@ -91,7 +91,7 @@ jobs:
       tkgiapi: ((vault:tkgiapi))
       tkgiuser: ((vault:tkgiuser))
       tkgipassword: ((vault:tkgipassword))
-      namespace: tanzulab
+      namespace: spring-petclinic
       imagename: spring-petclinic
 
 
@@ -101,30 +101,29 @@ jobs:
   plan:
     - get: spring-petclinic-image
       trigger: true
-    - get: deploy-tanzulab
+    - get: tanzu-gitops
     - get: concourse
     - get: concourse-helper
     - task: deploy image
       file: concourse/tasks/deploy-image/deploy-image.yml
       image: concourse-helper
       input_mapping:
-        deploy-source: deploy-tanzulab
+        deploy-source: tanzu-gitops
         image: spring-petclinic-image
       params:
         tkgicluster: ((vault:tkgicluster))
         tkgiapi: ((vault:tkgiapi))
         tkgiuser: ((vault:tkgiuser))
         tkgipassword: ((vault:tkgipassword))
-        namespace: tanzulab
         imagename: spring-petclinic
-    - put: deploy-tanzulab
+    - put: tanzu-gitops
       params: {repository: deploy-source-modified}
 
 - name: deploy
   public: true
   serial: true
   plan:
-    - get: deploy-tanzulab
+    - get: tanzu-gitops
       trigger: true
     - get: concourse-helper
     - get: concourse
@@ -132,13 +131,12 @@ jobs:
       image: concourse-helper
       file: concourse/tasks/kapp-deploy/kapp-deploy.yml
       input_mapping:
-        deploy-source: deploy-tanzulab
+        deploy-source: tanzu-gitops
       params:
         tkgicluster: ((vault:tkgicluster))
         tkgiapi: ((vault:tkgiapi))
         tkgiuser: ((vault:tkgiuser))
         tkgipassword: ((vault:tkgipassword))
-        namespace: tanzulab
     - task: create wavefront event
       image: concourse-helper
       file: concourse/tasks/wavefront-event/wavefront-event.yml

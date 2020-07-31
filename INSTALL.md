@@ -1,12 +1,20 @@
 1. Make cluster
 1. Install StorageClass
-1. Install nginx with `ingress/nginx/install.sh`
-1. Install Harbor with `harbor/install.sh standalone`
+1. Install helm operator
+1. `kapp deploy -a sealed-secrets -f manifests/sealed-secrets`
+1. `kapp deploy -a ingress-nginx -f manifests/ingress-nginx`
+1. `setup-harbor.sh`
+1. `kapp deploy -a harbor -f manifests/harbor`
 1. Make a TBS project in Harbor
 1. Relocate the TBS images with `tanzu-build-service/install/relocate.sh`
 1. Install TBS with `tanzu-build-service/install/install.sh`
-1. Happened once: default TBS builder failed to create.
-1. Prepare `petclinic` namespace and build first image with `deploy-petclinic/setup.sh`
+1. `./setup-concourse.sh`
+1. `kapp deploy -a concourse -f manifests/concourse`
+1. `pipeline/fly.sh`
+1. Unpause the pipeline
+1. `kapp deploy -a spring-petclinic manifests/spring-petclinic`
+1. `kapp deploy -a spring-petclinic-image manifests/spring-petclinic-image`
+
 1. Build and push Concourse Helper with `concourse/Helper/build.sh 1`
 1. Install Concourse with `concourse/install/install-concourse.sh`
 1. Setup Concourse with `concourse/install/setup.sh`
