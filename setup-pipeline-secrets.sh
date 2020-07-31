@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+if [ ! -f "${HOME}/.ssh/concourse" ]; then
+    echo "Concourse needs to push commits back to Git"
+    echo "You must have an SSH private key at $HOME/.ssh/concourse"
+    echo "That key must be added as a Deploy Key in GitHub to tanzu-gitops repo"
+    exit 1
+fi
 
 read -p "TKGI URL: " TKGI_URL
 read -p "TKGI_USER: " TKGI_USER
