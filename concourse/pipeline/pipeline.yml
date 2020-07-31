@@ -52,25 +52,18 @@ jobs:
   - task: maven-test
     file: tanzu-gitops/concourse/tasks/maven-test/maven-test.yml
     image: adoptopenjdk
-    input_mapping:
-      app-source: spring-petclinic
   - task: maven-checkstyle
     image: adoptopenjdk
     file: tanzu-gitops/concourse/tasks/maven-checkstyle/maven-checkstyle.yml
-    input_mapping:
-      app-source: spring-petclinic
-  - task: tbs-build
+  - task: build-spring-petclinic-image
     image: concourse-helper
-    file: tanzu-gitops/concourse/tasks/tbs-build/tbs-build.yml
-    input_mapping:
-      app-source: spring-petclinic
+    file: tanzu-gitops/concourse/tasks/build-spring-petclinic-image/build-spring-petclinic-image.yml
     params:
       tkgicluster: ((tanzu-gitops.tkgi_cluster))
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))
-      namespace: spring-petclinic
-      imagename: spring-petclinic
+
 
 
 - name: spring-petclinic-deploy-new-image
@@ -81,20 +74,16 @@ jobs:
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
-    - task: deploy image
-      file: tanzu-gitops/concourse/tasks/deploy-image/deploy-image.yml
+    - task: deploy-spring-petclinic-image
+      file: tanzu-gitops/concourse/tasks/deploy-spring-petclinic-image/deploy-spring-petclinic-image.yml
       image: concourse-helper
-      input_mapping:
-        deploy-source: tanzu-gitops
-        image: spring-petclinic-image
       params:
         tkgicluster: ((tanzu-gitops.tkgi_cluster))
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
-        imagename: spring-petclinic
     - put: tanzu-gitops
-      params: {repository: deploy-source-modified}
+      params: {repository: tanzu-gitops-modified}
 
 - name: spring-petclinic-deploy
   public: true
@@ -103,17 +92,14 @@ jobs:
     - get: tanzu-gitops
       trigger: true
     - get: concourse-helper
-    - task: kapp deploy
+    - task: deploy-spring-petclinic
       image: concourse-helper
-      file: tanzu-gitops/concourse/tasks/kapp-deploy/kapp-deploy.yml
-      input_mapping:
-        deploy-source: tanzu-gitops
+      file: tanzu-gitops/concourse/tasks/deploy-spring-petclinic/deploy-spring-petclinic.yml
       params:
         tkgicluster: ((tanzu-gitops.tkgi_cluster))
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
-        appname: spring-petclinic
     - task: create wavefront event
       image: concourse-helper
       file: tanzu-gitops/concourse/tasks/wavefront-event/wavefront-event.yml

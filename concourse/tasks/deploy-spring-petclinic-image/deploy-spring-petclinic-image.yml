@@ -1,0 +1,19 @@
+platform: linux
+
+
+inputs:
+  - name: tanzu-gitops
+  - name: spring-petclinic-image
+
+outputs:
+  - name: tanzu-gitops-modified
+
+
+params:
+  tkgicluster:
+  tkgiapi:
+  tkgiuser:
+  tkgipassword:
+
+run:
+  path: "tanzu-gitops/concourse/tasks/deploy-spring-petclinic-image/deploy-spring-petclinic-image.sh"

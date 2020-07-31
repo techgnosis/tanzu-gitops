@@ -1,16 +1,14 @@
 platform: linux
 
+
 inputs:
   - name: tanzu-gitops
-  - name: app-source
 
 params:
   tkgicluster:
   tkgiapi:
   tkgiuser:
   tkgipassword:
-  namespace:
-  imagename:
 
 run:
-  path: "tanzu-gitops/concourse/tasks/tbs-build/tbs-build.sh"
+  path: "tanzu-gitops/concourse/tasks/deploy-spring-petclinic/deploy-spring-petclinic.sh"

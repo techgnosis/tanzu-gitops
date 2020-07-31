@@ -9,5 +9,7 @@ pks login -a ${tkgiapi} \
 
 pks get-credentials ${tkgicluster}
 
+cd spring-petclinic
+REVISION=$(git rev-parse HEAD)
+kp -n spring-petclinic image patch spring-petclinic --git-revision ${REVISION}
 
-kapp deploy -a $appname -c -y -f deploy-source/manifests/$appname
