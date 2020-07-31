@@ -1,9 +1,9 @@
 platform: linux
 
 inputs:
-  - name: app-source
+  - name: spring-petclinic
 
 run:
   path: "./mvnw"
   args: ["test"]
-  dir: "app-source"
+  dir: "spring-petclinic"
