@@ -3,9 +3,6 @@ platform: linux
 inputs:
   - name: app-source
 
-caches:
-  - path: .m2
-
 run:
   path: "./mvnw"
   args: ["test"]

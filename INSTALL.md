@@ -11,4 +11,5 @@
 1. `kapp deploy -a concourse-secrets -f manifests/concourse-main`
 1. `cd concourse/pipeline`
 1. `./fly.sh`
+1. `cd ..`
 1. Unpause the pipeline
