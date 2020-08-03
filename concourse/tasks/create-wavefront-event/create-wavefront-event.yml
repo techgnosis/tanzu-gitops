@@ -1,5 +1,9 @@
 platform: linux
 
+inputs:
+  - name: tanzu-gitops
+
+
 params:
   WAVEFRONT_API_TOKEN:
   WAVEFRONT_URL:
