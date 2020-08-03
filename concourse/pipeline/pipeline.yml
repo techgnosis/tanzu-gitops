@@ -82,6 +82,12 @@ jobs:
         tkgipassword: ((tanzu-gitops.tkgi_password))
     - put: tanzu-gitops
       params: {repository: tanzu-gitops-modified}
+    - task: create wavefront event
+        image: concourse-helper
+        file: tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.yml
+        params:
+          WAVEFRONT_API_TOKEN: ((tanzu-gitops.wavefront_api_token))
+          WAVEFRONT_URL: ((tanzu-gitops.wavefront_url))
 
 - name: spring-petclinic-deploy
   public: true
@@ -98,10 +104,5 @@ jobs:
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
-    - task: create wavefront event
-      image: concourse-helper
-      file: tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.yml
-      params:
-        WAVEFRONT_API_TOKEN: ((tanzu-gitops.wavefront_api_token))
-        WAVEFRONT_URL: ((tanzu-gitops.wavefront_url))
+
 
