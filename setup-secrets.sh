@@ -17,6 +17,8 @@ read -p "TKGI URL: " TKGI_URL
 read -p "TKGI_USER: " TKGI_USER
 read -p "TKGI_PASSWORD: " TKGI_PASSWORD
 read -p "TKGI_CLUSTER: " TKGI_CLUSTER
+read -p "WAVEFRONT API TOKEN: " WAVEFRONT_API_TOKEN
+read -p "WAVEFRONT_URL: " WAVEFRONT_URL
 
 
 
@@ -29,6 +31,8 @@ kubectl create secret generic tanzu-gitops \
 --from-literal=tkgi_password="${TKGI_PASSWORD}" \
 --from-file=ca_cert="$(mkcert -CAROOT)/rootCA.pem" \
 --from-literal=concourse_github_privatekey="${CONCOURSE_GITHUB_PRIVATEKEY}" \
+--from-literal=wavefront_api_token="${WAVEFRONT_API_TOKEN}" \
+--from-literal=wavefront_url="${WAVEFRONT_URL}" \
 --dry-run=client \
 -o json | kubeseal > manifests/concourse-main/pipeline-secrets.json
 

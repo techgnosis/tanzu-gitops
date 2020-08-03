@@ -19,3 +19,14 @@ spec:
         image: harbor.lab.home/library/spring-petclinic@sha256:939488ca07f78fca70aa70c22ec71f6bbde899189a5708e733cd3be17259a82c
         ports:
         - containerPort: 8080
+        env:
+        - name: WAVEFRONT_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: tanzu-gitops
+              key: wavefront_api_token
+        - name: WAVEFRONT_URL
+          valueFrom:
+            secretKeyRef:
+              name: tanzu-gitops
+              key: wavefront_url

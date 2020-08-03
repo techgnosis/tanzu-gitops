@@ -8,6 +8,7 @@ In this repo we have chosen Concourse to sync the Git state with the Kubernetes 
 * A vanilla Kubernetes cluster
 * A default `StorageClass` resource installed in the cluster
 * `helm` to install the Helm operator
+* `kapp` to install everything else
 * `bash` to run all the install scripts
 * `kubectl` and `kubeseal` to create `SealedSecrets`
 * `mkcert` for all TLS certs
@@ -56,6 +57,8 @@ PetClinic is a good example of a Spring Boot app. Use Flux to monitor the [PetCl
 
 ### TODO
 * Need to deploy MySQL for PetClinic
+* Make an adoptopenjdk image with all the PetClinic dependencies in it
+* Delete the Harbor PVCs when uninstalling
 * Write Wavefront Concourse task
 * How to install everything at once
 * How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
