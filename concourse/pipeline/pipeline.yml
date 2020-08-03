@@ -110,4 +110,20 @@ jobs:
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
 
+- name: mysql-deploy
+  public: true
+  serial: true
+  plan:
+    - get: tanzu-gitops
+      trigger: true
+    - get: concourse-helper
+    - task: deploy-mysql
+      image: concourse-helper
+      file: tanzu-gitops/concourse/tasks/deploy-mysql/deploy-mysql.yml
+      params:
+        tkgicluster: ((tanzu-gitops.tkgi_cluster))
+        tkgiapi: ((tanzu-gitops.tkgi_url))
+        tkgiuser: ((tanzu-gitops.tkgi_user))
+        tkgipassword: ((tanzu-gitops.tkgi_password))
+
 

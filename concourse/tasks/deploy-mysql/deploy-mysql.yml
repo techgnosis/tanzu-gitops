@@ -1,0 +1,14 @@
+platform: linux
+
+
+inputs:
+  - name: tanzu-gitops
+
+params:
+  tkgicluster:
+  tkgiapi:
+  tkgiuser:
+  tkgipassword:
+
+run:
+  path: "tanzu-gitops/concourse/tasks/deploy-mysql/deploy-mysql.sh"
