@@ -19,3 +19,10 @@ spec:
     repository: https://charts.bitnami.com/bitnami
     name: mysql
     version: "6.14.7"
+  values:
+    root:
+      password: ROOT_PASSWORD
+    db:
+      user: SPRING_PETCLINIC
+      password: SPRING_PETCLINIC
+      name: petclinic
