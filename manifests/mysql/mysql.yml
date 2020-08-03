@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mysql
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: mysql
+  namespace: mysql
+spec:
+  helmVersion: v3
+  targetNamespace: mysql
+  releaseName: mysql
+  wait: true
+  test:
+    enable: true
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: mysql
+    version: "6.14.7"
