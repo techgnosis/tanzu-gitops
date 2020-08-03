@@ -1,0 +1,9 @@
+platform: linux
+
+params:
+  WAVEFRONT_API_TOKEN:
+  WAVEFRONT_URL:
+
+
+run:
+  path: "tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.sh"

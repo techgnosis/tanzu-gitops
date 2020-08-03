@@ -2,8 +2,7 @@
 
 set -euo pipefail
 
-
-# Pipeline secrets
+# This is the only pre-existing file that is required
 if [ ! -f "${HOME}/.ssh/concourse" ]; then
     echo "Concourse needs to push commits back to Git"
     echo "You must have an SSH private key at $HOME/.ssh/concourse"
@@ -11,6 +10,8 @@ if [ ! -f "${HOME}/.ssh/concourse" ]; then
     exit 1
 fi
 
+
+# Collect the secret data
 export CONCOURSE_GITHUB_PRIVATEKEY="$(cat $HOME/.ssh/concourse)"
 
 read -p "TKGI URL: " TKGI_URL
@@ -22,6 +23,7 @@ read -p "WAVEFRONT_URL: " WAVEFRONT_URL
 
 
 
+# Pipeline secrets
 
 kubectl create secret generic tanzu-gitops \
 --namespace concourse-main \
@@ -36,7 +38,7 @@ kubectl create secret generic tanzu-gitops \
 --dry-run=client \
 -o json | kubeseal > manifests/concourse-main/pipeline-secrets.json
 
-
+# Spring-petclinic Wavefront secret
 kubectl create secret generic wavefront \
 --namespace spring-petclinic \
 --from-literal=wavefront_api_token="${WAVEFRONT_API_TOKEN}" \

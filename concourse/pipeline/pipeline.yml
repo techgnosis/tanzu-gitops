@@ -100,5 +100,8 @@ jobs:
         tkgipassword: ((tanzu-gitops.tkgi_password))
     - task: create wavefront event
       image: concourse-helper
-      file: tanzu-gitops/concourse/tasks/wavefront-event/wavefront-event.yml
+      file: tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.yml
+      params:
+        WAVEFRONT_API_TOKEN: ((tanzu-gitops.wavefront_api_token))
+        WAVEFRONT_URL: ((tanzu-gitops.wavefront_url))
 

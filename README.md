@@ -55,10 +55,20 @@ PetClinic is a good example of a Spring Boot app. Use Flux to monitor the [PetCl
 1. I used Ubuntu instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run a particular Golang binary in Alpine.
 
 
+### Wavefront
+Basic steps to get Wavefront events working
+1. Follow the Spring Boot Wavefront tutorial to get Spring-Petclinic integrated with Wavefront
+1. Clone the default dashboard Wavefront creates for you
+1. Edit the clone
+1. Cliick "Settings"
+1. Click "Advanced"
+1. Add the following events query `events(name="jmusselwhite*")`
+1. In your dashboard at the top right where it says "Show Events" change it to "From Dashboard Settings". This will cause your events query to be the source of events for all charts in your dashboard.
+
+
 ### TODO
 * Need to deploy MySQL for PetClinic
 * Make an adoptopenjdk image with all the PetClinic dependencies in it
-* Delete the Harbor PVCs when uninstalling
 * Write Wavefront Concourse task
 * How to install everything at once
 * How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.

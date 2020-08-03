@@ -1,6 +1,0 @@
-platform: linux
-
-
-run:
-  path: "echo"
-  args: ["wavefront is pretty good"]
