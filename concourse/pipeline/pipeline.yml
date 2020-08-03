@@ -12,14 +12,19 @@ resources:
     private_key: |
       ((tanzu-gitops.concourse_github_privatekey))
 - name: adoptopenjdk
-  type: registry-image
+  type: docker-image
   source:
-    repository: adoptopenjdk
+    repository: harbor.lab.home/library/adoptopenjdk
     tag: 14.0.2_8-jdk-hotspot
+    ca_certs:
+    - domain: harbor.lab.home
+      cert: |
+        ((tanzu-gitops.ca_cert))
 - name: spring-petclinic-image
   type: docker-image
   source:
     repository: harbor.lab.home/library/spring-petclinic
+    tag: latest
     ca_certs:
     - domain: harbor.lab.home
       cert: |
@@ -83,11 +88,11 @@ jobs:
     - put: tanzu-gitops
       params: {repository: tanzu-gitops-modified}
     - task: create wavefront event
-        image: concourse-helper
-        file: tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.yml
-        params:
-          WAVEFRONT_API_TOKEN: ((tanzu-gitops.wavefront_api_token))
-          WAVEFRONT_URL: ((tanzu-gitops.wavefront_url))
+      image: concourse-helper
+      file: tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.yml
+      params:
+        WAVEFRONT_API_TOKEN: ((tanzu-gitops.wavefront_api_token))
+        WAVEFRONT_URL: ((tanzu-gitops.wavefront_url))
 
 - name: spring-petclinic-deploy
   public: true

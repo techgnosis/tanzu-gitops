@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends git wget \
+    && apt-get install -y --no-install-recommends git wget curl ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 COPY kapp-linux-amd64 /usr/bin/kapp
