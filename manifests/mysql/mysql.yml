@@ -20,9 +20,11 @@ spec:
     name: mysql
     version: "6.14.7"
   values:
+    replication:
+      enabled: false
     root:
-      password: ROOT_PASSWORD
+      password: petclinic
     db:
-      user: SPRING_PETCLINIC
-      password: SPRING_PETCLINIC
+      user: petclinic
+      password: petclinic
       name: petclinic
