@@ -48,8 +48,12 @@ Use TBS to build [Spring PetClinic](https://github.com/spring-projects/spring-pe
 Your app is defined entirely in [Kubernetes manifests](https://github.com/techgnosis/deploy-petclinic). `kapp` is used to deploy those manifests as part of a Concourse pipeline.
 
 
-### PetClinic
-PetClinic is a good example of a Spring Boot app. Use Flux to monitor the [PetClinic K8s manifests](https://github.com/techgnosis/petclinic) and deploy them
+### spring-petclinic
+[spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a good canonical example of a Spring Boot app.
+
+
+### MySQL
+spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
 
 ### Tips to make life easier
 1. I used Ubuntu instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run a particular Golang binary in Alpine.
@@ -67,5 +71,6 @@ Basic steps to get Wavefront events working
 
 
 ### TODO
-* Need to deploy MySQL for PetClinic
+* Configure MySQL with some defaults for spring-petclinic
+* Configure spring-petclinic to use the MySQL instance
 * How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.

@@ -25,6 +25,7 @@ spec:
         externalUrl: https://concourse.lab.home
         kubernetes:
           keepNamespace: false
+          createTeamNamespaces: false
     web:
       ingress:
         enabled: true
