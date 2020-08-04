@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: spring-petclinic
-        image: harbor.lab.home/library/spring-petclinic@sha256:9ca65d52aae1bdb8343bb8ef34dc418f4f5740bf6e023283064466de77fca22d
+        image: harbor.lab.home/library/spring-petclinic@sha256:16799ab3176ba8750b637cb03a16d84bfc4e0084424520676dde99bb50cc5702
         ports:
         - containerPort: 8080
         env:
