@@ -71,6 +71,5 @@ Basic steps to get Wavefront events working
 
 
 ### TODO
-* Configure MySQL with some defaults for spring-petclinic
-* Configure spring-petclinic to use the MySQL instance
+* Capture all needed changes in spring-petclinic in a patch file. Be able to start from scratch anytime
 * How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
