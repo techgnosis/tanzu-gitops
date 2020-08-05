@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: harbor-creds
-  namespace: spring-petclinic
+  namespace: images
   annotations:
     build.pivotal.io/docker: https://harbor.lab.home
 type: kubernetes.io/basic-auth

@@ -15,17 +15,27 @@ In this repo we have chosen Concourse to sync the Git state with the Kubernetes 
 
 ## Installation
 1. Starting with a new cluster with a default StorageClass
-1. Inside `manifests/sealed-secrets` run `install.sh`
-1. `./setup-secrets.sh`
-1. `helm-operator/install.sh`
-1. `kapp deploy -a ingress-nginx -f manifests/ingress-nginx`
-1. `kapp deploy -a harbor -f manifests/harbor`
+1. `./install-sealedsecrets.sh`
+1. `./setup-infra-secrets.sh`
+1. `./install-helm-operator.sh`
+1. `./install-ingress-nginx.sh`
+1. `./install-harbor.sh`
+1. `./install-concourse.sh`
+1. `./build-adoptopenjdk-image.sh`
+1. `./build-concourse-helper.sh`
+1. `./install-concourse-main.sh`
+1. `./fly.sh`
 1. Install [TBS](https://github.com/techgnosis/tanzu-build-service)
-1. `kapp deploy -a concourse -f manifests/concourse`
-1. Inside `concourse/helper` run .`/build.sh 1`
-1. `kapp deploy -a concourse-secrets -f manifests/concourse-main`
-1. Inside `concourse/pipeline` run `./fly.sh`
+
+
+While pointing at your workloads cluster
+1. `./install-sealedsecrets.sh`
+1. `./setup-workload-secrets.sh`
+1. Git commit and push the new secrets in `manifests/spring-petclinic`
+1. `./install-helm-operator.sh`
+1. `./install-ingress-nginx.sh`
 1. Unpause the pipeline
+
 
 # Stack Overview
 

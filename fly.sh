@@ -10,4 +10,4 @@ fly login \
 
 fly set-pipeline -t lab \
 -p tanzu-gitops \
--c pipeline.yml
+-c concourse/pipeline/pipeline.yml
