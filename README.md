@@ -15,7 +15,7 @@ In this repo we have chosen Concourse to sync the Git state with the Kubernetes 
 
 ## Installation
 1. Starting with a new cluster with a default StorageClass
-1. `kapp deploy -a sealed-secrets -f manifests/sealed-secrets`
+1. Inside `manifests/sealed-secrets` run `install.sh`
 1. `./setup-secrets.sh`
 1. `helm-operator/install.sh`
 1. `kapp deploy -a ingress-nginx -f manifests/ingress-nginx`

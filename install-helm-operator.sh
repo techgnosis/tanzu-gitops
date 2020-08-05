@@ -13,6 +13,6 @@ helm template helm-operator fluxcd/helm-operator \
 -a helm-operator \
 --into-ns=helm-operator \
 -y \
--f namespace.yml \
+-f manifests/helm-operator/namespace.yml \
 -f https://raw.githubusercontent.com/fluxcd/helm-operator/$VERSION/deploy/crds.yaml \
 -f-

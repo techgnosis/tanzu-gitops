@@ -38,14 +38,6 @@ kubectl create secret generic tanzu-gitops \
 --dry-run=client \
 -o json | kubeseal > manifests/concourse-main/pipeline-secrets.json
 
-# Spring-petclinic Wavefront secret
-kubectl create secret generic wavefront \
---namespace spring-petclinic \
---from-literal=wavefront_api_token="${WAVEFRONT_API_TOKEN}" \
---from-literal=wavefront_url="${WAVEFRONT_URL}" \
---dry-run=client \
--o json | kubeseal > manifests/spring-petclinic/wavefront-secrets.json
-
 
 # Concourse TLS
 mkcert \
@@ -72,17 +64,4 @@ kubectl create secret generic harbor \
 --namespace harbor \
 --dry-run=client \
 -o json | kubeseal > manifests/harbor/harbor-tls.json
-
-# Spring PetClinic
-mkcert \
--cert-file tls.crt \
--key-file tls.key \
-spring-petclinic.lab.home
-
-kubectl create secret tls spring-petclinic-tls \
---namespace spring-petclinic \
---cert=./tls.crt \
---key=./tls.key \
---dry-run=client \
--o json | kubeseal > manifests/spring-petclinic/ingress-tls.json
 
