@@ -4,7 +4,7 @@ metadata:
   name: harbor-creds
   namespace: images
   annotations:
-    build.pivotal.io/docker: https://harbor.lab.home
+    kpack.io/docker: https://harbor.lab.home
 type: kubernetes.io/basic-auth
 stringData:
   username: admin

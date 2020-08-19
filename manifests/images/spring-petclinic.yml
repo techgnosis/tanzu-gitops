@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: images
 ---
-apiVersion: build.pivotal.io/v1alpha1
+apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
   name: spring-petclinic
@@ -13,7 +13,7 @@ spec:
   serviceAccount: tbs-service-account
   builder:
     name: default
-    kind: CustomClusterBuilder
+    kind: ClusterBuilder
   source:
     git:
       url: https://github.com/techgnosis/spring-petclinic.git

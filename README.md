@@ -6,7 +6,6 @@ In this repo we have chosen Concourse to sync the Git state with the Kubernetes 
 
 ### Pre-reqs
 * A vanilla Kubernetes cluster
-* A default `StorageClass` resource installed in the cluster
 * `helm` to install the Helm operator
 * `kapp` to install everything else
 * `bash` to run all the install scripts
@@ -14,26 +13,31 @@ In this repo we have chosen Concourse to sync the Git state with the Kubernetes 
 * `mkcert` for all TLS certs
 
 ## Installation
-1. Starting with a new cluster with a default StorageClass
+While pointing at your infrastructure cluster
+1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./setup-infra-secrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-harbor.sh`
+1. `./install-tbs.sh`
+1. `./install-tbs-dependencies.sh`
+1. `./install-images.sh`
 1. `./install-concourse.sh`
 1. `./build-adoptopenjdk-image.sh`
 1. `./build-concourse-helper.sh`
 1. `./install-concourse-main.sh`
 1. `./fly.sh`
-1. Install [TBS](https://github.com/techgnosis/tanzu-build-service)
 
 
 While pointing at your workloads cluster
+1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./setup-workload-secrets.sh`
-1. Git commit and push the new secrets in `manifests/spring-petclinic`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
+1. `./install-mysql.sh`
+1. `./install-spring-petclinic.sh`
 1. Unpause the pipeline
 
 
