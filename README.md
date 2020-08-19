@@ -1,10 +1,10 @@
-This repo has all the steps you need to create a modern GitOps style workflow with Kubernetes.
+The goal of this repo is to show how you can create a high functioning K8s development environment for your development teams. You will deploy software to two clusters: an "infra" cluster for things like Concourse and Harbor, as well as a "workload" cluster for the app itself (spring-petclinic) as well as the supporting MySQL database.
 
 GitOps is the next evolution of Infrastructure-as-Code. With GitOps, 100% of your infrastructure is in code and you use standard Git workflows like GitHub Pull Requests to make changes to your infrastructure. The Git repo containing your infrastructure code is constantly monitored by a tool that syncs the state in the repo with the Kubernetes cluster.
 
 In this repo we have chosen Concourse to sync the Git state with the Kubernetes cluster. There are popular tools like Flux and Argo that can do this for us but I wanted to get a better idea of how to use `kapp` which Concourse uses to do all the actual deploying.
 
-### Pre-reqs
+## Pre-reqs
 * A vanilla Kubernetes cluster
 * `helm` to install the Helm operator
 * `kapp` to install everything else
@@ -41,40 +41,37 @@ While pointing at your workloads cluster
 1. Unpause the pipeline
 
 
-# Stack Overview
+### vSphere Storage
+Every cluster that has stateful workloads needs a `StorageClass` to that `PersistentVolumes` can be created automatically via `PersistentVolumeClaims`. 
+
+### Sealed Secrets
+In the earlier days of Kubernetes, the idea of GitOps famously suffered from the problem of "everything in Git except Secrets". Kubernetes `Secrets` are of course not a secret as they are simply base64 encoded. With the SealedSecrets project, you can use the `kubeseal` CLI to encrypt regular `Secrets` into `SealedSecrets` using a secret key in the cluster. When a `SealedSecret` is applied to a cluster that secret key is used to decode the `SealedSecret` into a regular `Secret`. Anyone with access to the cluster can still base64 decode the secret.
+
+### Helm Operator
+The Helm Operator makes it easy to use Helm while also sticking to a IaC/GitOps mindset. It allows you to use Helm in a declarative sense using `HelmRelease` resources, instead of using Helm in an imperative manner with `helm install`.
 
 ### Ingress
 Ingress controllers are easier to manage than NodePorts for every app. Use the [Kubernetes in-tree nginx Ingress controller](https://github.com/techgnosis/ingress). It works fine for a lab environment. This implementation uses `hostNetwork: true` to bind port 443 for convenience.
 
 ### Harbor
-[Harbor](https://github.com/techgnosis/harbor2) is an OCI image registry with lots of great security features. Harbor uses the nginx Ingress controller for convenience.
-
-### Concourse
-[Concourse](https://github.com/techgnosis/concourse) is a container-native automation tool commonly used as a "CI/CD" tool. Concourse uses the nginx Ingress controller for convenience.
+Harbor is an OCI image registry with lots of great security features. Harbor uses the nginx Ingress controller for convenience.
 
 ### Tanzu Build Service
-[Tanzu Build Service](https://github.com/techgnosis/tanzu-build-service) (TBS) uses Cloud Native Buildpacks to turn source code into OCI images. TBS has no UI and does not use the Ingress controller.
+Tanzu Build Service (TBS) uses Cloud Native Buildpacks to turn source code into OCI images. TBS has no UI and does not use the Ingress controller.
 
-Use TBS to build [Spring PetClinic](https://github.com/spring-projects/spring-petclinic)
-
-
-### K8s manifests
-Your app is defined entirely in [Kubernetes manifests](https://github.com/techgnosis/deploy-petclinic). `kapp` is used to deploy those manifests as part of a Concourse pipeline.
+### Concourse
+Concourse is a container-native automation tool commonly used as a "CI/CD" tool. Concourse uses the nginx Ingress controller for convenience.
 
 
 ### spring-petclinic
-[spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a good canonical example of a Spring Boot app.
+[spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
 
-
-### MySQL
-spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
-
-### Tips to make life easier
+## Implementation Notes
 1. I used Ubuntu instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run a particular Golang binary in Alpine.
 
 
-### Wavefront
-Basic steps to get Wavefront events working
+## Wavefront
+The Concourse pipeline in this project creates a Wavefront Event after a new image is deployed. In order for this to work, you need to setup Wavefront. Follow these steps to get Wavefront ready:
 1. Follow the Spring Boot Wavefront tutorial to get Spring-Petclinic integrated with Wavefront
 1. Clone the default dashboard Wavefront creates for you
 1. Edit the clone
@@ -84,6 +81,9 @@ Basic steps to get Wavefront events working
 1. In your dashboard at the top right where it says "Show Events" change it to "From Dashboard Settings". This will cause your events query to be the source of events for all charts in your dashboard.
 
 
-### TODO
+## TODO
 * Capture all needed changes in spring-petclinic in a patch file. Be able to start from scratch anytime
 * How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
+* Lots of hardcoded references to `harbor.lab.home` need to be removed
+* Combine adoptopenjdk image and concourse-helper image
+* vSphere Storage manifest has a hardcoded reference to one of my datastores

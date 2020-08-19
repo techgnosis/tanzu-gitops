@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if [ ! -d "tbs-install" ]; then
-    mkdir tbs-install
+if [ -d "tbs-install" ]; then
+    rm -rf tbs-install && mkdir tbs-install
 fi
 
 tar -xvf build-service-1.0.0.tar -C tbs-install
