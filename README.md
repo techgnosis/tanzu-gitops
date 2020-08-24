@@ -1,8 +1,15 @@
-The goal of this repo is to show how you can create a high functioning K8s development environment for your development teams. You will deploy software to two clusters: an "infra" cluster for things like Concourse and Harbor, as well as a "workload" cluster for the app itself (spring-petclinic) as well as the supporting MySQL database.
+## Context
+The Kubernetes ecosystem can be overwhelming. There are hundreds of open-source projects all building tools for the Kubernetes ecosystem. How do you put all these tools together? There are endless combinations and every solution will have its pros and cons. Some solutions might be focused on a platform team and their needs, while other solutions might be focused on how application developers can be most productive in Kubernetes. This repo is focused on application developers and aims to prescribe a set of tools that together create an effective development environment.
 
-GitOps is the next evolution of Infrastructure-as-Code. With GitOps, 100% of your infrastructure is in code and you use standard Git workflows like GitHub Pull Requests to make changes to your infrastructure. The Git repo containing your infrastructure code is constantly monitored by a tool that syncs the state in the repo with the Kubernetes cluster.
+The solution installed via this repo is a classic "GitOps" workflow. GitOps is the next evolution of Infrastructure-as-Code. With GitOps, 100% of your infrastructure is in code and you use standard Git workflows like GitHub Pull Requests to make changes to your infrastructure. The Git repo containing your infrastructure code is constantly monitored by a tool that syncs the state in the repo with the Kubernetes cluster.
 
-In this repo we have chosen Concourse to sync the Git state with the Kubernetes cluster. There are popular tools like Flux and Argo that can do this for us but I wanted to get a better idea of how to use `kapp` which Concourse uses to do all the actual deploying.
+Usage of this repo requires two clusters: an "infra" cluster for things like Concourse and Harbor, as well as a "workload" cluster for the app itself (spring-petclinic) as well as the supporting MySQL database.
+
+Note: This repo will need some tweaking to work in your environment. See [TODO](#TODO)
+
+## Benefits
+There is no point in focusing on the tools themselves. Instead, focus on what the tools let you achieve. In no particular order, here are the benefits you gain from using a GitOps style workflow:
+* All the infrastructure and application config is in code, including secrets. There is nothing stored in Vault or in S3 somewhere. 
 
 ## Pre-reqs
 * A vanilla Kubernetes cluster
@@ -67,12 +74,12 @@ Concourse is a container-native automation tool commonly used as a "CI/CD" tool.
 [spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
 
 ## Implementation Notes
-1. I used Ubuntu instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run a particular Golang binary in Alpine.
+* I used Ubuntu instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run a particular Golang binary in Alpine.
 
 
 ## Wavefront
 The Concourse pipeline in this project creates a Wavefront Event after a new image is deployed. In order for this to work, you need to setup Wavefront. Follow these steps to get Wavefront ready:
-1. Follow the Spring Boot Wavefront tutorial to get Spring-Petclinic integrated with Wavefront
+1. Follow the [Spring Boot Wavefront tutorial](https://docs.wavefront.com/wavefront_springboot_tutorial.html) to get Spring-Petclinic integrated with Wavefront
 1. Clone the default dashboard Wavefront creates for you
 1. Edit the clone
 1. Cliick "Settings"
@@ -87,3 +94,7 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 * Lots of hardcoded references to `harbor.lab.home` need to be removed
 * Combine adoptopenjdk image and concourse-helper image
 * vSphere Storage manifest has a hardcoded reference to one of my datastores
+* Use kapp-controller instead of helm-operator
+* Switch from nginx to either Contour or a mesh
+* Switch to ytt instead of sd
+* Create more specific Concourse resources for spring-petclinic and mysql, instead of the whole tanzu-gitops repo
