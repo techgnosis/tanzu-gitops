@@ -89,7 +89,6 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
-* Capture all needed changes in spring-petclinic in a patch file. Be able to start from scratch anytime
 * How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
 * Lots of hardcoded references to `harbor.lab.home` need to be removed
 * Combine adoptopenjdk image and concourse-helper image
