@@ -32,3 +32,5 @@ spec:
               key: wavefront_url
         - name: spring_profiles_active
           value: mysql
+        - name: MYSQL_URL
+          value: "jdbc:mysql://mysql.mysql.svc.cluster.local/petclinic"
