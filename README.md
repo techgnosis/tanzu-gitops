@@ -9,7 +9,7 @@ Note: This repo will need some tweaking to work in your environment. See [TODO](
 
 ## Benefits
 There is no point in focusing on the tools themselves. Instead, focus on what the tools let you achieve. In no particular order, here are the benefits you gain from using a GitOps style workflow:
-* All the infrastructure and application config is in code, including secrets. There is nothing stored in Vault or in S3 somewhere. 
+* Change management/auditing - All the infrastructure and application config is in code, including secrets. There is nothing stored in Vault or in S3 somewhere.
 
 ## Pre-reqs
 * A vanilla Kubernetes cluster
@@ -49,10 +49,10 @@ While pointing at your workloads cluster
 
 
 ### vSphere Storage
-Every cluster that has stateful workloads needs a `StorageClass` to that `PersistentVolumes` can be created automatically via `PersistentVolumeClaims`. 
+Every cluster that has stateful workloads needs a `StorageClass` so that `PersistentVolumes` can be created automatically via `PersistentVolumeClaims`. 
 
 ### Sealed Secrets
-In the earlier days of Kubernetes, the idea of GitOps famously suffered from the problem of "everything in Git except Secrets". Kubernetes `Secrets` are of course not a secret as they are simply base64 encoded. With the SealedSecrets project, you can use the `kubeseal` CLI to encrypt regular `Secrets` into `SealedSecrets` using a secret key in the cluster. When a `SealedSecret` is applied to a cluster that secret key is used to decode the `SealedSecret` into a regular `Secret`. Anyone with access to the cluster can still base64 decode the secret.
+In the earlier days of Kubernetes, the idea of GitOps famously suffered from the problem of "everything in Git except Secrets". Kubernetes `Secrets` are of course not a secret as they are simply base64 encoded. With the SealedSecrets project, you can use the `kubeseal` CLI to encrypt regular `Secrets` into `SealedSecrets` using a secret key in the cluster. When a `SealedSecret` is applied to a cluster, that secret key is used to decode the `SealedSecret` into a regular `Secret`. Anyone with access to the cluster can still base64 decode the secret.
 
 ### Helm Operator
 The Helm Operator makes it easy to use Helm while also sticking to a IaC/GitOps mindset. It allows you to use Helm in a declarative sense using `HelmRelease` resources, instead of using Helm in an imperative manner with `helm install`.
@@ -74,7 +74,7 @@ Concourse is a container-native automation tool commonly used as a "CI/CD" tool.
 [spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
 
 ## Implementation Notes
-* I used Ubuntu instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run a particular Golang binary in Alpine.
+* I used Ubuntu instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run `ytt` in Alpine. This image is not being downloaded frequently so saving space is not a high priority.
 
 
 ## Wavefront
@@ -89,11 +89,13 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
-* How do you provide a username and password to `pks get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
+* Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
+* How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
+* Switch the CD steps from Concourse+kapp to Flagger or Argo for Canary and Blue/Green
 * Lots of hardcoded references to `harbor.lab.home` need to be removed
 * Combine adoptopenjdk image and concourse-helper image
 * vSphere Storage manifest has a hardcoded reference to one of my datastores
-* Use kapp-controller instead of helm-operator
-* Switch from nginx to either Contour or a mesh
-* Switch to ytt instead of sd
-* Create more specific Concourse resources for spring-petclinic and mysql, instead of the whole tanzu-gitops repo
+* Switch from nginx to either Contour (Argo does not support Contour) or a mesh
+    * Contour only has one Helm chart (from Bitnami) and I can't get `hostNetwork: true` to work to save my life
+* Can we get a Slack token to use with Flagger?
+* Can I build helper and adoptopenjdk without Docker? buildah maybe?

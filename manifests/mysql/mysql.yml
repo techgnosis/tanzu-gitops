@@ -16,9 +16,9 @@ spec:
   test:
     enable: true
   chart:
-    repository: https://charts.bitnami.com/bitnami
+    repository: https://charts.trials.tac.bitnami.com/demo
     name: mysql
-    version: "6.14.7"
+    version: "6.14.5"
   values:
     replication:
       enabled: false

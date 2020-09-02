@@ -6,7 +6,7 @@ if [ -d "tbs-install" ]; then
     rm -rf tbs-install && mkdir tbs-install
 fi
 
-tar -xvf build-service-1.0.0.tar -C tbs-install
+tar -xvf build-service-1.0.2.tar -C tbs-install
 
 
 kbld relocate \
@@ -15,10 +15,9 @@ kbld relocate \
 --repository "harbor.lab.home/library/build-service"
 
 
-# Bug in TBS 1.0.0 where the CA cert must be named ca.crt
 ytt -f ./tbs-install/values.yaml \
 -f ./tbs-install/manifests/ \
--f "$(mkcert -CAROOT)"/ca.crt \
+-f "$(mkcert -CAROOT)"/rootCA.pem \
 -v docker_repository="harbor.lab.home/library/build-service" \
 -v docker_username="admin" \
 -v docker_password="Harbor12345" \

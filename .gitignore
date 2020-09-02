@@ -2,5 +2,5 @@ tls.crt
 tls.key
 pipeline/vars.sh
 rootCA.pem
-build-service-1.0.0.tar
+build-service-1.0.2.tar
 tbs-install
