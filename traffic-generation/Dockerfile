@@ -8,4 +8,4 @@ WORKDIR /usr/src/myapp
 
 EXPOSE 8089
 
-CMD "locust"
+CMD "locust --web-host=0.0.0.0"

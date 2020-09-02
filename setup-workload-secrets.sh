@@ -28,3 +28,17 @@ kubectl create secret tls spring-petclinic-tls \
 --dry-run=client \
 -o json | kubeseal > manifests/spring-petclinic/ingress-tls.json
 
+
+# locust Ingress secret
+mkcert \
+-cert-file tls.crt \
+-key-file tls.key \
+locust.lab.home
+
+kubectl create secret tls locust-tls \
+--namespace locust \
+--cert=./tls.crt \
+--key=./tls.key \
+--dry-run=client \
+-o json | kubeseal > manifests/locust/ingress-tls.json
+
