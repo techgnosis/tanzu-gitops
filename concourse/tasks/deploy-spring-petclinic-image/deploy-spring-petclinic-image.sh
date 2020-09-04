@@ -22,5 +22,5 @@ git config --global user.email "concourse@lab.home"
 git config --global user.name "Concourse"
 
 cd tanzu-gitops-modified
-git add manifests/spring-petclinic/deployment.yml
-git commit -m "Updating deployment to use new image"
+git add manifests/spring-petclinic/rollout.yml
+git commit -m "Updating rollout to use new image"
