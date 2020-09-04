@@ -10,4 +10,4 @@ pks login -a ${tkgiapi} \
 pks get-credentials ${tkgicluster}
 
 
-kapp deploy -a spring-petclinic -c -y -f tanzu-gitops/manifests/spring-petclinic
+kubectl apply -f tanzu-gitops/manifests/spring-petclinic
