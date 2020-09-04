@@ -21,6 +21,7 @@ There is no point in focusing on the tools themselves. Instead, focus on what th
 
 ## Installation
 While pointing at your infrastructure cluster
+1. `./attach-cluster1.sh`
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./setup-infra-secrets.sh`
@@ -39,6 +40,7 @@ While pointing at your infrastructure cluster
 
 
 While pointing at your workloads cluster
+1. `./attach-cluster2.sh`
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./setup-workload-secrets.sh`
