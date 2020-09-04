@@ -2,17 +2,9 @@
 
 set -euo pipefail
 
-# This is the only pre-existing file that is required
-if [ ! -f "${HOME}/.ssh/concourse" ]; then
-    echo "Concourse needs to push commits back to Git"
-    echo "You must have an SSH private key at $HOME/.ssh/concourse"
-    echo "That key must be added as a Deploy Key in GitHub to tanzu-gitops repo"
-    exit 1
-fi
 
 
-# Collect the secret data
-export CONCOURSE_GITHUB_PRIVATEKEY="$(cat $HOME/.ssh/concourse)"
+
 
 read -p "TKGI URL: " TKGI_URL
 read -p "TKGI_USER: " TKGI_USER
@@ -34,7 +26,6 @@ kubectl create secret generic tanzu-gitops \
 --from-literal=tkgi_user="${TKGI_USER}" \
 --from-literal=tkgi_password="${TKGI_PASSWORD}" \
 --from-file=ca_cert="$(mkcert -CAROOT)/rootCA.pem" \
---from-literal=concourse_github_privatekey="${CONCOURSE_GITHUB_PRIVATEKEY}" \
 --from-literal=wavefront_api_token="${WAVEFRONT_API_TOKEN}" \
 --from-literal=wavefront_url="${WAVEFRONT_URL}" \
 --dry-run=client \

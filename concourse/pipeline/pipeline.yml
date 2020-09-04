@@ -7,10 +7,8 @@ resources:
 - name: tanzu-gitops
   type: git
   source:
-    uri: git@github.com:techgnosis/tanzu-gitops.git
+    uri: https://github.com/techgnosis/tanzu-gitops.git
     branch: master
-    private_key: |
-      ((tanzu-gitops.concourse_github_privatekey))
 - name: adoptopenjdk
   type: docker-image
   source:
@@ -85,8 +83,6 @@ jobs:
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
-    - put: tanzu-gitops
-      params: {repository: tanzu-gitops-modified}
     - task: create wavefront event
       image: concourse-helper
       file: tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.yml

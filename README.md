@@ -91,11 +91,8 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 ## TODO
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
 * How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
-* Switch the CD steps from Concourse+kapp to Flagger or Argo for Canary and Blue/Green
 * Lots of hardcoded references to `harbor.lab.home` need to be removed
 * Combine adoptopenjdk image and concourse-helper image
 * vSphere Storage manifest has a hardcoded reference to one of my datastores
-* Switch from nginx to either Contour (Argo does not support Contour) or a mesh
-    * Contour only has one Helm chart (from Bitnami) and I can't get `hostNetwork: true` to work to save my life
 * Can we get a Slack token to use with Flagger?
 * Can I build helper and adoptopenjdk without Docker? buildah maybe?

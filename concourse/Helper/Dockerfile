@@ -10,4 +10,5 @@ COPY tkgi-linux-amd64-1.8.0-build.75 /usr/bin/tkgi
 COPY kp-linux-0.1.1 /usr/bin/kp
 COPY sd /usr/bin/sd
 COPY ytt-linux-amd64 /usr/bin/ytt
+COPY kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 
