@@ -74,6 +74,9 @@ Tanzu Build Service (TBS) uses Cloud Native Buildpacks to turn source code into 
 ### Concourse
 Concourse is a container-native automation tool commonly used as a "CI/CD" tool. Concourse uses the nginx Ingress controller for convenience.
 
+### Argo Rollouts
+Argo Rollouts is a K8s controller that provides Blue/Green and Canary deploys with metrics analysis. Argo Rollouts provides a `Rollout` resource that is used in leiu of a standard `Deployment` resource.
+
 
 ### spring-petclinic
 [spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
