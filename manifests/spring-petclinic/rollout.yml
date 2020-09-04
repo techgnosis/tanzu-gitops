@@ -49,13 +49,15 @@ spec:
       
       
       steps:
-        # Sets the ratio of new replicasets to 20%
       - setWeight: 20 
-        # Pauses the rollout for an hour
       - pause:
-          duration: 60s 
+          duration: 20s 
       - setWeight: 40
-      - pause: {}
+      - pause:
+          duration: 20s 
+      - setWeight: 80
+      - pause:
+          duration: 20s 
       # Anti Affinity configuration between desired and previous replicaset. Only one must be specified
       antiAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
