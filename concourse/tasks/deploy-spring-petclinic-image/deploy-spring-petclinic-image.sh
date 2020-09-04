@@ -13,7 +13,7 @@ git clone tanzu-gitops tanzu-gitops-modified
 
 export DIGEST=$(cat spring-petclinic-image/digest)
 
-sd harbor.lab.home/library/spring-petclinic.+ harbor.lab.home/library/spring-petclinic@$DIGEST tanzu-gitops-modified/manifests/spring-petclinic/deployment.yml
+sd harbor.lab.home/library/spring-petclinic.+ harbor.lab.home/library/spring-petclinic@$DIGEST tanzu-gitops-modified/manifests/spring-petclinic/rollout.yml
 
 # deploy it
 kubectl apply -f tanzu-gitops-modified/manifests/spring-petclinic
