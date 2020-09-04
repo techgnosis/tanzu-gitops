@@ -35,6 +35,7 @@ While pointing at your infrastructure cluster
 1. `./build-concourse-helper.sh`
 1. `./install-concourse-main.sh`
 1. `./fly.sh`
+1. commit and push the new `SealedSecrets`
 
 
 While pointing at your workloads cluster
@@ -44,7 +45,9 @@ While pointing at your workloads cluster
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-mysql.sh`
+1. `./install-argo-rollouts.sh`
 1. `./install-spring-petclinic.sh`
+1. commit and push the new `SealedSecrets`
 1. Unpause the pipeline
 
 
@@ -89,6 +92,7 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
+* Use Wavefront to do the analysis during an Argo Rollout
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
 * How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
 * Lots of hardcoded references to `harbor.lab.home` need to be removed

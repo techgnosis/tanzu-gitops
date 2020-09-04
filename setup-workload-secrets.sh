@@ -14,6 +14,13 @@ kubectl create secret generic wavefront \
 --dry-run=client \
 -o json | kubeseal > manifests/spring-petclinic/wavefront-secrets.json
 
+# argo rollout Wavefront secret
+kubectl create secret generic wavefront-api-tokens \
+--namespace spring-petclinic \
+--from-literal=vmware.wavefront.com="${WAVEFRONT_API_TOKEN}" \
+--dry-run=client \
+-o json | kubeseal > manifests/spring-petclinic/argo-rollouts-wavefront.json
+
 
 # spring-petclinic Ingress secret
 mkcert \
@@ -27,18 +34,4 @@ kubectl create secret tls spring-petclinic-tls \
 --key=./tls.key \
 --dry-run=client \
 -o json | kubeseal > manifests/spring-petclinic/ingress-tls.json
-
-
-# locust Ingress secret
-mkcert \
--cert-file tls.crt \
--key-file tls.key \
-locust.lab.home
-
-kubectl create secret tls locust-tls \
---namespace locust \
---cert=./tls.crt \
---key=./tls.key \
---dry-run=client \
--o json | kubeseal > manifests/locust/ingress-tls.json
 
