@@ -32,7 +32,6 @@ While pointing at your infrastructure cluster
 1. `./install-tbs-dependencies.sh`
 1. `./install-images.sh`
 1. `./install-concourse.sh`
-1. `./build-adoptopenjdk-image.sh`
 1. `./build-concourse-helper.sh`
 1. `./install-concourse-main.sh`
 1. `./fly.sh`
@@ -82,7 +81,7 @@ Argo Rollouts is a K8s controller that provides Blue/Green and Canary deploys wi
 [spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
 
 ## Implementation Notes
-* I used Ubuntu instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run `ytt` in Alpine. This image is not being downloaded frequently so saving space is not a high priority.
+* I used an Ubuntu-based image instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run `ytt` in Alpine. This image is not being downloaded frequently so saving space is not a high priority.
 
 
 ## Wavefront
@@ -101,7 +100,5 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
 * How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
 * Lots of hardcoded references to `harbor.lab.home` need to be removed
-* Combine adoptopenjdk image and concourse-helper image
 * vSphere Storage manifest has a hardcoded reference to one of my datastores
-* Can we get a Slack token to use with Flagger?
-* Can I build helper and adoptopenjdk without Docker? buildah maybe?
+* Can I build Concourse helper without Docker? buildah maybe?

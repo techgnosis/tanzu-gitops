@@ -9,7 +9,7 @@ index 5ac0cc4..3768917 100644
 +    <dependency>
 +      <groupId>com.wavefront</groupId>
 +      <artifactId>wavefront-spring-boot-starter</artifactId>
-+      <version>2.0.0-RC1</version>
++      <version>2.0.0</version>
 +    </dependency>
      <!-- Databases - Uses H2 by default -->
      <dependency>
