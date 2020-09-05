@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kubeapps
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: kubeapps.lab.home
+    http:
+      paths:
+      - backend:
+          serviceName: kubeapps
+          servicePort: http
+        path: /
+  tls:
+  - hosts:
+    - kubeapps.lab.home
+    secretName: kubeapps.lab.home-tls

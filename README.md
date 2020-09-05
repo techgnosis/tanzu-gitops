@@ -48,6 +48,7 @@ While pointing at your workloads cluster
 1. `./install-mysql.sh`
 1. `./install-argo-rollouts.sh`
 1. `./install-spring-petclinic.sh`
+1. `./install-kubeapps.sh`
 1. commit and push the new `SealedSecrets`
 1. Unpause the pipeline
 
@@ -79,6 +80,9 @@ Argo Rollouts is a K8s controller that provides Blue/Green and Canary deploys wi
 
 ### spring-petclinic
 [spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
+
+### Kubeapps
+Kubeapps is a GUI for Helm that makes it easy to fill out values for Helm charts
 
 ## Implementation Notes
 * I used an Ubuntu-based image instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run `ytt` in Alpine. This image is not being downloaded frequently so saving space is not a high priority.
