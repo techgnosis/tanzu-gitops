@@ -4,3 +4,4 @@ pipeline/vars.sh
 rootCA.pem
 build-service-1.0.2.tar
 tbs-install
+k8s-attach-manifest.yaml

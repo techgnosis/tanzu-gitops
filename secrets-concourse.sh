@@ -3,7 +3,7 @@
 set -euo pipefail
 
 
-
+kubectx concourse
 
 
 read -p "TKGI URL: " TKGI_URL
@@ -44,17 +44,4 @@ kubectl create secret tls concourse-web-tls \
 --key=./tls.key \
 --dry-run=client \
 -o json | kubeseal > manifests/concourse/concourse-web-tls.json
-
-# Harbor
-mkcert -cert-file tls.crt \
--key-file tls.key \
-harbor.lab.home
-
-kubectl create secret generic harbor \
---from-file=./tls.crt \
---from-file=./tls.key \
---from-file="$(mkcert -CAROOT)"/rootCA.pem \
---namespace harbor \
---dry-run=client \
--o json | kubeseal > manifests/harbor/harbor-tls.json
 

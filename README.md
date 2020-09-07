@@ -1,9 +1,25 @@
-## Context
-The Kubernetes ecosystem can be overwhelming. There are hundreds of open-source projects all building tools for the Kubernetes ecosystem. How do you put all these tools together? There are endless combinations and every solution will have its pros and cons. Some solutions might be focused on a platform team and their needs, while other solutions might be focused on how application developers can be most productive in Kubernetes. This repo is focused on using the VMware Tanzu portfolio of products to build repeatable, low maintenance Kubernetes environments for your development teams.
+## Context re-do
+The goal is to use the Tanzu portfolio to create easy-to-use, low maintenance Kubernetes environments for developers. 
 
-On the 'platform' side, we use Tanzu Mission Control as the primary interface and allows you to manage policy for namespaces and clusters as well as interface with Tanzu Observability to see in-depth Kubernetes cluster metrics. The clusters themselves come with some tools that would also be considered "platform", like an Ingress controller, the SealedSecrets controller, and any other software that would need custom RBAC. The goal is to provide a development team with everything they need so that they are unhindered by the 'edit' ClusterRole with a namespaced RoleBinding.
+Using Tanzu Mission Control (TMC) and Tanzu Observability (TO) together make it easy to manage large numbers of clusters, so in this repo it is assumed that a cluster is given to each application in each environment. In this situation you need tools to make it easy to manage cluster access and you need tools to help maximize cluster utilization.
 
-On the 'application' side of things, Tanzu Observability is used as the primary interface and allows you to build meaningful queries from a wide variety of metrics sources. We use spring-petclinic as the demo application. spring-petclinic is a canonical example of a Spring Boot application. spring-petclinic is built into a secure image and kept up-to-date using Tanzu Build Service. The image is stored and vulnerability scanned in Harbor image registry. It is deployed using the Argo Rollouts controller that does Canary deploys with live metric analysis from Tanzu Observability. spring-petclinic uses a MySQL database installed via a Helm chart sourced from Tanzu Application Catalog, which harnesses the open-source expertise of Bitnami to build popular open-source software onto your golden base image and provides audit information such as open-source licenses and CVE scans.
+TKGI:
+* Kubernetes cluster lifecycle platform
+* Allows individual cluster upgrades or all-at-once upgrades
+TMC:
+* Manage cluster access using `cluster-admin`, `admin`, and `edit` roles
+* Manage other policy
+* Use TO integration to monitor cluster metrics
+* Use Data Protection to backup clusters
+TO:
+* View meaningful application metrics and histograms
+* Provide metrics for use in Canary deploy
+TBS:
+* Build secure OCI images without Docker
+* Keep images up-to-date on latest golden image
+TAC:
+* Build trusted Helm charts and images onto your golden image
+* Provide helpful audit information for the images, like CVE scans and open-source licenses
 
 Note: This repo will need some tweaking to work in your environment. See [TODO](#TODO)
 
@@ -17,40 +33,68 @@ Note: This repo will need some tweaking to work in your environment. See [TODO](
 * `kapp` to install everything else
 * `bash` to run all the install scripts
 * `kubectl` and `kubeseal` to create `SealedSecrets`
+* `kubectx` for easily changing K8s contexts 
 * `mkcert` for all TLS certs
 
-## Installation
-While pointing at your infrastructure cluster
-1. `./attach-cluster1.sh`
+## TKGI steps
+1. `./tkgi-create-clusters.sh`
+1. `./tkgi-get-credentials.sh`
+
+## TMC steps
+1. 1. `./tmc-attach-clusters.sh`
+
+## Harbor
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
-1. `./setup-infra-secrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
+1. `./secrets-harbor.sh`
 1. `./install-harbor.sh`
+
+## TBS
+1. `./install-vsphere-storage.sh`
 1. `./install-tbs.sh`
 1. `./install-tbs-dependencies.sh`
 1. `./install-images.sh`
-1. `./install-concourse.sh`
-1. `./build-concourse-helper.sh`
-1. `./install-concourse-main.sh`
-1. `./fly.sh`
-1. commit and push the new `SealedSecrets`
 
-
-While pointing at your workloads cluster
-1. `./attach-cluster2.sh`
+## Concourse
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
-1. `./setup-workload-secrets.sh`
+1. `./install-helm-operator.sh`
+1. `./install-ingress-nginx.sh`
+1. `./secrets-concourse.sh`
+1. `./install-concourse.sh`
+1. `./install-concourse-main.sh`
+1. `./fly.sh`
+
+
+## spring-petclinic-non-prod
+1. `./install-vsphere-storage.sh`
+1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-mysql.sh`
-1. `./install-argo-rollouts.sh`
+1. `./secrets-spring-petclinic.sh`
 1. `./install-spring-petclinic.sh`
+
+## spring-petclinic-prod
+1. `./install-vsphere-storage.sh`
+1. `./install-sealedsecrets.sh`
+1. `./install-helm-operator.sh`
+1. `./install-ingress-nginx.sh`
+1. `./install-mysql.sh`
+1. `./secrets-spring-petclinic.sh`
+1. `./install-spring-petclinic.sh`
+
+## Kubeapps
+1. `./install-vsphere-storage.sh`
+1. `./install-sealedsecrets.sh`
+1. `./install-helm-operator.sh`
+1. `./install-ingress-nginx.sh`
+1. `./secrets-kubeapps.sh`
 1. `./install-kubeapps.sh`
-1. commit and push the new `SealedSecrets`
-1. Unpause the pipeline
+1. `./configure-kubeapps.sh`
+
 
 
 ### vSphere Storage
@@ -93,7 +137,7 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 1. Follow the [Spring Boot Wavefront tutorial](https://docs.wavefront.com/wavefront_springboot_tutorial.html) to get Spring-Petclinic integrated with Wavefront
 1. Clone the default dashboard Wavefront creates for you
 1. Edit the clone
-1. Cliick "Settings"
+1. Click "Settings"
 1. Click "Advanced"
 1. Add the following events query `events(name="tanzu-gitops-spring-petclinic-deploy")`
 1. In your dashboard at the top right where it says "Show Events" change it to "From Dashboard Settings". This will cause your events query to be the source of events for all charts in your dashboard.
@@ -104,5 +148,8 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
 * How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
 * Lots of hardcoded references to `harbor.lab.home` need to be removed
-* vSphere Storage manifest has a hardcoded reference to one of my datastores
 * Can I build Concourse helper without Docker? buildah maybe?
+
+## Wishlist
+* Enable TO integration for any cluster added to TMC
+* Enable TO integration from the TMC CLI

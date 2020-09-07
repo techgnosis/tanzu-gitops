@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+kubectx spring-petclinic
+
 read -p "WAVEFRONT API TOKEN: " WAVEFRONT_API_TOKEN
 read -p "WAVEFRONT_URL: " WAVEFRONT_URL
 
@@ -34,17 +36,4 @@ kubectl create secret tls spring-petclinic-tls \
 --key=./tls.key \
 --dry-run=client \
 -o json | kubeseal > manifests/spring-petclinic/ingress-tls.json
-
-# kubeapps Ingress secret
-mkcert \
--cert-file tls.crt \
--key-file tls.key \
-kubeapps.lab.home
-
-kubectl create secret tls kubeapps.lab.home-tls \
---namespace default \
---cert=./tls.crt \
---key=./tls.key \
---dry-run=client \
--o json | kubeseal > manifests/kubeapps/ingress-tls.json
 

@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-kapp deploy -a harbor -f manifests/harbor
+kapp deploy -a harbor -f manifests/harbor -y
