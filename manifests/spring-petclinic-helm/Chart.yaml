@@ -1,0 +1,15 @@
+apiVersion: v1
+appVersion: 1.0.0
+description: spring-petclinic
+home: https://spring-petclinic.lab.home
+keywords:
+- spring
+- tanzu
+kubeVersion: '>=1.11.0-0'
+maintainers:
+- email: some@guy.com
+  name: some guy
+name: spring-petclinic
+sources:
+- https://github.com/techgnosis/tanzu-gitops/manifests/spring-petclinic-helm
+version: 1.0.0

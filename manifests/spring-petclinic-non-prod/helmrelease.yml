@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: spring-petclinic
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: spring-petclinic
+  namespace: spring-petclinic
+spec:
+  helmVersion: v3
+  targetNamespace: spring-petclinic
+  releaseName: spring-petclinic
+  wait: true
+  test:
+    enable: true
+  chart:
+    repository: https://helm.goharbor.io
+    name: harbor
+    version: "1.4.1"
+  values:
+    ingressHostname: spring-petclinic-non-prod.lab.home
