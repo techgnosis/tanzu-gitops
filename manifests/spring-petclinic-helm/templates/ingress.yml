@@ -16,5 +16,5 @@ spec:
         path: /
   tls:
   - hosts:
-    - {{ IngressHostname }}
+    - {{- .Values.ingressHostname }}
     secretName: spring-petclinic-tls
