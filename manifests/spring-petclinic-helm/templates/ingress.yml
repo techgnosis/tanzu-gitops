@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: {{- .Values.ingressHostname }}
+  - host: {{ .Values.ingressHostname }}
     http:
       paths:
       - backend:
@@ -16,5 +16,5 @@ spec:
         path: /
   tls:
   - hosts:
-    - {{- .Values.ingressHostname }}
+    - {{ .Values.ingressHostname }}
     secretName: spring-petclinic-tls
