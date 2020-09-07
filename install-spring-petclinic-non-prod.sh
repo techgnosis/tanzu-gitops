@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-kubectl apply -f manifests/spring-petclinic-non-prod
+kapp deploy -a spring-petclinic -f manifests/spring-petclinic-non-prod

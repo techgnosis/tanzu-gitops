@@ -20,4 +20,4 @@ spec:
     ref: master
     path: manifests/spring-petclinic-helm
   values:
-    ingressHostname: spring-petclinic-non-prod.lab.home
+    ingressHostname: spring-petclinic.lab.home

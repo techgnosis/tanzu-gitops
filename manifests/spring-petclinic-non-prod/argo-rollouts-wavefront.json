@@ -1,0 +1,21 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "wavefront-api-tokens",
+    "namespace": "spring-petclinic",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "wavefront-api-tokens",
+        "namespace": "spring-petclinic",
+        "creationTimestamp": null
+      }
+    },
+    "encryptedData": {
+      "vmware.wavefront.com": "AgCw+euhjqLUeyIJhnF2yghetpf8huE4azkEbUOWBFhCYJjTn9qmDn3h7yfB7u1q0r4M6mCMkv537pBLWWScyeX+z56JTjepWzwv+a4hXOhLIu4q8BrXaVHC74lApR0ltsU6FJNwFrtzVXCMDFpxLd/ulKIk6LjbZx0K+r810zu6iLdtLPOl07Bv8vX7zWgfIqSSjaR7GQ6z58p7tBG18BvZyxcxJ1AiKgJCJGY+vA5QhJl/0VpfITy5vzgA1IWWh6S6pNPKE0AL9T5XB7SOVx7ML6GUlMbH4gL4GjHgqatyQ7Y+2T5l/hZEwQ00PWAFWVUnwTkVCPviIWrtNohbLnTwq0UUcwD7DeCHPAfL7C5tBLF93rmdQ0/w/CuRJftljgQk/659L9AiM+FM1vWdaIj3O2LvnLJg7Vfp10dyab35VkhL1BzDtyGwX0pCNFz7V7vmTXNURKA+KkAtl0zi6s1X1OGcmVpo415HuIHnLujuHtpaFJ1dNNtSUMH1td6jWCNjYh6swANInRyzxHmiKglzSKnSuzG2WDWYSSitmnuvmrMsocV+KjM/ohzCoErXLdk5pqaZm2zKaP7A2fAtdOrZG/ujxFjK2WE/Va/oAZP2kDp5Y7mTquWge1335gRjghzwXSzL7DE/JZoXSayBIKKZloR8K1fCYRrA8ZCCfVmf8nHcDKyhBUHx98VlTRUf2oCdgFnBXTgr2Kbvw7aM4fZ2VcLKD7uPAxDt1ZQP2M3TSF7XtNQ="
+    }
+  }
+}
