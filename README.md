@@ -106,19 +106,19 @@ Every cluster that has stateful workloads needs a `StorageClass` so that `Persis
 In the earlier days of Kubernetes, the idea of GitOps famously suffered from the problem of "everything in Git except Secrets". Kubernetes `Secrets` are of course not a secret as they are simply base64 encoded. With the SealedSecrets project, you can use the `kubeseal` CLI to encrypt regular `Secrets` into `SealedSecrets` using a secret key in the cluster. When a `SealedSecret` is applied to a cluster, that secret key is used to decode the `SealedSecret` into a regular `Secret`. Anyone with access to the cluster can still base64 decode the secret.
 
 ### Helm Operator
-The Helm Operator makes it easy to use Helm while also sticking to a IaC/GitOps mindset. It allows you to use Helm in a declarative sense using `HelmRelease` resources, instead of using Helm in an imperative manner with `helm install`.
+The Helm Operator makes it easy to use Helm while also sticking to an infrastructure-as-code/GitOps mindset. It allows you to use Helm in a declarative sense using `HelmRelease` resources, instead of using Helm in an imperative manner with `helm install`. This also allows best practices of using Helm to be used without anyone having to learn them since those best practices are captured in the custom Kubernetes controller.
 
 ### Ingress
 Ingress controllers are easier to manage than NodePorts for every app. Use the [Kubernetes in-tree nginx Ingress controller](https://github.com/techgnosis/ingress). It works fine for a lab environment. This implementation uses `hostNetwork: true` to bind port 443 for convenience.
 
 ### Harbor
-Harbor is an OCI image registry with lots of great security features. Harbor uses the nginx Ingress controller for convenience.
+Harbor is an OCI image registry with lots of great security features. Harbor uses Trivy to scan your images for CVEs and can prevent images with CVEs from being downloaded.
 
 ### Tanzu Build Service
 Tanzu Build Service (TBS) uses Cloud Native Buildpacks to turn source code into OCI images. TBS has no UI and does not use the Ingress controller.
 
 ### Concourse
-Concourse is a container-native automation tool commonly used as a "CI/CD" tool. Concourse uses the nginx Ingress controller for convenience.
+Concourse is a container workflow tool commonly used for "CI/CD". Container workflow tools are the "glue" to connect pieces of the software delivery chain together. In this repo it is used to validate a git commit before telling Tanzu Build Service to build that commit and begin its lifecycle. Validation consists of running tests and checkstyle with maven but could be as in-depth as your organization requires.
 
 ### Argo Rollouts
 Argo Rollouts is a K8s controller that provides Blue/Green and Canary deploys with metrics analysis. Argo Rollouts provides a `Rollout` resource that is used in leiu of a standard `Deployment` resource.
@@ -146,12 +146,13 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
+* Adopt Flux or maybe ArgoCD. Something to keep cluster synced.
+* Add TAS4K8s + minibroker (https://github.com/kubernetes-sigs/minibroker)
 * Use Wavefront to do the analysis during an Argo Rollout
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
 * How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
 * Lots of hardcoded references to `harbor.lab.home` need to be removed
-* Can I build Concourse helper without Docker? buildah maybe?
 
 ## Wishlist
-* Enable TO integration for any cluster added to TMC
+* Enable TO integration for any cluster attached to TMC
 * Enable TO integration from the TMC CLI
