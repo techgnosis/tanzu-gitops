@@ -20,7 +20,7 @@ TAC:
 * Build trusted Helm charts and images onto your golden image
 * Provide helpful audit information for the images, like CVE scans and open-source licenses
 TAS4K8s:
-* Managed multi-tenancy for small stateless applications too small for a cluster
+* Managed multi-tenancy for small stateless applications too small for a dedicated cluster
 
 Note: This repo will need some tweaking to work in your environment. I tried to keep things as portable as possible but mistakes were made.
 
@@ -101,7 +101,10 @@ Note: This repo will need some tweaking to work in your environment. I tried to 
 
 ## TAS4K8s
 1. `./install-vsphere-storage.sh`
+1. `./install-helm-operator.sh`
+1. `./install-minibroker.sh`
 1. `./install-tas4k8s.sh`
+1. `./configure-tas.sh`
 
 
 

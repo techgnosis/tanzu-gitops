@@ -18,3 +18,11 @@ fi
 
 cf push test-app -p test-app
 curl -k "https://test-app.apps.$SYSTEM_DOMAIN"
+
+cf create-service-broker minibroker user pass http://minibroker-minibroker.minibroker.svc.cluster.local
+# Postgres and RabbitMQ don't work despite the docs saying they do
+cf enable-service-access redis
+cf enable-service-access mysql
+cf enable-service-access mariadb
+cf enable-service-access mongodb
+
