@@ -25,8 +25,11 @@ TAS4K8s:
 Note: This repo will need some tweaking to work in your environment. I tried to keep things as portable as possible but mistakes were made.
 
 ## Pre-reqs (to use my code as-is)
-* TKGI installed and ready to go
+* Ability to make DNS entries for a domain you own
+* TKGI installed on vSphere
+* You have at least `pks.clusters.manage` scope
 * A VSAN datastore named `vsanDatastore`
+* `direnv` to handle environment variables
 * `tkgi` to create Kubernetes clusters
 * `helm` to install the Helm operator
 * `kapp` to install everything else
