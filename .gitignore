@@ -3,5 +3,7 @@ tls.key
 pipeline/vars.sh
 rootCA.pem
 build-service-1.0.2.tar
+tanzu-application-service.0.3.0-build.114.tar
+tanzu-application-service/
 tbs-install
 k8s-attach-manifest.yaml

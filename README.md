@@ -1,18 +1,17 @@
-## Context re-do
-The goal is to use the Tanzu portfolio to create easy-to-use, low maintenance Kubernetes environments for developers. 
-
-Using Tanzu Mission Control (TMC) and Tanzu Observability (TO) together make it easy to manage large numbers of clusters, so in this repo it is assumed that a cluster is given to each application in each environment. In this situation you need tools to make it easy to manage cluster access and you need tools to help maximize cluster utilization.
+The goal of this repo is to use the Tanzu portfolio to create easy-to-use, low maintenance Kubernetes environments for developers.
 
 TKGI:
 * Kubernetes cluster lifecycle platform
 * Allows individual cluster upgrades or all-at-once upgrades
+* Integration with your LDAP or SAML IdP for cluster authentication
 TMC:
-* Manage cluster access using `cluster-admin`, `admin`, and `edit` roles
-* Manage other policy
+* Manage cluster access
+* Manage admission and network policy
 * Use TO integration to monitor cluster metrics
 * Use Data Protection to backup clusters
 TO:
-* View meaningful application metrics and histograms
+* Sole source of metrics for platform teams and application teams
+* Show everything from IaaS to K8s to application metrics
 * Provide metrics for use in Canary deploy
 TBS:
 * Build secure OCI images without Docker
@@ -20,15 +19,15 @@ TBS:
 TAC:
 * Build trusted Helm charts and images onto your golden image
 * Provide helpful audit information for the images, like CVE scans and open-source licenses
+TAS4K8s:
+* Managed multi-tenancy for small stateless applications too small for a cluster
 
-Note: This repo will need some tweaking to work in your environment. See [TODO](#TODO)
+Note: This repo will need some tweaking to work in your environment. I tried to keep things as portable as possible but mistakes were made.
 
-## Benefits
-* Easy for a single platform team to manage multiple clusters with Tanzu Mission Control
-* Change management/auditing - All the infrastructure and application config is in code, including secrets. There is nothing stored in Vault or in S3 somewhere.
-
-## Pre-reqs
-* A vanilla Kubernetes cluster
+## Pre-reqs (to use my code as-is)
+* TKGI installed and ready to go
+* A VSAN datastore named `vsanDatastore`
+* `tkgi` to create Kubernetes clusters
 * `helm` to install the Helm operator
 * `kapp` to install everything else
 * `bash` to run all the install scripts
@@ -97,6 +96,10 @@ Note: This repo will need some tweaking to work in your environment. See [TODO](
 1. `./install-kubeapps.sh`
 1. `./configure-kubeapps.sh`
 
+## TAS4K8s
+1. `./install-vsphere-storage.sh`
+1. `./install-tas4k8s.sh`
+
 
 
 ### vSphere Storage
@@ -130,8 +133,9 @@ Argo Rollouts is a K8s controller that provides Blue/Green and Canary deploys wi
 ### Kubeapps
 Kubeapps is a GUI for Helm that makes it easy to fill out values for Helm charts
 
-## Implementation Notes
-* I used an Ubuntu-based image instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run `ytt` in Alpine. This image is not being downloaded frequently so saving space is not a high priority.
+## Quirks I have observed
+* I used an Ubuntu-based image instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run `ytt` in Alpine.
+* Kubeapps only seems to behave if it is installed in the `default` namespace
 
 
 ## Wavefront
@@ -146,7 +150,9 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
-* Adopt Flux or maybe ArgoCD. Something to keep cluster synced.
+* Adopt Flux or maybe ArgoCD. Something to keep clusters synced.
+* Adopt cert-manager for more declarative TLS
+* Need to find best practices for image promotion
 * Add TAS4K8s + minibroker (https://github.com/kubernetes-sigs/minibroker)
 * Use Wavefront to do the analysis during an Argo Rollout
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443

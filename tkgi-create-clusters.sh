@@ -13,3 +13,5 @@ tkgi create-cluster spring-petclinic-non-prod --external-hostname=k8s-spring-pet
 tkgi create-cluster spring-petclinic-prod --external-hostname=k8s-spring-petclinic-prod.lab.home --plan=small
 
 tkgi create-cluster kubeapps --external-hostname=k8s-kubeapps.lab.home --plan=small
+
+tkgi create-cluster tas --external-hostname=k8s-tas.lab.home --plan=small --num-nodes=5
