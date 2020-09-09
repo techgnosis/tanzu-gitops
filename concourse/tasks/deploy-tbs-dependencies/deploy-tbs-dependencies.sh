@@ -11,4 +11,5 @@ pks get-credentials ${tkgicluster}
 
 #DESCRIPTOR_NAME=$("ls tbs-dependencies/tmp/build/get/descriptor-*")
 #kp import -f $DESCRIPTOR_NAME
-cat ./tbs-dependencies/tmp/build/get/metadata.json
+cat tbs-dependencies/metadata.json
+cat tbs-dependencies/descriptor-*.yaml
