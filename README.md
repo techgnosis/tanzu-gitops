@@ -98,11 +98,11 @@ Note: This repo will need some tweaking to work in your environment. I tried to 
 1. `./install-kubeapps.sh`
 1. `./configure-kubeapps.sh`
 
-## TAS4K8s
+## TAS
 1. `./install-vsphere-storage.sh`
 1. `./install-helm-operator.sh`
 1. `./install-minibroker.sh`
-1. `./install-tas4k8s.sh`
+1. `./install-tas.sh`
 1. `./configure-tas.sh`
 
 

@@ -25,3 +25,7 @@ rm k8s-attach-manifest.yaml
 tmc cluster attach --group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAME-kubeapps
 kubectx kubeapps && kapp deploy -a tmc -f k8s-attach-manifest.yaml -y
 rm k8s-attach-manifest.yaml
+
+tmc cluster attach --group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAME-tas
+kubectx tas && kapp deploy -a tmc -f k8s-attach-manifest.yaml -y
+rm k8s-attach-manifest.yaml

@@ -13,6 +13,10 @@ fly set-pipeline -t lab \
 -c concourse/pipeline/spring-petclinic.yml
 
 fly set-pipeline -t lab \
+-p product-api \
+-c concourse/pipeline/product-api.yml
+
+fly set-pipeline -t lab \
 -p harbor \
 -c concourse/pipeline/harbor.yml
 

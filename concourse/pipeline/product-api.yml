@@ -42,36 +42,30 @@ jobs:
   - get: tanzu-gitops
   - task: build-product-api
     image: concourse-helper
-    file: tanzu-gitops/concourse/tasks/build-spring-petclinic-image/build-spring-petclinic-image.yml
+    file: tanzu-gitops/concourse/tasks/build-product-api-image/build-product-api-image.yml
     params:
-      tkgicluster: ((tanzu-gitops.infra_cluster))
+      tkgicluster: tbs
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))
 
 
 
-- name: spring-petclinic-deploy-new-image
+- name: product-api-deploy-new-image
   public: true
   serial: true
   plan:
-    - get: spring-petclinic-image
+    - get: product-api-image
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
-    - task: deploy-spring-petclinic-image
-      file: tanzu-gitops/concourse/tasks/deploy-spring-petclinic-image/deploy-spring-petclinic-image.yml
+    - task: deploy-product-api-image
+      file: tanzu-gitops/concourse/tasks/deploy-product-api-image/deploy-product-api-image.yml
       image: concourse-helper
       params:
-        tkgicluster: ((tanzu-gitops.workload_cluster))
+        tkgicluster: product-api
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
-    - task: create wavefront event
-      image: concourse-helper
-      file: tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.yml
-      params:
-        WAVEFRONT_API_TOKEN: ((tanzu-gitops.wavefront_api_token))
-        WAVEFRONT_URL: ((tanzu-gitops.wavefront_url))
 
 
