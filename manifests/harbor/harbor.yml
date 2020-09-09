@@ -20,6 +20,8 @@ spec:
     name: harbor
     version: "1.4.1"
   values:
+    database:
+      maxOpenConns: -1
     clair:
       enabled: false
     chartmuseum:
