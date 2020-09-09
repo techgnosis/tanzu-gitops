@@ -1,0 +1,56 @@
+resource_types:
+- name: pivnet
+  type: docker-image
+  source:
+    repository: pivotalcf/pivnet-resource
+    tag: v2.0.0
+
+resources:
+- name: tbs-dependencies
+  type: pivnet
+  source:
+    api_token: ((tanzu-gitops.pivnet_api_token))
+    product_slug: tbs-dependencies
+- name: concourse-helper
+  type: docker-image
+  source:
+    repository: harbor.lab.home/library/concourse-helper
+    tag: 1
+    ca_certs:
+    - domain: harbor.lab.home
+      cert: |
+        ((tanzu-gitops.ca_cert))
+- name: tanzu-gitops
+  type: git
+  source:
+    uri: https://github.com/techgnosis/tanzu-gitops.git
+    branch: master
+    paths:
+      - "concourse/tasks/**"
+
+jobs:
+- name: download tbs dependencies
+  plan:
+  - get: tbs-dependencies
+    params:
+      globs:
+      - "descriptor-*"
+
+- name: deploy tbs dependencies
+  public: true
+  serial: true
+  plan:
+  - get: concourse-helper
+  - get: tanzu-gitops
+  - get: tbs-dependencies
+    trigger: true
+  - task: deploy tbs dependencies
+    image: concourse-helper
+    file: tanzu-gitops/concourse/tasks/deploy-tbs-dependencies/deploy-tbs-dependencies.yml
+    params:
+      tkgicluster: tbs
+      tkgiapi: ((tanzu-gitops.tkgi_url))
+      tkgiuser: ((tanzu-gitops.tkgi_user))
+      tkgipassword: ((tanzu-gitops.tkgi_password))
+
+

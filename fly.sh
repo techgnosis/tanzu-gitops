@@ -19,3 +19,7 @@ fly set-pipeline -t lab \
 fly set-pipeline -t lab \
 -p kubeapps \
 -c concourse/pipeline/kubeapps.yml
+
+fly set-pipeline -t lab \
+-p tbs \
+-c concourse/pipeline/tbs.yml

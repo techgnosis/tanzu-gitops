@@ -7,3 +7,4 @@ kapp-linux-amd64
 ytt-linux-amd64
 sd
 kubectl-argo-rollouts-linux-amd64
+pivnet-linux-amd64-2.0.0

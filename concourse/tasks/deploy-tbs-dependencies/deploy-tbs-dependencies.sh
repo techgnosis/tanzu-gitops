@@ -9,5 +9,5 @@ pks login -a ${tkgiapi} \
 
 pks get-credentials ${tkgicluster}
 
-cp /tmp/build/get/descriptor-*.yaml /tmp/build/get/tbs-dependencies.yaml
-kp import -f /tmp/build/get/tbs-dependencies.yaml
+DESCRIPTOR_NAME=$("ls /tmp/build/get/descriptor-*")
+kp import -f $DESCRIPTOR_NAME

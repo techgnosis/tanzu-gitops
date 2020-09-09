@@ -10,6 +10,7 @@ COPY pks-linux-amd64-1.7.1-build.26 /usr/bin/pks
 COPY tkgi-linux-amd64-1.8.0-build.75 /usr/bin/tkgi
 COPY kp-linux-0.1.1 /usr/bin/kp
 COPY kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
+COPY pivnet-linux-amd64-2.0.0 /usr/bin/pivnet
 
 COPY spring-petclinic /opt/spring-petclinic
 

@@ -13,6 +13,7 @@ read -p "INFRA_CLUSTER: " INFRA_CLUSTER
 read -p "WORKLOAD_CLUSTER: " WORKLOAD_CLUSTER
 read -p "WAVEFRONT API TOKEN: " WAVEFRONT_API_TOKEN
 read -p "WAVEFRONT_URL: " WAVEFRONT_URL
+read -p "PIVNET API TOKEN: " PIVNET_API_TOKEN
 
 
 
@@ -28,6 +29,7 @@ kubectl create secret generic tanzu-gitops \
 --from-file=ca_cert="$(mkcert -CAROOT)/rootCA.pem" \
 --from-literal=wavefront_api_token="${WAVEFRONT_API_TOKEN}" \
 --from-literal=wavefront_url="${WAVEFRONT_URL}" \
+--from-literal=pivnet_api_token="${PIVNET_API_TOKEN}" \
 --dry-run=client \
 -o json | kubeseal > manifests/concourse-main/pipeline-secrets.json
 
