@@ -15,3 +15,7 @@ fly set-pipeline -t lab \
 fly set-pipeline -t lab \
 -p harbor \
 -c concourse/pipeline/harbor.yml
+
+fly set-pipeline -t lab \
+-p kubeapps \
+-c concourse/pipeline/kubeapps.yml
