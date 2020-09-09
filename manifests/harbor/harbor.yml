@@ -18,7 +18,7 @@ spec:
   chart:
     repository: https://helm.goharbor.io
     name: harbor
-    version: "1.4.1"
+    version: "1.4.2"
   values:
     clair:
       enabled: false
