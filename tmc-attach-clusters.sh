@@ -14,12 +14,12 @@ tmc cluster attach --group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAM
 kubectx concourse && kapp deploy -a tmc -f k8s-attach-manifest.yaml -y
 rm k8s-attach-manifest.yaml
 
-tmc cluster attach --group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAME-spring-petclinic-non-prod
-kubectx spring-petclinic-non-prod && kapp deploy -a tmc -f k8s-attach-manifest.yaml -y
+tmc cluster attach --group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAME-spring-petclinic
+kubectx spring-petclinic && kapp deploy -a tmc -f k8s-attach-manifest.yaml -y
 rm k8s-attach-manifest.yaml
 
-tmc cluster attach --group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAME-spring-petclinic-prod
-kubectx spring-petclinic-prod && kapp deploy -a tmc -f k8s-attach-manifest.yaml -y
+tmc cluster attach --group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAME-product-api
+kubectx product-api && kapp deploy -a tmc -f k8s-attach-manifest.yaml -y
 rm k8s-attach-manifest.yaml
 
 tmc cluster attach --group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAME-kubeapps

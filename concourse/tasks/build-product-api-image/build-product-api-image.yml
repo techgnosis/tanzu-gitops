@@ -1,0 +1,14 @@
+platform: linux
+
+inputs:
+  - name: tanzu-gitops
+  - name: product-api
+
+params:
+  tkgicluster:
+  tkgiapi:
+  tkgiuser:
+  tkgipassword:
+
+run:
+  path: "tanzu-gitops/concourse/tasks/build-product-api-image/build-product-api-image.sh"
