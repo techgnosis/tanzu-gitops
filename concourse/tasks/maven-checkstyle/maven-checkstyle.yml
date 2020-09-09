@@ -1,9 +1,0 @@
-platform: linux
-
-inputs:
-  - name: spring-petclinic
-
-run:
-  path: "./mvnw"
-  args: ["validate"]
-  dir: "spring-petclinic"
