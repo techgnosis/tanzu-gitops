@@ -1,0 +1,15 @@
+platform: linux
+
+
+inputs:
+  - name: tbs-dependencies
+
+
+params:
+  tkgicluster:
+  tkgiapi:
+  tkgiuser:
+  tkgipassword:
+
+run:
+  path: "tanzu-gitops/concourse/tasks/deploy-tbs-dependencies/deploy-tbs-dependencies.sh"
