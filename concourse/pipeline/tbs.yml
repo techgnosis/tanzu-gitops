@@ -29,13 +29,6 @@ resources:
       - "concourse/tasks/**"
 
 jobs:
-- name: download tbs dependencies
-  plan:
-  - get: tbs-dependencies
-    params:
-      globs:
-      - "descriptor-*"
-
 - name: deploy tbs dependencies
   public: true
   serial: true

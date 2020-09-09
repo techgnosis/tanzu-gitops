@@ -43,9 +43,6 @@ jobs:
   - task: maven-test
     file: tanzu-gitops/concourse/tasks/maven-test/maven-test.yml
     image: concourse-helper
-  - task: maven-checkstyle
-    image: concourse-helper
-    file: tanzu-gitops/concourse/tasks/maven-checkstyle/maven-checkstyle.yml
   - task: build-spring-petclinic-image
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/build-spring-petclinic-image/build-spring-petclinic-image.yml

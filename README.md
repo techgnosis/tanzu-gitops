@@ -156,6 +156,7 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
+* Test out the Bitnami Contour chart again
 * Pipeline with PivNet resource that downloads and applies new TBS stacks
 * Adopt cert-manager for more declarative TLS
 * Need to find best practices for image promotion

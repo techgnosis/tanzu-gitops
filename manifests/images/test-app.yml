@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: images
+---
+apiVersion: kpack.io/v1alpha1
+kind: Image
+metadata:
+  name: test-app
+  namespace: images
+spec:
+  tag: harbor.lab.home/library/test-app
+  serviceAccount: tbs-service-account
+  builder:
+    name: full
+    kind: ClusterBuilder
+  source:
+    git:
+      url: https://github.com/cloudfoundry-samples/test-app.git
+      revision: master
+
