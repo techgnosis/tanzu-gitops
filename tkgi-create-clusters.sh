@@ -8,9 +8,9 @@ tkgi create-cluster tbs --external-hostname=k8s-tbs.$PRIMARY_DOMAIN --plan=small
 
 tkgi create-cluster concourse --external-hostname=k8s-concourse.$PRIMARY_DOMAIN --plan=small
 
-tkgi create-cluster spring-petclinic-non-prod --external-hostname=k8s-spring-petclinic-non-prod.$PRIMARY_DOMAIN --plan=small
+tkgi create-cluster spring-petclinic --external-hostname=k8s-spring-petclinic.$PRIMARY_DOMAIN --plan=small
 
-tkgi create-cluster spring-petclinic-prod --external-hostname=k8s-spring-petclinic-prod.$PRIMARY_DOMAIN --plan=small
+tkgi create-cluster product-api --external-hostname=k8s-product-api.$PRIMARY_DOMAIN --plan=small
 
 tkgi create-cluster kubeapps --external-hostname=k8s-kubeapps.$PRIMARY_DOMAIN --plan=small
 

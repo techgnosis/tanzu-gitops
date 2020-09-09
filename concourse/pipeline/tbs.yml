@@ -45,5 +45,7 @@ jobs:
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))
+      pivnetusername: ((tanzu-gitops.pivnet_username))
+      pivnetpassword: ((tanzu-gitops.pivnet_password))
 
 

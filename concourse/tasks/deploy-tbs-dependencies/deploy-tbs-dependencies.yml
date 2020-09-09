@@ -11,6 +11,8 @@ params:
   tkgiapi:
   tkgiuser:
   tkgipassword:
+  pivnetuser:
+  pivnetpassword:
 
 run:
   path: "tanzu-gitops/concourse/tasks/deploy-tbs-dependencies/deploy-tbs-dependencies.sh"

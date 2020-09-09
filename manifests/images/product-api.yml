@@ -6,16 +6,16 @@ metadata:
 apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
-  name: test-app
+  name: product-api
   namespace: images
 spec:
-  tag: harbor.lab.home/library/test-app
+  tag: harbor.lab.home/library/product-api
   serviceAccount: tbs-service-account
   builder:
     name: full
     kind: ClusterBuilder
   source:
     git:
-      url: https://github.com/cloudfoundry-samples/test-app.git
+      url: https://github.com/tezizzm/product-api.git
       revision: master
 

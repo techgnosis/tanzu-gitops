@@ -70,25 +70,24 @@ Note: This repo will need some tweaking to work in your environment. I tried to 
 1. `./fly.sh`
 
 
-## spring-petclinic-non-prod
+## spring-petclinic
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-mysql.sh`
-1. `./secrets-spring-petclinic-non-prod.sh`
 1. `./install-argo-rollouts.sh`
-1. `./install-spring-petclinic-non-prod.sh`
+1. `./secrets-spring-petclinic.sh`
+1. `./install-spring-petclinic.sh`
 
-## spring-petclinic-prod
+## product-api
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
-1. `./install-mysql.sh`
-1. `./secrets-spring-petclinic-prod.sh`
 1. `./install-argo-rollouts.sh`
-1. `./install-spring-petclinic-prod.sh`
+1. `./secrets-product-api.sh`
+1. `./install-product-api.sh`
 
 ## Kubeapps
 1. `./install-vsphere-storage.sh`
