@@ -39,11 +39,18 @@ Note: This repo will need some tweaking to work in your environment. I tried to 
 * `mkcert` for all TLS certs
 
 ## TKGI steps
-1. `./tkgi-create-clusters.sh`
-1. `./tkgi-get-credentials.sh`
+Create 7 clusters:
+* `harbor`
+* `tbs`
+* `concourse`
+* `spring-petclinic`
+* `product-api`
+* `kubeapps`
+* `tas`
 
 ## TMC steps
-1. 1. `./tmc-attach-clusters.sh`
+1. `./tmc-attach-cluster.sh <k8s context name>`
+1. Repeat for the rest of the clusters
 
 ## Harbor
 1. `./install-vsphere-storage.sh`
