@@ -12,7 +12,7 @@ spec:
   tag: harbor.lab.home/library/spring-petclinic
   serviceAccount: tbs-service-account
   builder:
-    name: default
+    name: full
     kind: ClusterBuilder
   source:
     git:

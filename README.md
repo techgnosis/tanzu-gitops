@@ -156,15 +156,10 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
-* Adopt Flux or maybe ArgoCD. Something to keep clusters synced.
+* Pipeline with PivNet resource that downloads and applies new TBS stacks
 * Adopt cert-manager for more declarative TLS
 * Need to find best practices for image promotion
-* Add TAS4K8s + minibroker (https://github.com/kubernetes-sigs/minibroker)
 * Use Wavefront to do the analysis during an Argo Rollout
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
 * How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
 * Lots of hardcoded references to `harbor.lab.home` need to be removed
-
-## Wishlist
-* Enable TO integration for any cluster attached to TMC
-* Enable TO integration from the TMC CLI

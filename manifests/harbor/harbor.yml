@@ -38,7 +38,7 @@ spec:
           core: harbor.lab.home
     externalURL: "https://harbor.lab.home"
     persistence:
-      resourcePolicy: "" # Delete PVCs after helm uninstall
+      resourcePolicy: "keep" # Don't delete PVCs after helm uninstall (use "" to delete)
       persistentVolumeClaim:
         registry:
           size: 100Gi
