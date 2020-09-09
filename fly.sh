@@ -9,5 +9,9 @@ fly login \
 --password=test
 
 fly set-pipeline -t lab \
--p tanzu-gitops \
--c concourse/pipeline/pipeline.yml
+-p spring-petclinic \
+-c concourse/pipeline/spring-petclinic.yml
+
+fly set-pipeline -t lab \
+-p harbor \
+-c concourse/pipeline/harbor.yml
