@@ -162,8 +162,9 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
+* Add a pipeline to get test-app into TAS
 * Test out the Bitnami Contour chart again
-* Pipeline with PivNet resource that downloads and applies new TBS stacks
+* Test out TMC Data Protection for spring-petclinic cluster
 * Adopt cert-manager for more declarative TLS
 * Need to find best practices for image promotion
 * Use Wavefront to do the analysis during an Argo Rollout
