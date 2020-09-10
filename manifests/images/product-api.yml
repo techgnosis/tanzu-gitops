@@ -17,5 +17,5 @@ spec:
   source:
     git:
       url: https://github.com/techgnosis/product-api.git
-      revision: master
+      revision: demo
 

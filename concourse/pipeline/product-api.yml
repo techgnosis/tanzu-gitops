@@ -2,7 +2,7 @@ resources:
 - name: product-api
   type: git
   source:
-    uri: https://github.com/tezizzm/product-api.git
+    uri: https://github.com/techgnosis/product-api.git
     branch: master
 - name: tanzu-gitops
   type: git
