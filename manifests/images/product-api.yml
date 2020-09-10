@@ -16,6 +16,6 @@ spec:
     kind: ClusterBuilder
   source:
     git:
-      url: https://github.com/tezizzm/product-api.git
+      url: https://github.com/techgnosis/product-api.git
       revision: master
 

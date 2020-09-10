@@ -9,8 +9,6 @@ kubectx concourse
 read -p "TKGI URL: " TKGI_URL
 read -p "TKGI_USER: " TKGI_USER
 read -p "TKGI_PASSWORD: " TKGI_PASSWORD
-read -p "INFRA_CLUSTER: " INFRA_CLUSTER
-read -p "WORKLOAD_CLUSTER: " WORKLOAD_CLUSTER
 read -p "WAVEFRONT API TOKEN: " WAVEFRONT_API_TOKEN
 read -p "WAVEFRONT_URL: " WAVEFRONT_URL
 read -p "PIVNET API TOKEN: " PIVNET_API_TOKEN
@@ -24,8 +22,6 @@ read -p "PIVNET PASSWORD: " PIVNET_PASSWORD
 
 kubectl create secret generic tanzu-gitops \
 --namespace concourse-main \
---from-literal=infra_cluster="${INFRA_CLUSTER}" \
---from-literal=workload_cluster="${WORKLOAD_CLUSTER}" \
 --from-literal=tkgi_url="${TKGI_URL}" \
 --from-literal=tkgi_user="${TKGI_USER}" \
 --from-literal=tkgi_password="${TKGI_PASSWORD}" \
