@@ -11,5 +11,4 @@ pks get-credentials ${tkgicluster}
 
 docker login registry.pivotal.io -u ${pivnetusername} -p ${pivnetpassword}
 
-DESCRIPTOR_NAME=$("ls tbs-dependencies/descriptor-*")
-kp import -f $DESCRIPTOR_NAME
+kp import -f ./tbs-dependencies/descriptor-*.yaml
