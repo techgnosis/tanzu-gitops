@@ -2,12 +2,12 @@
 
 set -xeuo pipefail
 
-pks login -a ${tkgiapi} \
+tkgi login -a ${tkgiapi} \
 -u ${tkgiuser} \
 -p ${tkgipassword} \
 -k
 
-pks get-credentials ${tkgicluster}
+tkgi get-credentials ${tkgicluster}
 
 export DIGEST=$(cat spring-petclinic-image/digest)
 

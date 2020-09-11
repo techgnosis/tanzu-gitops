@@ -2,11 +2,11 @@
 
 set -xeuo pipefail
 
-pks login -a ${tkgiapi} \
+tkgi login -a ${tkgiapi} \
 -u ${tkgiuser} \
 -p ${tkgipassword} \
 -k
 
-pks get-credentials ${tkgicluster}
+tkgi get-credentials ${tkgicluster}
 
 kapp deploy -a harbor -f tanzu-gitops/manifests/harbor -y
