@@ -1,9 +1,5 @@
 platform: linux
 
-inputs:
-  - name: spring-petclinic
-
 run:
-  path: "./mvnw"
-  args: ["test"]
-  dir: "spring-petclinic"
+  path: "echo"
+  args: ["Unit tests!"]
