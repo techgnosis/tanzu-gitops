@@ -14,7 +14,8 @@ tkgi create-cluster harbor \
 
 tkgi create-cluster tbs \
 --external-hostname=k8s-tbs.$PRIMARY_DOMAIN \
---plan=medium
+--plan=medium \
+--num-nodes=2
 
 tkgi create-cluster spring-petclinic \
 --external-hostname=k8s-spring-petclinic.$PRIMARY_DOMAIN \
@@ -31,6 +32,7 @@ tkgi create-cluster kubeapps \
 --plan=small \
 --num-nodes 3
 
+# It won't install on less than 5 small workers
 tkgi create-cluster tas \
 --external-hostname=k8s-tas.$PRIMARY_DOMAIN \
 --plan=small \
