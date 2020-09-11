@@ -1,1 +1,0 @@
-Concourse builds spring-petclinic in a new container every time which means maven downloads all the dependencies every time. This takes ~7 minutes each time which is not acceptable. This Dockerfile is for building an adoptopenjdk image that already has all of the spring-petclinic dependencies downloaded.

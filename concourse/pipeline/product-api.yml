@@ -3,7 +3,7 @@ resources:
   type: git
   source:
     uri: https://github.com/techgnosis/product-api.git
-    branch: master
+    branch: demo
 - name: tanzu-gitops
   type: git
   source:
@@ -32,7 +32,7 @@ resources:
 
 
 jobs:
-- name: build with tbs
+- name: Build with TBS
   public: true
   serial: true
   plan:
@@ -40,7 +40,7 @@ jobs:
     trigger: true
   - get: concourse-helper
   - get: tanzu-gitops
-  - task: build-product-api
+  - task: handoff to TBS
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/build-product-api-image/build-product-api-image.yml
     params:
@@ -51,7 +51,7 @@ jobs:
 
 
 
-- name: product-api-deploy-new-image
+- name: Deploy to cluster
   public: true
   serial: true
   plan:
@@ -59,7 +59,7 @@ jobs:
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
-    - task: deploy-product-api-image
+    - task: handoff to argo rollouts
       file: tanzu-gitops/concourse/tasks/deploy-product-api-image/deploy-product-api-image.yml
       image: concourse-helper
       params:

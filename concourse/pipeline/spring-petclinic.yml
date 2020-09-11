@@ -32,7 +32,7 @@ resources:
 
 
 jobs:
-- name: spring-petclinic-test-and-build-with-TBS
+- name: Build with TBS
   public: true
   serial: true
   plan:
@@ -40,10 +40,7 @@ jobs:
     trigger: true
   - get: concourse-helper
   - get: tanzu-gitops
-  - task: maven-test
-    file: tanzu-gitops/concourse/tasks/maven-test/maven-test.yml
-    image: concourse-helper
-  - task: build-spring-petclinic-image
+  - task: handoff to TBS
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/build-spring-petclinic-image/build-spring-petclinic-image.yml
     params:
@@ -54,7 +51,7 @@ jobs:
 
 
 
-- name: spring-petclinic-deploy-new-image
+- name: Deploy to cluster
   public: true
   serial: true
   plan:
@@ -62,7 +59,7 @@ jobs:
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
-    - task: deploy-spring-petclinic-image
+    - task: handoff to argo rollouts
       file: tanzu-gitops/concourse/tasks/deploy-spring-petclinic-image/deploy-spring-petclinic-image.yml
       image: concourse-helper
       params:

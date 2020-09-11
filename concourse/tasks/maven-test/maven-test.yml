@@ -1,5 +1,0 @@
-platform: linux
-
-run:
-  path: "echo"
-  args: ["Unit tests!"]

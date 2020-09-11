@@ -1,9 +1,10 @@
-# All
-# It is assumed that everything will exist in this domain
-# You must be able to make DNS entries for this domain
+# These variables are used throughout this project in various scripts
+# Fill them all out ahead of time
+
+# Every resource will exist in this domain
 export PRIMARY_DOMAIN="lab.home"
 
-# TAS4K8s
+######## TAS4K8s
 export YTT_CF_app_registry__hostname="harbor.lab.home"
 export YTT_CF_app_registry__repository_prefix="harbor.lab.home/library"
 export YTT_CF_app_registry__username="admin"
@@ -16,9 +17,9 @@ export YTT_TAS_system_registry__username=""
 # Your PivNet password
 export YTT_TAS_system_registry__password=""
 # The primary domain for TAS4K8s.
-export SYSTEM_DOMAIN="sys.whatever.$PRIMARY_DOMAIN"
+export SYSTEM_DOMAIN="sys.tas.$PRIMARY_DOMAIN"
 
 
-# TMC
+######## TMC
 # Clusters in TMC can be added to groups
 export TMC_CLUSTER_GROUP_NAME=""

@@ -146,7 +146,6 @@ Argo Rollouts is a K8s controller that provides Blue/Green and Canary deploys wi
 Kubeapps is a GUI for Helm that makes it easy to fill out values for Helm charts
 
 ## Quirks I have observed
-* I used an Ubuntu-based image instead of Alpine for the Concourse Helper image. musl behaves strangely sometimes. I was unable to run `ytt` in Alpine.
 * Kubeapps only seems to behave if it is installed in the `default` namespace
 
 
