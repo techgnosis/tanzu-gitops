@@ -107,9 +107,11 @@ Create 7 clusters:
 
 ## TAS
 1. `./install-vsphere-storage.sh`
+1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-minibroker.sh`
 1. `./install-tas.sh`
+1. `./secrets-tas.sh`
 1. `./configure-tas.sh`
 
 
