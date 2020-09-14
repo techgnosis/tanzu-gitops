@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-kubectx spring-petclinic
-
 read -p "PROD WAVEFRONT API TOKEN: " WAVEFRONT_API_TOKEN
 read -p "PROD WAVEFRONT_URL: " WAVEFRONT_URL
 

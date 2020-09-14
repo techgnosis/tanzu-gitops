@@ -3,9 +3,6 @@
 set -euo pipefail
 
 
-kubectx concourse
-
-
 read -p "TKGI URL: " TKGI_URL
 read -p "TKGI_USER: " TKGI_USER
 read -p "TKGI_PASSWORD: " TKGI_PASSWORD

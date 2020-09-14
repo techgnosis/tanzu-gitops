@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-kubectx tas
-
 # Harbor
 mkcert -cert-file tls.crt \
 -key-file tls.key \

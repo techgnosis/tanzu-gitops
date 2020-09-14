@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-kubectx kubeapps
-
 # kubeapps Ingress secret
 mkcert \
 -cert-file tls.crt \

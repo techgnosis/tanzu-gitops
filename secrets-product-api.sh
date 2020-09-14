@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-kubectx product-api
-
 # Ingress secret
 mkcert \
 -cert-file tls.crt \
