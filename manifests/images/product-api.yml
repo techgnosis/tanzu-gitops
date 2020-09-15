@@ -1,3 +1,6 @@
+#@ load("@ytt:data", "data")
+
+
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -9,7 +12,7 @@ metadata:
   name: product-api
   namespace: images
 spec:
-  tag: harbor.lab.home/library/product-api
+  tag: #@ data.values.product_api_image
   serviceAccount: tbs-service-account
   builder:
     name: full

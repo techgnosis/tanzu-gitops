@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-kapp deploy -a images -f manifests/images
+ytt --data-values-env=YTT_TBS -f manifests/images \
+| kapp deploy -a images -f- -y

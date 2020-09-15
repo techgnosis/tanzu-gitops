@@ -1,3 +1,4 @@
+#@ load("@ytt:data", "data")
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -9,7 +10,7 @@ metadata:
   name: spring-petclinic
   namespace: images
 spec:
-  tag: harbor.lab.home/library/spring-petclinic
+  tag: #@ data.values.spring_petclinic_image
   serviceAccount: tbs-service-account
   builder:
     name: full
