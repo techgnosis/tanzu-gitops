@@ -27,7 +27,7 @@ Tanzu Application Catalog:
 * Provide helpful audit information for the images, like CVE scans and open-source licenses
 
 Tanzu Application Service:
-* Managed multi-tenancy for small stateless applications too small for a dedicated cluster
+* Managed multi-tenancy for teams that don't want to touch Kubernetes
 
 
 ## Pre-reqs
