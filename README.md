@@ -32,6 +32,7 @@ Tanzu Application Service:
 
 ## Pre-reqs
 * Ability to make DNS entries for a domain you own
+* `tkgi` to create and authenticate to K8s clusters
 * `direnv` to handle environment variables
 * `helm` to install the Helm operator
 * `kapp` to install everything else
@@ -41,7 +42,7 @@ Tanzu Application Service:
 
 ## Architecture Decisions
 * This repo is full of default usernames and passwords. It's meant to be easy to setup and use as a demo environment. It's not meant to be a production environment. 
-* I use TKGI for my Kubernetes clusters but it doesn't matter where they come from. The `tkgi` folder is completely optional
+* I use TKGI for my Kubernetes clusters. Most of this project is not dependent on TKGI but the Concourse tasks use the `tkgi` CLI to authenticate
 * If a piece of software has a Helm chart, I use the Helm chart
 * If a piece of software does not have a Helm chart then I use `ytt` to template and `kapp` to install
 * I use environment variables heavily as they are the most portable way to configure software
@@ -49,7 +50,7 @@ Tanzu Application Service:
 * The Concourse tasks are not generic or re-usable. This is to make them easier to read and understand.
 * Secrets are handled by `kubeseal` so they can be added to source control. TLS secrets are handled by `cert-manager`
 
-## TKGI steps (doesn't need to be TKGI)
+## TKGI steps
 Create 7 clusters:
 * `harbor`
 * `tbs`
