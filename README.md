@@ -1,3 +1,4 @@
+# Tanzu GitOps
 The goal of this repo is to use the Tanzu portfolio to create easy-to-use, low maintenance Kubernetes environments for developers.
 
 Note: This repo will need some tweaking to work in your environment. 
@@ -29,8 +30,9 @@ Tanzu Application Catalog:
 Tanzu Application Service:
 * Managed multi-tenancy for teams that don't want to touch Kubernetes
 
+## Install Steps
 
-## Pre-reqs
+### Pre-reqs
 * Ability to make DNS entries for a domain you own
 * `tkgi` to create and authenticate to K8s clusters
 * `direnv` to handle environment variables
@@ -40,7 +42,7 @@ Tanzu Application Service:
 * `kubectl` and `kubeseal` to create `SealedSecrets`
 * `mkcert` for all TLS certs
 
-## Architecture Decisions
+### Architecture Decisions
 * This repo is full of default usernames and passwords. It's meant to be easy to setup and use as a demo environment. It's not meant to be a production environment. 
 * I use TKGI for my Kubernetes clusters. Most of this project is not dependent on TKGI but the Concourse tasks use the `tkgi` CLI to authenticate
 * If a piece of software has a Helm chart, I use the Helm chart
@@ -50,7 +52,11 @@ Tanzu Application Service:
 * The Concourse tasks are not generic or re-usable. This is to make them easier to read and understand.
 * Secrets are handled by `kubeseal` so they can be added to source control. TLS secrets are handled by `cert-manager`
 
-## TKGI steps
+### Preparation
+1. Copy `.envrc.template` to `.envrc` and fill out all the values
+1. Use `direnv` to load those values into your environment
+
+### TKGI
 Create 7 clusters:
 * `harbor`
 * `tbs`
@@ -60,11 +66,11 @@ Create 7 clusters:
 * `kubeapps`
 * `tas`
 
-## TMC steps
+### TMC steps
 1. `./tmc-attach-cluster.sh <k8s context name>`
 1. Repeat for the rest of the clusters
 
-## Harbor
+### Harbor
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
@@ -73,13 +79,13 @@ Create 7 clusters:
 1. `./install-ingress-nginx.sh`
 1. `./install-harbor.sh`
 
-## TBS
+### TBS
 1. `./install-vsphere-storage.sh`
 1. `./install-tbs.sh`
 1. `./install-tbs-dependencies.sh`
 1. `./install-images.sh`
 
-## Concourse
+### Concourse
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
@@ -92,7 +98,7 @@ Create 7 clusters:
 1. `./fly.sh`
 
 
-## spring-petclinic
+### spring-petclinic
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
@@ -102,7 +108,7 @@ Create 7 clusters:
 1. `./secrets-spring-petclinic.sh`
 1. `./install-spring-petclinic.sh`
 
-## product-api
+### product-api
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
@@ -111,7 +117,7 @@ Create 7 clusters:
 1. `./secrets-product-api.sh`
 1. `./install-product-api.sh`
 
-## Kubeapps
+### Kubeapps
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
@@ -121,7 +127,7 @@ Create 7 clusters:
 1. `./install-kubeapps.sh`
 1. `./configure-kubeapps.sh`
 
-## TAS
+### TAS
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
@@ -130,7 +136,7 @@ Create 7 clusters:
 1. `./secrets-tas.sh`
 1. `./configure-tas.sh`
 
-
+## Component descriptions
 
 ### vSphere Storage
 Every cluster that has stateful workloads needs a `StorageClass` so that `PersistentVolumes` can be created automatically via `PersistentVolumeClaims`. 
@@ -166,11 +172,7 @@ Argo Rollouts is a K8s controller that provides Blue/Green and Canary deploys wi
 ### Kubeapps
 Kubeapps is a GUI for Helm that makes it easy to fill out values for Helm charts
 
-## Quirks I have observed
-* Kubeapps only seems to behave if it is installed in the `default` namespace
-
-
-## Wavefront
+### Wavefront
 The Concourse pipeline in this project creates a Wavefront Event after a new image is deployed. In order for this to work, you need to setup Wavefront. Follow these steps to get Wavefront ready:
 1. Follow the [Spring Boot Wavefront tutorial](https://docs.wavefront.com/wavefront_springboot_tutorial.html) to get Spring-Petclinic integrated with Wavefront
 1. Clone the default dashboard Wavefront creates for you
@@ -181,12 +183,15 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 1. In your dashboard at the top right where it says "Show Events" change it to "From Dashboard Settings". This will cause your events query to be the source of events for all charts in your dashboard.
 
 
+## Quirks I have observed
+* Kubeapps only seems to behave if it is installed in the `default` namespace. Otherwise it doesn't recognize App Respositories when you try to install anything in a different namespace than `default`.
+* Velero is causing Argo Rollouts to not work after restore
+
 ## TODO
+* Combine spring-petclinic and product-api into the same cluster. Use some RBAC to make it work. Apply it with TMC.
 * Add a pipeline to get test-app into TAS
-* Test out the Bitnami Contour chart again
-* Test out TMC Data Protection for spring-petclinic cluster
-* Need to find best practices for image promotion
+* Figure out why Velero is breaking Argo Rollouts
 * Use Wavefront to do the analysis during an Argo Rollout
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
 * How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
-* Lots of hardcoded references to `harbor.lab.home` need to be removed
+* Lots of hardcoded references to `harbor.lab.home` need to be removed with `ytt`
