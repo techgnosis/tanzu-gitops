@@ -5,12 +5,12 @@ set -euo pipefail
 kubectl patch gateway istio-ingressgateway \
 --namespace cf-system \
 --type='json' \
---patch='[{"op": "replace", "path": "/spec/servers/1/tls/credentialName", "value":"tas-tls"}]'
+--patch='[{"op": "replace", "path": "/spec/servers/1/tls/credentialName", "value":"sys-domain-cert"}]'
 
 kubectl patch gateway istio-ingressgateway \
 --namespace cf-system \
 --type='json' \
---patch='[{"op": "replace", "path": "/spec/servers/2/tls/credentialName", "value":"tas-tls"}]'
+--patch='[{"op": "replace", "path": "/spec/servers/2/tls/credentialName", "value":"apps-domain-cert"}]'
 
 cf api "api.$SYSTEM_DOMAIN"
 

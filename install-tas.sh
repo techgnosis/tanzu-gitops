@@ -13,3 +13,5 @@ kubectl apply \
 ./tanzu-application-service/bin/generate-values.sh -d "${SYSTEM_DOMAIN}" > ./tanzu-application-service/configuration-values/deployment-values.yml
 
 ./tanzu-application-service/bin/install-tas.sh ./tanzu-application-service/configuration-values
+
+kapp deploy -a tas-tls -f manifests/tas

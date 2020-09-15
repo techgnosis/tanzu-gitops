@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: harbor
+  namespace: harbor
+spec:
+  commonName: harbor.lab.home
+  dnsNames:
+  - harbor.lab.home
+  issuerRef:
+    kind: ClusterIssuer
+    name: mkcert
+  secretName: harbor

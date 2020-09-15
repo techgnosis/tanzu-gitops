@@ -1,0 +1,29 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: sys-domain-cert
+  namespace: istio-system
+spec:
+  commonName: '*.sys.tas.lab.home'
+  dnsNames:
+  - sys.tas.lab.home
+  - "*.sys.tas.lab.home"
+  issuerRef:
+    kind: ClusterIssuer
+    name: mkcert
+  secretName: sys-domain-cert
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: apps-domain-cert
+  namespace: istio-system
+spec:
+  commonName: '*.apps.sys.tas.lab.home'
+  dnsNames:
+  - apps.sys.tas.lab.home
+  - "*.apps.sys.tas.lab.home"
+  issuerRef:
+    kind: ClusterIssuer
+    name: mkcert
+  secretName: apps-domain-cert

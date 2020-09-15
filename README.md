@@ -56,8 +56,9 @@ Create 7 clusters:
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
+1. `./install-cert-manager.sh`
+1. `./secrets-cert-manager.sh`
 1. `./install-ingress-nginx.sh`
-1. `./secrets-harbor.sh`
 1. `./install-harbor.sh`
 
 ## TBS
@@ -71,6 +72,8 @@ Create 7 clusters:
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
+1. `./install-cert-manager.sh`
+1. `./secrets-cert-manager.sh`
 1. `./secrets-concourse.sh`
 1. `./install-concourse.sh`
 1. `./install-concourse-main.sh`
@@ -101,7 +104,8 @@ Create 7 clusters:
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
-1. `./secrets-kubeapps.sh`
+1. `./install-cert-manager.sh`
+1. `./secrets-cert-manager.sh`
 1. `./install-kubeapps.sh`
 1. `./configure-kubeapps.sh`
 
