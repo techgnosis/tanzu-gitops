@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: kubeapps
+  namespace: default
+spec:
+  commonName: kubeapps.lab.home
+  dnsNames:
+  - kubeapps.lab.home
+  issuerRef:
+    kind: ClusterIssuer
+    name: mkcert
+  secretName: kubeapps.lab.home-tls
