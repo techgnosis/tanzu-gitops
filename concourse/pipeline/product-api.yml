@@ -12,19 +12,19 @@ resources:
 - name: product-api-image
   type: docker-image
   source:
-    repository: harbor.lab.home/library/product-api
+    repository: ((harbor-domain))/library/product-api
     tag: latest
     ca_certs:
-    - domain: harbor.lab.home
+    - domain: ((harbor-domain))
       cert: |
         ((tanzu-gitops.ca_cert))
 - name: concourse-helper
   type: docker-image
   source:
-    repository: harbor.lab.home/library/concourse-helper
+    repository: ((harbor-domain))/library/concourse-helper
     tag: 1
     ca_certs:
-    - domain: harbor.lab.home
+    - domain: ((harbor-domain))
       cert: |
         ((tanzu-gitops.ca_cert))
 

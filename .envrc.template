@@ -4,6 +4,9 @@
 # Every resource will exist in this domain
 export PRIMARY_DOMAIN="lab.home"
 
+# Hostname of Harbor. 
+export HARBOR_DOMAIN="harbor.lab.home"
+
 ######## TAS4K8s
 export YTT_CF_app_registry__hostname="harbor.lab.home"
 export YTT_CF_app_registry__repository_prefix="harbor.lab.home/library"
