@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -35,10 +37,10 @@ spec:
         secretName: harbor
       ingress:
         hosts:
-          core: harbor.lab.home
-    externalURL: "https://harbor.lab.home"
+          core: #@ data.values.common_name
+    externalURL: #@ "https://" + data.values.common_name
     persistence:
-      resourcePolicy: "keep" # Don't delete PVCs after helm uninstall (use "" to delete)
+      resourcePolicy: "keep"
       persistentVolumeClaim:
         registry:
           size: 100Gi

@@ -1,12 +1,14 @@
+#@ load("@ytt:data", "data")
+
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: harbor
   namespace: harbor
 spec:
-  commonName: harbor.lab.home
+  commonName: #@ data.values.common_name
   dnsNames:
-  - harbor.lab.home
+  - #@ data.values.common_name
   issuerRef:
     kind: ClusterIssuer
     name: mkcert
