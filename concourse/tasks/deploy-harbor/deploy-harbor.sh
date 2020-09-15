@@ -9,4 +9,5 @@ tkgi login -a ${tkgiapi} \
 
 tkgi get-credentials ${tkgicluster}
 
-kapp deploy -a harbor -f tanzu-gitops/manifests/harbor -y
+ytt --data-values-env=YTT_HARBOR -f tanzu-gitops/manifests/harbor \
+| kapp deploy -a harbor -f- -y
