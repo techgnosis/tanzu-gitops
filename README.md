@@ -24,7 +24,7 @@ TAS4K8s:
 
 Note: This repo will need some tweaking to work in your environment. I tried to keep things as portable as possible but mistakes were made.
 
-## Pre-reqs (to use my code as-is)
+## Pre-reqs
 * Ability to make DNS entries for a domain you own
 * TKGI installed on vSphere
 * You have at least `pks.clusters.manage` scope
@@ -35,7 +35,6 @@ Note: This repo will need some tweaking to work in your environment. I tried to 
 * `kapp` to install everything else
 * `bash` to run all the install scripts
 * `kubectl` and `kubeseal` to create `SealedSecrets`
-* `kubectx` for easily changing K8s contexts 
 * `mkcert` for all TLS certs
 
 ## TKGI steps
@@ -132,6 +131,9 @@ The Helm Operator makes it easy to use Helm while also sticking to an infrastruc
 ### Ingress
 Ingress controllers are easier to manage than NodePorts for every app. Use the [Kubernetes in-tree nginx Ingress controller](https://github.com/techgnosis/ingress). It works fine for a lab environment. This implementation uses `hostNetwork: true` to bind port 443 for convenience.
 
+### cert-manager
+[cert-manager](https://cert-manager.io/docs/) allows you to create certificates as Kubernetes resources. It supports a variety of backends. In this repo we are using `mkcert` as a CA and using cert-manager in CA mode.
+
 ### Harbor
 Harbor is an OCI image registry with lots of great security features. Harbor uses Trivy to scan your images for CVEs and can prevent images with CVEs from being downloaded.
 
@@ -170,7 +172,6 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 * Add a pipeline to get test-app into TAS
 * Test out the Bitnami Contour chart again
 * Test out TMC Data Protection for spring-petclinic cluster
-* Adopt cert-manager for more declarative TLS
 * Need to find best practices for image promotion
 * Use Wavefront to do the analysis during an Argo Rollout
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
