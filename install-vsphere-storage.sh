@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-kapp deploy -a vsphere-storage -f manifests/vsphere-storage -y
+kapp deploy -a vsphere-storage -f manifests/vsphere-storage

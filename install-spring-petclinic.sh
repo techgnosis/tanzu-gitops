@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-kapp deploy -a spring-petclinic -f manifests/spring-petclinic -y
+kapp deploy -a spring-petclinic -f manifests/spring-petclinic

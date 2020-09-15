@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-kapp deploy -a ingress-nginx -f manifests/ingress-nginx/ingress-nginx.yml -y
+kapp deploy -a ingress-nginx -f manifests/ingress-nginx/ingress-nginx.yml

@@ -9,7 +9,8 @@ export VERSION="1.1.0"
 helm template helm-operator fluxcd/helm-operator \
 --namespace helm-operator \
 --set helm.versions=v3 \
---version $VERSION | kapp deploy \
+--version $VERSION \
+| kapp deploy \
 -a helm-operator \
 --into-ns=helm-operator \
 -y \
