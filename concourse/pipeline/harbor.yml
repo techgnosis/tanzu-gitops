@@ -34,5 +34,6 @@ jobs:
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))
+      YTT_HARBOR_common_name: ((harbor-domain))
 
 
