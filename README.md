@@ -4,31 +4,33 @@ TKGI:
 * Kubernetes cluster lifecycle platform
 * Allows individual cluster upgrades or all-at-once upgrades
 * Integration with your LDAP or SAML IdP for cluster authentication
+
 TMC:
 * Manage cluster access
 * Manage admission and network policy
 * Use TO integration to monitor cluster metrics
 * Use Data Protection to backup clusters
+
 TO:
 * Sole source of metrics for platform teams and application teams
 * Show everything from IaaS to K8s to application metrics
 * Provide metrics for use in Canary deploy
+
 TBS:
 * Build secure OCI images without Docker
 * Keep images up-to-date on latest golden image
+
 TAC:
 * Build trusted Helm charts and images onto your golden image
 * Provide helpful audit information for the images, like CVE scans and open-source licenses
+
 TAS4K8s:
 * Managed multi-tenancy for small stateless applications too small for a dedicated cluster
 
-Note: This repo will need some tweaking to work in your environment. I tried to keep things as portable as possible but mistakes were made.
+Note: This repo will need some tweaking to work in your environment. 
 
 ## Pre-reqs
 * Ability to make DNS entries for a domain you own
-* TKGI installed on vSphere
-* You have at least `pks.clusters.manage` scope
-* A VSAN datastore named `vsanDatastore`
 * `direnv` to handle environment variables
 * `tkgi` to create Kubernetes clusters
 * `helm` to install the Helm operator
@@ -37,7 +39,15 @@ Note: This repo will need some tweaking to work in your environment. I tried to 
 * `kubectl` and `kubeseal` to create `SealedSecrets`
 * `mkcert` for all TLS certs
 
-## TKGI steps
+## Architecture Decisions
+* I use TKGI for my Kubernetes clusters but it doesn't matter where they come from. The `tkgi` folder is completely optional
+* If a piece of software has a Helm chart, I use the Helm chart
+* If a piece of software does not have a Helm chart then I use `ytt` to template and `kapp` to install
+* I use environment variables heavily as they are the most portable way to configure software
+* Demo environments don't need Lets Encrypt so this project uses `mkcert` which is much easier
+* The Concourse tasks are not generic or re-usable. This is to make them easier to read and understand.
+
+## TKGI steps (doesn't need to be TKGI)
 Create 7 clusters:
 * `harbor`
 * `tbs`
