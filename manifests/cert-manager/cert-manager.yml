@@ -18,4 +18,4 @@ spec:
     name: cert-manager
     version: "v1.0.1"
   values:
-    installCRDs: true
+    installCRDs: false
