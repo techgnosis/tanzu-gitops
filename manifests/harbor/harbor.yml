@@ -29,7 +29,7 @@ spec:
     trivy:
       enabled: true
     notary:
-      enabled: false
+      enabled: true
     expose:
       type: ingress
       tls:
