@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-kapp deploy -a spring-petclinic -f manifests/spring-petclinic
+ytt --data-values-env=YTT_SPRINGPETCLINIC -f manifests/spring-petclinic \
+| kapp deploy -a spring-petclinic -f- -f manifests/spring-petclinic/wavefront-secrets.json -y

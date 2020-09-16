@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-kapp deploy -a product-api -f manifests/product-api
+ytt --data-values-env=YTT_PRODUCTAPI -f manifests/product-api \
+| kapp deploy -a product-api -f- -y

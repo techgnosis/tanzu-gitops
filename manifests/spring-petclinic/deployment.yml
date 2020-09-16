@@ -1,3 +1,4 @@
+#@ load("@ytt:data", "data")
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,7 +16,7 @@ spec:
     spec:
       containers:
       - name: spring-petclinic
-        image: harbor.lab.home/library/spring-petclinic:latest
+        image: #@ data.values.image
         ports:
         - containerPort: 8080
         env:

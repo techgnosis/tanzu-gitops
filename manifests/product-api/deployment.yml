@@ -1,3 +1,4 @@
+#@ load("@ytt:data", "data")
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,6 +16,6 @@ spec:
     spec:
       containers:
       - name: product-api
-        image: harbor.lab.home/library/product-api:latest
+        image: #@ data.values.image
         ports:
         - containerPort: 80

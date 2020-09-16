@@ -1,3 +1,4 @@
+#@ load("@ytt:data", "data")
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -7,7 +8,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: {{ .Values.ingressHostname }}
+  - host: #@ data.values.ingress_hostname
     http:
       paths:
       - backend:
@@ -16,5 +17,5 @@ spec:
         path: /
   tls:
   - hosts:
-    - {{ .Values.ingressHostname }}
+    - #@ data.values.ingress_hostname
     secretName: spring-petclinic-tls
