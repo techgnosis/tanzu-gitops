@@ -10,4 +10,4 @@ tkgi login -a ${tkgiapi} \
 tkgi get-credentials ${tkgicluster}
 
 export DIGEST=$(cat product-api-image/digest)
-kubectl -n product-api set image deployment/product-api product-api=harbor.lab.home/library/product-api@$DIGEST
+kubectl -n product-api set image deployment/product-api product-api=${harbor-domain}/library/product-api@$DIGEST
