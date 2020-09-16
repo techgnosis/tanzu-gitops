@@ -59,7 +59,7 @@ jobs:
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
-    - task: handoff to argo rollouts
+    - task: handoff to Deployment controller
       file: tanzu-gitops/concourse/tasks/deploy-spring-petclinic-image/deploy-spring-petclinic-image.yml
       image: concourse-helper
       params:

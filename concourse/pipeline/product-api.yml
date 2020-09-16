@@ -59,7 +59,7 @@ jobs:
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
-    - task: handoff to argo rollouts
+    - task: handoff to Deployment controller
       file: tanzu-gitops/concourse/tasks/deploy-product-api-image/deploy-product-api-image.yml
       image: concourse-helper
       params:
