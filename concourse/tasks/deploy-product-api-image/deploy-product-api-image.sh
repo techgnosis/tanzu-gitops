@@ -10,5 +10,4 @@ tkgi login -a ${tkgiapi} \
 tkgi get-credentials ${tkgicluster}
 
 export DIGEST=$(cat product-api-image/digest)
-
-kubectl argo rollouts set image -n product-api product-api product-api=harbor.lab.home/library/product-api@$DIGEST
+kubectl -n product-api set image deployment/product-api product-api=harbor.lab.home/library/product-api@$DIGEST
