@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-kapp deploy -a argo-rollouts -f manifests/argo-rollouts --into-ns=argo-rollouts -y
+kapp deploy -a argo-rollouts -f manifests/argo-rollouts --into-ns=argo-rollouts
