@@ -104,7 +104,6 @@ Create 7 clusters:
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-mysql.sh`
-1. `./install-argo-rollouts.sh`
 1. `./secrets-spring-petclinic.sh`
 1. `./install-spring-petclinic.sh`
 
@@ -113,7 +112,6 @@ Create 7 clusters:
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
-1. `./install-argo-rollouts.sh`
 1. `./secrets-product-api.sh`
 1. `./install-product-api.sh`
 
@@ -162,10 +160,6 @@ Tanzu Build Service (TBS) uses Cloud Native Buildpacks to turn source code into 
 ### Concourse
 Concourse is a container workflow tool commonly used for "CI/CD". Container workflow tools are the "glue" to connect pieces of the software delivery chain together. In this repo it is used to validate a git commit before telling Tanzu Build Service to build that commit and begin its lifecycle. Validation consists of running tests and checkstyle with maven but could be as in-depth as your organization requires.
 
-### Argo Rollouts
-Argo Rollouts is a K8s controller that provides Blue/Green and Canary deploys with metrics analysis. Argo Rollouts provides a `Rollout` resource that is used in leiu of a standard `Deployment` resource.
-
-
 ### spring-petclinic
 [spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
 
@@ -185,13 +179,11 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 ## Quirks I have observed
 * Kubeapps only seems to behave if it is installed in the `default` namespace. Otherwise it doesn't recognize App Respositories when you try to install anything in a different namespace than `default`.
-* Velero is causing Argo Rollouts to not work after restore
+
 
 ## TODO
 * Combine spring-petclinic and product-api into the same cluster. Use some RBAC to make it work. Apply it with TMC.
 * Add a pipeline to get test-app into TAS
-* Figure out why Velero is breaking Argo Rollouts
-* Use Wavefront to do the analysis during an Argo Rollout
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
 * How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
 * Lots of hardcoded references to `harbor.lab.home` need to be removed with `ytt`
