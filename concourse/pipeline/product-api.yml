@@ -67,5 +67,6 @@ jobs:
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
+        harbor-domain: ((harbor-domain))
 
 
