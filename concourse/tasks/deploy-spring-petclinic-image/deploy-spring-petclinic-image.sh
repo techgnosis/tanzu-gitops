@@ -10,5 +10,4 @@ tkgi login -a ${tkgiapi} \
 tkgi get-credentials ${tkgicluster}
 
 export DIGEST=$(cat spring-petclinic-image/digest)
-
-kubectl argo rollouts set image -n spring-petclinic spring-petclinic spring-petclinic=harbor.lab.home/library/spring-petclinic@$DIGEST
+kubectl -n spring-petclinic set image deployment/spring-petclinic spring-petclinic=harbor.lab.home/library/spring-petclinic@$DIGEST
