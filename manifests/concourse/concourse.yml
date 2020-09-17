@@ -1,8 +1,4 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: concourse
----
+#@ load("@ytt:data", "data")
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
@@ -22,15 +18,15 @@ spec:
   values:
     concourse:
       web:
-        externalUrl: https://concourse.lab.home
+        externalUrl: #@ "https://" + data.values.concourse_hostname
         kubernetes:
           keepNamespaces: false
     web:
       ingress:
         enabled: true
         hosts:
-          - concourse.lab.home
+          - #@ data.values.concourse_hostname
         tls:
           - secretName: concourse-web-tls
             hosts:
-              - concourse.lab.home
+              - #@ data.values.concourse_hostname

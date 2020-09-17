@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-kapp deploy -a concourse -f manifests/concourse
+ytt --data-values-env=YTT_CONCOURSE -f manifests/concourse \
+| kapp deploy -a concourse -f- -y
