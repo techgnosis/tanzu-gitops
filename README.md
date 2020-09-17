@@ -155,16 +155,16 @@ Ingress controllers are easier to manage than NodePorts for every app. Use the [
 Harbor is an OCI image registry with lots of great security features. Harbor uses Trivy to scan your images for CVEs and can prevent images with CVEs from being downloaded.
 
 ### Tanzu Build Service
-Tanzu Build Service (TBS) uses Cloud Native Buildpacks to turn source code into OCI images. TBS has no UI and does not use the Ingress controller.
+Tanzu Build Service (TBS) uses Cloud Native Buildpacks to turn source code into OCI images. 
 
 ### Concourse
-Concourse is a container workflow tool commonly used for "CI/CD". Container workflow tools are the "glue" to connect pieces of the software delivery chain together. In this repo it is used to validate a git commit before telling Tanzu Build Service to build that commit and begin its lifecycle. Validation consists of running tests and checkstyle with maven but could be as in-depth as your organization requires.
+Concourse is a container workflow tool commonly used for "CI/CD". Container workflow tools are the "glue" to connect pieces of the software delivery chain together. In this repo Concourse is used to direct a git commit to TBS and then send the resulting image to the Deployment controller.
 
 ### spring-petclinic
 [spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
 
 ### Kubeapps
-Kubeapps is a GUI for Helm that makes it easy to fill out values for Helm charts
+Kubeapps is a GUI for Helm that makes it easy to explore Helm repos
 
 ### Wavefront
 The Concourse pipeline in this project creates a Wavefront Event after a new image is deployed. In order for this to work, you need to setup Wavefront. Follow these steps to get Wavefront ready:
