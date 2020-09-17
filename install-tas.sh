@@ -16,5 +16,5 @@ kubectl apply \
 
 # Install the Certificate resource into istio-system so I can
 # use it in configure-tas.sh
-ytt --data-values-env=YTT_TAS_TLS -f manifests/tas \
+ytt --data-values-env=YTT_TLSTAS -f manifests/tas \
 | kapp deploy -a tas-tls -f- -y
