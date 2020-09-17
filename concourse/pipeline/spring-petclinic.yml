@@ -61,7 +61,7 @@ jobs:
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
-    - task: handoff to Deployment controller
+    - task: handoff to Kubernetes
       file: tanzu-gitops/concourse/tasks/deploy-spring-petclinic-image/deploy-spring-petclinic-image.yml
       image: concourse-helper
       params:

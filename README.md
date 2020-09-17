@@ -182,6 +182,7 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
+* Airgapped Helm. Relocate images with `kbld` and use `kapp` to deploy them
 * Combine spring-petclinic and product-api into the same cluster called `diy`. Use some RBAC to make it work. Apply it with TMC.
 * Add a pipeline to get test-app into TAS
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
