@@ -6,7 +6,7 @@ resources:
     branch: master
     paths:
      - "manifests/harbor/*"
-     - "concourse/tasks/*"
+     - "concourse/tasks/**"
 - name: concourse-helper
   type: docker-image
   source:

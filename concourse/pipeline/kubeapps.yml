@@ -6,7 +6,7 @@ resources:
     branch: master
     paths:
      - "manifests/kubeapps/*"
-     - "concourse/tasks/*"
+     - "concourse/tasks/**"
 - name: concourse-helper
   type: docker-image
   source:

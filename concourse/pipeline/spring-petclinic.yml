@@ -9,6 +9,8 @@ resources:
   source:
     uri: https://github.com/techgnosis/tanzu-gitops.git
     branch: master
+    paths:
+     - "concourse/tasks/**"
 - name: spring-petclinic-image
   type: docker-image
   source:
