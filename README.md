@@ -186,4 +186,3 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 * Add a pipeline to get test-app into TAS
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
 * How do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
-* Lots of hardcoded references to `harbor.lab.home` need to be removed with `ytt`
