@@ -5,12 +5,21 @@ export PRIMARY_DOMAIN="lab.home"
 # Hostname of Harbor. 
 export HARBOR_DOMAIN="harbor.$PRIMARY_DOMAIN"
 
-# YTT HARBOR
-export YTT_HARBOR_common_name="$HARBOR_DOMAIN"
+# YTT product-api
+export YTT_PRODUCTAPI_image="$HARBOR_DOMAIN/library/product-api:latest"
+export YTT_PRODUCTAPI_ingress_hostname="product-api.lab.home"
 
-# YTT TBS
+# YTT spring-petclinic
+export YTT_SPRINGPETCLINIC_image="$HARBOR_DOMAIN/library/spring-petclinic:latest"
+export YTT_SPRINGPETCLINIC_ingress_hostname="spring-petclinic.lab.home"
+
+# YTT harbor
+export YTT_HARBOR_common_name="harbor.lab.home"
+
+# YTT images
 export YTT_TBS_product_api_image="$HARBOR_DOMAIN/library/product-api"
 export YTT_TBS_spring_petclinic_image="$HARBOR_DOMAIN/library/spring-petclinic"
+export YTT_TBS_harbor="$HARBOR_DOMAIN"
 
 # TAS4K8s
 export YTT_CF_app_registry__hostname="$HARBOR_DOMAIN"
