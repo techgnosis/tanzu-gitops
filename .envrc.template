@@ -16,6 +16,12 @@ export YTT_SPRINGPETCLINIC_ingress_hostname="spring-petclinic.lab.home"
 # YTT harbor
 export YTT_HARBOR_common_name="harbor.lab.home"
 
+# YTT concourse
+export YTT_CONCOURSE_concourse_hostname="concourse.lab.home"
+
+# YTT kubeapps
+export YTT_KUBEAPPS_kubeapps_hostname="kubeapps.$PRIMARY_DOMAIN"
+
 # YTT images
 export YTT_TBS_product_api_image="$HARBOR_DOMAIN/library/product-api"
 export YTT_TBS_spring_petclinic_image="$HARBOR_DOMAIN/library/spring-petclinic"
@@ -35,6 +41,8 @@ export YTT_TAS_system_registry__username=""
 export YTT_TAS_system_registry__password=""
 # The primary domain for TAS4K8s.
 export SYSTEM_DOMAIN="sys.tas.$PRIMARY_DOMAIN"
+
+export YTT_TAS_TLS_primary_domain="lab.home"
 
 
 # TMC
