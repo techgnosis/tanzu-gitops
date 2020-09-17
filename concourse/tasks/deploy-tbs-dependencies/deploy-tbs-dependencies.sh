@@ -10,6 +10,6 @@ tkgi login -a ${tkgiapi} \
 tkgi get-credentials ${tkgicluster}
 
 docker login registry.pivotal.io -u ${pivnetusername} -p ${pivnetpassword}
-docker login ${harbor-domain} -u admin -p Harbor12345
+docker login "${harbor-domain}" -u admin -p Harbor12345
 
 kp import -f ./tbs-dependencies/descriptor-*.yaml
