@@ -1,12 +1,14 @@
+#@ load("@ytt:data", "data")
+
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: product-api
   namespace: product-api
 spec:
-  commonName: product-api.lab.home
+  commonName: #@ data.values.ingress_hostname
   dnsNames:
-  - product-api.lab.home
+  - #@ data.values.ingress_hostname
   issuerRef:
     kind: ClusterIssuer
     name: mkcert

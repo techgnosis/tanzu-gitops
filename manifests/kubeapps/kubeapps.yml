@@ -1,4 +1,3 @@
-# kubeapps behaves weird if you don't install it into default namespace
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:

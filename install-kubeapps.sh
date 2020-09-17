@@ -2,4 +2,5 @@
 
 set -euo pipefail
 
-kapp deploy -a kubeapps -f manifests/kubeapps
+ytt --data-values-env=YTT_KUBEAPPS -f manifests/kubeapps \
+| kapp deploy -a kubeapps -f- -y

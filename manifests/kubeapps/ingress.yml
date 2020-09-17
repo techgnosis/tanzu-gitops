@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -7,7 +9,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: kubeapps.lab.home
+  - host: #@ data.values.kubeapps_hostname
     http:
       paths:
       - backend:
@@ -16,5 +18,5 @@ spec:
         path: /
   tls:
   - hosts:
-    - kubeapps.lab.home
-    secretName: kubeapps.lab.home-tls
+    - #@ data.values.kubeapps_hostname
+    secretName: kubeapps-tls
