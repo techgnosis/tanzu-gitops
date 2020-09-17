@@ -26,7 +26,8 @@ fly set-pipeline -t lab \
 fly set-pipeline -t lab \
 -p kubeapps \
 -c concourse/pipeline/kubeapps.yml \
--v harbordomain=$HARBOR_DOMAIN
+-v harbordomain=$HARBOR_DOMAIN \
+-v kubeappshostname=$KUBEAPPS_HOSTNAME
 
 fly set-pipeline -t lab \
 -p tbs \

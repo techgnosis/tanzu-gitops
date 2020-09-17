@@ -9,6 +9,7 @@ params:
   tkgiapi:
   tkgiuser:
   tkgipassword:
+  YTT_KUBEAPPS_kubeapps_hostname:
 
 run:
   path: "tanzu-gitops/concourse/tasks/deploy-kubeapps/deploy-kubeapps.sh"

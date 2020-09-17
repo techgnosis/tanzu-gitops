@@ -9,4 +9,5 @@ tkgi login -a ${tkgiapi} \
 
 tkgi get-credentials ${tkgicluster}
 
-kapp deploy -a kubeapps -f tanzu-gitops/manifests/kubeapps -y
+ytt --data-values-env=YTT_KUBEAPPS -f manifests/kubeapps \
+| kapp deploy -a kubeapps -f- -y
