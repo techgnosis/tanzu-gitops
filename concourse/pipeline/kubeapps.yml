@@ -10,10 +10,10 @@ resources:
 - name: concourse-helper
   type: docker-image
   source:
-    repository: ((harbor-domain))/library/concourse-helper
+    repository: ((harbordomain))/library/concourse-helper
     tag: 1
     ca_certs:
-    - domain: ((harbor-domain))
+    - domain: ((harbordomain))
       cert: |
         ((tanzu-gitops.ca_cert))
 

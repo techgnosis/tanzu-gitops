@@ -12,19 +12,19 @@ resources:
 - name: spring-petclinic-image
   type: docker-image
   source:
-    repository: ((harbor-domain))/library/spring-petclinic
+    repository: ((harbordomain))/library/spring-petclinic
     tag: latest
     ca_certs:
-    - domain: ((harbor-domain))
+    - domain: ((harbordomain))
       cert: |
         ((tanzu-gitops.ca_cert))
 - name: concourse-helper
   type: docker-image
   source:
-    repository: ((harbor-domain))/library/concourse-helper
+    repository: ((harbordomain))/library/concourse-helper
     tag: 1
     ca_certs:
-    - domain: ((harbor-domain))
+    - domain: ((harbordomain))
       cert: |
         ((tanzu-gitops.ca_cert))
 
@@ -67,7 +67,7 @@ jobs:
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
-        harbordomain: ((harbor-domain))
+        harbordomain: ((harbordomain))
     - task: create wavefront event
       image: concourse-helper
       file: tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.yml
