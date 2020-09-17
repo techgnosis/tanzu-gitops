@@ -1,10 +1,11 @@
+#@ load("@ytt:data", "data")
 apiVersion: v1
 kind: Secret
 metadata:
   name: harbor-creds
   namespace: images
   annotations:
-    kpack.io/docker: https://harbor.lab.home
+    kpack.io/docker: #@ "https://" + data.values.harbor
 type: kubernetes.io/basic-auth
 stringData:
   username: admin
