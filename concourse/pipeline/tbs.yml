@@ -47,6 +47,6 @@ jobs:
       tkgipassword: ((tanzu-gitops.tkgi_password))
       pivnetusername: ((tanzu-gitops.pivnet_username))
       pivnetpassword: ((tanzu-gitops.pivnet_password))
-      harbor-domain: ((harbor-domain))
+      harbordomain: ((harbor-domain))
 
 

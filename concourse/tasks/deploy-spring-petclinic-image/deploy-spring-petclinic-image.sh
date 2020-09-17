@@ -10,4 +10,4 @@ tkgi login -a ${tkgiapi} \
 tkgi get-credentials ${tkgicluster}
 
 export DIGEST=$(cat spring-petclinic-image/digest)
-kubectl -n spring-petclinic set image deployment/spring-petclinic spring-petclinic=${harbor-domain}/library/spring-petclinic@$DIGEST
+kubectl -n spring-petclinic set image deployment/spring-petclinic spring-petclinic=${harbordomain}/library/spring-petclinic@$DIGEST

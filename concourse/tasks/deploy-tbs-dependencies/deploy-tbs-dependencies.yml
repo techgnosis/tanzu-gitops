@@ -13,7 +13,7 @@ params:
   tkgipassword:
   pivnetuser:
   pivnetpassword:
-  harbor-domain:
+  harbordomain:
 
 run:
   path: "tanzu-gitops/concourse/tasks/deploy-tbs-dependencies/deploy-tbs-dependencies.sh"
