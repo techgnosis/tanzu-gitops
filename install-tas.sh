@@ -14,4 +14,6 @@ kubectl apply \
 
 ./tanzu-application-service/bin/install-tas.sh ./tanzu-application-service/configuration-values
 
+# Install the Certificate resource into istio-system so I can
+# use it in configure-tas.sh
 kapp deploy -a tas-tls -f manifests/tas
