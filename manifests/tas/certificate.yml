@@ -1,13 +1,15 @@
+#@ load("@ytt:data", "data")
+
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: sys-domain-cert
   namespace: istio-system
 spec:
-  commonName: '*.sys.tas.lab.home'
+  commonName: #@ "*.sys.tas." + data.values.primary_domain
   dnsNames:
-  - sys.tas.lab.home
-  - "*.sys.tas.lab.home"
+  - #@ "sys.tas." + data.values.primary_domain
+  - #@ "*.sys.tas." + data.values.primary_domain
   issuerRef:
     kind: ClusterIssuer
     name: mkcert
@@ -19,10 +21,10 @@ metadata:
   name: apps-domain-cert
   namespace: istio-system
 spec:
-  commonName: '*.apps.sys.tas.lab.home'
+  commonName: #@ "*.apps.sys.tas." + data.values.primary_domain
   dnsNames:
-  - apps.sys.tas.lab.home
-  - "*.apps.sys.tas.lab.home"
+  - #@ "apps.sys.tas." + data.values.primary_domain
+  - #@ "*.apps.sys.tas." + data.values.primary_domain
   issuerRef:
     kind: ClusterIssuer
     name: mkcert
