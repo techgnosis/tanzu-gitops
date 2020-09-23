@@ -25,7 +25,7 @@ spec:
     clair:
       enabled: false
     chartmuseum:
-      enabled: false
+      enabled: true
     trivy:
       enabled: true
     notary:

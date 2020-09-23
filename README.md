@@ -72,10 +72,8 @@ Create 7 clusters:
 
 ### Harbor
 1. `./install-vsphere-storage.sh`
-1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-cert-manager.sh`
-1. `./secrets-cert-manager.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-harbor.sh`
 
@@ -91,7 +89,6 @@ Create 7 clusters:
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-cert-manager.sh`
-1. `./secrets-cert-manager.sh`
 1. `./secrets-concourse.sh`
 1. `./install-concourse.sh`
 1. `./install-concourse-main.sh`
@@ -104,6 +101,7 @@ Create 7 clusters:
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-mysql.sh`
+1. `./install-cert-manager.sh`
 1. `./secrets-spring-petclinic.sh`
 1. `./install-spring-petclinic.sh`
 
@@ -112,6 +110,7 @@ Create 7 clusters:
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
+1. `./install-cert-manager.sh`
 1. `./secrets-product-api.sh`
 1. `./install-product-api.sh`
 
@@ -121,7 +120,6 @@ Create 7 clusters:
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-cert-manager.sh`
-1. `./secrets-cert-manager.sh`
 1. `./install-kubeapps.sh`
 1. `./configure-kubeapps.sh`
 
@@ -182,7 +180,7 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
-* Airgapped Helm. Relocate images with `kbld` and use `kapp` to deploy them
+* Airgapped Helm. Relocate images with `kbld` and use `charts-syncer` to fix the Helm charts
 * Combine spring-petclinic and product-api into the same cluster called `diy`. Use some RBAC to make it work. Apply it with TMC.
 * Add a pipeline to get test-app into TAS
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
