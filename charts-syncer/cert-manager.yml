@@ -1,0 +1,14 @@
+source:
+  repo:
+    kind: HELM
+    url: https://charts.jetstack.io
+target:
+  repoName: cert-manager
+  containerRegistry: harbor.lab.home/library
+  containerRepository: cert-manager
+  repo:
+    kind: HARBOR
+    url: https://harbor.lab.home/chartrepo/library
+    auth:
+      username: admin
+      password: Harbor12345

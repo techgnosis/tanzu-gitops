@@ -1,0 +1,14 @@
+source:
+  repo:
+    kind: HELM
+    url: https://minibroker.blob.core.windows.net/charts
+target:
+  repoName: minibroker
+  containerRegistry: harbor.lab.home/library
+  containerRepository: minibroker
+  repo:
+    kind: HARBOR
+    url: https://harbor.lab.home/chartrepo/library
+    auth:
+      username: admin
+      password: Harbor12345

@@ -1,0 +1,1 @@
+charts-syncer syncChart --name mongodb --version 9.0.1 --config ./mongodb.yml

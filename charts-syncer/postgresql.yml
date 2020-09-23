@@ -1,0 +1,14 @@
+source:
+  repo:
+    kind: HELM
+    url: https://charts.bitnami.com/bitnami
+target:
+  repoName: postgresql
+  containerRegistry: harbor.lab.home/library
+  containerRepository: postgresql
+  repo:
+    kind: HARBOR
+    url: https://harbor.lab.home/chartrepo/library
+    auth:
+      username: admin
+      password: Harbor12345

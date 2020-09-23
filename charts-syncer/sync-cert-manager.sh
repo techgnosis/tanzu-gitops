@@ -1,0 +1,1 @@
+charts-syncer syncChart --name cert-manager --version "v1.0.1" --config ./cert-manager.yml

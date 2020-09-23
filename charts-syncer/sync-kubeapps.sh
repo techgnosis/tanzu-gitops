@@ -1,0 +1,1 @@
+charts-syncer syncChart --name kubeapps --version 3.9.2 --config ./kubeapps.yml

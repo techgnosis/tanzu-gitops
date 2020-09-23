@@ -180,6 +180,7 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
+* Switch to Harbor tile when it's included in TKGIMC, assuming 1.9
 * Airgapped Helm. Relocate images with `kbld` and use `charts-syncer` to fix the Helm charts
 * Combine spring-petclinic and product-api into the same cluster called `diy`. Use some RBAC to make it work. Apply it with TMC.
 * Add a pipeline to get test-app into TAS

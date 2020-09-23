@@ -1,0 +1,14 @@
+source:
+  repo:
+    kind: HELM
+    url: https://charts.bitnami.com/bitnami
+target:
+  repoName: mongodb
+  containerRegistry: harbor.lab.home/library
+  containerRepository: mongodb
+  repo:
+    kind: HARBOR
+    url: https://harbor.lab.home/chartrepo/library
+    auth:
+      username: admin
+      password: Harbor12345

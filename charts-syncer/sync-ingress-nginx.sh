@@ -1,0 +1,1 @@
+charts-syncer syncChart --name ingress-nginx --version 2.11.1 --config ./ingress-nginx.yml

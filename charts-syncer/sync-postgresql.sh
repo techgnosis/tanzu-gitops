@@ -1,0 +1,1 @@
+charts-syncer syncChart --name postgresql --version 8.10.14 --config ./postgresql.yml

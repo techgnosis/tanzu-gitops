@@ -1,0 +1,14 @@
+source:
+  repo:
+    kind: HELM
+    url: https://kubernetes.github.io/ingress-nginx
+target:
+  repoName: ingress-nginx
+  containerRegistry: harbor.lab.home/library
+  containerRepository: ingress-nginx
+  repo:
+    kind: HARBOR
+    url: https://harbor.lab.home/chartrepo/library
+    auth:
+      username: admin
+      password: Harbor12345
