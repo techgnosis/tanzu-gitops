@@ -3,6 +3,12 @@ source:
     kind: HELM
     url: https://charts.trials.tac.bitnami.com/demo
 target:
- repo:
-   kind: HARBOR
-   url: https://harbor.lab.home/chartrepo/library
+  repoName: mysql
+  containerRegistry: harbor.lab.home/library
+  containerRepository: mysql
+  repo:
+    kind: HARBOR
+    url: https://harbor.lab.home/chartrepo/library
+    auth:
+      username: admin
+      password: Harbor12345
