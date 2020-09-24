@@ -1,8 +1,6 @@
 # Tanzu GitOps
 The goal of this repo is to use the Tanzu portfolio to create easy-to-use, low maintenance Kubernetes environments for developers.
 
-Note: This repo will need some tweaking to work in your environment. 
-
 Tanzu Kubernetes Grid Integrated Edition:
 * Kubernetes cluster lifecycle platform
 * Allows individual cluster upgrades or all-at-once upgrades
@@ -32,6 +30,10 @@ Tanzu Application Service:
 
 ## Install Steps
 
+### Preparation
+1. Copy `.envrc.template` to `.envrc` and fill out all the values
+1. Use `direnv` to load those values into your environment
+
 ### Pre-reqs
 * Ability to make DNS entries for a domain you own
 * `tkgi` to create and authenticate to K8s clusters
@@ -52,19 +54,10 @@ Tanzu Application Service:
 * The Concourse tasks are not generic or re-usable. This is to make them easier to read and understand.
 * Secrets are handled by `kubeseal` so they can be added to source control. TLS secrets are handled by `cert-manager`
 
-### Preparation
-1. Copy `.envrc.template` to `.envrc` and fill out all the values
-1. Use `direnv` to load those values into your environment
+
 
 ### TKGI
-Create 7 clusters:
-* `harbor`
-* `tbs`
-* `concourse`
-* `spring-petclinic`
-* `product-api`
-* `kubeapps`
-* `tas`
+1. `./tkgi-create-clusters.sh`
 
 ### TMC steps
 1. `./tmc-attach-cluster.sh <k8s context name>`
@@ -89,30 +82,25 @@ Create 7 clusters:
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-cert-manager.sh`
-1. `./secrets-concourse.sh`
 1. `./install-concourse.sh`
+1. `./secrets-concourse-main.sh`
 1. `./install-concourse-main.sh`
+1. `./build-concourse-helper.sh`
 1. `./fly.sh`
 
 
-### spring-petclinic
+### diy
 1. `./install-vsphere-storage.sh`
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
-1. `./install-mysql.sh`
+1. `./install-mariadb-galera.sh`
 1. `./install-cert-manager.sh`
 1. `./secrets-spring-petclinic.sh`
 1. `./install-spring-petclinic.sh`
-
-### product-api
-1. `./install-vsphere-storage.sh`
-1. `./install-sealedsecrets.sh`
-1. `./install-helm-operator.sh`
-1. `./install-ingress-nginx.sh`
-1. `./install-cert-manager.sh`
 1. `./secrets-product-api.sh`
 1. `./install-product-api.sh`
+
 
 ### Kubeapps
 1. `./install-vsphere-storage.sh`
@@ -159,7 +147,7 @@ Tanzu Build Service (TBS) uses Cloud Native Buildpacks to turn source code into 
 Concourse is a container workflow tool commonly used for "CI/CD". Container workflow tools are the "glue" to connect pieces of the software delivery chain together. In this repo Concourse is used to direct a git commit to TBS and then send the resulting image to the Deployment controller.
 
 ### spring-petclinic
-[spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic can use an external MySQL instance instead of its own in-memory DB.
+[spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic uses mariadb-galera for HA MySQL.
 
 ### Kubeapps
 Kubeapps is a GUI for Helm that makes it easy to explore Helm repos
@@ -180,8 +168,9 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
-* Switch to Harbor tile when it's included in TKGIMC, assuming 1.9
+* Switch to Harbor 2 tile when it's included in TKGIMC, assuming 1.9
 * Airgapped Helm. Relocate images with `kbld` and use `charts-syncer` to fix the Helm charts
+* Add Tekton pipelines
 * Combine spring-petclinic and product-api into the same cluster called `diy`. Use some RBAC to make it work. Apply it with TMC.
 * Add a pipeline to get test-app into TAS
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
