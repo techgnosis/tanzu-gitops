@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-ytt --data-values-env=YTT_HARBOR -f manifests/harbor \
-| kapp deploy -a harbor -f- -y
+
+kapp deploy -a harbor -f <(ytt --data-values-env=YTT_HARBOR -f manifests/harbor)
