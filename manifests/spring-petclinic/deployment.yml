@@ -19,6 +19,18 @@ spec:
         image: #@ data.values.image
         ports:
         - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 20
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 20
+          periodSeconds: 3
         env:
         - name: WAVEFRONT_API_TOKEN
           valueFrom:
@@ -33,4 +45,4 @@ spec:
         - name: spring_profiles_active
           value: mysql
         - name: MYSQL_URL
-          value: "jdbc:mysql://mysql.mysql.svc.cluster.local/petclinic"
+          value: "jdbc:mysql://mysql/petclinic"
