@@ -65,7 +65,7 @@ jobs:
       file: tanzu-gitops/concourse/tasks/deploy-spring-petclinic-image/deploy-spring-petclinic-image.yml
       image: concourse-helper
       params:
-        tkgicluster: spring-petclinic
+        tkgicluster: diy
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
