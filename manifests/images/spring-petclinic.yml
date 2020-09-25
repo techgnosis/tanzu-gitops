@@ -13,7 +13,7 @@ spec:
   tag: #@ data.values.spring_petclinic_image
   serviceAccount: tbs-service-account
   builder:
-    name: full
+    name: base
     kind: ClusterBuilder
   source:
     git:
