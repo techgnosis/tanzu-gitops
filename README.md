@@ -1,4 +1,4 @@
-# Tanzu GitOps
+# Tanzu Demo
 The goal of this repo is to use the Tanzu portfolio to create easy-to-use, low maintenance Kubernetes environments for developers.
 
 Tanzu Kubernetes Grid Integrated Edition:
@@ -27,8 +27,6 @@ Tanzu Application Catalog:
 
 Tanzu Application Service:
 * Managed multi-tenancy for teams that don't want to touch Kubernetes
-
-## Install Steps
 
 ### Preparation
 1. Copy `.envrc.template` to `.envrc` and fill out all the values
@@ -94,11 +92,10 @@ Tanzu Application Service:
 1. `./install-sealedsecrets.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
-1. `./install-mariadb-galera.sh`
 1. `./install-cert-manager.sh`
+1. `./install-mariadb-galera.sh`
 1. `./secrets-spring-petclinic.sh`
 1. `./install-spring-petclinic.sh`
-1. `./secrets-product-api.sh`
 1. `./install-product-api.sh`
 
 
@@ -173,5 +170,5 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 * Add Tekton pipelines
 * Combine spring-petclinic and product-api into the same cluster called `diy`. Use some RBAC to make it work. Apply it with TMC.
 * Add a pipeline to get test-app into TAS
-* Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443
+* Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443, and so I can have HA control plane since I can't make A records with multiple IPs
 * When using OIDC for K8s auth, how do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
