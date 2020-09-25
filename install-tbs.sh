@@ -15,11 +15,10 @@ kbld relocate \
 --repository "$HARBOR_DOMAIN/library/build-service"
 
 
-ytt -f ./tbs-install/values.yaml \
+kapp deploy -a tanzu-build-service -f <(ytt -f ./tbs-install/values.yaml \
 -f ./tbs-install/manifests/ \
 -f "$(mkcert -CAROOT)"/rootCA.pem \
 -v docker_repository="$HARBOR_DOMAIN/library/build-service" \
 -v docker_username="admin" \
 -v docker_password="Harbor12345" \
-| kbld -f ./tbs-install/images-relocated.lock -f- \
-| kapp deploy -a tanzu-build-service -f- -y
+| kbld -f ./tbs-install/images-relocated.lock -f-)

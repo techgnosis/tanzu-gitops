@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-kp import -f manifests/tbs/descriptor-8.yaml
+kp import -f manifests/tbs/descriptor-4.yaml
