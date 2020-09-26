@@ -41,7 +41,7 @@ jobs:
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/deploy-tbs-dependencies/deploy-tbs-dependencies.yml
     params:
-      tkgicluster: tbs
+      tkgicluster: cluster1
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))

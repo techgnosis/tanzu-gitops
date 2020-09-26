@@ -1,5 +1,5 @@
 # Tanzu Demo
-The goal of this repo is to use the Tanzu portfolio to create easy-to-use, low maintenance Kubernetes environments for developers.
+The goal of this repo is to demo the use of the Tanzu portfolio to create easy-to-use, low maintenance Kubernetes environments for developers.
 
 Tanzu Kubernetes Grid Integrated Edition:
 * Kubernetes cluster lifecycle platform
@@ -61,25 +61,23 @@ Tanzu Application Service:
 1. `./tmc-attach-cluster.sh <k8s context name>`
 1. Repeat for the rest of the clusters
 
-### Harbor
-1. `./install-vsphere-storage.sh`
+
+### Core Platform
+1. `./install-selaed-secrets.sh`
+1. `./minio/install-csi-driver.sh`
 1. `./install-helm-operator.sh`
-1. `./install-cert-manager.sh`
 1. `./install-ingress-nginx.sh`
+1. `./install-cert-manager.sh`
+
+### Harbor
 1. `./install-harbor.sh`
 
 ### TBS
-1. `./install-vsphere-storage.sh`
 1. `./install-tbs.sh`
 1. `./install-tbs-dependencies.sh`
 1. `./install-images.sh`
 
 ### Concourse
-1. `./install-vsphere-storage.sh`
-1. `./install-sealedsecrets.sh`
-1. `./install-helm-operator.sh`
-1. `./install-ingress-nginx.sh`
-1. `./install-cert-manager.sh`
 1. `./install-concourse.sh`
 1. `./secrets-concourse-main.sh`
 1. `./install-concourse-main.sh`
@@ -87,12 +85,7 @@ Tanzu Application Service:
 1. `./fly.sh`
 
 
-### diy
-1. `./install-vsphere-storage.sh`
-1. `./install-sealedsecrets.sh`
-1. `./install-helm-operator.sh`
-1. `./install-ingress-nginx.sh`
-1. `./install-cert-manager.sh`
+### apps
 1. `./install-mariadb-galera.sh`
 1. `./secrets-spring-petclinic.sh`
 1. `./install-spring-petclinic.sh`
@@ -100,17 +93,13 @@ Tanzu Application Service:
 
 
 ### Kubeapps
-1. `./install-vsphere-storage.sh`
-1. `./install-sealedsecrets.sh`
-1. `./install-helm-operator.sh`
-1. `./install-ingress-nginx.sh`
-1. `./install-cert-manager.sh`
 1. `./install-kubeapps.sh`
 1. `./configure-kubeapps.sh`
 
 ### TAS
-1. `./install-vsphere-storage.sh`
-1. `./install-sealedsecrets.sh`
+Give TAS its own cluster
+1. `./install-selaed-secrets.sh`
+1. `./minio/install-csi-driver.sh`
 1. `./install-helm-operator.sh`
 1. `./install-minibroker.sh`
 1. `./install-tas.sh`

@@ -46,7 +46,7 @@ jobs:
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/build-product-api-image/build-product-api-image.yml
     params:
-      tkgicluster: tbs
+      tkgicluster: cluster1
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))
@@ -65,7 +65,7 @@ jobs:
       file: tanzu-gitops/concourse/tasks/deploy-product-api-image/deploy-product-api-image.yml
       image: concourse-helper
       params:
-        tkgicluster: diy
+        tkgicluster: cluster1
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
