@@ -43,6 +43,7 @@ Tanzu Application Service:
 * `mkcert` for all TLS certs
 
 ### Architecture Decisions
+* Two clusters. Everything but TAS runs in one cluster. TAS runs in the other cluster.
 * This repo is full of default usernames and passwords. It's meant to be easy to setup and use as a demo environment. It's not meant to be a production environment. 
 * I use TKGI for my Kubernetes clusters. Most of this project is not dependent on TKGI but the Concourse tasks use the `tkgi` CLI to authenticate
 * If a piece of software has a Helm chart, I use the Helm chart
