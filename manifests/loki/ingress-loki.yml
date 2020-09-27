@@ -1,0 +1,18 @@
+#@ load("@ytt:data", "data")
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: loki
+  namespace: loki
+spec:
+  rules:
+  - host: #@ data.values.common_name
+    http:
+      paths:
+      - backend:
+          serviceName: loki
+          servicePort: 3100
+  tls:
+  - secretName: loki-tls
+    hosts:
+    - #@ data.values.common_name

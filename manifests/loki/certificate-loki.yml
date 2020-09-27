@@ -1,0 +1,15 @@
+#@ load("@ytt:data", "data")
+
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: loki
+  namespace: loki
+spec:
+  commonName: #@ data.values.common_name
+  dnsNames:
+  - #@ data.values.common_name
+  issuerRef:
+    kind: ClusterIssuer
+    name: mkcert
+  secretName: loki-tls

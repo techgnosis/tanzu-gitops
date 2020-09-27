@@ -1,0 +1,18 @@
+#@ load("@ytt:data", "data")
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: loki
+spec:
+  rules:
+  - host: #@ data.values.grafana_common_name
+    http:
+      paths:
+      - backend:
+          serviceName: loki-grafana
+          servicePort: 80
+  tls:
+  - secretName: loki-grafana-tls
+    hosts:
+    - #@ data.values.grafana_common_name
