@@ -23,7 +23,7 @@ spec:
     clair:
       enabled: false
     chartmuseum:
-      enabled: true
+      enabled: false
     trivy:
       enabled: true
     notary:
