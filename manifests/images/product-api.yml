@@ -1,11 +1,5 @@
 #@ load("@ytt:data", "data")
 
-
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: images
----
 apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
