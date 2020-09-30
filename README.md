@@ -71,7 +71,7 @@ Tanzu Application Service:
 1. `./install-cert-manager.sh`
 
 ### Harbor
-1. `./install-harbor.sh`
+1. `./install-harbor.sh` or use the Harbor tile
 
 ### TBS
 1. `./install-tbs.sh`
@@ -99,8 +99,8 @@ Tanzu Application Service:
 
 ### TAS
 Give TAS its own cluster
+1. `./install-storage-vcp.sh` or `./install-storage-csi.sh`
 1. `./install-selaed-secrets.sh`
-1. `./minio/install-csi-driver.sh`
 1. `./install-helm-operator.sh`
 1. `./install-minibroker.sh`
 1. `./install-tas.sh`
