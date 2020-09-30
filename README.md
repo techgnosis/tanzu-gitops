@@ -87,6 +87,9 @@ Tanzu Application Service:
 
 
 ### apps
+It's assumed that product teams would not create their own namespaces.
+1. Create `spring-petclinic` namespace
+1. Create `product-api` namespace
 1. `./install-mariadb-galera.sh`
 1. `./secrets-spring-petclinic.sh`
 1. `./install-spring-petclinic.sh`
@@ -154,11 +157,17 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 * Kubeapps only seems to behave if it is installed in the `default` namespace. Otherwise it doesn't recognize App Respositories when you try to install anything in a different namespace than `default`.
 
 
+## Potentially helpful Prometheus queries
+I'll switch to Grafana eventually but I need to get a better grasp of the metrics
+* `rate(node_network_receive_bytes_total{device="eth0"}[1m])`
+* `rate(node_cpu_seconds_total{mode="user"}[1m])`
+* `node_memory_MemFree_bytes`
+* `node_memory_Active_bytes`
+
 ## TODO
 * Switch to Contour at some point
 * Airgapped Helm. Relocate images with `kbld` and use `charts-syncer` to fix the Helm charts
 * Add Tekton pipelines
-* Combine spring-petclinic and product-api into the same cluster called `diy`. Use some RBAC to make it work. Apply it with TMC.
 * Add a pipeline to get test-app into TAS
 * Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443, and so I can have HA control plane since I can't make A records with multiple IPs
 * When using OIDC for K8s auth, how do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
