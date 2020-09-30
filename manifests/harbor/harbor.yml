@@ -18,7 +18,7 @@ spec:
   chart:
     repository: https://helm.goharbor.io
     name: harbor
-    version: "1.4.2"
+    version: "1.5.0"
   values:
     clair:
       enabled: false
@@ -32,11 +32,15 @@ spec:
       type: ingress
       tls:
         enabled: true
-        secretName: harbor
+        certSource: secret
+        secret:
+          secretName: harbor
+          notarySecretName: harbor-notary
       ingress:
         hosts:
-          core: #@ data.values.common_name
-    externalURL: #@ "https://" + data.values.common_name
+          core: #@ data.values.harbor_cn
+          notary: #@ data.values.notary_cn
+    externalURL: #@ "https://" + data.values.harbor_cn
     persistence:
       resourcePolicy: "keep"
       persistentVolumeClaim:

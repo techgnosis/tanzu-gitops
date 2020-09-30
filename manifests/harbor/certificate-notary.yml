@@ -3,13 +3,13 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
-  name: harbor
+  name: harbor-notary
   namespace: harbor
 spec:
-  commonName: #@ data.values.common_name
+  commonName: #@ data.values.notary_cn
   dnsNames:
-  - #@ data.values.common_name
+  - #@ data.values.notary_cn
   issuerRef:
     kind: ClusterIssuer
     name: mkcert
-  secretName: harbor
+  secretName: harbor-notary

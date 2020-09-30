@@ -1,3 +1,4 @@
 #@data/values
 ---
-common_name: ""
+harbor_cn: ""
+notary_cn: ""
