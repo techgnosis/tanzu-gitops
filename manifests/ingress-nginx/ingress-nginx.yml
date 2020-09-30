@@ -21,11 +21,6 @@ spec:
     version: "2.11.1"
   values:
     controller:
-      metrics:
-        enabled: true
-      podAnnotations:
-        "prometheus.io/scrape": "true"
-        "prometheus.io/port": "10254"
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       kind: DaemonSet

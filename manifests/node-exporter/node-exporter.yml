@@ -12,3 +12,6 @@ spec:
     repository: https://charts.trials.tac.bitnami.com/demo
     name: node-exporter
     version: "1.1.1"
+  values:
+    service:
+      addPrometheusScrapeAnnotation: false
