@@ -64,8 +64,8 @@ Tanzu Application Service:
 
 
 ### Core Platform
+1. `./install-storage-vcp.sh` or `./install-storage-csi.sh`
 1. `./install-selaed-secrets.sh`
-1. `./minio/install-csi-driver.sh`
 1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-cert-manager.sh`
@@ -155,7 +155,7 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 
 
 ## TODO
-* Switch to Harbor 2 tile when it's included in TKGIMC, assuming 1.9
+* Switch to Contour at some point
 * Airgapped Helm. Relocate images with `kbld` and use `charts-syncer` to fix the Helm charts
 * Add Tekton pipelines
 * Combine spring-petclinic and product-api into the same cluster called `diy`. Use some RBAC to make it work. Apply it with TMC.
