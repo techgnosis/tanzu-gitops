@@ -1,0 +1,19 @@
+#@ load("@ytt:data", "data")
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: grafana
+spec:
+  rules:
+  - host: #@ data.values.ingress_hostname
+    http:
+      paths:
+      - backend:
+          serviceName: grafana
+          servicePort: 3000
+        path: /
+  tls:
+  - hosts:
+    - #@ data.values.ingress_hostname
+    secretName: grafana-tls
