@@ -35,7 +35,7 @@ metadata:
   name: prometheus
   namespace: prometheus
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: prometheus
   ports:
