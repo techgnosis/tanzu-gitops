@@ -1,0 +1,9 @@
+concourse:
+  web:
+    kubernetes:
+      keepNamespaces: false
+web:
+  ingress:
+    enabled: true
+    tls:
+      - secretName: concourse-web-tls
