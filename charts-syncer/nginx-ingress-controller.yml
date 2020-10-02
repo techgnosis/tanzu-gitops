@@ -1,9 +1,9 @@
 source:
   repo:
     kind: HELM
-    url: https://kubernetes.github.io/ingress-nginx
+    url: https://charts.bitnami.com/bitnami
 target:
-  repoName: ingress-nginx
+  repoName: nginx-ingress-controller
   containerRegistry: harbor.lab.home
   containerRepository: library
   repo:
