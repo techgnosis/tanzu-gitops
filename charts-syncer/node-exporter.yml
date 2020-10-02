@@ -1,9 +1,9 @@
 source:
   repo:
     kind: HELM
-    url: https://charts.jetstack.io
+    url: https://charts.trials.tac.bitnami.com/demo
 target:
-  repoName: cert-manager
+  repoName: node-exporter
   containerRegistry: harbor.lab.home
   containerRepository: library
   repo:

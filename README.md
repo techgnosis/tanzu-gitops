@@ -41,6 +41,7 @@ Tanzu Application Service:
 * `bash` to run all the install scripts
 * `kubectl` and `kubeseal` to create `SealedSecrets`
 * `mkcert` for all TLS certs (via cert-manager)
+* [helm-push](https://github.com/chartmuseum/helm-push)
 
 ### Architecture Decisions
 * Two clusters. Everything but TAS runs in one cluster. TAS runs in the other cluster.
@@ -68,6 +69,8 @@ Tanzu Application Service:
 1. `./install-selaed-secrets.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-cert-manager.sh`
+1. `./install-node-exporter.sh`
+1. `./install-prometheus.sh`
 
 ### Harbor
 1. `./install-harbor.sh` or use the Harbor tile

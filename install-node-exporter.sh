@@ -2,4 +2,9 @@
 
 set -euo pipefail
 
-kapp deploy -a node-exporter -f manifests/node-exporter
+helm install node-exporter harbor/library/node-exporter \
+--version 1.1.1 \
+--values manifests/node-exporter/helm.yml \
+--create-namespace \
+--namespace node-exporter \
+--wait
