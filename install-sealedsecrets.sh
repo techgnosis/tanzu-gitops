@@ -2,4 +2,6 @@
 
 set -euo pipefail
 
-kapp deploy -a sealed-secrets -f manifests/sealed-secrets/controller.yaml
+cd manifests/sealed-secrets/
+airgap.sh controller.yaml $HARBOR_DOMAIN/library/sealed-secrets
+kapp deploy -a sealed-secrets -f relocated.yml
