@@ -36,11 +36,11 @@ Tanzu Application Service:
 * Ability to make DNS entries for a domain you own
 * `tkgi` to create and authenticate to K8s clusters
 * `direnv` to handle environment variables
-* `helm` to install the Helm operator
-* `kapp` to install everything else
+* `helm` to install Helm charts
+* `kapp` to install non-Helm software
 * `bash` to run all the install scripts
 * `kubectl` and `kubeseal` to create `SealedSecrets`
-* `mkcert` for all TLS certs
+* `mkcert` for all TLS certs (via cert-manager)
 
 ### Architecture Decisions
 * Two clusters. Everything but TAS runs in one cluster. TAS runs in the other cluster.
@@ -66,7 +66,6 @@ Tanzu Application Service:
 ### Core Platform
 1. `./install-storage-vcp.sh` or `./install-storage-csi.sh`
 1. `./install-selaed-secrets.sh`
-1. `./install-helm-operator.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-cert-manager.sh`
 
