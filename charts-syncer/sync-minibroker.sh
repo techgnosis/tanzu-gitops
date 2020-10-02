@@ -1,1 +1,0 @@
-charts-syncer syncChart --name minibroker --version 0.3.1 --config ./minibroker.yml
