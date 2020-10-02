@@ -4,8 +4,8 @@ source:
     url: https://charts.bitnami.com/bitnami
 target:
   repoName: postgresql
-  containerRegistry: harbor.lab.home/library
-  containerRepository: postgresql
+  containerRegistry: harbor.lab.home
+  containerRepository: library
   repo:
     kind: HARBOR
     url: https://harbor.lab.home/chartrepo/library

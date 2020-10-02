@@ -1,0 +1,19 @@
+clusterDomain: cluster1.lab.home
+rootUser:
+  password: petclinic
+db:
+  user: petclinic
+  password: petclinic
+  name: petclinic
+persistence:
+  size: 50Gi
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+    - labelSelector:
+        matchExpressions:
+        - key: helm.sh/chart
+          operator: In
+          values:
+          - mariadb-galera-4.4.0
+      topologyKey: kubernetes.io/hostname
