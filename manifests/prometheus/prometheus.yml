@@ -13,6 +13,7 @@ spec:
       labels:
         app: prometheus
     spec:
+      serviceAccountName: prometheus
       volumes:
         - name: prometheus-volume
           configMap:
