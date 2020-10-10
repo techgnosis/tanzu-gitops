@@ -65,8 +65,8 @@ Tanzu Application Service:
 
 
 ### Core Platform
-1. `./install-storage-vcp.sh` or `./install-storage-csi.sh`
 1. `./install-selaed-secrets.sh`
+1. `./install-storage-vcp.sh` or `./install-storage-csi.sh`
 1. `./install-ingress-nginx.sh`
 1. `./install-cert-manager.sh`
 1. `./install-node-exporter.sh`

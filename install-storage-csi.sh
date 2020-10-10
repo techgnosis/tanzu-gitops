@@ -11,6 +11,6 @@ kubectl create secret generic vsphere-config-secret \
 kapp deploy -a csi-driver \
 -f ./minio/csi-secret.json \
 -f ./minio/vsphere-csi-controller-rbac.yml \
--f ./minio/vsphere-csi-controller-ss.yml \
+-f ./minio/vsphere-csi-controller-deployment.yml \
 -f ./minio/vsphere-csi-node-ds.yml \
 -f ./minio/storageclass.yml
