@@ -2,16 +2,16 @@
 
 set -euo pipefail
 
-helm install cert-manager harbor/library/cert-manager \
---values manifests/cert-manager/helm.yml \
+helm install cert-manager jetstack/cert-manager \
+--values helm.yml \
 --version "v1.0.1" \
 --create-namespace \
 --namespace cert-manager \
 --wait
 
 kapp deploy -a cert-manager \
--f manifests/cert-manager/cert-manager.crds.yaml \
--f manifests/cert-manager/clusterissuer.yml
+-f cert-manager.crds.yaml \
+-f clusterissuer.yml
 
 
 # Root cert and key
