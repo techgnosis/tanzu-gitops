@@ -1,5 +1,0 @@
-hostNetwork: true
-dnsPolicy: ClusterFirstWithHostNet
-kind: DaemonSet
-service:
-  type: ClusterIP
