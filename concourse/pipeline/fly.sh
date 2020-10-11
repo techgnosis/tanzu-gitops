@@ -10,15 +10,15 @@ fly login \
 
 fly set-pipeline -t lab \
 -p spring-petclinic \
--c concourse/pipeline/spring-petclinic.yml \
+-c spring-petclinic.yml \
 -v harbordomain=$HARBOR_DOMAIN
 
 fly set-pipeline -t lab \
 -p product-api \
--c concourse/pipeline/product-api.yml \
+-c product-api.yml \
 -v harbordomain=$HARBOR_DOMAIN
 
 fly set-pipeline -t lab \
 -p tbs \
--c concourse/pipeline/tbs.yml \
+-c tbs.yml \
 -v harbordomain=$HARBOR_DOMAIN

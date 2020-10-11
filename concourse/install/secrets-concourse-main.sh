@@ -29,4 +29,4 @@ kubectl create secret generic tanzu-gitops \
 --from-literal=pivnet_username="${PIVNET_USERNAME}" \
 --from-literal=pivnet_password="${PIVNET_PASSWORD}" \
 --dry-run=client \
--o json | kubeseal > manifests/concourse-main/pipeline-secrets.json
+-o json | kubeseal > pipeline-secrets.json
