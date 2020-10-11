@@ -12,4 +12,4 @@ kubectl create secret generic wavefront \
 --from-literal=wavefront_api_token="${WAVEFRONT_API_TOKEN}" \
 --from-literal=wavefront_url="${WAVEFRONT_URL}" \
 --dry-run=client \
--o json | kubeseal > manifests/spring-petclinic/wavefront-secrets.json
+-o json | kubeseal > wavefront-secrets.json
