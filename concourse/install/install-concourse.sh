@@ -3,7 +3,8 @@
 set -euo pipefail
 
 
-helm install concourse concourse/concourse \
+helm install concourse concourse \
+--repo https://concourse-charts.storage.googleapis.com \
 --create-namespace \
 --namespace concourse \
 --version 11.4.0 \

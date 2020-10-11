@@ -2,7 +2,8 @@
 
 set -euo pipefail
 
-helm install cert-manager jetstack/cert-manager \
+helm install cert-manager cert-manager \
+--repo https://charts.jetstack.io \
 --values helm.yml \
 --version "v1.0.1" \
 --create-namespace \

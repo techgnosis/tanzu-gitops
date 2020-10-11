@@ -6,7 +6,7 @@ metadata:
   namespace: loki
 spec:
   rules:
-  - host: #@ data.values.common_name
+  - host: #@ data.values.hostname
     http:
       paths:
       - backend:
@@ -15,4 +15,4 @@ spec:
   tls:
   - secretName: loki-tls
     hosts:
-    - #@ data.values.common_name
+    - #@ data.values.hostname

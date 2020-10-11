@@ -6,9 +6,9 @@ metadata:
   name: loki
   namespace: loki
 spec:
-  commonName: #@ data.values.common_name
+  commonName: #@ data.values.hostname
   dnsNames:
-  - #@ data.values.common_name
+  - #@ data.values.hostname
   issuerRef:
     kind: ClusterIssuer
     name: mkcert

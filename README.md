@@ -144,6 +144,7 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 
 ## TODO
 * Switch to Contour at some point
+* Get rid of `configure-helm.sh` in favor of the `--repo` flag in all the Helm-based install scripts.
 * Add Tekton pipelines
 * Add a pipeline to get test-app into TAS
 * When using OIDC for K8s auth, how do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
