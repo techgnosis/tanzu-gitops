@@ -1,4 +1,3 @@
-clusterDomain: cluster1.lab.home
 rootUser:
   password: petclinic
 db:
