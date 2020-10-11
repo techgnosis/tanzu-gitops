@@ -7,4 +7,5 @@ kapp deploy -a product-api -f <(ytt --data-values-env=YTT_PRODUCTAPI \
 -f deployment.yml \
 -f ingress.yml \
 -f services.yml \
+-f namespace.yml \
 -f values.yaml)

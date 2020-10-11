@@ -60,57 +60,33 @@ Tanzu Application Service:
 1. `./tkgi-create-clusters.sh`
 
 ### TMC steps
-1. `./tmc-attach-cluster.sh <k8s context name>`
-1. Repeat for the rest of the clusters
+1. `./tmc-attach-cluster.sh cluster1`
+1. `./tmc-attach-cluster.sh tas`
 
 
-### Core Platform
-1. `./install-selaed-secrets.sh`
-1. `./install-storage-vcp.sh` or `./install-storage-csi.sh`
-1. `./install-ingress-nginx.sh`
-1. `./install-cert-manager.sh`
-1. `./install-node-exporter.sh`
-1. `./install-prometheus.sh`
+### cluster1
+Inside each of these folders are all the relevant manifests and install scripts. Install them in this order.
+1. `sealedsecrets`
+1. `storage-vcp` or `storage-csi`
+1. `nginx-ingress-controller`
+1. `cert-manager`
+1. `node-exporter`
+1. `prometheus`
+1. `harbor` or use the Harbor tile
+1. `tbs`
+1. `images`
+1. `concourse`
+1. `mariadb-galera`
+1. `spring-petclinic`
+1. `product-api`
+1. `kubeapps` (optional)
 
-### Harbor
-1. `./install-harbor.sh` or use the Harbor tile
-
-### TBS
-1. `./install-tbs.sh`
-1. `./install-tbs-dependencies.sh`
-1. `./install-images.sh`
-
-### Concourse
-1. `./install-concourse.sh`
-1. `./secrets-concourse-main.sh`
-1. `./install-concourse-main.sh`
-1. `./build-concourse-helper.sh`
-1. `./fly.sh`
-
-
-### apps
-It's assumed that product teams would not create their own namespaces.
-1. Create `spring-petclinic` namespace
-1. Create `product-api` namespace
-1. `./install-mariadb-galera.sh`
-1. `./secrets-spring-petclinic.sh`
-1. `./install-spring-petclinic.sh`
-1. `./install-product-api.sh`
-
-
-### Kubeapps
-1. `./install-kubeapps.sh`
-1. `./configure-kubeapps.sh`
-
-### TAS
-Give TAS its own cluster
-1. `./install-storage-vcp.sh` or `./install-storage-csi.sh`
-1. `./install-selaed-secrets.sh`
-1. `./install-helm-operator.sh`
-1. `./install-minibroker.sh`
-1. `./install-tas.sh`
-1. `./secrets-tas.sh`
-1. `./configure-tas.sh`
+### tas
+Inside each of these folders are all the relevant manifests and install scripts. Install them in this order.
+1. `selaed-secrets`
+1. `storage-vcp` or `storage-csi`
+1. `minibroker.sh`
+1. `tas`
 
 ## Component descriptions
 
@@ -168,8 +144,6 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 
 ## TODO
 * Switch to Contour at some point
-* Airgapped Helm. Relocate images with `kbld` and use `charts-syncer` to fix the Helm charts
 * Add Tekton pipelines
 * Add a pipeline to get test-app into TAS
-* Learn how to use NSX-T so I don't have to set my ingress controller to `hostNetwork: true` in order to use port 443, and so I can have HA control plane since I can't make A records with multiple IPs
 * When using OIDC for K8s auth, how do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
