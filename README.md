@@ -83,9 +83,9 @@ Inside each of these folders are all the relevant manifests and install scripts.
 
 ### tas
 Inside each of these folders are all the relevant manifests and install scripts. Install them in this order.
-1. `selaed-secrets`
+1. `sealedsecrets`
 1. `storage-vcp` or `storage-csi`
-1. `minibroker.sh`
+1. `minibroker`
 1. `tas`
 
 ## Component descriptions
