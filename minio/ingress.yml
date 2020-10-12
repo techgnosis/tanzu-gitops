@@ -1,0 +1,19 @@
+#@ load("@ytt:data", "data")
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: minio
+  namespace: minio
+spec:
+  rules:
+  - host: #@ data.values.ingress_hostname
+    http:
+      paths:
+      - backend:
+          serviceName: minio
+          servicePort: 9000
+        path: /
+  tls:
+  - hosts:
+    - #@ data.values.ingress_hostname
+    secretName: minio-tls
