@@ -68,7 +68,7 @@ Tanzu Application Service:
 Inside each of these folders are all the relevant manifests and install scripts. Install them in this order.
 1. `sealedsecrets`
 1. `storage-vcp` or `storage-csi`
-1. `nginx-ingress-controller`
+1. `contour` or `nginx-ingress-controller`
 1. `cert-manager`
 1. `node-exporter`
 1. `prometheus`
@@ -96,11 +96,8 @@ Every cluster that has stateful workloads needs a `StorageClass` so that `Persis
 ### Sealed Secrets
 In the earlier days of Kubernetes, the idea of GitOps famously suffered from the problem of "everything in Git except Secrets". Kubernetes `Secrets` are of course not a secret as they are simply base64 encoded. With the SealedSecrets project, you can use the `kubeseal` CLI to encrypt regular `Secrets` into `SealedSecrets` using a secret key in the cluster. When a `SealedSecret` is applied to a cluster, that secret key is used to decode the `SealedSecret` into a regular `Secret`. Anyone with access to the cluster can still base64 decode the secret.
 
-### Helm Operator
-The Helm Operator makes it easy to use Helm while also sticking to an infrastructure-as-code/GitOps mindset. It allows you to use Helm in a declarative sense using `HelmRelease` resources, instead of using Helm in an imperative manner with `helm install`. This also allows best practices of using Helm to be used without anyone having to learn them since those best practices are captured in the custom Kubernetes controller.
-
 ### Ingress
-Ingress controllers are easier to manage than NodePorts for every app. Use the [Kubernetes in-tree nginx Ingress controller](https://github.com/techgnosis/ingress). It works fine for a lab environment. This implementation uses `hostNetwork: true` to bind port 443 for convenience.
+Ingress controllers are easier to manage than NodePorts for every app. In this project you can choose between Contour and nginx.
 
 ### cert-manager
 [cert-manager](https://cert-manager.io/docs/) allows you to create certificates as Kubernetes resources. It supports a variety of backends. In this repo we are using `mkcert` as a CA and using cert-manager in CA mode.
@@ -143,7 +140,6 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Switch to Contour at some point
 * Get rid of `configure-helm.sh` in favor of the `--repo` flag in all the Helm-based install scripts.
 * Add Tekton pipelines
 * Add a pipeline to get test-app into TAS

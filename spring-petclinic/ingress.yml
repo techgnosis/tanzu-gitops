@@ -4,15 +4,13 @@ kind: Ingress
 metadata:
   name: spring-petclinic
   namespace: spring-petclinic
-  annotations:
-    kubernetes.io/ingress.class: nginx
 spec:
   rules:
   - host: #@ data.values.ingress_hostname
     http:
       paths:
       - backend:
-          serviceName: spring-petclinic-stable
+          serviceName: spring-petclinic
           servicePort: http
         path: /
   tls:

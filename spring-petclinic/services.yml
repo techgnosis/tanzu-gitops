@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring-petclinic-stable
+  name: spring-petclinic
   namespace: spring-petclinic
 spec:
   selector:
