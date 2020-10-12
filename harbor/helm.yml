@@ -1,0 +1,26 @@
+clair:
+  enabled: false
+chartmuseum:
+  enabled: false
+trivy:
+  enabled: true
+notary:
+  enabled: true
+expose:
+  type: ingress
+  tls:
+    enabled: true
+    certSource: secret
+    secret:
+      secretName: harbor
+      notarySecretName: harbor-notary
+  ingress:
+    hosts:
+      core: #@ data.values.harbor_cn
+      notary: #@ data.values.notary_cn
+externalURL: #@ "https://" + data.values.harbor_cn
+persistence:
+  resourcePolicy: "keep"
+  persistentVolumeClaim:
+    registry:
+      size: 100Gi
