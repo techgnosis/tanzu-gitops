@@ -140,7 +140,8 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Get rid of `configure-helm.sh` in favor of the `--repo` flag in all the Helm-based install scripts.
+* Get TSMgr added to project
+* Change project name from `tanzu-gitops` to something else
 * Add Tekton pipelines
 * Add a pipeline to get test-app into TAS
 * When using OIDC for K8s auth, how do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
