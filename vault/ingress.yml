@@ -11,7 +11,7 @@ spec:
       paths:
       - backend:
           serviceName: vault
-          servicePort: 9090
+          servicePort: 8200
         path: /
   tls:
   - hosts:

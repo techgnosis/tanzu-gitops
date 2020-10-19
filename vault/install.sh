@@ -8,5 +8,10 @@ helm install vault vault \
 --namespace vault \
 --create-namespace \
 --version "0.7.0" \
---values values.yml
+--values helm.yml
+
+kapp deploy -a vault -f <(ytt --data-values-env=YTT_VAULT \
+-f certificate.yml \
+-f ingress.yml \
+-f values.yml)
 
