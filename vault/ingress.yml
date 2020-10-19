@@ -1,0 +1,19 @@
+#@ load("@ytt:data", "data")
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: vault
+  namespace: vault
+spec:
+  rules:
+  - host: #@ data.values.ingress_hostname
+    http:
+      paths:
+      - backend:
+          serviceName: vault
+          servicePort: 9090
+        path: /
+  tls:
+  - hosts:
+    - #@ data.values.ingress_hostname
+    secretName: vault-tls

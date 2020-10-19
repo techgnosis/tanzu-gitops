@@ -1,0 +1,15 @@
+#@ load("@ytt:data", "data")
+
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: vault
+  namespace: vault
+spec:
+  commonName: #@ data.values.ingress_hostname
+  dnsNames:
+  - #@ data.values.ingress_hostname
+  issuerRef:
+    kind: ClusterIssuer
+    name: mkcert
+  secretName: vault-tls

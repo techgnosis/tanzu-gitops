@@ -1,0 +1,12 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: metric-scanner-kubelet-api-admin
+subjects:
+- kind: ServiceAccount
+  name: telegraf
+  namespace: telegraf
+roleRef:
+  kind: ClusterRole
+  name: system:kubelet-api-admin
+  apiGroup: rbac.authorization.k8s.io 
