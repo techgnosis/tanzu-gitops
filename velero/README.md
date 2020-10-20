@@ -1,5 +1,12 @@
-# MinIO
-MinIO is installed on K8s
+# Velero
+
+`install-velero-cli.sh` works
+
+`install-velero-helm.sh` does not quite work. I can't figure out how to get the CA Cert part to work.
+
+
+### MinIO 
+MinIO is installed on K8s at https://minio.lab.home
 
 ### Update `mc` client
 `mc update`
