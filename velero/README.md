@@ -1,11 +1,14 @@
 # MinIO
-access key = accesskey
-secret key = secretkey
+MinIO is installed on K8s
 
-`mc update` - get the latest CLI
+### Update `mc` client
+`mc update`
 
-The tile docs still say to use `mc config` but that is obviously deprecated. Use `mc alias` instead.
+### Configure MinIO server
+`mc alias set tanzu-minio https://minio.lab.home accesskey secretkey`
 
-mc alias set tanzu-minio https://minio.lab.home accesskey secretkey
+### List buckets
+`mc ls tanzu-minio`
 
-mc ls tanzu-minio
+### Make bucket
+`mc mb tanzu-minio <bucketname>`

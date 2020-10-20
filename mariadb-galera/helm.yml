@@ -1,3 +1,5 @@
+podAnnotations:
+  backup.velero.io/backup-volumes: data
 rootUser:
   password: petclinic
 db:

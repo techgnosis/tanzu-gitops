@@ -1,0 +1,60 @@
+initContainers:
+  - name: velero-plugin-for-aws
+    image: "velero/velero-plugin-for-aws:v1.1.0"
+    volumeMounts:
+    - mountPath: /target
+      name: plugins
+
+metrics:
+  enabled: false
+
+snapshotsEnabled: false
+
+deployRestic: true
+
+# This is TKGI specific. Other values for other platforms can be
+# found on the Velero site.
+restic:
+    podVolumePath: /var/vcap/data/kubelet/pods
+
+credentials:
+  useSecret: true
+  existingSecret: minio-creds
+
+configuration:
+  provider: aws
+  backupStorageLocation:
+    bucket: velero
+    config:
+      region: minio
+      s3ForcePathStyle: true
+      s3Url: https://minio.lab.home
+      caCert: |
+        -----BEGIN CERTIFICATE-----
+        MIIEwTCCAymgAwIBAgIQCQWTa8uR9Z3HNksvW8FfeTANBgkqhkiG9w0BAQsFADB5
+        MR4wHAYDVQQKExVta2NlcnQgZGV2ZWxvcG1lbnQgQ0ExJzAlBgNVBAsMHmphbWVz
+        QEphbWVzcy1NYWNCb29rLVByby5sb2NhbDEuMCwGA1UEAwwlbWtjZXJ0IGphbWVz
+        QEphbWVzcy1NYWNCb29rLVByby5sb2NhbDAeFw0xOTExMDcwMTU3NTJaFw0yOTEx
+        MDcwMTU3NTJaMHkxHjAcBgNVBAoTFW1rY2VydCBkZXZlbG9wbWVudCBDQTEnMCUG
+        A1UECwweamFtZXNASmFtZXNzLU1hY0Jvb2stUHJvLmxvY2FsMS4wLAYDVQQDDCVt
+        a2NlcnQgamFtZXNASmFtZXNzLU1hY0Jvb2stUHJvLmxvY2FsMIIBojANBgkqhkiG
+        9w0BAQEFAAOCAY8AMIIBigKCAYEAtumB922ikHSwPXj6M0f+O7VJ+6v3NtqAgosH
+        j/ba/BT4NpWwhCySyjou9HBbUhDIK0LWsU6kmQNUvwkR3ZJAeULRkwnTVXWfLF9Y
+        pGCKn1Vf7baX2DPr5rAU7fHMXZC+yngqRe95TFcHXmZA+1OFCRHq/gbtGFwy8Q/T
+        WlBHGBwQ9bbWmsVPgVumNLIfBzAiMI6qph+TCWD9Z64XvDoY3CVtrpykS8sU+INm
+        vW+D4U2d3vwoR0UuU0Z6fJAnjsQwV9GEU09gtALQX+EZ861cwCTW6gtnyaDdE6ks
+        888MnjP4RMzEUsMPRbmgE7kXBd5BZs7DolyYrCVHmpu1Nnr7XcgVRjeKVo34/qlq
+        BGFxNwXhbN4EZaZEJYekRuLAS/PxklYA/WIImXDiFfwVMOWWmmdYDidz3UhVzIg7
+        vrpe5zLdL6wEVN39DcRjZNWaN75rRcv9B8wz1d1o5YhkGC+sIUUmoK/pa9PWx+3q
+        OISbnw79JVlOE/gfT4gpwvYWs42fAgMBAAGjRTBDMA4GA1UdDwEB/wQEAwICBDAS
+        BgNVHRMBAf8ECDAGAQH/AgEAMB0GA1UdDgQWBBRq+uJ9dHzPcCVuQYJyh9qBD0SN
+        gTANBgkqhkiG9w0BAQsFAAOCAYEAIG3vcBSbXL9WzX1RsYgTnMlgDGxdcc0e3+66
+        mlLwP/gX+mOenu9MeocKcpme20TWdx9sXtL9jZsIs0M+Qjh2pPBfZoRRL1noWHgl
+        HvYH5AeGm5Kb1hkO8djjghMfet47lOOl5Tca4SWPZTbtDzufPttG1gI821VmlWTZ
+        UZrlWJpLIeEOmchA1QhjzKI3c/0Hf4CqQGr1ozYmmGCyzu0EGvbdVJbkhJw/lSFF
+        QJMLAoO4j01JU40+PiGQtyLlC8RfhHD5/nhvPB7dQPQ5jQrum8JHheEAsqVI45AL
+        wlxvLLh8urgNgB5nQK0rpUaa0aQpyxntphcQSjW0NyQJMxdNl33lWW53w9xZmebl
+        T/cIDjMVkkbC9LiIJt8L6yFxMsRMEmYhat/nKEJFMsHKa51dIXCeF+yYzFiJbK3s
+        A/ODno9mjhVe23GGcYwqF8qE4jXISkKaUpCu3hs6T4iFciMZVL0sN+y+8dvu/SxD
+        9NOtbmZ8XCEJHjvS7z7qQWevPn5+
+        -----END CERTIFICATE-----

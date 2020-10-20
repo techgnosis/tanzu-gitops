@@ -11,4 +11,5 @@ kapp deploy -a velero -f <(velero install \
 --use-volume-snapshots=false \
 --backup-location-config region=minio,s3ForcePathStyle="true",s3Url=https://minio.lab.home,insecureSkipTLSVerify="true" \
 --dry-run \
+--use-restic \
 -o yaml)
