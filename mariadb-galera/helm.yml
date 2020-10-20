@@ -1,3 +1,4 @@
+replicaCount: 1
 podAnnotations:
   backup.velero.io/backup-volumes: data
 rootUser:

@@ -5,7 +5,7 @@ metadata:
   name: spring-petclinic
   namespace: spring-petclinic
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: spring-petclinic
