@@ -3,7 +3,7 @@
 set -euo pipefail
 
 helm upgrade --install mariadb-galera mariadb-galera \
---repo https://charts.trials.tac.bitnami.com/demo \
+--repo https://harbor.lab.home/chartrepo/library \
 --version 4.4.0 \
 --namespace spring-petclinic \
 --create-namespace \
