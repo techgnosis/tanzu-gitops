@@ -1,1 +1,1 @@
-charts-syncer syncChart --name common --version 0.6.0 --config ./common.yml
+charts-syncer syncChart --name common --version 0.7.1 --config ./common.yml
