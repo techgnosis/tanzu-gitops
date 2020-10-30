@@ -1,1 +1,0 @@
-charts-syncer syncChart --name node-exporter --version 1.1.1 --config ./node-exporter.yml

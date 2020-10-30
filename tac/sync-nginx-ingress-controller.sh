@@ -1,1 +1,0 @@
-charts-syncer syncChart --name nginx-ingress-controller --version 5.6.7 --config ./nginx-ingress-controller.yml
