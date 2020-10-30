@@ -6,7 +6,13 @@ if [ -d "tbs-install" ]; then
     rm -rf tbs-install && mkdir tbs-install
 fi
 
-tar -xvf build-service-1.0.2.tar -C tbs-install
+if [ ! -d "tbs-install" ]; then
+    mkdir tbs-install
+fi
+
+
+
+tar -xvf build-service-1.0.3.tar -C tbs-install
 
 
 kbld relocate \
