@@ -3,17 +3,17 @@
 set -euo pipefail
 
 
-helm install kubeapps kubeapps \
---repo https://charts.bitnami.com/bitnami \
---version 4.0.1 \
+helm upgrade --install kubeapps kubeapps \
+--repo https://charts.trials.tac.bitnami.com/demo \
+--version 4.0.2 \
 --namespace kubeapps \
 --create-namespace \
 --wait \
---set useHelm3="true"
+--values=helm.yml
 
 kapp deploy -a kubeapps -f <(ytt --data-values-env=YTT_KUBEAPPS \
 -f certificate.yml \
--f cluster-role-binding.yml \
 -f ingress.yml \
+-f values.yml \
 -f service-account.yml \
--f values.yml)
+-f cluster-role-binding.yml)

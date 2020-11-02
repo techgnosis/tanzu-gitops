@@ -1,0 +1,5 @@
+useHelm3: true
+apprepository:
+  initialRepos:
+  - name: tac
+    url: https://charts.trials.tac.bitnami.com/demo

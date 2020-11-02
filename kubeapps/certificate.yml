@@ -3,7 +3,7 @@ apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: kubeapps
-  namespace: default
+  namespace: kubeapps
 spec:
   commonName: #@ data.values.kubeapps_hostname
   dnsNames:
