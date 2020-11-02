@@ -1,32 +1,21 @@
 # Tanzu Demo
-The goal of this repo is to demo the use of the Tanzu portfolio to create easy-to-use, low maintenance Kubernetes environments for developers.
+The goal of this repo is to store ready-to-install manifests for Tanzu products as well as popular open-source Kubernetes tools. From here you can demo any functionality you need.
 
-Tanzu Kubernetes Grid Integrated Edition:
-* Kubernetes cluster lifecycle platform
-* Allows individual cluster upgrades or all-at-once upgrades
-* Integration with your LDAP or SAML IdP for cluster authentication
+* Building source-to-image with Tanzu Build Service
+* Using Helm in an airgapped scenario with Tanzu Application Catalog and Harbor
+* Harbor is an OCI compliant registry with tons of features
+* Self-service TLS certificates with cert-manager
+* CI+CD with Concourse
+* Ingress with either nginx or Contour
+* Quickly explore Helm values.yml files with Kubeapps
+* Metrics with Prometheus + node-exporter + cAdvisor + Grafana
+* Backup and restore both etcd and PVs with Velero + Restic
+* Store secrets in Git with Sealed Secrets
+* Store secrets outside of the cluster with Vault
+* Manage policy across all your clusters with Tanzu Mission Control
+* Turn a K8s cluster into a multi-tenant microservice host with Tanzu Application Service
+* Store objects, including Velero backups, in MinIO
 
-Tanzu Misson Control:
-* Manage cluster access
-* Manage admission and network policy
-* Use TO integration to monitor cluster metrics
-* Use Data Protection to backup clusters
-
-Tanzu Observability:
-* Sole source of metrics for platform teams and application teams
-* Show everything from IaaS to K8s to application metrics
-* Provide metrics for use in Canary deploy
-
-Tanzu Build Service:
-* Build secure OCI images without Docker
-* Keep images up-to-date on latest golden image
-
-Tanzu Application Catalog:
-* Build trusted Helm charts and images onto your golden image
-* Provide helpful audit information for the images, like CVE scans and open-source licenses
-
-Tanzu Application Service:
-* Managed multi-tenancy for teams that don't want to touch Kubernetes
 
 ### Preparation
 1. Copy `.envrc.template` to `.envrc` and fill out all the values
