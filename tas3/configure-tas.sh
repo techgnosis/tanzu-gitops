@@ -22,9 +22,3 @@ cf create-org test-org
 cf create-space -o test-org test-space
 cf target -o test-org -s test-space
 
-if [ ! -d "test-app" ]; then
-    git clone https://github.com/cloudfoundry-samples/test-app.git
-fi
-
-cf push test-app -p test-app
-curl "https://test-app.apps.$SYSTEM_DOMAIN"
