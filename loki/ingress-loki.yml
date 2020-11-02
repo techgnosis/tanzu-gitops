@@ -12,6 +12,7 @@ spec:
       - backend:
           serviceName: loki
           servicePort: 3100
+        path: /
   tls:
   - secretName: loki-tls
     hosts:

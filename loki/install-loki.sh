@@ -3,9 +3,9 @@
 set -euo pipefail
 
 
-helm install loki-stack loki-stack \
+helm install loki loki \
 --repo https://grafana.github.io/loki/charts \
---version 0.40.1 \
+--version 2.0.0 \
 --namespace loki \
 --create-namespace \
 --values helm.yml \
