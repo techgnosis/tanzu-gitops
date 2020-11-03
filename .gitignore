@@ -8,4 +8,4 @@ tanzu-application-service.0.5.0-build.19.tar
 tanzu-application-service/
 tbs-install
 k8s-attach-manifest.yaml
-test-app/
+apps/test-app/test-app/
