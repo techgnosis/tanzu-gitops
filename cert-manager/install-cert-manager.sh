@@ -10,7 +10,7 @@ helm install cert-manager cert-manager \
 --namespace cert-manager \
 --wait
 
-kapp deploy -a cert-manager \
+kapp deploy -a cert-manager-crds \
 -f cert-manager.crds.yaml \
 -f clusterissuer.yml
 

@@ -21,9 +21,3 @@ cp tas3-values.yml configuration-values/values.yml
 ./tanzu-application-service/bin/generate-values.sh configuration-values
 ./tanzu-application-service/bin/cluster-detect.sh > configuration-values/cluster-values.yml
 ./tanzu-application-service/bin/install-tas.sh configuration-values
-
-# Install the Certificate resource into istio-system so I can
-# use it in configure-tas.sh
-kapp deploy -a tas-tls -f <(ytt --data-values-env=YTT_TLSTAS \
--f certificate.yml \
--f values.yml)
