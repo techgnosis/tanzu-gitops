@@ -25,6 +25,8 @@ kubectl create secret docker-registry postgres-harbor \
 --docker-username="admin" \
 --docker-password="Harbor12345"
 
+kapp deploy -a postgres-operator-crds -y -f $POSTGRES_DIR/operator/crds
+
 helm upgrade --install postgres-operator ./$POSTGRES_DIR/operator \
 --wait \
 --set operatorImageRepository="$HARBOR_DOMAIN/library/postgres-operator" \
