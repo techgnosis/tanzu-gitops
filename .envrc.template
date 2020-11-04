@@ -47,24 +47,10 @@ export YTT_TBS_product_api_image="$HARBOR_DOMAIN/library/product-api"
 export YTT_TBS_spring_petclinic_image="$HARBOR_DOMAIN/library/spring-petclinic"
 export YTT_TBS_harbor="$HARBOR_DOMAIN"
 
+# YTT sockshop
+export YTT_SOCKSHOP_ingress_hostname="sockshop.lab.home"
+
 # TAS4K8s
-export YTT_CF_app_registry__hostname="$HARBOR_DOMAIN"
-export YTT_CF_app_registry__repository_prefix="$HARBOR_DOMAIN/library"
-export YTT_CF_app_registry__username="admin"
-export YTT_CF_app_registry__password="Harbor12345"
-
-export YTT_TAS_app_registry__ca="$(cat "$(mkcert --CAROOT)"/rootCA.pem)"
-export YTT_TAS_system_registry__hostname="registry.pivotal.io"
-
-# Your PivNet login (email address)
-export YTT_TAS_system_registry__username=""
-
-# Your PivNet password
-export YTT_TAS_system_registry__password=""
-
-# The primary domain for TAS4K8s.
-export SYSTEM_DOMAIN="sys.tas.$PRIMARY_DOMAIN"
-
 export YTT_TLSTAS_primary_domain="lab.home"
 
 

@@ -7,12 +7,19 @@ kubectl apply \
 
 # This script is powered by `ytt`
 # `ytt` is informed by environment variables. See `.envrc.template`
-# Note: the files app-registry-values.yml and system-registry-values.yml are still required
 # YTT values files are required even when using YTT_ environment variables
 
-./tanzu-application-service/bin/generate-values.sh -d "${SYSTEM_DOMAIN}" > ./tanzu-application-service/configuration-values/deployment-values.yml
+if [ -d "tanzu-application-service" ]; then
+    rm -rf tanzu-application-service
+fi
 
-./tanzu-application-service/bin/install-tas.sh ./tanzu-application-service/configuration-values
+tar -xvf tanzu-application-service.3.1.0-build.50.tar
+
+cp tas3-values.yml configuration-values/values.yml
+
+./tanzu-application-service/bin/generate-values.sh configuration-values
+./tanzu-application-service/bin/cluster-detect.sh > configuration-values/cluster-values.yml
+./tanzu-application-service/bin/install-tas.sh configuration-values
 
 # Install the Certificate resource into istio-system so I can
 # use it in configure-tas.sh
