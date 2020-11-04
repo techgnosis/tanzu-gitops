@@ -51,6 +51,7 @@ export YTT_TBS_harbor="$HARBOR_DOMAIN"
 export YTT_SOCKSHOP_ingress_hostname="sockshop.lab.home"
 
 # TAS4K8s
+export SYSTEM_DOMAIN="sys.tas3.lab.home"
 export YTT_TLSTAS_primary_domain="lab.home"
 
 
