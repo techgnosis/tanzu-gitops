@@ -1,0 +1,17 @@
+platform: linux
+
+
+inputs:
+  - name: tanzu-gitops
+  - name: sockshop-front-end-image
+
+
+params:
+  tkgicluster:
+  tkgiapi:
+  tkgiuser:
+  tkgipassword:
+  harbordomain:
+
+run:
+  path: "tanzu-gitops/concourse/tasks/deploy-sockshop-front-end-image/deploy-sockshop-front-end-image.sh"
