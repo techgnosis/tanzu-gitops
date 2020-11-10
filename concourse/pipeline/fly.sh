@@ -19,6 +19,11 @@ fly set-pipeline -t lab \
 -v harbordomain=$HARBOR_DOMAIN
 
 fly set-pipeline -t lab \
+-p sockshop-front-end \
+-c sockshop-front-end.yml \
+-v harbordomain=$HARBOR_DOMAIN
+
+fly set-pipeline -t lab \
 -p tbs \
 -c tbs.yml \
 -v harbordomain=$HARBOR_DOMAIN
