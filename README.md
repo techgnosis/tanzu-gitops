@@ -125,8 +125,8 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Get TSM involved. Use Sockshop.
 * Figure out TSMgr for TAS
+* Get RabbitMQ into TO
 * Change project name from `tanzu-gitops` to `tanzu-demo`
 * Add Tekton pipelines
 * Add a pipeline to get test-app into TAS
