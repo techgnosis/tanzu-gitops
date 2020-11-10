@@ -117,10 +117,6 @@ The Concourse pipeline in this project creates a Wavefront Event after a new ima
 1. In your dashboard at the top right where it says "Show Events" change it to "From Dashboard Settings". This will cause your events query to be the source of events for all charts in your dashboard.
 
 
-## Quirks I have observed
-* Kubeapps only seems to behave if it is installed in the `default` namespace. Otherwise it doesn't recognize App Respositories when you try to install anything in a different namespace than `default`.
-
-
 ## Potentially helpful Prometheus queries
 I'll switch to Grafana eventually but I need to get a better grasp of the metrics
 * `rate(node_network_receive_bytes_total{device="eth0"}[1m])`
@@ -129,8 +125,9 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Get TSMgr added to project
-* Change project name from `tanzu-gitops` to something else
+* Get TSM involved. Use Sockshop.
+* Figure out TSMgr for TAS
+* Change project name from `tanzu-gitops` to `tanzu-demo`
 * Add Tekton pipelines
 * Add a pipeline to get test-app into TAS
 * When using OIDC for K8s auth, how do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
