@@ -42,13 +42,22 @@ export YTT_MINIO_ingress_hostname="minio.lab.home"
 # YTT vault
 export YTT_VAULT_ingress_hostname="vault.lab.home"
 
+# YTT wavefront
+export YTT_WAVEFRONT_wavefront_token=""
+export YTT_WAVEFRONT_wavefront_url="https://something.wavefront.com/api"
+
+# YTT telegraf
+export YTT_TELEGRAF_vcsa_password=""
+
 # YTT images
 export YTT_TBS_product_api_image="$HARBOR_DOMAIN/library/product-api"
 export YTT_TBS_spring_petclinic_image="$HARBOR_DOMAIN/library/spring-petclinic"
+export YTT_TBS_sockshop_frontend_image="$HARBOR_DOMAIN/library/sockshop-front-end"
 export YTT_TBS_harbor="$HARBOR_DOMAIN"
 
 # YTT sockshop
 export YTT_SOCKSHOP_ingress_hostname="sockshop.lab.home"
+
 
 # TAS4K8s
 export SYSTEM_DOMAIN="sys.tas3.lab.home"
@@ -56,6 +65,4 @@ export YTT_TLSTAS_primary_domain="lab.home"
 
 
 # TMC
-# Clusters in TMC can be added to groups
-# Group needs to already exist. This value is used by the TMC CLI
-export TMC_CLUSTER_GROUP_NAME="jmusselwhite"
+export TMC_CLUSTER_GROUP_NAME=""
