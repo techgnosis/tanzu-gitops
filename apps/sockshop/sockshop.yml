@@ -12,8 +12,6 @@ spec:
       name: carts-db
   template:
     metadata:
-      annotations:
-        sidecar.istio.io/inject: "false"
       labels:
         name: carts-db
     spec:
@@ -70,8 +68,6 @@ spec:
       name: catalogue-db
   template:
     metadata:
-      annotations:
-        sidecar.istio.io/inject: "false"
       labels:
         name: catalogue-db
     spec:
@@ -165,8 +161,6 @@ spec:
       name: orders-db
   template:
     metadata:
-      annotations:
-        sidecar.istio.io/inject: "false"
       labels:
         name: orders-db
     spec:
@@ -322,8 +316,6 @@ spec:
       name: user-db
   template:
     metadata:
-      annotations:
-        sidecar.istio.io/inject: "false"
       labels:
         name: user-db
     spec:

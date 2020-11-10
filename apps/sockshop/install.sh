@@ -2,11 +2,6 @@
 
 set -euo pipefail
 
-kapp deploy -a sockshop \
--f namespace.yml \
--f destinationrule.yml \
--f policy.yml
-
 kapp deploy -a sockshop -f <(ytt --data-values-env=YTT_SOCKSHOP \
 -f sockshop.yml \
 -f carts.yml \
