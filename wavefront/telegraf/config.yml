@@ -11,6 +11,10 @@ data:
       password = ""
       insecure_skip_verify = true
 
+    [[inputs.mysql]]
+      servers = ["petclinic:petclinic@tcp(mariadb-galera.spring-petclinic.svc.cluster.local:3306)/?tls=false"]
+
+
     [[outputs.wavefront]]
       host = "wavefront-proxy.wavefront.svc.cluster.local"
       port = 2878
