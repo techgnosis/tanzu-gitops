@@ -4,6 +4,8 @@ kind: Ingress
 metadata:
   name: spring-petclinic
   namespace: spring-petclinic
+  annotations:
+    kubernetes.io/ingress.class: contour
 spec:
   rules:
   - host: #@ data.values.ingress_hostname

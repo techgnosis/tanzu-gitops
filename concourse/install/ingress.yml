@@ -2,20 +2,20 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: product-api
-  namespace: product-api
+  name: concourse
+  namespace: concourse
   annotations:
     kubernetes.io/ingress.class: contour
 spec:
   rules:
-  - host: #@ data.values.ingress_hostname
+  - host: #@ data.values.concourse_hostname
     http:
       paths:
       - backend:
-          serviceName: product-api
-          servicePort: http
+          serviceName: concourse-web
+          servicePort: 8080
         path: /
   tls:
   - hosts:
-    - #@ data.values.ingress_hostname
-    secretName: product-api-tls
+    - #@ data.values.concourse_hostname
+    secretName: concourse-web-tls
