@@ -15,44 +15,10 @@ spec:
       containers:
       - name: telegraf
         image: telegraf:1.16.1
-        resources:
-          limits:
-            memory: 500Mi
-          requests:
-            cpu: 500m
-            memory: 500Mi
-        env:
-        - name: HOSTNAME
-          valueFrom:
-            fieldRef:
-              fieldPath: spec.nodeName
-        - name: "HOST_PROC"
-          value: "/rootfs/proc"
-        - name: "HOST_SYS"
-          value: "/rootfs/sys"
         volumeMounts:
-        - name: sys
-          mountPath: /rootfs/sys
-          readOnly: true
-        - name: proc
-          mountPath: /rootfs/proc
-          readOnly: true
-        - name: utmp
-          mountPath: /var/run/utmp
-          readOnly: true
         - name: config
           mountPath: /etc/telegraf
-      terminationGracePeriodSeconds: 30
       volumes:
-      - name: sys
-        hostPath:
-          path: /sys
-      - name: proc
-        hostPath:
-          path: /proc
-      - name: utmp
-        hostPath:
-          path: /var/run/utmp
       - name: config
         configMap:
           name: telegraf
