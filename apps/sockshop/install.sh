@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+kapp deploy -a sockshop \
+-f namespace.yml \
+-f destinationrule.yml \
+-f policy.yml
+
 kapp deploy -a sockshop -f <(ytt --data-values-env=YTT_SOCKSHOP \
 -f sockshop.yml \
 -f carts.yml \
@@ -11,6 +16,7 @@ kapp deploy -a sockshop -f <(ytt --data-values-env=YTT_SOCKSHOP \
 -f shipping.yml \
 -f namespace.yml \
 -f certificate.yml \
--f gateway.yml \
--f virtual-service.yml \
+-f ingress.yml \
+-f destinationrule.yml \
+-f policy.yml \
 -f values.yml)
