@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: telegraf
+  namespace: wavefront
+data:
+  telegraf.conf: |
+    [[inputs.vsphere]]
+      vcenters = [ "https://vcsa.lab.home/sdk" ]
+      username = "administrator@vsphere.local"
+      password = ""
+      insecure_skip_verify = true
+
+    [[outputs.wavefront]]
+      host = "wavefront-proxy.wavefront.svc.cluster.local"
+      port = 2878
+      metric_separator = "."
+      source_override = ["hostname", "agent_host", "node_host"]
+      convert_paths = true
+ 

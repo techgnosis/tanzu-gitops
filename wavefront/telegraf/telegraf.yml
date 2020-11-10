@@ -1,8 +1,8 @@
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
   name: telegraf
-  namespace: telegraf
+  namespace: wavefront
 spec:
   selector:
     matchLabels:
@@ -12,10 +12,9 @@ spec:
       labels:
         name: telegraf
     spec:
-      serviceAccountName: telegraf
       containers:
       - name: telegraf
-        image: docker.io/telegraf:1.5.2
+        image: telegraf:1.16.1
         resources:
           limits:
             memory: 500Mi
