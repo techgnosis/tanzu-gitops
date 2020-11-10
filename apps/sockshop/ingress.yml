@@ -4,6 +4,8 @@ kind: Ingress
 metadata:
   name: sockshop
   namespace: sockshop
+  annotations:
+    kubernetes.io/ingress.class: contour
 spec:
   rules:
   - host: #@ data.values.ingress_hostname
