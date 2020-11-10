@@ -1,0 +1,18 @@
+#@ load("@ytt:data", "data")
+
+apiVersion: kpack.io/v1alpha1
+kind: Image
+metadata:
+  name: sockshop-front-end
+  namespace: images
+spec:
+  tag: #@ data.values.sockshop_frontend_image
+  serviceAccount: tbs-service-account
+  builder:
+    name: base
+    kind: ClusterBuilder
+  source:
+    git:
+      url: https://github.com/techgnosis/front-end.git
+      revision: demo
+
