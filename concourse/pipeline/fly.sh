@@ -24,6 +24,6 @@ fly set-pipeline -t lab \
 -v harbordomain=$HARBOR_DOMAIN
 
 fly set-pipeline -t lab \
--p tbs \
--c tbs.yml \
+-p tbs-update \
+-c tbs-update.yml \
 -v harbordomain=$HARBOR_DOMAIN
