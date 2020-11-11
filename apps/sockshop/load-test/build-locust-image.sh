@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-docker build -t harbor.lab.home/library/sockshop-locust:1 .
-docker push harbor.lab.home/library/sockshop-locust:1
+docker build -t $HARBOR_DOMAIN/library/sockshop-locust:1 .
+docker push $HARBOR_DOMAIN/library/sockshop-locust:1
