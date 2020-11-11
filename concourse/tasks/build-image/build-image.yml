@@ -1,0 +1,15 @@
+platform: linux
+
+inputs:
+  - name: tanzu-gitops
+  - name: source-code
+
+params:
+  tkgicluster:
+  tkgiapi:
+  tkgiuser:
+  tkgipassword:
+  image:
+
+run:
+  path: "tanzu-gitops/concourse/tasks/build-image/build-image.sh"
