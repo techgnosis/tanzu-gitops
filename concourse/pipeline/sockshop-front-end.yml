@@ -44,12 +44,15 @@ jobs:
   - get: tanzu-gitops
   - task: handoff to TBS
     image: concourse-helper
-    file: tanzu-gitops/concourse/tasks/build-sockshop-front-end-image/build-sockshop-front-end-image.yml
+    file: tanzu-gitops/concourse/tasks/build-image/build-image.yml
+    input_mapping:
+      source-code: sockshop-front-end
     params:
       tkgicluster: cluster1
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))
+      image: sockshop-front-end
 
 
 
