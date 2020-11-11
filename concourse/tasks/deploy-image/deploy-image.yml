@@ -1,0 +1,18 @@
+platform: linux
+
+
+inputs:
+  - name: tanzu-gitops
+  - name: image
+
+
+params:
+  tkgicluster:
+  tkgiapi:
+  tkgiuser:
+  tkgipassword:
+  harbordomain:
+  app:
+
+run:
+  path: "tanzu-gitops/concourse/tasks/deploy-image/deploy-image.sh"
