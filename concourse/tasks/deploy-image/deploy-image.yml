@@ -12,7 +12,10 @@ params:
   tkgiuser:
   tkgipassword:
   harbordomain:
-  app:
+  namespace:
+  deployment:
+  container:
+  image:
 
 run:
   path: "tanzu-gitops/concourse/tasks/deploy-image/deploy-image.sh"
