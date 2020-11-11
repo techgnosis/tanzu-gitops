@@ -75,6 +75,9 @@ jobs:
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
         harbordomain: ((harbordomain))
-        app: product-api
+        namespace: product-api
+        deployment: product-api
+        container: product-api
+        image: product-api
 
 

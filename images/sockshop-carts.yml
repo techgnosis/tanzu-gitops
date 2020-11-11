@@ -6,7 +6,7 @@ metadata:
   name: sockshop-carts
   namespace: images
 spec:
-  tag: #@ data.values.sockshop_frontend_image
+  tag: #@ data.values.sockshop_carts_image
   serviceAccount: tbs-service-account
   builder:
     name: base

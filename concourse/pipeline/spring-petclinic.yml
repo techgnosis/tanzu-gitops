@@ -81,7 +81,10 @@ jobs:
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
         harbordomain: ((harbordomain))
-        app: spring-petclinic
+        namespace: spring-petclinic
+        deployment: spring-petclinic
+        container: spring-petclinic
+        image: spring-petclinic
 
 
 

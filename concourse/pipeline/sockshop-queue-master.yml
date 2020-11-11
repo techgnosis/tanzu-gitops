@@ -1,9 +1,9 @@
 resources:
-- name: sockshop-front-end
+- name: sockshop-queue-master
   type: git
   source:
-    uri: https://github.com/techgnosis/sockshop-front-end.git
-    branch: demo
+    uri: https://github.com/microservices-demo/queue-master.git
+    branch: master
 - name: tanzu-gitops
   type: git
   source:
@@ -11,10 +11,10 @@ resources:
     branch: master
     paths:
      - "concourse/tasks/**"
-- name: sockshop-front-end-image
+- name: sockshop-queue-master-image
   type: docker-image
   source:
-    repository: ((harbordomain))/library/sockshop-front-end
+    repository: ((harbordomain))/library/sockshop-queue-master
     tag: latest
     ca_certs:
     - domain: ((harbordomain))
@@ -38,7 +38,7 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: sockshop-front-end
+  - get: sockshop-queue-master
     trigger: true
   - get: concourse-helper
   - get: tanzu-gitops
@@ -46,13 +46,13 @@ jobs:
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/build-image/build-image.yml
     input_mapping:
-      source-code: sockshop-front-end
+      source-code: sockshop-queue-master
     params:
       tkgicluster: cluster1
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))
-      image: sockshop-front-end
+      image: sockshop-queue-master
 
 
 
@@ -60,7 +60,7 @@ jobs:
   public: true
   serial: true
   plan:
-    - get: sockshop-front-end-image
+    - get: sockshop-queue-master-image
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
@@ -68,7 +68,7 @@ jobs:
       file: tanzu-gitops/concourse/tasks/deploy-image/deploy-image.yml
       image: concourse-helper
       input_mapping:
-        image: sockshop-front-end-image
+        image: sockshop-queue-master-image
       params:
         tkgicluster: cluster1
         tkgiapi: ((tanzu-gitops.tkgi_url))
@@ -76,9 +76,9 @@ jobs:
         tkgipassword: ((tanzu-gitops.tkgi_password))
         harbordomain: ((harbordomain))
         namespace: sockshop
-        deployment: front-end
-        container: front-end
-        image: sockshop-front-end
+        deployment: queue-master
+        container: queue-master
+        image: sockshop-queue-master
 
 
 

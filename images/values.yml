@@ -2,5 +2,10 @@
 ---
 product_api_image: ""
 spring_petclinic_image: ""
+sockshop_carts_image: ""
 sockshop_frontend_image: ""
+sockshop_orders_image: ""
+sockshop_queue_master_image: ""
+sockshop_shipping_image: ""
+
 harbor: ""
