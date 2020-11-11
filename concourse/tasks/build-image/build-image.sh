@@ -11,5 +11,5 @@ tkgi get-credentials ${tkgicluster}
 
 cd source-code
 REVISION=$(git rev-parse HEAD)
-kp -n images image patch image --git-revision ${REVISION}
+kp -n images image patch ${image} --git-revision ${REVISION}
 
