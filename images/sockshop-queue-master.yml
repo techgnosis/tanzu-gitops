@@ -3,7 +3,7 @@
 apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
-  name: sockshop-front-end
+  name: sockshop-queue-master
   namespace: images
 spec:
   tag: #@ data.values.sockshop_frontend_image
@@ -13,6 +13,6 @@ spec:
     kind: ClusterBuilder
   source:
     git:
-      url: https://github.com/techgnosis/sockshop-front-end.git
-      revision: demo
+      url: https://github.com/microservices-demo/queue-master.git
+      revision: master
 
