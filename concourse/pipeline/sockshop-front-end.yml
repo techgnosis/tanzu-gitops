@@ -65,13 +65,17 @@ jobs:
     - get: tanzu-gitops
     - get: concourse-helper
     - task: handoff to Kubernetes
-      file: tanzu-gitops/concourse/tasks/deploy-sockshop-front-end-image/deploy-sockshop-front-end-image.yml
+      file: tanzu-gitops/concourse/tasks/deploy-image/deploy-image.yml
       image: concourse-helper
+      input_mapping:
+        image: sockshop-front-end-image
       params:
         tkgicluster: cluster1
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
         harbordomain: ((harbordomain))
+        app: sockshop-front-end
+
 
 

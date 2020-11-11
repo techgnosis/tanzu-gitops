@@ -71,14 +71,17 @@ jobs:
         WAVEFRONT_API_TOKEN: ((tanzu-gitops.wavefront_api_token))
         WAVEFRONT_URL: ((tanzu-gitops.wavefront_url))
     - task: handoff to Kubernetes
-      file: tanzu-gitops/concourse/tasks/deploy-spring-petclinic-image/deploy-spring-petclinic-image.yml
+      file: tanzu-gitops/concourse/tasks/deploy-image/deploy-image.yml
       image: concourse-helper
+      input_mapping:
+        image: spring-petclinic-image
       params:
         tkgicluster: cluster1
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
         harbordomain: ((harbordomain))
+        app: spring-petclinic
 
 
 
