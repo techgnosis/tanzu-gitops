@@ -1,1 +1,0 @@
-Using the Python load testing tool `locust` to send traffic to spring-petclinic
