@@ -6,7 +6,9 @@ set -euo pipefail
 helm install harbor harbor \
 --repo https://helm.goharbor.io \
 --version 1.5.0 \
---values helm.yml
+--values helm.yml \
+--namespace harbor \
+--create-namespace
 
 
 kapp deploy -a harbor -f <(ytt --data-values-env=YTT_HARBOR \
