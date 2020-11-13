@@ -5,7 +5,7 @@ set -euo pipefail
 
 helm install harbor harbor \
 --repo https://helm.goharbor.io \
---version 1.5.0 \
+--version 1.5.1 \
 --values helm.yml \
 --namespace harbor \
 --create-namespace
