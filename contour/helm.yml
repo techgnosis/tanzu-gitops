@@ -1,2 +1,1 @@
-envoy:
-  useHostPort: false
+replicaCount: 1

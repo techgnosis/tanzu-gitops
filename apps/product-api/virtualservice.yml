@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: product-api
+  namespace: product-api
+spec:
+  hosts:
+  - "product-api.lab.home"
+  gateways:
+  - product-api
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        port:
+          number: 8080
+        host: product-api

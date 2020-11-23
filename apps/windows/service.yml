@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: windows
+  namespace: windows
+spec:
+  type: ClusterIP
+  selector:
+    app: windows
+  ports:
+    - protocol: TCP
+      port: 80
+  
