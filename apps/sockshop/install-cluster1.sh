@@ -12,6 +12,6 @@ kapp deploy -a sockshop -f <(ytt --data-values-env=YTT_SOCKSHOP \
 -f certificate.yml \
 -f ingress.yml \
 -f values.yml \
+-f dbs.yml \
 -f istio/destinationrule.yml \
--f istio/policy.yml \
--f dbs.yml)
+-f istio/policy.yml)
