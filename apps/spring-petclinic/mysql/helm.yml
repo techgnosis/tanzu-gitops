@@ -1,0 +1,12 @@
+podAnnotations:
+  backup.velero.io/backup-volumes: data
+root:
+  password: petclinic
+db:
+  user: petclinic
+  password: petclinic
+  name: petclinic
+replication:
+  enabled: false
+persistence:
+  size: 50Gi

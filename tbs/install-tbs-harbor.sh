@@ -26,5 +26,5 @@ kapp deploy -a tanzu-build-service -f <(ytt -f ./tbs-install/values.yaml \
 -f "$(mkcert -CAROOT)"/rootCA.pem \
 -v docker_repository="$HARBOR_DOMAIN/library/build-service" \
 -v docker_username="admin" \
--v docker_password="Harbor12345" \
+-v docker_password="tamale-trauma-coven-guffaw-merger-ted" \
 | kbld -f ./tbs-install/images-relocated.lock -f-)
