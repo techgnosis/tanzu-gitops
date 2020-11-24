@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-
-
 kubectl create ns metallb-system
 
 kubectl create secret generic \
