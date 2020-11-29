@@ -1,20 +1,24 @@
-# It is assumed that everything will exist in this domain
-# You must be able to make DNS entries for this domain
 export PRIMARY_DOMAIN="lab.home"
+export APPS_DOMAIN="apps.$PRIMARY_DOMAIN"
+export HARBOR_DOMAIN="harbor.$PRIMARY_DOMAIN"
 
 export PIVNET_LOGIN=""
 export PIVNET_PASSWORD=""
 
-# Hostname of Harbor. 
-export HARBOR_DOMAIN="harbor.$PRIMARY_DOMAIN"
+export DOCKERHUB_USERNAME=""
+export DOCKERHUB_PASSWORD=""
+
 
 # YTT product-api
 export YTT_PRODUCTAPI_image="$HARBOR_DOMAIN/library/product-api:latest"
-export YTT_PRODUCTAPI_ingress_hostname="product-api.$PRIMARY_DOMAIN"
+export YTT_PRODUCTAPI_ingress_hostname="product-api.$APPS_DOMAIN"
+
+# YTT windows
+export YTT_WINDOWS_ingress_hostname="windows.$PRIMARY_DOMAIN"
 
 # YTT spring-petclinic
 export YTT_SPRINGPETCLINIC_image="$HARBOR_DOMAIN/library/spring-petclinic:latest"
-export YTT_SPRINGPETCLINIC_ingress_hostname="spring-petclinic.$PRIMARY_DOMAIN"
+export YTT_SPRINGPETCLINIC_ingress_hostname="spring-petclinic.$APPS_DOMAIN"
 
 # YTT harbor
 export YTT_HARBOR_harbor_cn="harbor.$PRIMARY_DOMAIN"
@@ -44,21 +48,17 @@ export YTT_VAULT_ingress_hostname="vault.$PRIMARY_DOMAIN"
 
 # YTT wavefront
 export YTT_WAVEFRONT_wavefront_token=""
-export YTT_WAVEFRONT_wavefront_url="https://something.wavefront.com/api"
+export YTT_WAVEFRONT_wavefront_url="https://.wavefront.com/api"
 export YTT_WAVEFRONT_vcsa_password=""
 
 # YTT images
 export YTT_TBS_product_api_image="$HARBOR_DOMAIN/library/product-api"
-export YTT_TBS_sockshop_carts_image="$HARBOR_DOMAIN/library/sockshop-carts"
 export YTT_TBS_sockshop_frontend_image="$HARBOR_DOMAIN/library/sockshop-front-end"
-export YTT_TBS_sockshop_orders_image="$HARBOR_DOMAIN/library/sockshop-orders"
-export YTT_TBS_sockshop_queue_master_image="$HARBOR_DOMAIN/library/sockshop-queue-master"
-export YTT_TBS_sockshop_shipping_image="$HARBOR_DOMAIN/library/sockshop-shipping"
 export YTT_TBS_spring_petclinic_image="$HARBOR_DOMAIN/library/spring-petclinic"
 export YTT_TBS_harbor="$HARBOR_DOMAIN"
 
 # YTT sockshop
-export YTT_SOCKSHOP_ingress_hostname="sockshop.$PRIMARY_DOMAIN"
+export YTT_SOCKSHOP_ingress_hostname="sockshop.$APPS_DOMAIN"
 
 
 # TAS4K8s
@@ -67,4 +67,4 @@ export YTT_TLSTAS_primary_domain=$PRIMARY_DOMAIN
 
 
 # TMC
-export TMC_CLUSTER_GROUP_NAME=""
+export TMC_CLUSTER_GROUP_NAME="jmusselwhite"
