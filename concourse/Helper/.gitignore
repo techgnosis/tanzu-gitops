@@ -1,10 +1,7 @@
 spring-petclinic/
-kubectl-linux-amd64-1.16.12
-pks-linux-amd64-1.7.1-build.26
-tkgi-linux-amd64-1.8.0-build.75
-kp-linux-0.1.1
-kapp-linux-amd64
-ytt-linux-amd64
-sd
-kubectl-argo-rollouts-linux-amd64
-pivnet-linux-amd64-2.0.0
+kubectl
+tkgi
+kp
+kapp
+ytt
+pivnet
