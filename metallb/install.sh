@@ -11,4 +11,4 @@ kubectl create secret generic \
 kapp deploy -a metallb \
 -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml \
 -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml \
--f config-cluster1.yaml
+-f config.yml
