@@ -18,6 +18,6 @@ docker login registry.pivotal.io -u ${pivnetusername} -p ${pivnetpassword}
 # text...who knows.
 # I know you don't believe me - just try it
 echo "${harbordomain}"
-docker login "${harbordomain}" -u admin -p Harbor12345
+docker login "${harbordomain}" -u admin -p "tamale-trauma-coven-guffaw-merger-ted"
 
 kp import -f ./tbs-dependencies/descriptor-*.yaml
