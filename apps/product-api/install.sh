@@ -9,5 +9,3 @@ kapp deploy -a product-api -f <(ytt --data-values-env=YTT_PRODUCTAPI \
 -f services.yml \
 -f namespace.yml \
 -f values.yaml)
-#-f gateway.yml \
-#-f virtualservice.yml \
