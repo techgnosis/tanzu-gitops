@@ -1,0 +1,1 @@
+The ingress section of `systemprofile.yml` is only for the Ingress to each user session. It is not about TrainingPortals

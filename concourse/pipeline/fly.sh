@@ -4,7 +4,7 @@ set -euo pipefail
 
 fly login \
 --target=lab \
---concourse-url="https://concourse.$PRIMARY_DOMAIN" \
+--concourse-url="https://concourse.$APPS_DOMAIN" \
 --username=test \
 --password=test
 

@@ -1,0 +1,28 @@
+apiVersion: training.eduk8s.io/v1alpha2
+kind: Workshop
+metadata:
+  name: lab-k8s-fundamentals
+spec:
+  title: Kubernetes Fundamentals
+  description: Workshop on getting started with Kubernetes
+  url: https://github.com/eduk8s-labs/lab-k8s-fundamentals
+  vendor: eduk8s.io
+  authors:
+  - Graham Dumpleton
+  difficulty: intermediate
+  duration: 1h
+  tags:
+  - kubernetes
+  content:
+    image: quay.io/eduk8s-labs/lab-k8s-fundamentals:master
+  session:
+    namespaces:
+      budget: medium
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      console:
+        enabled: true
+      editor:
+        enabled: true

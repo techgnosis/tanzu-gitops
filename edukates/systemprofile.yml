@@ -1,0 +1,9 @@
+apiVersion: training.eduk8s.io/v1alpha1
+kind: SystemProfile
+metadata:
+  name: default-system-profile
+spec:
+  ingress:
+    domain: ingress.lab.home
+    protocol: http
+    class: nginx
