@@ -3,7 +3,7 @@ source:
     kind: HELM
     url: https://charts.trials.tac.bitnami.com/demo
 target:
-  repoName: mariadb-galera
+  repoName: mysql
   containerRegistry: harbor.lab.home
   containerRepository: library
   repo:
@@ -11,4 +11,6 @@ target:
     url: https://harbor.lab.home/chartrepo/library
     auth:
       username: admin
-      password: Harbor12345
+      password: tamale-trauma-coven-guffaw-merger-ted
+charts:
+  - mysql

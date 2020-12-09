@@ -30,7 +30,6 @@ The goal of this repo is to store ready-to-install manifests for Tanzu products 
 * `bash` to run all the install scripts
 * `kubectl` and `kubeseal` to create `SealedSecrets`
 * `mkcert` for all TLS certs (via cert-manager)
-* [helm-push](https://github.com/chartmuseum/helm-push)
 
 ### Architecture Decisions
 * Two clusters. Everything but TAS runs in one cluster. TAS runs in the other cluster.
@@ -38,44 +37,12 @@ The goal of this repo is to store ready-to-install manifests for Tanzu products 
 * I use TKGI for my Kubernetes clusters. Most of this project is not dependent on TKGI but the Concourse tasks use the `tkgi` CLI to authenticate
 * If a piece of software has a Helm chart, I use the Helm chart
 * If a piece of software does not have a Helm chart then I use `ytt` to template and `kapp` to install
-* I use environment variables heavily as they are the most portable way to configure software
+* I use environment variables heavily
 * Demo environments don't need Lets Encrypt so this project uses `mkcert` which is much easier
 * The Concourse tasks are not generic or re-usable. This is to make them easier to read and understand.
 * Secrets are handled by `kubeseal` so they can be added to source control. TLS secrets are handled by `cert-manager`
 
 
-
-### TKGI
-1. `./tkgi-create-clusters.sh`
-
-### TMC steps
-1. `./tmc-attach-cluster.sh cluster1`
-1. `./tmc-attach-cluster.sh tas`
-
-
-### cluster1
-Inside each of these folders are all the relevant manifests and install scripts. Install them in this order.
-1. `sealedsecrets`
-1. `storage-vcp` or `storage-csi`
-1. `contour` or `nginx-ingress-controller`
-1. `cert-manager`
-1. `node-exporter`
-1. `prometheus`
-1. `harbor` or use the Harbor tile
-1. `tbs`
-1. `images`
-1. `concourse`
-1. `mariadb-galera`
-1. `spring-petclinic`
-1. `product-api`
-1. `kubeapps` (optional)
-
-### tas
-Inside each of these folders are all the relevant manifests and install scripts. Install them in this order.
-1. `sealedsecrets`
-1. `storage-vcp` or `storage-csi`
-1. `minibroker`
-1. `tas`
 
 ## Component descriptions
 
@@ -125,9 +92,7 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Figure out TSMgr for TAS
-* Get RabbitMQ into TO
 * Change project name from `tanzu-gitops` to `tanzu-demo`
-* Add Tekton pipelines
-* Add a pipeline to get test-app into TAS
+* Change Harbor password back to Harbor12345
+* Consolidate demo.sh scripts into one mega demo
 * When using OIDC for K8s auth, how do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.

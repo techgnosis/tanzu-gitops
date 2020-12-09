@@ -1,1 +1,0 @@
-charts-syncer syncChart --name mariadb-galera --version 4.4.0 --config ./mariadb-galera.yml

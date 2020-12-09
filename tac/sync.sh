@@ -1,0 +1,1 @@
+charts-syncer sync
