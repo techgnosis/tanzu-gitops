@@ -1,12 +1,10 @@
-podAnnotations:
-  backup.velero.io/backup-volumes: data
-root:
+primary:
+  persistence:
+    size: 50Gi
+  podAnnotations:
+    backup.velero.io/backup-volumes: data
+auth:
+  rootPassword: petclinic
+  database: petclinic
+  username: petclinic
   password: petclinic
-db:
-  user: petclinic
-  password: petclinic
-  name: petclinic
-replication:
-  enabled: false
-persistence:
-  size: 50Gi
