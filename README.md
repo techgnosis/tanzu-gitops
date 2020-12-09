@@ -92,7 +92,7 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Change project name from `tanzu-gitops` to `tanzu-demo`
+* Change project name from `tanzu-gitops` to `tanzu-demo` and make all required code changes
+* Drop SealedSecrets. It's cool but it's not adding anything to this repo
 * Change Harbor password back to Harbor12345
 * Consolidate demo.sh scripts into one mega demo
-* When using OIDC for K8s auth, how do you provide a username and password to `tkgi get-credentials` for use with Concourse? Otherwise I get a password prompt when using OIDC. It seems its an environment variable.
