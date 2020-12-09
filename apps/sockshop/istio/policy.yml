@@ -2,7 +2,7 @@ apiVersion: authentication.istio.io/v1alpha1
 kind: Policy
 metadata:
   name: default
-  namespace: sockshop
+  namespace: sock-shop
 spec:
   peers:
     - mtls:

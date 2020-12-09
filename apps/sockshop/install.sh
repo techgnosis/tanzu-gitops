@@ -2,11 +2,16 @@
 
 set -euo pipefail
 
-kapp deploy -a sockshop -f <(ytt --data-values-env=YTT_SOCKSHOP \
+# The istio files turn off mTLS
+# I dont remember why I had to do that but I suspect things didn't work with TLS enabled
+
+kapp deploy -a sockshop \
 -f sockshop.yml \
--f front-end.yml \
 -f namespace.yml \
+-f istio/destinationrule.yml \
+-f istio/policy.yml \
+-f <(ytt --data-values-env=YTT_SOCKSHOP \
 -f certificate.yml \
 -f ingress.yml \
--f values.yml \
--f dbs.yml)
+-f values.yml)
+

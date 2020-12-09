@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   name: disable-mtls
-  namespace: sockshop
+  namespace: sock-shop
 spec:
   host: "*.sockshop.svc.cluster.local"
   trafficPolicy:
