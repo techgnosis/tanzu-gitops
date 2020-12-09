@@ -7,7 +7,7 @@ tkgi login -a ${tkgiapi} \
 -p ${tkgipassword} \
 -k
 
-TKGI_USER_PASSWORD=${tkgipassword} tkgi get-credentials ${tkgicluster}
+TKGI_USER_PASSWORD=${tkgipassword} PKS_USER_PASSWORD=${tkgipassword} tkgi get-credentials ${tkgicluster}
 
 cd source-code
 REVISION=$(git rev-parse HEAD)
