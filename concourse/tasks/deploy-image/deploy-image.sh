@@ -7,7 +7,7 @@ tkgi login -a ${tkgiapi} \
 -p ${tkgipassword} \
 -k
 
-tkgi get-credentials ${tkgicluster}
+TKGI_USER_PASSWORD=${tkgipassword} PKS_USER_PASSWORD=${tkgipassword} tkgi get-credentials ${tkgicluster}
 
 export DIGEST=$(cat image/digest)
 kubectl -n ${namespace} set image deployment/${deployment} ${container}=${harbordomain}/library/${image}@${DIGEST}
