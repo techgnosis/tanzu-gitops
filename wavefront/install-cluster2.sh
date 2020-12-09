@@ -7,4 +7,4 @@ kapp deploy -a wavefront-proxy -f <(ytt --data-values-env=YTT_WAVEFRONT \
 -f namespace.yml \
 -f values.yml \
 -f telegraf.yml \
--f config.yml)
+-f config-cluster2.yml)

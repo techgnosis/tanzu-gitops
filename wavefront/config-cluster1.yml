@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: telegraf
+  namespace: wavefront
+data:
+  telegraf.conf: |
+    [[inputs.postgresql]]
+      address = "postgres://cloud_controller:OqO4DXfh6WdhghS8oYqvwL0j51Mwix@ccdb.postgres-dbs.svc.cluster.local/cloud_controller"
+      databases = ["cloud_controller"]
+
+    [[inputs.postgresql]]
+      address = "postgres://uaa:G1VffzToIWBBrDBZ9x0xkS1aDSTfo4@uaadb.postgres-dbs.svc.cluster.local/uaa"
+      databases = ["uaa"]
+
+    [[inputs.postgresql]]
+      address = "postgres://usage_service:zjdDVAdYeXMwCGNgGCk6oNHryTCz4l@usagedb.postgres-dbs.svc.cluster.local/usage_service"
+      databases = ["usage_service"]
+
+    [[outputs.wavefront]]
+      host = "wavefront-proxy.wavefront.svc.cluster.local"
+      port = 2878
+      metric_separator = "."
+      source_override = ["hostname", "agent_host", "node_host"]
+      convert_paths = true
+ 

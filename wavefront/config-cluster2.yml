@@ -8,17 +8,17 @@ data:
     [[inputs.vsphere]]
       vcenters = [ "https://vcsa.lab.home/sdk" ]
       username = "administrator@vsphere.local"
-      password = ""
+      password = "yDZZn&zHf3fTiXhHNeo"
       insecure_skip_verify = true
 
     [[inputs.mysql]]
-      servers = ["petclinic:petclinic@tcp(mariadb-galera.spring-petclinic.svc.cluster.local:3306)/?tls=false"]
+      servers = ["petclinic:petclinic@tcp(mysql.spring-petclinic.svc.cluster.local:3306)/?tls=false"]
 
     [[inputs.mongodb]]
       servers = [
-        "mongodb://carts-db.sockshop.svc.cluster.local:27017",
-        "mongodb://orders-db.sockshop.svc.cluster.local:27017",
-        "mongodb://user-db.sockshop.svc.cluster.local:27017"
+        "mongodb://carts-db.sock-shop.svc.cluster.local:27017",
+        "mongodb://orders-db.sock-shop.svc.cluster.local:27017",
+        "mongodb://user-db.sock-shop.svc.cluster.local:27017"
       ]
 
 
