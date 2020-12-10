@@ -9,6 +9,12 @@ source ./demo-magic.sh
 # Reset TBS back to 19
 # Delete all the MySQL and common Helm charts
 
+#1 - secure image pipeline for existing software
+#2 - platform operators providing databases and K8s access to development teams with TAC and TMC
+#3 - low-K8s "easy mode"
+#4 - microservices architecture
+#5 - constant backdrop of observability
+
 
 clear
 
@@ -31,7 +37,7 @@ cd ..
 p 'Lets take a look at Harbor Helm repo and our image replication'
 
 
-p 'Helm repo is ready. We need to provision a new namespace for our application. Lets use TMC'
+p 'Helm repo is ready. We need to provision a new namespace for our application. Lets use Tanzu Mission Control'
 p 'Lets login as our spring-petclinic developer and begin deploying'
 pe 'tkgi get-kubeconfig cluster2 --username spring-petclinic-dev --password spring-petclinic-dev --api https://tkgi.lab.home'
 p 'We havent been assigned any permissions yet. Lets confirm'
