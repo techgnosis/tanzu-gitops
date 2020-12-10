@@ -4,7 +4,7 @@ metadata:
   name: disable-mtls
   namespace: sock-shop
 spec:
-  host: "*.sockshop.svc.cluster.local"
+  host: "*.sock-shop.svc.cluster.local"
   trafficPolicy:
     tls:
       mode: DISABLE

@@ -1,0 +1,2157 @@
+{
+    "name": "jmusselwhite-mongodb",
+    "url": "jmusselwhite-mongodb",
+    "eventFilterType": "BYCHART",
+    "displayDescription": false,
+    "displaySectionTableOfContents": true,
+    "displayQueryParameters": true,
+    "sections": [
+      {
+        "name": "",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "plainMarkdownContent": "|  |  |\n| --- | --- |\n| ![mongodb](https://s3-us-west-2.amazonaws.com/wavefront-img/mongodb.svg) | This dashboard shows mongostat and dbstat metrics for your mongoDB nodes, more metrics can be added based on your requirements. Telegraf also collects system level metrics of your host platform (eg. Linux, Windows, Docker etc.) You can clone, combine and customize these dashboards per your requirement and use-case. To collect metrics from a new mongoDB node, install an agent on the newly added node using instructions from [host integration](/integrations). Objects covered in this dashboard include: Host and Database. |",
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "COUNT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "TOP",
+                  "customTags": [],
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "BOTTOM",
+                  "y1Units": "",
+                  "type": "markdown-widget",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": " ",
+                "units": "Units",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 12,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "",
+                    "scatterPlotSource": "Y",
+                    "querybuilderSerialization": "{\"_v\":1,\"metric\":\"\",\"filters\":[[],\"and\"],\"functions\":[]}",
+                    "querybuilderEnabled": true,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": true,
+                "description": ""
+              }
+            ],
+            "heightFactor": 80
+          }
+        ]
+      },
+      {
+        "name": "Hosts",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "stackType": "zero",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Connections",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "Query",
+                    "sparklineDisplaySubLabel": "Connections"
+                  },
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Query",
+                    "query": "sum(ts(\"mongodb.open.connections\", source=\"${0_host_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Incoming Bytes",
+                "units": "B",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Incoming Bytes"
+                  },
+                  "dashboardLayout": {
+                    "x": 4,
+                    "y": 0,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(mongodb.net.in.bytes, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Outgoing Bytes",
+                "units": "B",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Outgoing Bytes"
+                  },
+                  "dashboardLayout": {
+                    "x": 8,
+                    "y": 0,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(mongodb.net.out.bytes, source=\"${0_host_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 80
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "stackType": "zero",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Operations/sec",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Operations/sec"
+                  },
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 4,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(mongodb.*.per.sec, source=\"${0_host_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Active R/W Operations",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Active R/W Operations"
+                  },
+                  "dashboardLayout": {
+                    "x": 4,
+                    "y": 4,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(mongodb.active.reads, source=\"${0_host_scope}\")) + sum(ts(mongodb.active.writes, source=\"${0_host_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Queued R/W Operations",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Queued R/W Operations"
+                  },
+                  "dashboardLayout": {
+                    "x": 8,
+                    "y": 4,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(mongodb.queued.reads, source=\"${0_host_scope}\")) + sum(ts(mongodb.queued.writes, source=\"${0_host_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 80
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "showHosts": false,
+                  "groupBySource": true,
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "type": "table",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Network Statistics",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 8,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Connections",
+                    "query": "aliasMetric(ts(mongodb.open.connections, source=\"${0_host_scope}\"), \"Connections\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Replication Lag",
+                    "query": "aliasMetric(ts(mongodb.repl.lag, source=\"${0_host_scope}\"), \"Replication Lag (ms)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Incoming Bytes",
+                    "query": "aliasMetric(ts(mongodb.net.in.bytes, source=\"${0_host_scope}\"), \"Incoming Bytes\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Outgoing Bytes",
+                    "query": "aliasMetric(ts(mongodb.net.out.bytes, source=\"${0_host_scope}\"), \"Outgoing Bytes\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "showHosts": false,
+                  "groupBySource": true,
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "type": "table",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Memory",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 8,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Virtual Memory",
+                    "query": "aliasMetric(ts(mongodb.vsize.megabytes, source=\"${0_host_scope}\"), \"Virtual Memory (MB)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Resident Memory",
+                    "query": "aliasMetric(ts(mongodb.resident.megabytes, source=\"${0_host_scope}\"), \"Resident Memory (MB)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Cache Dirty",
+                    "query": "aliasMetric(ts(mongodb.percent.cache.dirty, source=\"${0_host_scope}\"), \"Cache Dirty (%)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Cache Used",
+                    "query": "aliasMetric(ts(mongodb.percent.cache.used, source=\"${0_host_scope}\"), \"Cache Used (%)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "100",
+                  "stackType": "zero",
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineValueColorMapApplyTo": "TEXT",
+                  "windowing": "full",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "stacked-area",
+                  "y1UnitAutoscaling": false,
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "autoColumnTags": false,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Connections",
+                "summarization": "MEAN",
+                "base": 0,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 13,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Query",
+                    "query": "last(ts(\"mongodb.open.connections\", source=\"${0_host_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Replication Lag",
+                "units": "ms",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 13,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.repl.lag, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Bytes In",
+                "units": "B",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 18,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.net.in.bytes, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Bytes Out",
+                "units": "B",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 18,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.net.out.bytes, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "lineType": "linear",
+                  "showHosts": false,
+                  "groupBySource": true,
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "type": "table",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Reads & Writes",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 23,
+                    "w": 12,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Active Reads",
+                    "query": "aliasMetric(sum(ts(mongodb.active.reads, source=\"${0_host_scope}\"), sources, hostname), \"Active Reads\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Active Writes",
+                    "query": "aliasMetric(sum(ts(mongodb.active.writes, source=\"${0_host_scope}\"), sources, hostname), \"Active Writes\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Queued Reads",
+                    "query": "aliasMetric(sum(ts(mongodb.queued.reads, source=\"${0_host_scope}\"), sources, hostname), \"Queued Reads\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Queued Writes",
+                    "query": "aliasMetric(sum(ts(mongodb.queued.writes, source=\"${0_host_scope}\"), sources, hostname), \"Queued Writes\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Active Reads",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 28,
+                    "w": 3,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.active.reads, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Active Writes",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 3,
+                    "y": 28,
+                    "w": 3,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.active.writes, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Queued Reads",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 28,
+                    "w": 3,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.queued.reads, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Queued Writes",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 9,
+                    "y": 28,
+                    "w": 3,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.queued.writes, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          }
+        ]
+      },
+      {
+        "name": "Operations",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "lineType": "linear",
+                  "showHosts": false,
+                  "groupBySource": true,
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "type": "table",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Operation Averages",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 0,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 12,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Inserts",
+                    "query": "aliasMetric(mavg(1d, ts(mongodb.inserts.per.sec, source=\"${0_host_scope}\")), \"Inserts/sec\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Deletes",
+                    "query": "aliasMetric(mavg(1d, ts(mongodb.deletes.per.sec, source=\"${0_host_scope}\")), \"Deletes/sec\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "GetMore",
+                    "query": "aliasMetric(mavg(1d, ts(mongodb.getmores.per.sec, source=\"${0_host_scope}\")), \"GetMores/sec\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Update",
+                    "query": "aliasMetric(mavg(1d, ts(mongodb.updates.per.sec, source=\"${0_host_scope}\")), \"Updates/sec\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Query",
+                    "query": "aliasMetric(mavg(1d, ts(mongodb.queries.per.sec, source=\"${0_host_scope}\")), \"Queries/sec\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Command",
+                    "query": "aliasMetric(mavg(1d, ts(mongodb.commands.per.sec, source=\"${0_host_scope}\")), \"Commands/sec\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Flushes",
+                    "query": "aliasMetric(mavg(1d, ts(mongodb.flushes.per.sec, source=\"${0_host_scope}\")), \"Flushes/sec\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Inserts/sec",
+                "units": "Ops/sec",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 5,
+                    "w": 4,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.inserts.per.sec, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Deletes/sec",
+                "units": "Ops/sec",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 4,
+                    "y": 5,
+                    "w": 4,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.deletes.per.sec, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Updates/sec",
+                "units": "Ops/sec",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 8,
+                    "y": 5,
+                    "w": 4,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.updates.per.sec, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "GetMores/sec",
+                "units": "Ops/sec",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 10,
+                    "w": 4,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.getmores.per.sec, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Queries/sec",
+                "units": "Ops/sec",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 4,
+                    "y": 10,
+                    "w": 4,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.queries.per.sec, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Commands/sec",
+                "units": "Ops/sec",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 8,
+                    "y": 10,
+                    "w": 4,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "last(ts(mongodb.commands.per.sec, source=\"${0_host_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          }
+        ]
+      },
+      {
+        "name": "Databases",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BOTTOM",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Total Data Size",
+                "units": "B",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Total Data Size"
+                  },
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(mongodb.db.stats.data.size, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Average Object Size",
+                "units": "B",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Average Object Size"
+                  },
+                  "dashboardLayout": {
+                    "x": 4,
+                    "y": 0,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(mongodb.db.stats.avg.obj.size, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\") * ts(mongodb.db.stats.objects, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\")) / sum(ts(mongodb.db.stats.objects, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Average Index Size",
+                "units": "B",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Average Index Size"
+                  },
+                  "dashboardLayout": {
+                    "x": 8,
+                    "y": 0,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(mongodb.db.stats.index.size, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\")) / sum(ts(mongodb.db.stats.indexes, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 80
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": true,
+                  "showHosts": false,
+                  "groupBySource": true,
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "type": "table",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Details",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 4,
+                    "w": 12,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Health",
+                    "query": "aliasMetric(ts(mongodb.db.stats.ok, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"), \"Health\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Data Size",
+                    "query": "aliasMetric(ts(mongodb.db.stats.data.size, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"), \"Data Size (B)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Storage Size",
+                    "query": "aliasMetric(ts(mongodb.db.stats.storage.size, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"), \"Storage Size (B)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Average Object Size",
+                    "query": "aliasMetric(ts(mongodb.db.stats.avg.obj.size, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"), \"Average Object Size (B)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Index Size",
+                    "query": "aliasMetric(ts(mongodb.db.stats.index.size, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"), \"Index Size (B)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": true,
+                  "showHosts": false,
+                  "groupBySource": true,
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "type": "table",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Totals",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 9,
+                    "w": 12,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Collections",
+                    "query": "aliasMetric(ts(mongodb.db.stats.collections, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"), \"Collections\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Objects",
+                    "query": "aliasMetric(ts(mongodb.db.stats.objects, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"), \"Objects\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Indexes",
+                    "query": "aliasMetric(ts(mongodb.db.stats.indexes, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"), \"Indexes\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "Extents",
+                    "query": "aliasMetric(ts(mongodb.db.stats.num.extents, source=\"${0_host_scope}\" and db_name=\"${2_database_scope}\"), \"Extents\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "plainMarkdownContent": "**Note:** *This dashboard is provided by Wavefront. It's not directly editable, which lets us deploy new versions without affecting any of your customizations. If you want to make your own version, click ![pencil](https://s3-us-west-2.amazonaws.com/wavefront-img/pen-icon.png) **> Clone** and give the dashboard a new URL*.",
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "markdown-widget",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Make your own version...",
+                "units": "Units",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 14,
+                    "w": 12,
+                    "h": 3
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "",
+                    "scatterPlotSource": "Y",
+                    "querybuilderSerialization": "{\"_v\":1,\"metric\":\"\",\"filters\":[[],\"and\"],\"functions\":[]}",
+                    "querybuilderEnabled": true,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 50
+          }
+        ]
+      }
+    ],
+    "parameterDetails": {
+      "0_host_scope": {
+        "parameterType": "DYNAMIC",
+        "tagKey": "hostname",
+        "queryValue": "ts(mongodb.open.connections)",
+        "order": 1,
+        "defaultValue": "Label",
+        "hideFromView": false,
+        "value": "bigid-dev-mgo2:27017",
+        "label": "Host",
+        "dynamicFieldType": "SOURCE",
+        "valuesToReadableStrings": {
+          "Label_2": "bigid-dev-mgo3:27017",
+          "Label_3": "bigid-dev-mgo4:27017",
+          "Label_30": "user-db.sock-shop.svc.cluster.local:27017",
+          "Label_4": "bigid-qa-mgo2:27017",
+          "Label_20": "mob-stg-mgo-s13:27028",
+          "Label_31": "vcan-um-reportserver:27017",
+          "Label_5": "bigid-qa-mgo3:27017",
+          "Label_10": "carts-db.sock-shop.svc.cluster.local:27017",
+          "Label_21": "orders-db.sock-shop.svc.cluster.local:27017",
+          "Label_6": "bigid-qa-mgo4:27017",
+          "Label_11": "eang-stg-mgo1:27017",
+          "Label_22": "sky-dev-mgo-s11:27028",
+          "Label_7": "bigid-stg-mgo1:27017",
+          "Label_12": "eang-stg-mgo2:27017",
+          "Label_23": "sky-dev-mgo-s12:27028",
+          "Label_8": "bigid-stg-mgo2:27017",
+          "Label_13": "eang-stg-mgo3:27017",
+          "Label_24": "sky-lt-mgo-s11:27028",
+          "Label_9": "bigid-stg-mgo3:27017",
+          "Label_14": "eang-stg-mgo4:27017",
+          "Label_25": "sky-lt-mgo-s12:27028",
+          "Label_15": "mob-dev-mgo-s11:27028",
+          "Label_26": "sky-lt-mgo-s13:27028",
+          "Label_16": "mob-dev-mgo-s12:27028",
+          "Label_27": "sky-stg-mgo-s11:27028",
+          "Label_17": "mob-dev-mgo-s13:27028",
+          "Label_28": "sky-stg-mgo-s12:27028",
+          "Label_18": "mob-stg-mgo-s11:27028",
+          "Label_29": "sky-stg-mgo-s13:27028",
+          "Label_19": "mob-stg-mgo-s12:27028",
+          "Label": "bigid-dev-mgo2:27017"
+        },
+        "allowAll": false,
+        "selectedLabel": "Label"
+      },
+      "2_database_scope": {
+        "parameterType": "DYNAMIC",
+        "tagKey": "db_name",
+        "queryValue": "collect(ts(\"mongodb.db.stats.ok\" and source=\"${0_host_scope}\"), taggify(1, db_name, '*'))",
+        "order": 2,
+        "defaultValue": "Label",
+        "hideFromView": false,
+        "value": "*",
+        "label": "Database",
+        "dynamicFieldType": "TAG_KEY",
+        "valuesToReadableStrings": {
+          "Label": "*",
+          "Label_2": "admin",
+          "Label_3": "bigid-server",
+          "Label_4": "config",
+          "Label_5": "dumm",
+          "Label_6": "local",
+          "Label_7": "test"
+        },
+        "allowAll": false,
+        "selectedLabel": "Label"
+      }
+    }
+  }

@@ -1,0 +1,2557 @@
+{
+    "name": "jmusselwhite-mysql",
+    "url": "MariaDB-spring-petclinic",
+    "description": "",
+    "eventFilterType": "BYCHART",
+    "eventQuery": "",
+    "defaultTimeWindow": "2h",
+    "displayDescription": false,
+    "displaySectionTableOfContents": true,
+    "displayQueryParameters": true,
+    "chartTitleScalar": 0,
+    "sections": [
+      {
+        "name": "Overview",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "plainMarkdownContent": "|  |  |\n| --- | --- |\n| ![mysql](https://s3-us-west-2.amazonaws.com/wavefront-img/mysql_90px.png) | Real-time **MySQL** status.  These statistics are collected via Telegraf from the database tables in MySQL server.  For more detailed description and control over statistics collected, visit [MySQL input plugin documentation](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/mysql). |",
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "markdown-widget",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": " ",
+                "units": "Units",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 12,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "",
+                    "scatterPlotSource": "Y",
+                    "querybuilderSerialization": "{\"_v\":1,\"metric\":\"\",\"filters\":[[],\"and\"],\"functions\":[]}",
+                    "querybuilderEnabled": true,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 80
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "COUNT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "TOP",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "lineType": "linear",
+                  "showHosts": true,
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "groupBySource": false,
+                  "windowing": "full",
+                  "min": 0,
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "BOTTOM",
+                  "sparklineValueColorMapValuesV2": [
+                    1
+                  ],
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "sparklineDecimalPrecision": 2,
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Uptime",
+                "units": "days",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "Query",
+                    "sparklineDisplaySubLabel": "Uptime"
+                  },
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 4,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Query",
+                    "query": "sum(ts(\"mysql.uptime\" and server=\"${0_instance_scope}\")) / (3600 * 24)",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": "Total uptime in days for MySQL instances selected."
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "showHosts": true,
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "groupBySource": false,
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "sparklineDecimalPrecision": 0,
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Instance(s) reporting",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "Query",
+                    "sparklineDisplaySubLabel": "Instance(s) reporting"
+                  },
+                  "dashboardLayout": {
+                    "x": 4,
+                    "y": 4,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Query",
+                    "query": "sum(count(count(ts(\"mysql.bytes.received\"), server), server))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": "Total number of MySQL server instances sending metrics to wavefront."
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "sparklineDecimalPrecision": 0,
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Connection(s)",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Connection(s)"
+                  },
+                  "dashboardLayout": {
+                    "x": 8,
+                    "y": 4,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(\"mysql.users.connections\", server=\"${0_instance_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": "Active connections to the Instance(s) selected."
+              }
+            ],
+            "heightFactor": 80
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "showHosts": true,
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "groupBySource": false,
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "sparklineDecimalPrecision": 0,
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Schema(s)",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Schema(s)"
+                  },
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 8,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(count(count(ts(mysql.perf.schema.read, server=\"${0_instance_scope}\"), server, schema), server, schema))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": "Total number of schemas for the selected MySQL instances."
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "showHosts": true,
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "groupBySource": false,
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "sparklineDecimalPrecision": 0,
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Table(s)",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Table(s)"
+                  },
+                  "dashboardLayout": {
+                    "x": 4,
+                    "y": 8,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(count(count(ts(mysql.perf.schema.read, server=\"${0_instance_scope}\"), server, schema, table), server, schema, table))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "showHosts": true,
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "groupBySource": false,
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "sparklineDecimalPrecision": 0,
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Connected User(s)",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Connected User(s)"
+                  },
+                  "dashboardLayout": {
+                    "x": 8,
+                    "y": 8,
+                    "w": 4,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(count(count(ts(mysql.users.connections, server=\"${0_instance_scope}\"), server, user), server, user))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": "Number of users connected to selected instance(s)."
+              }
+            ],
+            "heightFactor": 80
+          }
+        ]
+      },
+      {
+        "name": "Data",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "sparklineDisplayFontSize": "200",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BOTTOM",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Received Byte(s)",
+                "units": "B",
+                "summarization": "LAST",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Received Byte(s)"
+                  },
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 6,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(rate(ts(mysql.bytes.received, server=\"${0_instance_scope}\")))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "sparklineDisplayFontSize": "200",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BOTTOM",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Sent Byte(s)",
+                "units": "B",
+                "summarization": "LAST",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Sent Byte(s)"
+                  },
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 0,
+                    "w": 6,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(rate(ts(mysql.bytes.sent, server=\"${0_instance_scope}\")))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 80
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": true,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "min": 0,
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Data",
+                "units": "B",
+                "summarization": "MEAN",
+                "base": 0,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 4,
+                    "w": 12,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Query",
+                    "query": "mavg(30m, rate(ts(\"mysql.bytes.*\", server=\"${0_instance_scope}\")))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false
+              }
+            ],
+            "heightFactor": 100
+          }
+        ]
+      },
+      {
+        "name": "Connections",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "stackType": "zero",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "min": 0,
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [],
+                  "y1Units": "",
+                  "type": "stacked-area",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Connections by User",
+                "units": "#",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Query",
+                    "query": "ts(\"mysql.users.connections\", server=\"${0_instance_scope}\" and user=\"${6_user_scope}\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": true,
+                  "lineType": "linear",
+                  "showHosts": false,
+                  "groupBySource": false,
+                  "windowing": "full",
+                  "min": 0,
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "type": "table",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "User Connections",
+                "units": "",
+                "summarization": "LAST",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 0,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "Query",
+                    "query": "ts(\"mysql.users.connections\", server=\"${0_instance_scope}\" and user=\"${6_user_scope}\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "100",
+                  "fixedLegendFilterLimit": 5,
+                  "max": 100,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineValueColorMapApplyTo": "TEXT",
+                  "windowing": "full",
+                  "min": 0,
+                  "sparklineSize": "BACKGROUND",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Connection Capacity",
+                "units": "%",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 5,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(ts(mysql.users.connections, server=\"${0_instance_scope}\" and user=\"${6_user_scope}\"), server) / max(ts(mysql.variables.max.connections, server=\"${0_instance_scope}\"), server) * 100",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "150",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BOTTOM",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Aborted Connection(s)",
+                "units": "",
+                "summarization": "SUM",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "Aborted Connection(s)"
+                  },
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 5,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "sum(at(\"now\", ts(mysql.aborted.connects, server=\"${0_instance_scope}\")) - at(\"start\", last(ts(mysql.aborted.connects, server=\"${0_instance_scope}\"))))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          }
+        ]
+      },
+      {
+        "name": "Queries",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "lineType": "linear",
+                  "showHosts": false,
+                  "groupBySource": true,
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "type": "table",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "top",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Executions by Queries",
+                "units": "",
+                "summarization": "SUM",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 12,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "aliasMetric(rate(ts(\"mysql.perf.schema.events.statements.total\", server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\")), \"Executions\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "New Query",
+                    "query": "aliasMetric(rate(ts(\"mysql.perf.schema.events.statements.seconds.total\", server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\")), \"Execution Time (ms)\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Execution Time",
+                "units": "ms",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 5,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(ts(mysql.perf.schema.events.statements.seconds.total, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Executions",
+                "units": "#",
+                "summarization": "SUM",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 5,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(ts(mysql.perf.schema.events.statements.total, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "timeBasedColoring": false,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "Executions",
+                  "type": "scatterplot-xy",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Executions vs Execution Time",
+                "units": "ms",
+                "summarization": "MEAN",
+                "base": 0,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 10,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "avg(rate(ts(mysql.perf.schema.events.statements.total, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\")), digest)",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "New Query",
+                    "query": "avg(rate(ts(mysql.perf.schema.events.statements.seconds.total, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\")), digest)",
+                    "scatterPlotSource": "X",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "showRawValues": false,
+                  "lineType": "linear",
+                  "showHosts": false,
+                  "groupBySource": true,
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "sortValuesDescending": true,
+                  "type": "table",
+                  "y1UnitAutoscaling": false,
+                  "showLabels": true,
+                  "tagMode": "top",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Errors by Queries",
+                "units": "",
+                "summarization": "SUM",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 10,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "aliasMetric(rate(ts(\"mysql.perf.schema.events.statements.errors.total\", server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\")), \"Errors\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  },
+                  {
+                    "name": "New Query",
+                    "query": "aliasMetric(rate(ts(\"mysql.perf.schema.events.statements.warnings.total\", server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\")), \"Warnings\")",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "min": 0,
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Errors",
+                "units": "#",
+                "summarization": "SUM",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 15,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(ts(\"mysql.perf.schema.events.statements.errors.total\", server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "min": 0,
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Warnings",
+                "units": "#",
+                "summarization": "SUM",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 15,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(ts(\"mysql.perf.schema.events.statements.warnings.total\", server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          }
+        ]
+      },
+      {
+        "name": "I/O Wait",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "200",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BOTTOM",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "IO Waits - Insert",
+                "units": "",
+                "summarization": "SUM",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "IO Waits - Insert"
+                  },
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 3,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(sum(align(60s,sum,ts(mysql.perf.schema.table.io.waits.total.insert, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\"))))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "200",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BOTTOM",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "IO Waits - Delete",
+                "units": "",
+                "summarization": "LAST",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "IO Waits - Delete"
+                  },
+                  "dashboardLayout": {
+                    "x": 3,
+                    "y": 0,
+                    "w": 3,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(sum(align(60s,sum,ts(mysql.perf.schema.table.io.waits.total.delete, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\"))))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "200",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BOTTOM",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "IO Waits - Fetch",
+                "units": "",
+                "summarization": "LAST",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "IO Waits - Fetch"
+                  },
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 0,
+                    "w": 3,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(sum(align(60s,sum,ts(mysql.perf.schema.table.io.waits.total.fetch, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\"))))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "sparklineDisplayFontSize": "200",
+                  "fixedLegendFilterLimit": 5,
+                  "sparklineValueColorMapColors": [
+                    "rgba(73,175,217,1)",
+                    "rgba(73,175,217,1)"
+                  ],
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "sparklineFillColor": "rgba(0,0,0,0.2)",
+                  "sparklineValueColorMapApplyTo": "BACKGROUND",
+                  "windowing": "full",
+                  "sparklineDisplayColor": "rgba(255,255,255,1)",
+                  "sparklineSize": "BOTTOM",
+                  "fixedLegendFilterSort": "TOP",
+                  "sparklineValueColorMapValuesV2": [
+                    0
+                  ],
+                  "y1Units": "",
+                  "sparklineDisplayValueType": "VALUE",
+                  "type": "sparkline",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "sparklineDisplayHorizontalPosition": "MIDDLE",
+                  "sparklineLineColor": "rgba(0,0,0,0.3)",
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "IO Waits - Update",
+                "units": "",
+                "summarization": "LAST",
+                "base": 1,
+                "chartAttributes": {
+                  "singleStat": {
+                    "sparklineDisplayLabel": "New Query",
+                    "sparklineDisplaySubLabel": "IO Waits - Update"
+                  },
+                  "dashboardLayout": {
+                    "x": 9,
+                    "y": 0,
+                    "w": 3,
+                    "h": 4
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(sum(align(60s,sum,ts(mysql.perf.schema.table.io.waits.total.update, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\"))))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 80
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "stackType": "zero",
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "stacked-area",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "IO Waits",
+                "units": "ms",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 4,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(ts(mysql.perf.schema.table.io.waits.total.insert, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\")) + rate(ts(mysql.perf.schema.table.io.waits.total.delete, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\")) + rate(ts(mysql.perf.schema.table.io.waits.total.fetch, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\")) + rate(ts(mysql.perf.schema.table.io.waits.total.update, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\"))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "line",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": true,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "IO Wait Time",
+                "units": "ms",
+                "summarization": "SUM",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 4,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(ts(mysql.perf.schema.table.io.waits.seconds.total.insert, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\")) + rate(ts(mysql.perf.schema.table.io.waits.seconds.total.delete, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\")) + rate(ts(mysql.perf.schema.table.io.waits.seconds.total.fetch, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\")) + rate(ts(mysql.perf.schema.table.io.waits.seconds.total.update, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and name=\"${4_table_scope}\"))",
+                    "secondaryAxis": false,
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 100
+          }
+        ]
+      },
+      {
+        "name": "Lock Wait",
+        "rows": [
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "stackType": "zero",
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "min": 0,
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "stacked-area",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "External Read Lock Waits",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 0,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 0,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(ts(mysql.perf.schema.read, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and table=\"${4_table_scope}\" and perf_query=external_lock_waits_total))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false
+              },
+              {
+                "chartSettings": {
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "stackType": "zero",
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "min": 0,
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "stacked-area",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "External Write Lock Waits",
+                "units": "",
+                "summarization": "MEAN",
+                "base": 0,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 6,
+                    "y": 0,
+                    "w": 6,
+                    "h": 5
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "rate(ts(mysql.perf.schema.write, server=\"${0_instance_scope}\" and schema=\"${2_database_scope}\" and table=\"${4_table_scope}\" and perf_query=external_lock_waits_total))",
+                    "scatterPlotSource": "Y",
+                    "querybuilderEnabled": false,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false
+              }
+            ],
+            "heightFactor": 100
+          },
+          {
+            "charts": [
+              {
+                "chartSettings": {
+                  "plainMarkdownContent": "**Note:** *This dashboard is provided by Wavefront. It's not directly editable, which lets us deploy new versions without affecting any of your customizations. If you want to make your own version, click ![pencil](https://s3-us-west-2.amazonaws.com/wavefront-img/pen-icon.png) **> Clone** and give the dashboard a new URL*.",
+                  "y1ScaleSIBy1024": false,
+                  "fixedLegendEnabled": false,
+                  "fixedLegendFilterField": "CURRENT",
+                  "y0ScaleSIBy1024": false,
+                  "fixedLegendFilterLimit": 5,
+                  "fixedLegendPosition": "RIGHT",
+                  "customTags": [],
+                  "lineType": "linear",
+                  "windowing": "full",
+                  "fixedLegendFilterSort": "TOP",
+                  "y1Units": "",
+                  "type": "markdown-widget",
+                  "y1UnitAutoscaling": false,
+                  "tagMode": "all",
+                  "fixedLegendUseRawStats": false,
+                  "y0UnitAutoscaling": false,
+                  "fixedLegendDisplayStats": [
+                    "CURRENT"
+                  ],
+                  "autoColumnTags": false,
+                  "numTags": 4,
+                  "defaultSortColumn": null,
+                  "sparklineDisplayColor": null,
+                  "sparklineLineColor": null,
+                  "sparklineFillColor": null
+                },
+                "includeObsoleteMetrics": false,
+                "name": "Make your own version...",
+                "units": "Units",
+                "summarization": "MEAN",
+                "base": 1,
+                "chartAttributes": {
+                  "dashboardLayout": {
+                    "x": 0,
+                    "y": 5,
+                    "w": 12,
+                    "h": 3
+                  }
+                },
+                "sources": [
+                  {
+                    "name": "New Query",
+                    "query": "",
+                    "scatterPlotSource": "Y",
+                    "querybuilderSerialization": "{\"_v\":1,\"metric\":\"\",\"filters\":[[],\"and\"],\"functions\":[]}",
+                    "querybuilderEnabled": true,
+                    "sourceDescription": ""
+                  }
+                ],
+                "noDefaultEvents": false,
+                "description": ""
+              }
+            ],
+            "heightFactor": 50
+          }
+        ]
+      }
+    ],
+    "parameterDetails": {
+      "0_instance_scope": {
+        "tagsBlackListRegex": "",
+        "parameterType": "DYNAMIC",
+        "tagKey": "server",
+        "queryValue": "collect(ts(\"mysql.bytes.received\"), taggify(1,server,  \"*\"))",
+        "order": 1,
+        "defaultValue": "Label_2",
+        "hideFromView": false,
+        "value": "10.117.27.136:3306",
+        "label": "Instance",
+        "dynamicFieldType": "TAG_KEY",
+        "valuesToReadableStrings": {
+          "Label_2": "10.117.27.136:3306",
+          "Label_3": "10.139.113.193:3306",
+          "Label_4": "acpq-lt-mysql1.vmware.com:3306",
+          "Label_5": "localhost:3306",
+          "Label_10": "skyline-stg-mysql2.vmware.com:3306",
+          "Label_6": "mysql.spring-petclinic.svc.cluster.local:3306",
+          "Label_11": "skyline-stg2-mysql1.vmware.com:3306",
+          "Label_7": "pcfapps-dev-mysql1.vmware.com:3306",
+          "Label_12": "stage.perpetuum.eng.vmware.com:3306",
+          "Label_8": "perpetuum.eng.vmware.com:3306",
+          "Label_13": "vmworld-stg-mysql1.infra-nprd.vmware.com:3306",
+          "Label_9": "skyline-stg-mysql1.vmware.com:3306",
+          "Label_14": "vtap-prd-mysql1.vmware.com:3306",
+          "Label_15": "vtap-stg-mysql1.vmware.com:3306",
+          "Label": "*"
+        },
+        "allowAll": false,
+        "selectedLabel": "Label_2"
+      },
+      "4_table_scope": {
+        "parameterType": "DYNAMIC",
+        "tagKey": "name",
+        "queryValue": "collect(ts(mysql.perf.schema.table.io.waits.total.*, name=*), taggify(1, name, \"*\"))",
+        "order": 3,
+        "defaultValue": "Label",
+        "hideFromView": false,
+        "value": "*",
+        "label": "Table",
+        "dynamicFieldType": "TAG_KEY",
+        "valuesToReadableStrings": {
+          "Label_380": "selectorgroups",
+          "Label_270": "licensehistories_archive",
+          "Label_391": "skyline_csp_org",
+          "Label_160": "aud_t_contract_line",
+          "Label_281": "m_auth_token",
+          "Label_171": "aud_t_oneoff_order",
+          "Label_292": "m_program_tier",
+          "Label_182": "batchlogs",
+          "Label_193": "collector_registration_failure_audit",
+          "Label_370": "releases",
+          "Label_260": "jobdescriptions",
+          "Label_381": "selectorgroups_programs",
+          "Label_150": "aud_rel_aggregator_product_family",
+          "Label_271": "licenses",
+          "Label_392": "skyline_csp_org_ea_mapping",
+          "Label_161": "aud_t_contract_request",
+          "Label_282": "m_badge",
+          "Label_172": "aud_t_order_monthly_usage",
+          "Label_293": "m_region",
+          "Label_183": "batchruns",
+          "Label_194": "columns",
+          "Label_90": "SRC_LEGACY_PRO_ORDER",
+          "Label_360": "rel_service_provider_product_family",
+          "Label_250": "importcatchup_dlgs",
+          "Label_371": "reports",
+          "Label_140": "aud_p_msp_sub_subline_config",
+          "Label_261": "jobrole_locales",
+          "Label_382": "service_update",
+          "Label_151": "aud_rel_contract_msp_service_discount",
+          "Label_272": "lineattributes",
+          "Label_393": "skyline_org_user_mapping",
+          "Label_162": "aud_t_customer_order",
+          "Label_283": "m_bill_to_account",
+          "Label_173": "aud_t_prepayment",
+          "Label_294": "m_rev_event",
+          "Label_184": "c_configuration",
+          "Label_195": "contact_history",
+          "Label_80": "SPRING_SESSION_ATTRIBUTES",
+          "Label_91": "SRC_LEGACY_QUOTE",
+          "Label_460": "viewer_notification",
+          "Label_350": "recommendation_account",
+          "Label_240": "flexlicensefamilies",
+          "Label_361": "rel_user_role",
+          "Label_130": "aud_m_user",
+          "Label_251": "importcatchup_locks",
+          "Label_372": "reset_password_token",
+          "Label_141": "aud_p_msp_subscription",
+          "Label_262": "jobroles",
+          "Label_383": "service_update_bug_fixes",
+          "Label_152": "aud_rel_msp_service_discount",
+          "Label_273": "lineattributes_additional",
+          "Label_394": "sr_stamping_failure_audit",
+          "Label_163": "aud_t_customer_order_item",
+          "Label_284": "m_competency",
+          "Label_174": "aud_t_usage",
+          "Label_295": "m_role",
+          "Label_185": "cake_sessions",
+          "Label_196": "customers",
+          "Label_70": "FF4J_CUSTOM_PROPERTIES",
+          "Label_81": "SRC_ACPQ_SAAS_HW_CONTRACT_DETAILS",
+          "Label_92": "SRC_LEGACY_QUOTE_ITEM",
+          "Label_450": "user",
+          "Label_340": "productconfigsgroups",
+          "Label_461": "widgets",
+          "Label_230": "evalhistories_silent",
+          "Label_351": "rel_aggregator_currency",
+          "Label_120": "aud_c_configuration",
+          "Label_241": "flexlicensemodel_locales",
+          "Label_362": "relateddlgroups",
+          "Label_131": "aud_p_base_price",
+          "Label_252": "indexes",
+          "Label_373": "role",
+          "Label_142": "aud_p_product_family",
+          "Label_263": "jobs",
+          "Label_384": "service_update_new_features",
+          "Label_153": "aud_rel_product_family_msp_service",
+          "Label_274": "locales",
+          "Label_395": "stateprovinces",
+          "Label_164": "aud_t_deal",
+          "Label_285": "m_csp_contract_event",
+          "Label_175": "aud_t_usage_report",
+          "Label_296": "m_rule",
+          "Label_186": "cicd_bugs",
+          "Label_197": "dashboardsettings",
+          "Label_60": "ACT_RU_EVENT_SUBSCR",
+          "Label_71": "FF4J_FEATURES",
+          "Label_82": "SRC_ACPQ_SAAS_SW_CONTRACT_DETAILS",
+          "Label_93": "SRC_LEGACY_QUOTE_ITEM_IB",
+          "Label_440": "tables",
+          "Label_330": "p_subline",
+          "Label_451": "user_account_roles",
+          "Label_220": "downloadgroup_downloadfiles",
+          "Label_341": "products",
+          "Label_462": "widgets_locales",
+          "Label_110": "apppages",
+          "Label_231": "events",
+          "Label_352": "rel_aggregator_product_family",
+          "Label_121": "aud_ext_alias",
+          "Label_242": "flexlicensemodels",
+          "Label_363": "relatedtags",
+          "Label_132": "aud_p_contract_sku",
+          "Label_253": "industries",
+          "Label_374": "runtimevars",
+          "Label_143": "aud_p_product_license",
+          "Label_264": "jobs_logs",
+          "Label_385": "serviceevalhistories",
+          "Label_154": "aud_rel_product_family_subline",
+          "Label_275": "m_accreditation",
+          "Label_396": "stateprovinces_locales",
+          "Label_165": "aud_t_deal_contract",
+          "Label_286": "m_customer",
+          "Label_176": "aud_t_usage_site",
+          "Label_297": "m_service_provider",
+          "Label_187": "cicd_builds",
+          "Label_198": "deleted_programs",
+          "Label_61": "ACT_RU_EXECUTION",
+          "Label_72": "FF4J_PROPERTIES",
+          "Label_83": "SRC_EBS_EOL_PRICE_LOOKUP",
+          "Label_94": "SRC_LEGACY_QUOTE_PF_DISCOUNT",
+          "Label_430": "t_porting_comment",
+          "Label_320": "p_metric",
+          "Label_441": "tablespaces",
+          "Label_210": "deployshistories",
+          "Label_331": "p_subline_alias",
+          "Label_452": "user_dplhistory",
+          "Label_100": "SRC_VMSTAR_OPPORTUNITY",
+          "Label_221": "downloadgroup_labs",
+          "Label_342": "products_productconfigs",
+          "Label_111": "apppagetype_runtimevars",
+          "Label_232": "ext_alias",
+          "Label_353": "rel_contract_msp_service_discount",
+          "Label_122": "aud_m_aggregator",
+          "Label_243": "flyway_schema_history",
+          "Label_364": "releasepackages",
+          "Label_133": "aud_p_currency",
+          "Label_254": "industry_locales",
+          "Label_375": "salutation_locales",
+          "Label_144": "aud_p_sale_org",
+          "Label_265": "lab_locales",
+          "Label_386": "servicepromocodes",
+          "Label_155": "aud_rel_role_permission",
+          "Label_276": "m_address_info",
+          "Label_397": "survey",
+          "Label_166": "aud_t_deal_rule",
+          "Label_287": "m_ebs_request",
+          "Label_177": "audit_account",
+          "Label_298": "m_site",
+          "Label_188": "cicd_jobs",
+          "Label_199": "deleted_releases",
+          "Label_50": "ACT_HI_TASKINST",
+          "Label_62": "ACT_RU_IDENTITYLINK",
+          "Label_73": "FF4J_ROLES",
+          "Label_84": "SRC_EBS_PRICE_BOOK",
+          "Label_95": "SRC_MODELN_EEE_ORDER_QUOTE",
+          "Label_2": "ACPQ_ATTACHMENTS",
+          "Label_420": "t_deal_rule",
+          "Label_310": "osr_schedules",
+          "Label_431": "t_prepayment",
+          "Label_200": "department_locales",
+          "Label_321": "p_msp_service",
+          "Label_442": "tags",
+          "Label_211": "deploystatus",
+          "Label_332": "p_subline_availability",
+          "Label_453": "user_profile",
+          "Label_101": "SRC_VMSTAR_ORDER",
+          "Label_222": "downloadgroups",
+          "Label_343": "products_saptypes",
+          "Label_112": "apppagetype_tcomponents",
+          "Label_233": "ext_vui_usage_meter",
+          "Label_354": "rel_contract_tag",
+          "Label_123": "aud_m_bill_to_account",
+          "Label_244": "flyway_schema_history_vacollector_audit",
+          "Label_365": "releasepackages_dlgroups",
+          "Label_134": "aud_p_defined_price",
+          "Label_255": "interops",
+          "Label_376": "salutations",
+          "Label_145": "aud_p_special_availability",
+          "Label_266": "labs",
+          "Label_387": "servicepromocodeuploads",
+          "Label_156": "aud_rel_service_provider_msp_service",
+          "Label_277": "m_aggr_token",
+          "Label_398": "sys_background_job",
+          "Label_167": "aud_t_deal_subline",
+          "Label_288": "m_login_record",
+          "Label_178": "audit_login",
+          "Label_299": "m_ticket_acknowledgement",
+          "Label_189": "cicd_pipes",
+          "Label_40": "ACPQ_VMSTAR_USER_PROFILE",
+          "Label_51": "ACT_HI_VARINST",
+          "Label_63": "ACT_RU_JOB",
+          "Label_74": "INSIDER",
+          "Label_85": "SRC_EDW_PURCHASE_HISTORY_MASTER_DETAIL",
+          "Label_96": "SRC_PDH_PRODUCT",
+          "Label_410": "t_contract_line",
+          "Label_3": "ACPQ_Active_DataCentre",
+          "Label_300": "m_user",
+          "Label_421": "t_deal_sp_subline",
+          "Label_311": "overview",
+          "Label_432": "t_proforma_data",
+          "Label_201": "departments",
+          "Label_322": "p_msp_sub_subline",
+          "Label_443": "tags_locales",
+          "Label_212": "django_session",
+          "Label_333": "p_subline_metric",
+          "Label_454": "user_profile_AUD",
+          "Label_102": "SRC_VMSTAR_QUOTE",
+          "Label_223": "e1",
+          "Label_344": "products_tenanttypes",
+          "Label_113": "apppagetype_templates",
+          "Label_234": "extensionreason_locales",
+          "Label_355": "rel_msp_service_discount",
+          "Label_124": "aud_m_customer",
+          "Label_245": "freedomains",
+          "Label_366": "releasepackages_productconfigs",
+          "Label_135": "aud_p_license_product",
+          "Label_256": "iso_country_code",
+          "Label_377": "sap_types",
+          "Label_146": "aud_p_subline",
+          "Label_267": "languagesupports",
+          "Label_388": "settings",
+          "Label_157": "aud_rel_service_provider_product_family",
+          "Label_278": "m_aggr_user_token",
+          "Label_399": "sys_background_notification",
+          "Label_168": "aud_t_mbo",
+          "Label_289": "m_partner",
+          "Label_179": "audit_signal",
+          "Label_30": "ACPQ_SAAS_HW_UPGRADE_AGGREGATE_DETAILS",
+          "Label_41": "ACT_EVT_LOG",
+          "Label_52": "ACT_ID_GROUP",
+          "Label_64": "ACT_RU_TASK",
+          "Label_75": "PreRegVMW",
+          "Label_86": "SRC_EDW_PURCHASE_HISTORY_MASTER_DETAIL_NON_QUOTABLE",
+          "Label_97": "SRC_PDH_PRODUCT_RELATIONSHIP",
+          "Label_400": "sys_banner",
+          "Label_411": "t_contract_request",
+          "Label_4": "ACPQ_DETAILS_METADATA",
+          "Label_301": "m_user_profile",
+          "Label_422": "t_deal_subline",
+          "Label_312": "p_base_price",
+          "Label_433": "t_tag",
+          "Label_202": "deploy_failures",
+          "Label_323": "p_msp_sub_subline_config",
+          "Label_444": "tcomponent_locales",
+          "Label_213": "dlgroups_locales",
+          "Label_334": "p_track",
+          "Label_455": "user_security_questions",
+          "Label_103": "SRC_VMSTAR_QUOTE_LINE_ITEMS",
+          "Label_224": "ea_hierarchy_case_audit",
+          "Label_345": "program_eulas",
+          "Label_114": "apppagetypes",
+          "Label_235": "extensionreasons",
+          "Label_356": "rel_product_family_msp_service",
+          "Label_125": "aud_m_partner",
+          "Label_246": "gatingpolicies",
+          "Label_367": "releasepackages_productconfigsgroups",
+          "Label_136": "aud_p_linked_sku",
+          "Label_257": "isocountrycodes",
+          "Label_378": "scaoperatingsystems",
+          "Label_147": "aud_p_subline_metric",
+          "Label_268": "license_locales",
+          "Label_389": "skyline_audit",
+          "Label_158": "aud_rel_user_role",
+          "Label_279": "m_aggregator",
+          "Label_169": "aud_t_mbo_line",
+          "Label_20": "ACPQ_PRODUCT_LEVEL_SUMMARY",
+          "Label_31": "ACPQ_SAAS_HW_UPGRADE_DETAILS",
+          "Label_42": "ACT_GE_BYTEARRAY",
+          "Label_53": "ACT_ID_INFO",
+          "Label_65": "ACT_RU_VARIABLE",
+          "Label_76": "RESULT_RECORD",
+          "Label_87": "SRC_LEGACY_CURRENCY_INFO",
+          "Label_98": "SRC_VMSTAR_ACCOUNT",
+          "Label_401": "sys_config",
+          "Label_412": "t_contract_segment",
+          "Label_5": "ACPQ_EAList",
+          "Label_302": "metainformations",
+          "Label_423": "t_mbo",
+          "Label_313": "p_base_price_sheet",
+          "Label_434": "t_trading_record",
+          "Label_203": "deploy_gsafeeds",
+          "Label_324": "p_msp_subscription",
+          "Label_445": "tcomponents",
+          "Label_214": "downloadcategories",
+          "Label_335": "preferences",
+          "Label_456": "user_survey_information",
+          "Label_104": "V_ASSISTANT_FEEDBACK",
+          "Label_225": "entitlement",
+          "Label_346": "program_licenses",
+          "Label_115": "appterm_locales",
+          "Label_236": "federal_customers",
+          "Label_357": "rel_product_family_subline",
+          "Label_126": "aud_m_partner_raw_data",
+          "Label_247": "headlines",
+          "Label_368": "releasepackages_saptypes",
+          "Label_137": "aud_p_metric",
+          "Label_258": "isocountrycodes_locales",
+          "Label_379": "security_questions",
+          "Label_148": "aud_p_track",
+          "Label_269": "licensehistories",
+          "Label_159": "aud_t_contract",
+          "Label_10": "ACPQ_HPPEPP_PRICING",
+          "Label_21": "ACPQ_PRODUCT_TEMP",
+          "Label_32": "ACPQ_SAAS_SW_UPGRADE_AGGREGATE_DETAILS",
+          "Label_43": "ACT_GE_PROPERTY",
+          "Label_54": "ACT_ID_MEMBERSHIP",
+          "Label_66": "CPQ_STATIC_PRICE_LOOKUP_LOAD",
+          "Label_77": "REVINFO",
+          "Label_88": "SRC_LEGACY_PRICE_TABLE_DEFINITION",
+          "Label_99": "SRC_VMSTAR_EXCHANGE_RATES",
+          "Label_402": "sys_contract_notification",
+          "Label_413": "t_customer_order",
+          "Label_6": "ACPQ_EDW_BI_DATA_COMPARE",
+          "Label_303": "metainformations_additional",
+          "Label_424": "t_mbo_line",
+          "Label_314": "p_contract_sku",
+          "Label_435": "t_usage",
+          "Label_204": "deploy_locks",
+          "Label_325": "p_product_family",
+          "Label_446": "templates",
+          "Label_215": "downloadfile_locales",
+          "Label_336": "prodconfig_syncs",
+          "Label_457": "users",
+          "Label_105": "account",
+          "Label_226": "eulas",
+          "Label_347": "programgroups",
+          "Label_116": "appterms",
+          "Label_237": "federal_tse",
+          "Label_358": "rel_role_permission",
+          "Label_127": "aud_m_role",
+          "Label_248": "helplinks",
+          "Label_369": "releasepackages_tenanttypes",
+          "Label_138": "aud_p_msp_service",
+          "Label_259": "jobdescription_locales",
+          "Label_149": "aud_rel_aggregator_currency",
+          "Label_11": "ACPQ_JOB_MANAGER",
+          "Label_22": "ACPQ_PURCHASE_HISTORY_SUMMARY",
+          "Label_33": "ACPQ_SAAS_SW_UPGRADE_DETAILS",
+          "Label_44": "ACT_HI_ACTINST",
+          "Label_55": "ACT_ID_USER",
+          "Label_67": "DPLHistory",
+          "Label_78": "SAAS_JOB_MANAGER",
+          "Label_89": "SRC_LEGACY_PRODUCT_FAMILY",
+          "Label_403": "sys_property",
+          "Label_414": "t_customer_order_fulfillment",
+          "Label_7": "ACPQ_EEE_RECON",
+          "Label_304": "metatags",
+          "Label_425": "t_msp_org_reseller_account",
+          "Label_315": "p_currency",
+          "Label_436": "t_usage_meter",
+          "Label_205": "deploy_servers",
+          "Label_326": "p_product_license",
+          "Label_447": "tenanttypes",
+          "Label_216": "downloadfiles",
+          "Label_337": "productconfigs",
+          "Label_458": "users_aros",
+          "Label_106": "acos",
+          "Label_227": "evalextension_histories",
+          "Label_348": "programnames",
+          "Label_117": "appterms_locales",
+          "Label_238": "federaltse_roles",
+          "Label_359": "rel_service_provider_msp_service",
+          "Label_128": "aud_m_service_provider",
+          "Label_249": "hibernate_sequence",
+          "Label_139": "aud_p_msp_sub_subline",
+          "Label_12": "ACPQ_JOB_MANAGER_Archive",
+          "Label_23": "ACPQ_QUOTE_PURCHASE_HISTORY_DETAIL",
+          "Label_34": "ACPQ_SIGNEDON_USER_AUTH",
+          "Label_45": "ACT_HI_ATTACHMENT",
+          "Label_56": "ACT_PROCDEF_INFO",
+          "Label_68": "ELASTIC_INDEXER_JOB",
+          "Label_79": "SPRING_SESSION",
+          "Label_404": "sys_rev_info",
+          "Label_415": "t_customer_order_item",
+          "Label_8": "ACPQ_Elastic_Batch_Indexer",
+          "Label_305": "oauth_client_details",
+          "Label_426": "t_msp_raw_usage_report",
+          "Label_316": "p_defined_price",
+          "Label_437": "t_usage_report",
+          "Label_206": "deploybatches",
+          "Label_327": "p_sale_org",
+          "Label_448": "u_notification",
+          "Label_217": "downloadfiles_locales",
+          "Label_338": "productconfigs_prega",
+          "Label_459": "verification_token",
+          "Label_107": "apppage_runtime_tcomponent",
+          "Label_228": "evalhistories",
+          "Label_349": "programs",
+          "Label_118": "aros",
+          "Label_239": "file_status_entity",
+          "Label_129": "aud_m_site",
+          "Label_13": "ACPQ_JOB_MANAGER_Bkp",
+          "Label_24": "ACPQ_QUOTE_PURCHASE_HISTORY_DETAIL_ALL",
+          "Label_35": "ACPQ_SKU_LEVEL_SUMMARY",
+          "Label_46": "ACT_HI_COMMENT",
+          "Label_57": "ACT_RE_DEPLOYMENT",
+          "Label_69": "FF4J_AUDIT",
+          "Label_405": "sys_sequence",
+          "Label_416": "t_customer_order_subline",
+          "Label_9": "ACPQ_FND_LOOKUP_VALUES",
+          "Label_306": "oauth_code",
+          "Label_427": "t_offline_um_usage",
+          "Label_317": "p_effective_price",
+          "Label_438": "t_usage_report_status",
+          "Label_207": "deploybatches_deploys",
+          "Label_328": "p_sp_price_sheet",
+          "Label_449": "u_notification_line",
+          "Label_218": "downloadfiles_locales_supports",
+          "Label_339": "productconfigs_productconfigsgroups",
+          "Label_108": "apppage_runtime_templates",
+          "Label_229": "evalhistories_archive",
+          "Label_119": "aros_acos",
+          "Label_14": "ACPQ_LOG_HISTORY",
+          "Label_25": "ACPQ_QUOTE_PURCHASE_HISTORY_DETAIL_LOOKUP",
+          "Label_36": "ACPQ_SOYR_OEM_PRICING",
+          "Label_47": "ACT_HI_DETAIL",
+          "Label_58": "ACT_RE_MODEL",
+          "Label_406": "sys_session",
+          "Label_417": "t_deal",
+          "Label_307": "operatingsystems",
+          "Label_428": "t_oneoff_order",
+          "Label_318": "p_license_product",
+          "Label_439": "t_usage_site",
+          "Label_208": "deployhistories",
+          "Label_329": "p_special_availability",
+          "Label_219": "downloadfiles_operatingsystems",
+          "Label_109": "apppage_tcomponents",
+          "Label_15": "ACPQ_NON_ELA_OEM_PRICING",
+          "Label_26": "ACPQ_QUOTE_PURCHASE_HISTORY_DETAIL_NON_QUOTABLE",
+          "Label_37": "ACPQ_SUPPORT_PRODUCT_LOOKUP",
+          "Label_48": "ACT_HI_IDENTITYLINK",
+          "Label_59": "ACT_RE_PROCDEF",
+          "Label_407": "t_comment",
+          "Label_418": "t_deal_contract",
+          "Label_308": "osr_audit",
+          "Label_429": "t_order_monthly_usage",
+          "Label_319": "p_linked_sku",
+          "Label_209": "deploys",
+          "Label_16": "ACPQ_ORG_PARTY_SUMMARY",
+          "Label_27": "ACPQ_QUOTE_PURCHASE_HISTORY_HEADER",
+          "Label_38": "ACPQ_UPGRADE_PROCESSING",
+          "Label_49": "ACT_HI_PROCINST",
+          "Label_408": "t_common_payload",
+          "Label_419": "t_deal_partner",
+          "Label_309": "osr_library",
+          "Label_17": "ACPQ_PERSONALIZATION",
+          "Label_28": "ACPQ_QUOTE_PURCHASE_HISTORY_HEADER_LOOKUP",
+          "Label_39": "ACPQ_USERPERSONA_USER_PROFILE",
+          "Label_409": "t_contract",
+          "Label_18": "ACPQ_PRICE_LOOKUP_TABLE",
+          "Label_29": "ACPQ_RESTATE",
+          "Label_19": "ACPQ_PRODUCT",
+          "Label": "*",
+          "Label_190": "cicd_projects",
+          "Label_290": "m_partner_raw_data",
+          "Label_180": "auth_user",
+          "Label_191": "cicd_tests",
+          "Label_390": "skyline_collector",
+          "Label_280": "m_apikey",
+          "Label_170": "aud_t_msp_org_reseller_account",
+          "Label_291": "m_permission",
+          "Label_181": "banner_display",
+          "Label_192": "clearcaches"
+        },
+        "allowAll": false,
+        "selectedLabel": "Label"
+      },
+      "2_database_scope": {
+        "parameterType": "DYNAMIC",
+        "tagKey": "schema",
+        "queryValue": "collect(ts(mysql.perf.schema.read, schema=*), taggify(1, schema, \"*\"))",
+        "order": 2,
+        "defaultValue": "Label",
+        "hideFromView": false,
+        "value": "*",
+        "label": "Database",
+        "dynamicFieldType": "TAG_KEY",
+        "valuesToReadableStrings": {
+          "Label_2": "acpqlt",
+          "Label_3": "at_test_result",
+          "Label_30": "wdc_d2",
+          "Label_4": "c_cc_tt",
+          "Label_20": "skyline_inventory",
+          "Label_31": "wdc_d3",
+          "Label_5": "c_velouat_tt",
+          "Label_10": "f_aws_resell",
+          "Label_21": "skyline_osr",
+          "Label_6": "dd_upgrade_targets_80021",
+          "Label_11": "maas",
+          "Label_22": "skyline_survey",
+          "Label_7": "decc_d1",
+          "Label_12": "myvmw_vassistant_cstg",
+          "Label_23": "skylineit_auditdb",
+          "Label_8": "decc_d2",
+          "Label_13": "myvmw_vassistant_stg",
+          "Label_24": "skylineit_db",
+          "Label_9": "downloads_portal",
+          "Label_14": "perpetuum",
+          "Label_25": "sys",
+          "Label_15": "portal3",
+          "Label_26": "ui_auto_test",
+          "Label_16": "public_eval_portal",
+          "Label_27": "vmworld_app",
+          "Label_17": "skyline_accounts",
+          "Label_28": "vmworld_userbase",
+          "Label_18": "skyline_adaptor",
+          "Label_29": "wdc_d1",
+          "Label_19": "skyline_authad",
+          "Label": "*"
+        },
+        "allowAll": false,
+        "selectedLabel": "Label"
+      }
+    }
+  }

@@ -92,6 +92,7 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
+* Cut down on the size of .envrc. Don't need an entry for every app.
 * Change project name from `tanzu-gitops` to `tanzu-demo` and make all required code changes
 * Drop SealedSecrets. It's cool but it's not adding anything to this repo
 * Change Harbor password back to Harbor12345
