@@ -4,6 +4,7 @@ source ./demo-magic.sh
 
 # How to reset
 # Delete MySQL with Helm and spring-petclinic with kapp
+# Delete the PVC in spring-petclinic
 # Delete the spring-petclinic namespace from TMC UI
 # Reset TBS back to 19
 # Delete all the MySQL and common Helm charts
