@@ -4,6 +4,6 @@ metadata:
   name: default-system-profile
 spec:
   ingress:
-    domain: ingress.lab.home
+    domain: educates.lab.home
     protocol: http
     class: nginx
