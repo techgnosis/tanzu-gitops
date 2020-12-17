@@ -13,4 +13,4 @@ target:
       username: admin
       password: tamale-trauma-coven-guffaw-merger-ted
 charts:
-  - mysql
+  - mariadb-galera

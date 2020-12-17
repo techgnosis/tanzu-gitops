@@ -55,4 +55,4 @@ spec:
         - name: spring_profiles_active
           value: mysql
         - name: MYSQL_URL
-          value: "jdbc:mysql://mysql/petclinic"
+          value: "jdbc:mysql://mariadb-galera/petclinic"

@@ -92,9 +92,9 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Reset script
+* Switch to Tanzu MySQL for spring-petclinic
+* Write a script to reset the state of the environment for demo purposes
 * Cut down on the size of .envrc. Don't need an entry for every app.
 * Change project name from `tanzu-gitops` to `tanzu-demo` and make all required code changes
-* Drop SealedSecrets. It's cool but it's not adding anything to this repo
 * Change Harbor password back to Harbor12345
 * Consolidate demo.sh scripts into one mega demo
