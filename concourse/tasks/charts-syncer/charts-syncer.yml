@@ -1,0 +1,9 @@
+platform: linux
+
+
+inputs:
+  - name: tanzu-gitops
+
+
+run:
+  path: "tanzu-gitops/concourse/tasks/charts-syncer/charts-syncer.sh"

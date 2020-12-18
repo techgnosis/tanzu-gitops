@@ -1,0 +1,37 @@
+- name: concourse-helper
+  type: docker-image
+  source:
+    repository: ((harbordomain))/library/concourse-helper
+    tag: 1
+    ca_certs:
+    - domain: ((harbordomain))
+      cert: |
+        ((tanzu-gitops.ca_cert))
+- name: tanzu-gitops
+  type: git
+  source:
+    uri: https://github.com/techgnosis/tanzu-gitops.git
+    branch: master
+    paths:
+      - "concourse/tasks/**"
+
+jobs:
+- name: Sync Helm charts to Harbor
+  public: true
+  serial: true
+  plan:
+  - get: concourse-helper
+  - get: tanzu-gitops
+  - task: deploy tbs dependencies
+    image: concourse-helper
+    file: tanzu-gitops/concourse/tasks/deploy-tbs-dependencies/deploy-tbs-dependencies.yml
+    params:
+      tkgicluster: cluster1
+      tkgiapi: ((tanzu-gitops.tkgi_url))
+      tkgiuser: ((tanzu-gitops.tkgi_user))
+      tkgipassword: ((tanzu-gitops.tkgi_password))
+      pivnetusername: ((tanzu-gitops.pivnet_username))
+      pivnetpassword: ((tanzu-gitops.pivnet_password))
+      harbordomain: ((harbordomain))
+
+
