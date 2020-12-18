@@ -19,11 +19,11 @@ fly set-pipeline -t lab \
 -v harbordomain=$HARBOR_DOMAIN
 
 fly set-pipeline -t lab \
--p sockshop-front-end \
--c sockshop-front-end.yml \
+-p tbs-update \
+-c tbs-update.yml \
 -v harbordomain=$HARBOR_DOMAIN
 
 fly set-pipeline -t lab \
--p tbs-update \
--c tbs-update.yml \
+-p tanzu-app-catalog-sync \
+-c charts-syncer.yml \
 -v harbordomain=$HARBOR_DOMAIN

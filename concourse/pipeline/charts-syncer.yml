@@ -1,3 +1,4 @@
+resources:
 - name: concourse-helper
   type: docker-image
   source:
@@ -22,16 +23,7 @@ jobs:
   plan:
   - get: concourse-helper
   - get: tanzu-gitops
-  - task: deploy tbs dependencies
+  - task: sync TAC to Harbor
     image: concourse-helper
-    file: tanzu-gitops/concourse/tasks/deploy-tbs-dependencies/deploy-tbs-dependencies.yml
-    params:
-      tkgicluster: cluster1
-      tkgiapi: ((tanzu-gitops.tkgi_url))
-      tkgiuser: ((tanzu-gitops.tkgi_user))
-      tkgipassword: ((tanzu-gitops.tkgi_password))
-      pivnetusername: ((tanzu-gitops.pivnet_username))
-      pivnetpassword: ((tanzu-gitops.pivnet_password))
-      harbordomain: ((harbordomain))
-
+    file: tanzu-gitops/concourse/tasks/charts-syncer/charts-syncer.yml
 

@@ -3,7 +3,7 @@ source:
     kind: HELM
     url: https://charts.trials.tac.bitnami.com/demo
 target:
-  repoName: mysql
+  repoName: harbor
   containerRegistry: harbor.lab.home
   containerRepository: library
   repo:
