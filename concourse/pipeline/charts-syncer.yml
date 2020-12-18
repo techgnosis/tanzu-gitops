@@ -1,4 +1,8 @@
 resources:
+- name: my-timer
+  type: time
+  source:
+    interval: 1m
 - name: concourse-helper
   type: docker-image
   source:
@@ -21,6 +25,8 @@ jobs:
   public: true
   serial: true
   plan:
+  - get: my-timer
+    trigger: true
   - get: concourse-helper
   - get: tanzu-gitops
   - task: sync TAC to Harbor
