@@ -5,3 +5,5 @@ kp
 kapp
 ytt
 pivnet
+charts-syncer
+helm
