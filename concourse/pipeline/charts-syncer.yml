@@ -2,7 +2,7 @@ resources:
 - name: my-timer
   type: time
   source:
-    interval: 1m
+    interval: 720m
 - name: concourse-helper
   type: docker-image
   source:
