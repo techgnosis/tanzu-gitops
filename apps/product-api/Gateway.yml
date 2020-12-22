@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: product-api-gateway
+  namespace: product-api
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+        mode: SIMPLE
+        credentialName: product-api-tls
+    hosts:
+    - product-api.ingress.lab.home

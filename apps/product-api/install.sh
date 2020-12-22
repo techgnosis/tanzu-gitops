@@ -4,8 +4,11 @@ set -euo pipefail
 
 kapp deploy -a product-api -f <(ytt --data-values-env=YTT_PRODUCTAPI \
 -f certificate.yml \
+-f Gateway.yml \
+-f VirtualService.yml \
 -f deployment.yml \
--f ingress.yml \
 -f services.yml \
 -f namespace.yml \
 -f values.yaml)
+
+
