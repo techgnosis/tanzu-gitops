@@ -3,19 +3,19 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: product-api-virtual-service
-  namespace: product-api
+  name: concourse-virtual-service
+  namespace: concourse
 spec:
   hosts:
-    - #@ data.values.ingress_hostname
+    - #@ data.values.concourse_hostname
   gateways:
-    - product-api-gateway
+    - concourse-gateway
   http:
   - match:
     - uri:
         prefix: /
     route:
     - destination:
-        host: product-api
+        host: concourse-web
         port:
           number: 8080
