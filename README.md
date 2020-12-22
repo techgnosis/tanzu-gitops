@@ -6,12 +6,10 @@ The goal of this repo is to store ready-to-install manifests for Tanzu products 
 * Harbor is an OCI compliant registry with tons of features
 * Self-service TLS certificates with cert-manager
 * CI+CD with Concourse
-* Ingress with either nginx or Contour
+* Ingress and mesh with Istio
 * Quickly explore Helm values.yml files with Kubeapps
 * Metrics with Prometheus + node-exporter + cAdvisor + Grafana
 * Backup and restore both etcd and PVs with Velero + Restic
-* Store secrets in Git with Sealed Secrets
-* Store secrets outside of the cluster with Vault
 * Manage policy across all your clusters with Tanzu Mission Control
 * Turn a K8s cluster into a multi-tenant microservice host with Tanzu Application Service
 * Store objects, including Velero backups, in MinIO
@@ -49,11 +47,8 @@ The goal of this repo is to store ready-to-install manifests for Tanzu products 
 ### vSphere Storage
 Every cluster that has stateful workloads needs a `StorageClass` so that `PersistentVolumes` can be created automatically via `PersistentVolumeClaims`. 
 
-### Sealed Secrets
-In the earlier days of Kubernetes, the idea of GitOps famously suffered from the problem of "everything in Git except Secrets". Kubernetes `Secrets` are of course not a secret as they are simply base64 encoded. With the SealedSecrets project, you can use the `kubeseal` CLI to encrypt regular `Secrets` into `SealedSecrets` using a secret key in the cluster. When a `SealedSecret` is applied to a cluster, that secret key is used to decode the `SealedSecret` into a regular `Secret`. Anyone with access to the cluster can still base64 decode the secret.
-
-### Ingress
-Ingress controllers are easier to manage than NodePorts for every app. In this project you can choose between Contour and nginx.
+### Service Mesh
+Istio can be used both for Ingress as well as sidecar proxying.
 
 ### cert-manager
 [cert-manager](https://cert-manager.io/docs/) allows you to create certificates as Kubernetes resources. It supports a variety of backends. In this repo we are using `mkcert` as a CA and using cert-manager in CA mode.
