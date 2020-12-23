@@ -62,9 +62,6 @@ Tanzu Build Service (TBS) uses Cloud Native Buildpacks to turn source code into 
 ### Concourse
 Concourse is a container workflow tool commonly used for "CI/CD". Container workflow tools are the "glue" to connect pieces of the software delivery chain together. In this repo Concourse is used to direct a git commit to TBS and then send the resulting image to the Deployment controller.
 
-### spring-petclinic
-[spring-petclinic](https://github.com/techgnosis/spring-petclinic) is a canonical example of a Spring Boot app. spring-petclinic uses mariadb-galera for HA MySQL.
-
 ### Kubeapps
 Kubeapps is a GUI for Helm that makes it easy to explore Helm repos
 

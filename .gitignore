@@ -16,3 +16,5 @@ tanzu-postgres/postgres-for-kubernetes*
 k8s-attach-manifest.yaml
 
 apps/test-app/test-app/
+
+virtualcluster/kubeconfig.yml

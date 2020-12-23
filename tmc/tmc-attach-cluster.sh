@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-CONTEXT=$1
+CLUSTER_NAME=$1
 
-tmc cluster attach --cluster-group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAME-$CONTEXT
-kubectl config use-context $CONTEXT && kapp deploy -a tmc -f k8s-attach-manifest.yaml
+tmc cluster attach --cluster-group $TMC_CLUSTER_GROUP_NAME --name $TMC_CLUSTER_GROUP_NAME-$CLUSTER_NAME
+kapp deploy -a tmc -f k8s-attach-manifest.yaml
 rm k8s-attach-manifest.yaml

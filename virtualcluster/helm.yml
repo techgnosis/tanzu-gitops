@@ -1,0 +1,10 @@
+virtualCluster:
+  image: rancher/k3s:v1.18.8-k3s1
+  extraArgs:
+    - --service-cidr=10.100.200.0/24
+
+storage:
+  size: 200Gi
+
+syncer:
+  extraArgs: ["--disable-sync-resources=ingresses"]
