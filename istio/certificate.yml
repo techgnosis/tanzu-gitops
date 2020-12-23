@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
-  name: istio-ingress-wildcard-tls
+  name: wildcard-tls
   namespace: istio-system
 spec:
   commonName: "*.ingress.lab.home"
@@ -10,4 +10,4 @@ spec:
   issuerRef:
     kind: ClusterIssuer
     name: mkcert
-  secretName: istio-ingress-wildcard-tls
+  secretName: wildcard-tls

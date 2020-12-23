@@ -3,8 +3,8 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: product-api-gateway
-  namespace: product-api
+  name: kubeapps-gateway
+  namespace: kubeapps
 spec:
   selector:
     istio: ingressgateway
@@ -17,4 +17,4 @@ spec:
         mode: SIMPLE
         credentialName: wildcard-tls
     hosts:
-    - #@ data.values.ingress_hostname
+    - #@ data.values.kubeapps_hostname

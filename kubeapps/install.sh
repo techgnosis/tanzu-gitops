@@ -15,8 +15,8 @@ helm upgrade --install kubeapps kubeapps \
 # It is not something that can be created via the Helm chart
 
 kapp deploy -a kubeapps -f <(ytt --data-values-env=YTT_KUBEAPPS \
--f certificate.yml \
--f ingress.yml \
+-f gateway.yml \
+-f virtualservice.yml \
 -f values.yml \
 -f service-account.yml \
 -f cluster-role-binding.yml)
