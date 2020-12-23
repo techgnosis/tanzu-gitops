@@ -18,5 +18,6 @@ kapp deploy -a kubeapps -f <(ytt --data-values-env=YTT_KUBEAPPS \
 -f gateway.yml \
 -f virtualservice.yml \
 -f values.yml \
+-f policy.yml \
 -f service-account.yml \
 -f cluster-role-binding.yml)
