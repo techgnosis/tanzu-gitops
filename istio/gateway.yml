@@ -3,8 +3,8 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: concourse-gateway
-  namespace: concourse
+  name: app-gateway
+  namespace: istio-system
 spec:
   selector:
     istio: ingressgateway
@@ -15,6 +15,6 @@ spec:
       protocol: HTTPS
     tls:
         mode: SIMPLE
-        credentialName: istio-ingress-wildcard-tls
+        credentialName: wildcard-tls
     hosts:
-    - #@ data.values.concourse_hostname
+    - "*"

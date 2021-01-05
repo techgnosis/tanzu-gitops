@@ -9,7 +9,7 @@ spec:
   hosts:
     - #@ data.values.ingress_hostname
   gateways:
-    - product-api-gateway
+    - app-gateway.istio-system.svc.cluster.local
   http:
   - match:
     - uri:

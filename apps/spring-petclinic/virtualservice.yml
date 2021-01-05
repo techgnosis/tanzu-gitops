@@ -3,11 +3,11 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: concourse-virtual-service
-  namespace: concourse
+  name: spring-petclinic-virtual-service
+  namespace: spring-petclinic
 spec:
   hosts:
-    - #@ data.values.concourse_hostname
+    - #@ data.values.ingress_hostname
   gateways:
     - app-gateway.istio-system.svc.cluster.local
   http:
@@ -16,6 +16,6 @@ spec:
         prefix: /
     route:
     - destination:
-        host: concourse-web
+        host: spring-petclinic
         port:
           number: 8080
