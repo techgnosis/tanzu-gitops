@@ -9,7 +9,7 @@ spec:
   hosts:
     - #@ data.values.kubeapps_hostname
   gateways:
-    - kubeapps-gateway
+    - app-gateway.istio-system.svc.cluster.local
   http:
   - match:
     - uri:
