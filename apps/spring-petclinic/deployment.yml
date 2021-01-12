@@ -52,7 +52,3 @@ spec:
             secretKeyRef:
               name: wavefront
               key: wavefront_url
-        - name: spring_profiles_active
-          value: mysql
-        - name: MYSQL_URL
-          value: "jdbc:mysql://mariadb-galera/petclinic"
