@@ -5,7 +5,7 @@ set -euo pipefail
 
 
 
-kapp deploy -n spring-petclinic -a spring-petclinic \
+kapp deploy -a spring-petclinic \
 -f <(kubectl create secret generic wavefront \
 --namespace spring-petclinic \
 --from-literal=wavefront_api_token="${WAVEFRONT_API_TOKEN}" \
@@ -16,5 +16,6 @@ kapp deploy -n spring-petclinic -a spring-petclinic \
 -f deployment.yml \
 -f virtualservice.yml \
 -f pdb.yml \
+-f namespace.yml \
 -f services.yml \
 -f values.yaml)

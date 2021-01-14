@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-set -euo pipefail
+set -xeuo pipefail
 
 tkgi login -a ${tkgiapi} \
 -u ${tkgiuser} \
