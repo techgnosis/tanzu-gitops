@@ -18,3 +18,5 @@ k8s-attach-manifest.yaml
 apps/test-app/test-app/
 
 virtualcluster/kubeconfig.yml
+
+gemfire/gemfire-operator-*.tgz

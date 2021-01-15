@@ -1,0 +1,7 @@
+apiVersion: gemfire.tanzu.vmware.com/v1
+kind: GemFireCluster
+metadata:
+  name: gemfire1
+  namespace: gemfire-cluster
+spec:
+  image: harbor.lab.home/library/gemfire-k8s:1.0.0
