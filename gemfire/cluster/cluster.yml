@@ -5,3 +5,7 @@ metadata:
   namespace: gemfire-cluster
 spec:
   image: harbor.lab.home/library/gemfire-k8s:1.0.0
+  servers:
+    overrides:
+      gemfireProperties:
+        redis-port: "11211"
