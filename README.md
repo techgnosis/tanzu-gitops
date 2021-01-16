@@ -38,8 +38,6 @@ The goal of this repo is to store ready-to-install manifests for Tanzu products 
 * I use environment variables heavily
 * Demo environments don't need Lets Encrypt so this project uses `mkcert` which is much easier
 * The Concourse tasks are not generic or re-usable. This is to make them easier to read and understand.
-* Secrets are handled by `kubeseal` so they can be added to source control. TLS secrets are handled by `cert-manager`
-
 
 
 ## Component descriptions
@@ -84,7 +82,6 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Switch to Tanzu MySQL for spring-petclinic
 * Write a script to reset the state of the environment for demo purposes
 * Cut down on the size of .envrc. Don't need an entry for every app.
 * Change project name from `tanzu-gitops` to `tanzu-demo` and make all required code changes
