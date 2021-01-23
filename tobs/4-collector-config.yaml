@@ -24,7 +24,7 @@ data:
     #       - "SuccessfulCreate"
 
     sinks:
-    - proxyAddress: wavefront-proxy.default.svc.cluster.local:2878
+    - proxyAddress: wavefront-proxy.wavefront-collector.svc.cluster.local:2878
       filters:
         # Filter out generated labels
         tagExclude:
