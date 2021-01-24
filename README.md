@@ -83,3 +83,4 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 
 ## TODO
 * Change Harbor password back to Harbor12345
+* Change TKGI user back to tanzu-gitops/tanzu-gitops
