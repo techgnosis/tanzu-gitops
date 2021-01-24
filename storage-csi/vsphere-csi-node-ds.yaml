@@ -64,6 +64,8 @@ spec:
           value: "node"
         - name: X_CSI_SPEC_REQ_VALIDATION
           value: "false"
+        - name: VSPHERE_CSI_CONFIG
+          value: "/etc/cloud/csi-vsphere.conf"
         - name: X_CSI_DEBUG
           value: "true"
         - name: LOGGER_LEVEL
@@ -78,6 +80,9 @@ spec:
             add: ["SYS_ADMIN"]
           allowPrivilegeEscalation: true
         volumeMounts:
+        - name: vsphere-config-volume
+          mountPath: /etc/cloud
+          readOnly: true
         - name: plugin-dir
           mountPath: /csi
         - name: pods-mount-dir
@@ -105,6 +110,9 @@ spec:
         - name: plugin-dir
           mountPath: /csi
       volumes:
+      - name: vsphere-config-volume
+        secret:
+          secretName: vsphere-config-secret
       - name: registration-dir
         hostPath:
           path: /var/vcap/data/kubelet/plugins_registry

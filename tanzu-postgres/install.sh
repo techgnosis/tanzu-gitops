@@ -20,12 +20,13 @@ docker tag postgres-operator:v1.0.0 $HARBOR_DOMAIN/library/postgres-operator:v1.
 docker push $HARBOR_DOMAIN/library/postgres-instance:v1.0.0
 docker push $HARBOR_DOMAIN/library/postgres-operator:v1.0.0
 
-kubectl create secret docker-registry postgres-harbor \
+kapp deploy -a postgres-operator \
+-f <(kubectl create secret docker-registry postgres-harbor \
 --docker-server="$HARBOR_DOMAIN" \
 --docker-username="admin" \
---docker-password="tamale-trauma-coven-guffaw-merger-ted"
-
-kapp deploy -a postgres-operator-crds -f $POSTGRES_DIR/operator/crds
+--docker-password="tamale-trauma-coven-guffaw-merger-ted" \
+--dry-run=client \
+-o yaml)
 
 helm upgrade --install postgres-operator ./$POSTGRES_DIR/operator \
 --wait \
