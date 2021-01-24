@@ -1,70 +1,31 @@
 export PRIMARY_DOMAIN="lab.home"
-export APPS_DOMAIN="apps.$PRIMARY_DOMAIN"
+export APPS_DOMAIN="ingress.$PRIMARY_DOMAIN"
 export HARBOR_DOMAIN="harbor.$PRIMARY_DOMAIN"
 
 export PIVNET_LOGIN=""
 export PIVNET_PASSWORD=""
+export PIVNET_API_TOKEN=""
 
-export DOCKERHUB_USERNAME=""
-export DOCKERHUB_PASSWORD=""
+export WAVEFRONT_API_TOKEN=''
+export WAVEFRONT_URL=''
+
+export TKGI_URL=":9021"
+export TKGI_USER=""
+export TKGI_PASSWORD=""
+
+export TMC_CLUSTER_GROUP_NAME=""
 
 
-# YTT product-api
-export YTT_PRODUCTAPI_image="$HARBOR_DOMAIN/library/product-api:latest"
-export YTT_PRODUCTAPI_ingress_hostname="product-api.$APPS_DOMAIN"
-
-# YTT windows
-export YTT_WINDOWS_ingress_hostname="windows.$PRIMARY_DOMAIN"
-
-# YTT spring-petclinic
-export YTT_SPRINGPETCLINIC_image="$HARBOR_DOMAIN/library/spring-petclinic:latest"
-export YTT_SPRINGPETCLINIC_ingress_hostname="spring-petclinic.$APPS_DOMAIN"
-
-# YTT harbor
-export YTT_HARBOR_harbor_cn="harbor.$PRIMARY_DOMAIN"
-export YTT_HARBOR_notary_cn="notary.$PRIMARY_DOMAIN"
-
-# YTT loki
-export YTT_LOKI_hostname="loki.$PRIMARY_DOMAIN"
-
-# YTT prometheus
-export YTT_PROMETHEUS_ingress_hostname="prometheus.$PRIMARY_DOMAIN"
-
-# YTT grafana
-export YTT_GRAFANA_ingress_hostname="grafana.$PRIMARY_DOMAIN"
-
-# YTT Concourse
-export YTT_CONCOURSE_concourse_hostname="concourse.$PRIMARY_DOMAIN"
-
-# YTT kubeapps
-export YTT_KUBEAPPS_kubeapps_hostname="kubeapps.$PRIMARY_DOMAIN"
-export KUBEAPPS_HOSTNAME="kubeapps.$PRIMARY_DOMAIN"
-
-# YTT minio
-export YTT_MINIO_ingress_hostname="minio.$PRIMARY_DOMAIN"
-
-# YTT vault
-export YTT_VAULT_ingress_hostname="vault.$PRIMARY_DOMAIN"
+# YTT homelab
+export YTT_HOMELAB_apps_domain="$APPS_DOMAIN"
+export YTT_HOMELAB_primary_domain="$PRIMARY_DOMAIN"
+export YTT_HOMELAB_harbor_domain="$HARBOR_DOMAIN"
 
 # YTT wavefront
-export YTT_WAVEFRONT_wavefront_token=""
-export YTT_WAVEFRONT_wavefront_url="https://.wavefront.com/api"
-export YTT_WAVEFRONT_vcsa_password=""
+export YTT_WAVEFRONT_wavefront_token="$WAVEFRONT_API_TOKEN"
+export YTT_WAVEFRONT_wavefront_url="$WAVEFRONT_URL/api"
 
-# YTT images
-export YTT_TBS_product_api_image="$HARBOR_DOMAIN/library/product-api"
-export YTT_TBS_sockshop_frontend_image="$HARBOR_DOMAIN/library/sockshop-front-end"
-export YTT_TBS_spring_petclinic_image="$HARBOR_DOMAIN/library/spring-petclinic"
-export YTT_TBS_harbor="$HARBOR_DOMAIN"
-
-# YTT sockshop
-export YTT_SOCKSHOP_ingress_hostname="sockshop.$APPS_DOMAIN"
-
-
-# TAS4K8s
+# TAS4K8s - this hasn't been used in a while
 export SYSTEM_DOMAIN="sys.tas3.$PRIMARY_DOMAIN"
 export YTT_TLSTAS_primary_domain=$PRIMARY_DOMAIN
 
-
-# TMC
-export TMC_CLUSTER_GROUP_NAME="jmusselwhite"
