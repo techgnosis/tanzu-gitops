@@ -11,6 +11,5 @@ helm upgrade --install minio minio \
 --values helm.yml
 
 kapp deploy -a minio -f <(ytt --data-values-env=YTT_HOMELAB \
--f certificate.yml \
--f ingress.yml \
+-f virtualservice.yml \
 -f values.yml)
