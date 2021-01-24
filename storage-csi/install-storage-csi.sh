@@ -4,7 +4,7 @@ set -euo pipefail
 
 
 
-kapp deploy -a csi-driver \
+kapp deploy -a cns-csi-driver \
 -f <(kubectl create secret generic vsphere-config-secret \
 --from-file=csi-vsphere.conf \
 --namespace=kube-system \
