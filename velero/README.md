@@ -1,9 +1,8 @@
 # Velero
 
-`install-velero-cli.sh` works
+`install.sh`
 
-`install-velero-helm.sh` does not quite work. I can't figure out how to get the CA Cert part to work.
-
+Follow the commented out instructions to fix
 
 ### MinIO 
 MinIO is installed on K8s at https://minio.lab.home

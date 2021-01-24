@@ -6,4 +6,4 @@ metadata:
       storageclass.kubernetes.io/is-default-class: "true"
 provisioner: csi.vsphere.vmware.com
 parameters:
-  datastoreurl: "ds:///vmfs/volumes/vsan:52932d49f2ee65b1-9ecfb4fcfd66730a/"
+  storagepolicyname: "vSAN Default Storage Policy"
