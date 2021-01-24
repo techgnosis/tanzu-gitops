@@ -1,4 +1,5 @@
 #@data/values
 ---
-image: ""
-ingress_hostname: ""
+harbor_domain: ""
+apps_domain: ""
+primary_domain: ""

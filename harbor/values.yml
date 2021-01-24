@@ -1,4 +1,5 @@
 #@data/values
 ---
-harbor_cn: ""
-notary_cn: ""
+harbor_domain: ""
+apps_domain: ""
+primary_domain: ""

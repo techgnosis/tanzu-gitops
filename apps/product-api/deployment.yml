@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: product-api
-        image: #@ data.values.image
+        image: #@ data.values.harbor_domain + "/library/product-api:latest"
         ports:
         - containerPort: 80

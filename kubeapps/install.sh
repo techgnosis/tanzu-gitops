@@ -14,7 +14,7 @@ helm upgrade --install kubeapps kubeapps \
 # Note - the service account is for logging in to the dashboard
 # It is not something that can be created via the Helm chart
 
-kapp deploy -a kubeapps -f <(ytt --data-values-env=YTT_KUBEAPPS \
+kapp deploy -a kubeapps -f <(ytt --data-values-env=YTT_HOMELAB \
 -f virtualservice.yml \
 -f values.yml \
 -f service-account.yml \

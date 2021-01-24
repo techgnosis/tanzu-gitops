@@ -6,7 +6,7 @@ metadata:
   name: product-api
   namespace: images
 spec:
-  tag: #@ data.values.product_api_image
+  tag: #@ data.values.harbor_domain + "/library/product-api"
   serviceAccount: tbs-service-account
   builder:
     name: base

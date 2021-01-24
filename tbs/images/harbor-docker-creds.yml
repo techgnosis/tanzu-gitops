@@ -5,7 +5,7 @@ metadata:
   name: harbor-creds
   namespace: images
   annotations:
-    kpack.io/docker: #@ "https://" + data.values.harbor
+    kpack.io/docker: #@ "https://" + data.values.harbor_domain
 type: kubernetes.io/basic-auth
 stringData:
   username: admin

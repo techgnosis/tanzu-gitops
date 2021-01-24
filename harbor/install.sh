@@ -11,7 +11,7 @@ helm install harbor harbor \
 --create-namespace
 
 
-kapp deploy -a harbor -f <(ytt --data-values-env=YTT_HARBOR \
+kapp deploy -a harbor -f <(ytt --data-values-env=YTT_HOMELAB \
 -f certificate-harbor.yml \
 -f certificate-notary.yml \
 -f values.yml)

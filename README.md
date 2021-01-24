@@ -82,8 +82,4 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Write a script to reset the state of the environment for demo purposes
-* Cut down on the size of .envrc. Don't need an entry for every app.
-* Change project name from `tanzu-gitops` to `tanzu-demo` and make all required code changes
 * Change Harbor password back to Harbor12345
-* Consolidate demo.sh scripts into one mega demo

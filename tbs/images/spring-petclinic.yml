@@ -6,7 +6,7 @@ metadata:
   name: spring-petclinic
   namespace: images
 spec:
-  tag: #@ data.values.spring_petclinic_image
+  tag: #@ data.values.harbor_domain + "/library/spring-petclinic"
   serviceAccount: tbs-service-account
   builder:
     name: base

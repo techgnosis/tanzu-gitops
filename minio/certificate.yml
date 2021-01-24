@@ -6,9 +6,9 @@ metadata:
   name: minio
   namespace: minio
 spec:
-  commonName: #@ data.values.ingress_hostname
+  commonName: #@ "minio." + data.values.apps_domain
   dnsNames:
-  - #@ data.values.ingress_hostname
+  - #@ "minio." + data.values.apps_domain
   issuerRef:
     kind: ClusterIssuer
     name: mkcert

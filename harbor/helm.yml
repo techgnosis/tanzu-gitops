@@ -16,9 +16,9 @@ expose:
       notarySecretName: harbor-notary
   ingress:
     hosts:
-      core: #@ data.values.harbor_cn
-      notary: #@ data.values.notary_cn
-externalURL: #@ "https://" + data.values.harbor_cn
+      core: #@ "harbor." + data.values.apps_domain
+      notary: #@ "notary." + data.values.apps_domain
+externalURL: #@ "https://" + "harbor." + data.values.apps_domain
 persistence:
   resourcePolicy: "keep"
   persistentVolumeClaim:

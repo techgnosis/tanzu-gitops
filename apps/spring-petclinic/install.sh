@@ -12,7 +12,7 @@ kapp deploy -a spring-petclinic \
 --from-literal=wavefront_url="${WAVEFRONT_URL}" \
 -o yaml \
 --dry-run=client) \
--f <(ytt --data-values-env=YTT_SPRINGPETCLINIC \
+-f <(ytt --data-values-env=YTT_HOMELAB \
 -f deployment.yml \
 -f virtualservice.yml \
 -f pdb.yml \

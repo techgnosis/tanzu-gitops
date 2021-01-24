@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-helm install minio minio \
+helm upgrade --install minio minio \
 --repo https://charts.trials.tac.bitnami.com/demo \
 --version 3.7.9 \
 --wait \
@@ -10,7 +10,7 @@ helm install minio minio \
 --create-namespace \
 --values helm.yml
 
-kapp deploy -a minio -f <(ytt --data-values-env=YTT_MINIO \
+kapp deploy -a minio -f <(ytt --data-values-env=YTT_HOMELAB \
 -f certificate.yml \
 -f ingress.yml \
 -f values.yml)

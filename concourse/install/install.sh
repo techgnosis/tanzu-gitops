@@ -30,6 +30,6 @@ kapp deploy \
 --from-literal=pivnet_password="${PIVNET_PASSWORD}" \
 --dry-run=client \
 -o yaml) \
--f <(ytt --data-values-env=YTT_CONCOURSE \
+-f <(ytt --data-values-env=YTT_HOMELAB \
 -f virtualservice.yml \
 -f values.yml)

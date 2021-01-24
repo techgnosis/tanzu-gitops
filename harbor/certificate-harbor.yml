@@ -6,9 +6,9 @@ metadata:
   name: harbor
   namespace: harbor
 spec:
-  commonName: #@ data.values.harbor_cn
+  commonName: #@ "harbor." + data.values.primary_domain
   dnsNames:
-  - #@ data.values.harbor_cn
+  - #@ "harbor." + data.values.primary_domain
   issuerRef:
     kind: ClusterIssuer
     name: mkcert

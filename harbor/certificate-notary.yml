@@ -6,9 +6,9 @@ metadata:
   name: harbor-notary
   namespace: harbor
 spec:
-  commonName: #@ data.values.notary_cn
+  commonName: #@ "notary." + data.values.primary_domain
   dnsNames:
-  - #@ data.values.notary_cn
+  - #@ "notary." + data.values.primary_domain
   issuerRef:
     kind: ClusterIssuer
     name: mkcert
