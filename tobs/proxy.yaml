@@ -27,8 +27,8 @@ spec:
           value:  #@ data.values.wavefront_url
         - name: WAVEFRONT_TOKEN
           value: #@ data.values.wavefront_token
-        #!- name: WAVEFRONT_PROXY_ARGS
-        #!  value: "--proxyHost proxy.lab.home --proxyPort 8080"
+        - name: WAVEFRONT_PROXY_ARGS
+          value: "--proxyHost 192.168.1.52 --proxyPort 8888"
         ports:
         - containerPort: 2878
           protocol: TCP
