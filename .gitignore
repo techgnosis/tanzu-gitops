@@ -1,6 +1,5 @@
 .envrc
 pipeline/vars.sh
-rootCA.pem
 
 tbs/build-service-1.0.3.tar
 tbs/tbs-install/
@@ -13,11 +12,11 @@ tas3/apps-manager-values.yml
 
 tanzu-postgres/postgres-for-kubernetes*
 
-k8s-attach-manifest.yaml
-
 apps/test-app/test-app/
 
 virtualcluster/kubeconfig.yml
 
 gemfire/gemfire-operator-*.tgz
 gemfire/gemfire-operator
+
+tmc/k8s-attach-manifest.yaml

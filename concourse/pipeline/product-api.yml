@@ -1,9 +1,4 @@
 resources:
-- name: product-api
-  type: git
-  source:
-    uri: https://github.com/techgnosis/product-api.git
-    branch: demo
 - name: tanzu-gitops
   type: git
   source:
@@ -34,28 +29,6 @@ resources:
 
 
 jobs:
-- name: Build with TBS
-  public: true
-  serial: true
-  plan:
-  - get: product-api
-    trigger: true
-  - get: concourse-helper
-  - get: tanzu-gitops
-  - task: handoff to TBS
-    image: concourse-helper
-    file: tanzu-gitops/concourse/tasks/build-image/build-image.yml
-    input_mapping:
-      source-code: product-api
-    params:
-      tkgicluster: cluster2
-      tkgiapi: ((tanzu-gitops.tkgi_url))
-      tkgiuser: ((tanzu-gitops.tkgi_user))
-      tkgipassword: ((tanzu-gitops.tkgi_password))
-      image: product-api
-
-
-
 - name: Deploy to cluster
   public: true
   serial: true
@@ -70,7 +43,7 @@ jobs:
       input_mapping:
         image: product-api-image
       params:
-        tkgicluster: cluster2
+        tkgicluster: cluster1
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))

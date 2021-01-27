@@ -7,3 +7,4 @@ ytt
 pivnet
 charts-syncer
 helm
+rootCA.pem
