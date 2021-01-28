@@ -21,4 +21,4 @@ gemfire/gemfire-operator
 
 tmc/k8s-attach-manifest.yaml
 
-storage-csi/csi-vsphere-sed.conf
+storage-csi/csi-vsphere.conf
