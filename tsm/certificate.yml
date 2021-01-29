@@ -4,7 +4,6 @@ metadata:
   name: wildcard-tls
   namespace: istio-system
 spec:
-  commonName: "*.ingress.lab.home"
   dnsNames:
   - "*.ingress.lab.home"
   issuerRef:
