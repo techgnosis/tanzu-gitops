@@ -11,6 +11,6 @@ target:
     url: https://harbor.lab.home/chartrepo/library
     auth:
       username: admin
-      password: tamale-trauma-coven-guffaw-merger-ted
+      password: Harbor12345
 charts:
   - mariadb-galera

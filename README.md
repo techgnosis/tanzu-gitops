@@ -7,8 +7,8 @@ The goal of this repo is to store ready-to-install manifests for Tanzu products 
 * Self-service TLS certificates with cert-manager
 * CI+CD with Concourse
 * Ingress and mesh with Istio
-* Quickly explore Helm values.yml files with Kubeapps
-* Metrics with Prometheus + node-exporter + cAdvisor + Grafana
+* Quickly explore Helm repos Kubeapps
+* Cluster metrics with Tanzu Observability
 * Backup and restore both etcd and PVs with Velero + Restic
 * Manage policy across all your clusters with Tanzu Mission Control
 * Turn a K8s cluster into a multi-tenant microservice host with Tanzu Application Service
@@ -82,5 +82,3 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
-* Change Harbor password back to Harbor12345
-* Change TKGI user back to tanzu-gitops/tanzu-gitops

@@ -9,4 +9,4 @@ metadata:
 type: kubernetes.io/basic-auth
 stringData:
   username: admin
-  password: tamale-trauma-coven-guffaw-merger-ted
+  password: Harbor12345

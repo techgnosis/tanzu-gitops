@@ -12,7 +12,7 @@ fi
 
 
 
-tar -xvf build-service-1.0.3.tar -C tbs-install
+tar -xvf build-service-1.0.4.tar -C tbs-install
 
 
 kbld relocate \
@@ -25,6 +25,6 @@ kapp deploy -a tanzu-build-service -f <(ytt -f ./tbs-install/values.yaml \
 -f ./tbs-install/manifests/ \
 -f "$(mkcert -CAROOT)"/rootCA.pem \
 -v docker_repository="$HARBOR_DOMAIN/library/build-service" \
--v docker_username="admin" \
--v docker_password="tamale-trauma-coven-guffaw-merger-ted" \
+-v docker_username="$HARBOR_USERNAME" \
+-v docker_password="$HARBOR_PASSWORD" \
 | kbld -f ./tbs-install/images-relocated.lock -f-)

@@ -23,8 +23,8 @@ docker push $HARBOR_DOMAIN/library/postgres-operator:v1.0.0
 kapp deploy -a postgres-operator \
 -f <(kubectl create secret docker-registry postgres-harbor \
 --docker-server="$HARBOR_DOMAIN" \
---docker-username="admin" \
---docker-password="tamale-trauma-coven-guffaw-merger-ted" \
+--docker-username="$HARBOR_USERNAME" \
+--docker-password="$HARBOR_PASSWORD" \
 --dry-run=client \
 -o yaml)
 
