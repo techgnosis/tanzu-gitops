@@ -82,3 +82,4 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * `node_memory_Active_bytes`
 
 ## TODO
+* Concourse Helm chart uses deprecated RBAC and uses Docker Hub. Use a newer Helm chart

@@ -4,8 +4,8 @@ set -euo pipefail
 
 
 helm install harbor harbor \
---repo https://helm.goharbor.io \
---version 1.5.1 \
+--repo https://charts.trials.tac.bitnami.com/demo \
+--version 9.4.4 \
 --values helm.yml \
 --namespace harbor \
 --create-namespace

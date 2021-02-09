@@ -3,8 +3,8 @@
 set -euo pipefail
 
 helm upgrade --install contour contour \
---repo https://charts.bitnami.com/bitnami \
---version 4.1.0 \
+--repo https://charts.trials.tac.bitnami.com/demo \
+--version 4.1.1 \
 --wait \
 --namespace contour \
 --create-namespace

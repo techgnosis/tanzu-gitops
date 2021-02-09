@@ -9,7 +9,7 @@ helm upgrade --install concourse concourse \
 --namespace concourse \
 --version 11.4.0 \
 --values helm.yml \
---set concourse.web.externalUrl="https://$YTT_CONCOURSE_concourse_hostname" \
+--set concourse.web.externalUrl="https://concourse.$APPS_DOMAIN" \
 --wait
 
 
