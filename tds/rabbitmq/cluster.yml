@@ -1,0 +1,14 @@
+#@ load("@ytt:data", "data")
+
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: rabbitmq-cluster
+---
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  name: rabbitmqcluster
+  namespace: rabbitmq-cluster
+spec:
+  image: #@ data.values.harbor_domain + "/library/vmware-tanzu-rabbitmq:2020.12"
