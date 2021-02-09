@@ -1,7 +1,7 @@
 .envrc
 pipeline/vars.sh
 
-tbs/build-service-1.0.4.tar
+tbs/build-service-1.1.1.tar
 tbs/tbs-install/
 
 apps/test-app/test-app/

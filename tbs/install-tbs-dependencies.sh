@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-kp import -f descriptor-100.0.62.yaml
+kp import -f descriptor-100.0.66.yaml

@@ -12,7 +12,7 @@ fi
 
 
 
-tar -xvf build-service-1.0.4.tar -C tbs-install
+tar -xvf build-service-1.1.1.tar -C tbs-install
 
 
 kbld relocate \
@@ -21,7 +21,9 @@ kbld relocate \
 --repository "$HARBOR_DOMAIN/library/build-service"
 
 
-kapp deploy -a tanzu-build-service -f <(ytt -f ./tbs-install/values.yaml \
+kapp deploy -a tanzu-build-service \
+-f images-namespace.yml \
+-f <(ytt -f ./tbs-install/values.yaml \
 -f ./tbs-install/manifests/ \
 -f "$(mkcert -CAROOT)"/rootCA.pem \
 -v docker_repository="$HARBOR_DOMAIN/library/build-service" \
