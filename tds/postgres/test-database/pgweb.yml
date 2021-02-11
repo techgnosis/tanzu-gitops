@@ -25,7 +25,7 @@ metadata:
   name: pgweb
   namespace: postgres-dbs
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: pgweb
   ports:

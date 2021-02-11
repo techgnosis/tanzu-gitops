@@ -83,3 +83,5 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 
 ## TODO
 * Concourse Helm chart uses deprecated RBAC and uses Docker Hub. Use a newer Helm chart
+* Switch Rabbit image relocation to use `docker load` instead of `docker import`
+* Add no-op tasks like `unit tests` and `static code analysis` to better illustrate TBS' role

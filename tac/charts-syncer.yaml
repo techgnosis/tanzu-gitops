@@ -13,4 +13,9 @@ target:
       username: admin
       password: Harbor12345
 charts:
-  - mariadb-galera
+  - mysql
+  - redis
+  - logstash
+  - influxdb
+  - jenkins
+  - minio

@@ -1,14 +1,10 @@
 useHelm3: true
 apprepository:
   initialRepos:
-  - name: tac
-    url: https://charts.trials.tac.bitnami.com/demo
   - name: harbor
     url: https://harbor.lab.home/chartrepo/library
     caCert: |
       -----BEGIN CERTIFICATE-----
-      derp
       -----END CERTIFICATE-----
-
 clusters:
   - name: cluster1
