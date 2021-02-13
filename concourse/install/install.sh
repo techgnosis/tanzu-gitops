@@ -19,7 +19,7 @@ kapp deploy \
 -a concourse \
 -f <(kubectl create secret generic tanzu-gitops \
 --namespace concourse-main \
---from-literal=tkgi_url="${TKGI_URL}" \
+--from-literal=tkgi_url="https://${TKGI_HOSTNAME}:9021" \
 --from-literal=tkgi_user="${TKGI_USER}" \
 --from-literal=tkgi_password="${TKGI_PASSWORD}" \
 --from-file=ca_cert="$(mkcert -CAROOT)/rootCA.pem" \
