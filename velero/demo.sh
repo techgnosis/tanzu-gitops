@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-source ./demo-magic.sh
+source ../demo-magic.sh
 
 BACKUP_NUMBER=$1
 

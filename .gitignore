@@ -1,4 +1,3 @@
-.envrc
 pipeline/vars.sh
 
 tbs/build-service-1.1.1.tar
