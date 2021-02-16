@@ -1,26 +1,6 @@
+service:
+  type: ClusterIP
+  tls:
+    enabled: false
 clair:
   enabled: false
-chartmuseum:
-  enabled: false
-trivy:
-  enabled: true
-notary:
-  enabled: true
-expose:
-  type: ingress
-  tls:
-    enabled: true
-    certSource: secret
-    secret:
-      secretName: harbor
-      notarySecretName: harbor-notary
-  ingress:
-    hosts:
-      core: #@ "harbor." + data.values.apps_domain
-      notary: #@ "notary." + data.values.apps_domain
-externalURL: #@ "https://" + "harbor." + data.values.apps_domain
-persistence:
-  resourcePolicy: "keep"
-  persistentVolumeClaim:
-    registry:
-      size: 100Gi
