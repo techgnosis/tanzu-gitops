@@ -7,7 +7,7 @@ metadata:
     app: wavefront-proxy
     name: wavefront-proxy
   name: wavefront-proxy
-  namespace: wavefront-collector
+  namespace: tanzu-observability
 spec:
   replicas: 1
   selector:
@@ -41,7 +41,7 @@ metadata:
   name: wavefront-proxy
   labels:
     app: wavefront-proxy
-  namespace: wavefront-collector
+  namespace: tanzu-observability
 spec:
   ports:
   - name: wavefront

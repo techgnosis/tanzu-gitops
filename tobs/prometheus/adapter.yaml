@@ -1,0 +1,38 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: prometheus-storage-adapter
+  namespace: tanzu-observability
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-storage-adapter
+  template:
+    metadata:
+      labels:
+        app: prometheus-storage-adapter
+    spec:
+      containers:
+      - name: prometheus-storage-adapter
+        image: wavefronthq/prometheus-storage-adapter:latest
+        command:
+        - /bin/adapter
+        - -listen=1234
+        - -proxy=wavefront-proxy
+        - -proxy-port=2878
+        - -prefix=tanzu-gitops
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: storage-adapter-service
+  namespace: tanzu-observability
+spec:
+  selector:
+    app: prometheus-storage-adapter
+  ports:
+    - name: adapter-port
+      protocol: TCP
+      port: 80
+      targetPort: 1234

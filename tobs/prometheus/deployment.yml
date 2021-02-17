@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus
-  namespace: prometheus
+  namespace: tanzu-observability
 spec:
   replicas: 1
   selector:
@@ -34,7 +34,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: prometheus
-  namespace: prometheus
+  namespace: tanzu-observability
 spec:
   type: ClusterIP
   selector:

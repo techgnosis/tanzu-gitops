@@ -1,3 +1,4 @@
-If you install TObs via TMC then you can't configure HTTP proxy settings for the Wavefront Proxy to connect through.
+1. Use the `collector` folder to install the Wavefront Collector with custom HTTP proxy settings
+2. Use the `prometheus` folder to install Prometheus and the Wavefront Prometheus storage adapter
 
-Installing this way lets you configure the settings using the WAVEFRONT_PROXY_ARGS environment variable.
+The `collector` folder is configured OOTB to gather K8s metrics from the hosts, while the `prometheus` folder is only setup for Pods, but you can more easily query those metrics before they reach Wavefront using the `promtheus` folder

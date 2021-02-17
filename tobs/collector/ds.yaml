@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: wavefront-collector
-  namespace: wavefront-collector
+  namespace: tanzu-observability
   labels:
     k8s-app: wavefront-collector
     name: wavefront-collector
