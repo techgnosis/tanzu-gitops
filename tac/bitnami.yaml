@@ -1,7 +1,7 @@
 source:
   repo:
     kind: HELM
-    url: https://charts.trials.tac.bitnami.com/demo
+    url: https://charts.bitnami.com/bitnami
 target:
   repoName: harbor
   containerRegistry: harbor.lab.home
@@ -13,9 +13,4 @@ target:
       username: admin
       password: Harbor12345
 charts:
-  - mysql
-  - redis
-  - logstash
-  - influxdb
-  - jenkins
-  - minio
+  - metallb
