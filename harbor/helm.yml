@@ -1,6 +1,11 @@
 service:
-  type: ClusterIP
+  type: LoadBalancer
   tls:
-    enabled: false
+    enabled: true
+    existingSecret: harbor-tls
 clair:
   enabled: false
+persistence:
+  persistentVolumeClaim:
+    registry:
+      size: 100Gi

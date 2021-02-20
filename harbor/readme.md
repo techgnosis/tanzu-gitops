@@ -1,0 +1,1 @@
+Don't use Harbor behind an ingress gateway of any kind. It just causes problems.

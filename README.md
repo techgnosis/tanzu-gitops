@@ -86,3 +86,4 @@ I'll switch to Grafana eventually but I need to get a better grasp of the metric
 * Switch Rabbit image relocation to use `docker load` instead of `docker import`
 * Add no-op tasks like `unit tests` and `static code analysis` to better illustrate TBS' role
 * How to version control the core platform that gets installed
+* Get MinIO going so Concourse can trigger on a new artifact using the s3 resource. This can illustrate using TBS with pre-compiled artifacts
