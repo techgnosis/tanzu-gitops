@@ -1,7 +1,12 @@
 concourse:
   web:
+    tls:
+      enabled: false
     kubernetes:
       keepNamespaces: false
 web:
+  service:
+    api:
+      type: ClusterIP
   ingress:
     enabled: false

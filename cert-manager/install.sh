@@ -7,6 +7,7 @@ helm upgrade --install cert-manager cert-manager \
 --version 1.2.0 \
 --namespace cert-manager \
 --create-namespace \
+--set installCRDs=true \
 --wait
 
 

@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: concourse
+  namespace: concourse
+spec:
+  tls:
+  - hosts:
+      - concourse.lab.home
+    secretName: concourse-tls
+  rules:
+  - host: concourse.lab.home
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: concourse-web
+            port:
+              number: 8080

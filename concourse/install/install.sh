@@ -2,17 +2,14 @@
 
 set -euo pipefail
 
-
 helm upgrade --install concourse concourse \
 --repo https://concourse-charts.storage.googleapis.com \
 --create-namespace \
 --namespace concourse \
---version 11.4.0 \
+--version 14.6.0 \
 --values helm.yml \
---set concourse.web.externalUrl="https://concourse.$APPS_DOMAIN" \
+--set concourse.web.externalUrl="https://concourse.$PRIMARY_DOMAIN" \
 --wait
-
-
 
 
 kapp deploy \
@@ -31,5 +28,6 @@ kapp deploy \
 --dry-run=client \
 -o yaml) \
 -f <(ytt --data-values-env=YTT_HOMELAB \
--f virtualservice.yml \
+-f certificate.yml \
+-f ingress.yml \
 -f values.yml)

@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: concourse
+  namespace: concourse
+spec:
+  dnsNames:
+  - "concourse.lab.home"
+  issuerRef:
+    kind: ClusterIssuer
+    name: mkcert
+  secretName: concourse-tls
