@@ -5,7 +5,7 @@ metadata:
   namespace: istio-system
 spec:
   dnsNames:
-  - "*.ingress.lab.home"
+  - "*.apps.lab.home"
   issuerRef:
     kind: ClusterIssuer
     name: mkcert

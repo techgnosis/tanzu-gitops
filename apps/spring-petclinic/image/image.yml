@@ -4,7 +4,7 @@ apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
   name: spring-petclinic
-  namespace: images
+  namespace: spring-petclinic
 spec:
   tag: #@ data.values.harbor_domain + "/library/spring-petclinic"
   serviceAccount: tbs-service-account

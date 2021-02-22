@@ -9,7 +9,7 @@ apps/test-app/test-app/
 
 tmc/k8s-attach-manifest.yaml
 
-storage-csi/csi-vsphere.conf
+storage/csi-vsphere.conf
 
 
 

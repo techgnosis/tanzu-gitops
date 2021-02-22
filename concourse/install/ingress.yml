@@ -1,3 +1,6 @@
+#@ load("@ytt:data", "data")
+
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -6,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-      - concourse.lab.home
+      - #@ "concourse." + data.values.primary_domain
     secretName: concourse-tls
   rules:
-  - host: concourse.lab.home
+  - host: #@ "concourse." + data.values.primary_domain
     http:
       paths:
       - path: /

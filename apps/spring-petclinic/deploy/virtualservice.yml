@@ -3,11 +3,11 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: product-api-virtual-service
-  namespace: product-api
+  name: spring-petclinic-virtual-service
+  namespace: spring-petclinic
 spec:
   hosts:
-    - #@ "product-api." + data.values.apps_domain
+    - spring-petclinic.apps.lab.home
   gateways:
     - app-gateway.istio-system.svc.cluster.local
   http:
@@ -16,6 +16,6 @@ spec:
         prefix: /
     route:
     - destination:
-        host: product-api
+        host: spring-petclinic
         port:
           number: 8080

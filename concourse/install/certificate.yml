@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
@@ -5,7 +7,7 @@ metadata:
   namespace: concourse
 spec:
   dnsNames:
-  - "concourse.lab.home"
+  - #@ "concourse." + data.values.primary_domain
   issuerRef:
     kind: ClusterIssuer
     name: mkcert

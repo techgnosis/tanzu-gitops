@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: harbor-creds
-  namespace: images
+  namespace: spring-petclinic
   annotations:
     kpack.io/docker: #@ "https://" + data.values.harbor_domain
 type: kubernetes.io/basic-auth

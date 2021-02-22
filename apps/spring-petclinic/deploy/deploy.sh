@@ -16,6 +16,5 @@ kapp deploy -a spring-petclinic \
 -f deployment.yml \
 -f virtualservice.yml \
 -f pdb.yml \
--f namespace.yml \
 -f services.yml \
 -f values.yaml)

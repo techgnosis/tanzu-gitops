@@ -17,4 +17,4 @@ spec:
         mode: SIMPLE
         credentialName: wildcard-tls
     hosts:
-    - "*"
+    - "*.apps.lab.home"
