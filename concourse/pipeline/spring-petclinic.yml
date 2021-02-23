@@ -34,7 +34,7 @@ resources:
 
 
 jobs:
-- name: Build with TBS
+- name: build-with-tanzu-build-service
   public: true
   serial: true
   plan:
@@ -42,7 +42,7 @@ jobs:
     trigger: true
   - get: concourse-helper
   - get: tanzu-gitops
-  - task: handoff to TBS
+  - task: handoff-to-tanzu-build-service
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/build-image/build-image.yml
     input_mapping:
@@ -56,7 +56,7 @@ jobs:
 
 
 
-- name: Deploy to cluster
+- name: deploy-to-cluster
   public: true
   serial: true
   plan:
@@ -64,13 +64,13 @@ jobs:
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
-    - task: create wavefront event
+    - task: create-wavefront-event
       image: concourse-helper
       file: tanzu-gitops/concourse/tasks/create-wavefront-event/create-wavefront-event.yml
       params:
         WAVEFRONT_API_TOKEN: ((tanzu-gitops.wavefront_api_token))
         WAVEFRONT_URL: ((tanzu-gitops.wavefront_url))
-    - task: handoff to Kubernetes
+    - task: handoff-to-kubernetes
       file: tanzu-gitops/concourse/tasks/deploy-image/deploy-image.yml
       image: concourse-helper
       input_mapping:

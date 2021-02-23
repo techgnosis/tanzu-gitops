@@ -21,7 +21,7 @@ resources:
       - "concourse/tasks/**"
 
 jobs:
-- name: Sync Helm charts to Harbor
+- name: sync-helm-charts-to-harbor
   public: true
   serial: true
   plan:
@@ -29,7 +29,7 @@ jobs:
     trigger: true
   - get: concourse-helper
   - get: tanzu-gitops
-  - task: sync TAC to Harbor
+  - task: sync-tac-to-harbor
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/charts-syncer/charts-syncer.yml
 

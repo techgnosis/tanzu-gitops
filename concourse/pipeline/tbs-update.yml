@@ -29,7 +29,7 @@ resources:
       - "concourse/tasks/**"
 
 jobs:
-- name: deploy tbs dependencies
+- name: deploy-tbs-dependencies
   public: true
   serial: true
   plan:
@@ -37,7 +37,7 @@ jobs:
   - get: tanzu-gitops
   - get: tbs-dependencies
     trigger: true
-  - task: deploy tbs dependencies
+  - task: deploy-tbs-dependencies
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/deploy-tbs-dependencies/deploy-tbs-dependencies.yml
     params:

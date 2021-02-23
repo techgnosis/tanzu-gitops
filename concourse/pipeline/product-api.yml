@@ -29,7 +29,7 @@ resources:
 
 
 jobs:
-- name: Deploy to cluster
+- name: deploy-to-cluster
   public: true
   serial: true
   plan:
@@ -37,7 +37,7 @@ jobs:
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
-    - task: handoff to Kubernetes
+    - task: handoff-to-kubernetes
       file: tanzu-gitops/concourse/tasks/deploy-image/deploy-image.yml
       image: concourse-helper
       input_mapping:

@@ -52,3 +52,11 @@ spec:
             secretKeyRef:
               name: wavefront
               key: wavefront_url
+        - name: spring_profiles_active
+          value: mysql
+        - name: MYSQL_URL
+          value: "jdbc:mysql://mysql.demo.tanzu/spring-petclinic"
+        - name: MYSQL_USER
+          value: "spring-petclinic"
+        - name: MYSQL_PASS
+          value: "spring-petclinic"

@@ -3,9 +3,6 @@ pipeline/vars.sh
 tbs/build-service-1.1.1.tar
 tbs/tbs-install/
 
-apps/test-app/test-app/
-
-
 
 tmc/k8s-attach-manifest.yaml
 
@@ -15,6 +12,11 @@ storage/csi-vsphere.conf
 
 tds/gemfire/gemfire-operator-*.tgz
 tds/gemfire/gemfire-operator
+
 tds/postgres/postgres-for-kubernetes*
+
 tds/rabbitmq/tanzu-rabbitMQ-for-kubernetes-*.tar
 tds/rabbitmq/operator-install
+
+tds/mysql/tanzu-mysql-deployment-templates-*
+tds/mysql/tanzu-mysql-deployment-templates-*.tgz
