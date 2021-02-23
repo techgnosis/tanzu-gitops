@@ -1,16 +1,16 @@
 fullName:
-  name: tbs-user
+  name: postgres-user
 meta:
-  description: tbs user
+  description: postgres operator user
 spec:
   isDeprecated: false
   resources:
   - NAMESPACE
   rules:
-  - apiGroups:
-    - kpack.io
+  - apiGroups: # postgres
+    - sql.tanzu.vmware.com
     resources:
-    - images
+    - postgres
     verbs:
     - get
     - list
@@ -19,7 +19,7 @@ spec:
     - update
     - patch
     - delete
-  - apiGroups:
+  - apiGroups: # pod logs
     - ""
     resources:
     - pods
@@ -28,27 +28,6 @@ spec:
     - get
     - list
     - watch
-  - apiGroups:
-    - ""
-    resources:
-    - secrets
-    verbs:
-    - create
-    - update
-    - patch
-    - delete
-  - apiGroups:
-    - kpack.io
-    resources:
-    - builds
-    verbs:
-    - get
-    - list
-    - watch
-    - update
-    - patch
-
-
 type:
   kind: Role
   package: vmware.tanzu.manage.v1alpha1.iam.role
