@@ -1,0 +1,25 @@
+fullName:
+  name: tbs-user
+meta:
+  description: tbs user
+spec:
+  isDeprecated: false
+  resources:
+  - NAMESPACE
+  rules:
+  - apiGroups:
+    - kpack.io
+    resources:
+    - images
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+type:
+  kind: Role
+  package: vmware.tanzu.manage.v1alpha1.iam.role
+  version: v1alpha1
