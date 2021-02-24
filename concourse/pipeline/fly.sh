@@ -9,13 +9,8 @@ fly login \
 --password=test
 
 fly set-pipeline -t lab \
--p spring-petclinic \
--c spring-petclinic.yml \
--v harbordomain=$HARBOR_DOMAIN
-
-fly set-pipeline -t lab \
--p product-api \
--c product-api.yml \
+-p demo-app \
+-c demo-app.yml \
 -v harbordomain=$HARBOR_DOMAIN
 
 fly set-pipeline -t lab \

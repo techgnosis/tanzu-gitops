@@ -1,0 +1,36 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: healthwatch
+rules:
+- resources:
+    - pods/proxy
+    - pods
+    - nodes
+    - nodes/proxy
+    - namespace/pods
+    - endpoints
+    - services
+  verbs:
+    - get
+    - watch
+    - list
+  apiGroups:
+    - ""
+- nonResourceURLs: ["/metrics"]
+  verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: healthwatch
+roleRef:
+  apiGroup: ""
+  kind: ClusterRole
+  name: healthwatch
+subjects:
+- apiGroup: ""
+  kind: User
+  name: healthwatch
+  namespace: pks-system

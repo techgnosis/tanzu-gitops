@@ -1,0 +1,5 @@
+auth:
+  rootPassword: demo-app
+  database: demo-app
+  username: demo-app
+  password: demo-app

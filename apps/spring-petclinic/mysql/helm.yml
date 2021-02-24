@@ -1,5 +1,0 @@
-auth:
-  rootPassword: spring-petclinic
-  database: spring-petclinic
-  username: spring-petclinic
-  password: spring-petclinic

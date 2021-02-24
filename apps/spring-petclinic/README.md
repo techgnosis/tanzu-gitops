@@ -1,1 +1,0 @@
-It is expected that the `spring-petclinic` namespace is created by TMC and the user `spring-petclinic-dev` is given access to the namespace by TMC

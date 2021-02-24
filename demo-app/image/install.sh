@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-kapp deploy -a spring-petclinic-image \
+kapp deploy -a demo-app-image \
 -f <(ytt --data-values-env YTT_HOMELAB \
 -f image.yml \
 -f tbs-service-account.yml \

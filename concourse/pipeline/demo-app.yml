@@ -1,9 +1,9 @@
 resources:
-- name: spring-petclinic
+- name: demo-app
   type: git
   source:
-    uri: https://github.com/techgnosis/spring-petclinic.git
-    branch: demo
+    uri: https://github.com/techgnosis/demo-app.git
+    branch: master
 - name: tanzu-gitops
   type: git
   source:
@@ -11,10 +11,10 @@ resources:
     branch: master
     paths:
      - "concourse/tasks/**"
-- name: spring-petclinic-image
+- name: demo-app-image
   type: docker-image
   source:
-    repository: ((harbordomain))/library/spring-petclinic
+    repository: ((harbordomain))/library/demo-app
     tag: latest
     ca_certs:
     - domain: ((harbordomain))
@@ -38,7 +38,7 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: spring-petclinic
+  - get: demo-app
     trigger: true
   - get: concourse-helper
   - get: tanzu-gitops
@@ -46,13 +46,13 @@ jobs:
     image: concourse-helper
     file: tanzu-gitops/concourse/tasks/build-image/build-image.yml
     input_mapping:
-      source-code: spring-petclinic
+      source-code: demo-app
     params:
       tkgicluster: tbscluster
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))
-      image: spring-petclinic
+      image: demo-app
 
 
 
@@ -60,7 +60,7 @@ jobs:
   public: true
   serial: true
   plan:
-    - get: spring-petclinic-image
+    - get: demo-app-image
       trigger: true
     - get: tanzu-gitops
     - get: concourse-helper
@@ -74,17 +74,17 @@ jobs:
       file: tanzu-gitops/concourse/tasks/deploy-image/deploy-image.yml
       image: concourse-helper
       input_mapping:
-        image: spring-petclinic-image
+        image: demo-app-image
       params:
         tkgicluster: appscluster
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
         harbordomain: ((harbordomain))
-        namespace: spring-petclinic
-        deployment: spring-petclinic
-        container: spring-petclinic
-        image: spring-petclinic
+        namespace: demo-app
+        deployment: demo-app
+        container: demo-app
+        image: demo-app
 
 
 
