@@ -1,0 +1,1 @@
+mysql --host=localhost --user=demo-app --password=demo-app demo-app
