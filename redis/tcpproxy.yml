@@ -6,6 +6,8 @@ metadata:
 spec:
   virtualhost:
     fqdn: redis.lab.home
+    tls:
+      secretName: redis-tls
   tcpproxy:
     services:
     - name: redis-master
