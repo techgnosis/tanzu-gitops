@@ -1,0 +1,31 @@
+#@ load("@ytt:data", "data")
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app
+  namespace: demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+      - name: demo-app
+        imagePullPolicy: Always
+        image: #@ data.values.harbor_domain + "/library/demo-app:latest"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DEMO_APP_DB_TYPE
+          value: redis
+        - name: DEMO_APP_REDIS_HOSTNAME
+          value: redis-master.demo.tanzu
+        - name: DEMO_APP_REDIS_PORT
+          value: 6379
+        - name: DEMO_APP_REDIS_PASSWORD
+          value: myredispassword

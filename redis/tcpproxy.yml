@@ -1,0 +1,12 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: redis
+  namespace: redis
+spec:
+  virtualhost:
+    fqdn: redis.lab.home
+  tcpproxy:
+    services:
+    - name: redis-master
+      port: 6379

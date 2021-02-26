@@ -1,0 +1,11 @@
+cluster:
+  enabled: false
+password: demo-app
+master:
+  service:
+    type: ClusterIP
+  persistence:
+    enabled: false
+slave:
+  persistence:
+    enabled: false

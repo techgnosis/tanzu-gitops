@@ -21,6 +21,8 @@ spec:
         ports:
         - containerPort: 8080
         env:
+        - name: DEMO_APP_DB_TYPE
+          value: mysql
         - name: DEMO_APP_MYSQL_HOSTNAME
           value: mysql.demo.tanzu
         - name: DEMO_APP_MYSQL_DATABASE
