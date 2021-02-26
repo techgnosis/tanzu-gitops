@@ -37,6 +37,7 @@ spec:
     - update
     - patch
     - delete
+    - get
   - apiGroups:
     - kpack.io
     resources:
@@ -47,6 +48,28 @@ spec:
     - watch
     - update
     - patch
+  - apiGroups:
+    - ""
+    resources:
+    - serviceaccounts
+    verbs:
+    - get
+    - update
+    - patch
+    - create
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - list
+    - create
+    - update
+    - delete
+    - patch
+    - watch
+
 
 
 type:
