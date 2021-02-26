@@ -3,6 +3,7 @@
 set -euo pipefail
 
 kapp deploy -a demo-app-image \
+-n demo-app \
 -f <(ytt --data-values-env YTT_HOMELAB \
 -f image.yml \
 -f tbs-service-account.yml \

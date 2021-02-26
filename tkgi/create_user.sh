@@ -13,4 +13,8 @@ uaa-cli create-user spring-petclinic \
 --email spring-petclinic@notreal.com \
 --password spring-petclinic
 
+uaa-cli create-user demo-app \
+--email demo-app@notreal.com \
+--password demo-app
+
 uaa-cli add-member pks.clusters.manage tanzu-gitops

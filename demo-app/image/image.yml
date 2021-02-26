@@ -9,7 +9,7 @@ spec:
   tag: #@ data.values.harbor_domain + "/library/demo-app"
   serviceAccount: tbs-service-account
   builder:
-    name: base
+    name: tiny
     kind: ClusterBuilder
   source:
     git:

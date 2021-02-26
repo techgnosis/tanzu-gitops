@@ -1,0 +1,29 @@
+fullName:
+  name: apps-user
+meta:
+  description: apps user
+spec:
+  isDeprecated: false
+  resources:
+  - NAMESPACE
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - pods
+    - pods/log
+    - secrets
+    - deployments
+    - configmaps
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - delete
+    - patch
+type:
+  kind: Role
+  package: vmware.tanzu.manage.v1alpha1.iam.role
+  version: v1alpha1
