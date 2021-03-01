@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: gemfire1-server
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - name: redis
       port: 11211

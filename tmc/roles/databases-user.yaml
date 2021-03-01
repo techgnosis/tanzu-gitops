@@ -1,7 +1,7 @@
 fullName:
-  name: postgres-user
+  name: databases-user
 meta:
-  description: postgres operator user
+  description: can create an instance of any supported operator
 spec:
   isDeprecated: false
   resources:
@@ -11,6 +11,18 @@ spec:
     - sql.tanzu.vmware.com
     resources:
     - postgres
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+  - apiGroups: # gemfire
+    - gemfire.tanzu.vmware.com
+    resources:
+    - gemfireclusters
     verbs:
     - get
     - list
@@ -40,7 +52,6 @@ spec:
     - delete
     - patch
     - watch
-
 type:
   kind: Role
   package: vmware.tanzu.manage.v1alpha1.iam.role
