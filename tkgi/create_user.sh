@@ -9,10 +9,6 @@ uaa-cli create-user tanzu-gitops \
 --email tanzu-gitops@notreal.com \
 --password tanzu-gitops
 
-uaa-cli create-user spring-petclinic \
---email spring-petclinic@notreal.com \
---password spring-petclinic
-
 uaa-cli create-user demo-app \
 --email demo-app@notreal.com \
 --password demo-app

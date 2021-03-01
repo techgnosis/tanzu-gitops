@@ -28,6 +28,19 @@ spec:
     - get
     - list
     - watch
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - list
+    - create
+    - update
+    - delete
+    - patch
+    - watch
+
 type:
   kind: Role
   package: vmware.tanzu.manage.v1alpha1.iam.role

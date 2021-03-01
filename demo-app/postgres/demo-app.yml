@@ -1,13 +1,8 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: postgres-dbs
----
 apiVersion: sql.tanzu.vmware.com/v1
 kind: Postgres
 metadata:
-  name: testdb
-  namespace: postgres-dbs
+  name: demo-app
+  namespace: demo-app
 spec:
   memory: "800Mi"
   cpu: "0.5"
@@ -15,5 +10,5 @@ spec:
   serviceType: ClusterIP
   storageSize: 300M
   pgConfig:
-    dbname: testdb
-    username: testdb
+    dbname: demo-app
+    username: demo-app
