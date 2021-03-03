@@ -13,6 +13,9 @@ spec:
     metadata:
       labels:
         app: demo-app
+      annotations: #! Istio overwrites these annotations but I think they need to be here so Istio knows what to scrape and merge
+        prometheus.io/port: "8080"
+        prometheus.io/scrape: "true"          
     spec:
       containers:
       - name: demo-app
@@ -22,7 +25,7 @@ spec:
         - containerPort: 8080
         env:
         - name: DEMO_APP_DB_TYPE
-          value: mysql
+          value: test
         - name: DEMO_APP_MYSQL_HOSTNAME
           value: mysql.demo.tanzu
         - name: DEMO_APP_MYSQL_DATABASE
