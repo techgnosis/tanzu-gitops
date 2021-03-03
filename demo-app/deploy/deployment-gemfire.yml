@@ -26,6 +26,6 @@ spec:
         - name: DEMO_APP_REDIS_HOSTNAME
           value: redis-master.demo.tanzu
         - name: DEMO_APP_REDIS_PORT
-          value: 6379
+          value: "6379"
         - name: DEMO_APP_REDIS_PASSWORD
-          value: myredispassword
+          value: demo-app

@@ -48,7 +48,7 @@ jobs:
     input_mapping:
       source-code: demo-app
     params:
-      tkgicluster: tbscluster
+      tkgicluster: tbs
       tkgiapi: ((tanzu-gitops.tkgi_url))
       tkgiuser: ((tanzu-gitops.tkgi_user))
       tkgipassword: ((tanzu-gitops.tkgi_password))
@@ -76,7 +76,7 @@ jobs:
       input_mapping:
         image: demo-app-image
       params:
-        tkgicluster: appscluster
+        tkgicluster: apps
         tkgiapi: ((tanzu-gitops.tkgi_url))
         tkgiuser: ((tanzu-gitops.tkgi_user))
         tkgipassword: ((tanzu-gitops.tkgi_password))
