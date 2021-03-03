@@ -1,0 +1,1 @@
+This is purely standalone Prometheus. It doesn't connect to Tanzu Observability at all. See the `tobs` folder for more integration
