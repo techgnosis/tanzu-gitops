@@ -3,3 +3,5 @@ auth:
   database: demo-app
   username: demo-app
   password: demo-app
+metrics:
+  enabled: true

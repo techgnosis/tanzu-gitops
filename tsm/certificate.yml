@@ -6,6 +6,7 @@ metadata:
 spec:
   dnsNames:
   - "*.apps.lab.home"
+  - "*.databases.lab.home"
   issuerRef:
     kind: ClusterIssuer
     name: mkcert

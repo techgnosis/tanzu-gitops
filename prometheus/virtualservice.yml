@@ -8,6 +8,7 @@ metadata:
 spec:
   hosts:
     - prometheus.apps.lab.home
+    - prometheus.databases.lab.home
   gateways:
     - app-gateway.istio-system.svc.cluster.local
   http:

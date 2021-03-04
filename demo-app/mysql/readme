@@ -1,1 +1,4 @@
 mysql --host=localhost --user=demo-app --password=demo-app demo-app
+
+Metrics come from a separate container that is fronted by a Service.
+Istio does not scrape Services so we are relying on TO Collector to get the MySQL metrics

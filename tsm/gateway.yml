@@ -18,3 +18,4 @@ spec:
         credentialName: wildcard-tls
     hosts:
     - "*.apps.lab.home"
+    - "*.databases.lab.home"
