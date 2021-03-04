@@ -13,11 +13,11 @@ curl \
 --header "Accept: application/json" \
 --header "Authorization: Bearer ${WAVEFRONT_API_TOKEN}" \
 -d "{
-  \"name\": \"tanzu-gitops-spring-petclinic-deploy\",
+  \"name\": \"jmusselwhite-demoapp\",
   \"annotations\": {
     \"severity\": \"info\",
     \"type\": \"image deploy\",
-    \"details\": \"new spring-petclinic image deployed\"
+    \"details\": \"new demoapp image deployed\"
   },
 \"startTime\": "${START_TIME}",
   \"endTime\": "${END_TIME}"
