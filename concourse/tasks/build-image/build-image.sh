@@ -11,5 +11,5 @@ PKS_USER_PASSWORD=${tkgipassword} tkgi get-credentials ${tkgicluster}
 
 cd source-code
 REVISION=$(git rev-parse HEAD)
-kp -n ${image} image patch ${image} --git-revision ${REVISION}
+kp -n demo-app-image image patch ${image} --git-revision ${REVISION}
 

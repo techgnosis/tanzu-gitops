@@ -10,8 +10,8 @@ kapp deploy -a harbor \
 -f values.yml)
 
 helm upgrade --install harbor harbor \
---repo https://charts.trials.tac.bitnami.com/demo \
---version 9.4.4 \
+--repo https://helm.goharbor.io \
+--version 1.6.0 \
 --values helm.yml \
 --set externalURL="https://$HARBOR_DOMAIN" \
 --set harborAdminPassword="$HARBOR_PASSWORD" \

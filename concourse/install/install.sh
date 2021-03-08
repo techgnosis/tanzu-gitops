@@ -8,7 +8,7 @@ helm upgrade --install concourse concourse \
 --namespace concourse \
 --version 14.6.0 \
 --values helm.yml \
---set concourse.web.externalUrl="https://concourse.$PRIMARY_DOMAIN" \
+--set concourse.web.externalUrl="https://concourse.databases.$PRIMARY_DOMAIN" \
 --wait
 
 
@@ -28,6 +28,5 @@ kapp deploy \
 --dry-run=client \
 -o yaml) \
 -f <(ytt --data-values-env=YTT_HOMELAB \
--f certificate.yml \
--f ingress.yml \
+-f virtualservice.yml \
 -f values.yml)

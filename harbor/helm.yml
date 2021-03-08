@@ -1,11 +1,14 @@
-service:
-  type: LoadBalancer
+expose:
+  type: loadBalancer
   tls:
     enabled: true
-    existingSecret: harbor-tls
-clair:
-  enabled: false
+    certSource: secret
+    secret:
+      secretName: harbor-tls
+      notarySecretName: harbor-tls
 persistence:
   persistentVolumeClaim:
     registry:
       size: 100Gi
+metrics:
+  enabled: true
