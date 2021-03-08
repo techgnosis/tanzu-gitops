@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-set -euox pipefail
+set -euo pipefail
 
 NOTARY_SERVER_URL="https://notary.lab.home:4443"
 IMAGE_REPOSITORY="harbor.lab.home/library/demo-app"

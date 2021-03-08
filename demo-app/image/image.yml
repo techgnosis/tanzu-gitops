@@ -4,12 +4,12 @@ apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
   name: demo-app
-  namespace: demo-app
+  namespace: demo-app-image
 spec:
   tag: #@ data.values.harbor_domain + "/library/demo-app"
   serviceAccount: tbs-service-account
   builder:
-    name: tiny
+    name: base
     kind: ClusterBuilder
   source:
     git:
