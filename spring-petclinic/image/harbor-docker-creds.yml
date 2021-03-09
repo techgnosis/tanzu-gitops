@@ -1,0 +1,12 @@
+#@ load("@ytt:data", "data")
+apiVersion: v1
+kind: Secret
+metadata:
+  name: harbor-creds
+  namespace: spring-petclinic-image
+  annotations:
+    kpack.io/docker: #@ "https://" + data.values.harbor_domain
+type: kubernetes.io/basic-auth
+stringData:
+  username: admin
+  password: Harbor12345
