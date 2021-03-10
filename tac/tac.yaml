@@ -14,3 +14,4 @@ target:
       password: Harbor12345
 charts:
   - redis
+  - influxdb
