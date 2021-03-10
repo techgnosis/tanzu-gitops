@@ -5,7 +5,7 @@ source:
 target:
   repoName: harbor
   containerRegistry: harbor.lab.home
-  containerRepository: library
+  containerRepository: gcr.io/sys-2b0109it/demo/bitnami
   repo:
     kind: HARBOR
     url: https://harbor.lab.home/chartrepo/library
@@ -13,8 +13,4 @@ target:
       username: admin
       password: Harbor12345
 charts:
-  - contour
-  - harbor
-  - kubeapps
-  - minio
   - redis

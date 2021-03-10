@@ -10,6 +10,7 @@ COPY kubectl /usr/bin/
 COPY pivnet /usr/bin/
 COPY tkgi /usr/bin/
 COPY charts-syncer /usr/bin/
+COPY helm /usr/bin
 COPY rootCA.pem /tmp/
 
 
