@@ -5,7 +5,7 @@ source:
 target:
   repoName: harbor
   containerRegistry: harbor.lab.home
-  containerRepository: gcr.io/sys-2b0109it/demo/bitnami
+  containerRepository: library
   repo:
     kind: HARBOR
     url: https://harbor.lab.home/chartrepo/library

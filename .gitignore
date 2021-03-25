@@ -20,3 +20,6 @@ tds/rabbitmq/operator-install
 
 tds/mysql/tanzu-mysql-deployment-templates-*
 tds/mysql/tanzu-mysql-deployment-templates-*.tgz
+
+tkgi/bosh.yml
+tkgi/tkgi.yml

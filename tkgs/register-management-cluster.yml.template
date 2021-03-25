@@ -1,0 +1,8 @@
+apiVersion: installers.tmc.cloud.vmware.com/v1alpha1
+kind: AgentInstall
+metadata:
+  name: tmc-agent-installer-config
+  namespace: <THENAMESPACE>
+spec:
+  operation: INSTALL
+  registrationLink: <THEURL>
