@@ -1,3 +1,7 @@
+type:
+  kind: Role
+  package: vmware.tanzu.manage.v1alpha1.iam.role
+  version: v1alpha1
 fullName:
   name: databases-user
 meta:
@@ -52,7 +56,3 @@ spec:
     - delete
     - patch
     - watch
-type:
-  kind: Role
-  package: vmware.tanzu.manage.v1alpha1.iam.role
-  version: v1alpha1
