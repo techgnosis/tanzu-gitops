@@ -9,8 +9,8 @@ uaa-cli create-user tanzu-gitops \
 --email tanzu-gitops@notreal.com \
 --password tanzu-gitops
 
-uaa-cli create-user demo-app \
---email demo-app@notreal.com \
---password demo-app
+uaa-cli create-user app-developer \
+--email app-developer@notreal.com \
+--password app-developer
 
 uaa-cli add-member pks.clusters.manage tanzu-gitops

@@ -1,0 +1,36 @@
+{
+    "name": "enable-service-topology",
+    "description": "Enable Service Topology",
+    "experimental_customizations": [
+        {
+           "component": "kubelet",
+           "arguments": {
+                "feature-gates": "ServiceTopology=true,EndpointSlice=true"
+            }
+        },
+        {
+            "component": "kube-apiserver",
+            "arguments": {
+                 "feature-gates": "ServiceTopology=true,EndpointSlice=true"
+             }
+         },
+         {
+            "component": "kube-controller-manager",
+            "arguments": {
+                 "feature-gates": "ServiceTopology=true,EndpointSlice=true"
+             }
+         },
+         {
+            "component": "kube-proxy",
+            "arguments": {
+                 "feature-gates": "ServiceTopology=true,EndpointSlice=true"
+             }
+         },
+         {
+            "component": "kube-scheduler",
+            "arguments": {
+                 "feature-gates": "ServiceTopology=true,EndpointSlice=true"
+             }
+         }
+    ]
+}
