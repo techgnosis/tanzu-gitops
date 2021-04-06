@@ -1,12 +1,15 @@
 pipeline/vars.sh
 
-tbs/build-service-1.1.1.tar
+tbs/build-service-1.1.4.tar
+tbs/descriptor-100.0.87.yaml
 tbs/tbs-install/
 
 
 tmc/k8s-attach-manifest.yaml
 
 storage/csi-vsphere.conf
+
+emojivoto/emojivoto
 
 
 

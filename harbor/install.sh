@@ -9,18 +9,10 @@ kapp deploy -a harbor \
 -f namespace.yml \
 -f values.yml)
 
-# helm upgrade --install harbor harbor \
-# --repo https://charts.trials.tac.bitnami.com/demo \
-# --version 9.8.0 \
-# --values helm.yml \
-# --set externalURL="https://$HARBOR_DOMAIN" \
-# --set harborAdminPassword="$HARBOR_PASSWORD" \
-# --namespace harbor
-
 helm upgrade --install harbor harbor \
---repo https://helm.goharbor.io \
---version 1.6.0 \
---values helm-goharbor.yml \
+--repo https://charts.trials.tac.bitnami.com/demo \
+--version 9.8.3 \
+--values helm.yml \
 --set externalURL="https://$HARBOR_DOMAIN" \
 --set harborAdminPassword="$HARBOR_PASSWORD" \
 --namespace harbor

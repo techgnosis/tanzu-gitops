@@ -1,0 +1,8 @@
+spec:
+  topology:
+    workers:
+      volumes:
+      - name: "varlib"
+        mountPath: "/var/lib"
+        capacity:
+          storage: "50Gi"
