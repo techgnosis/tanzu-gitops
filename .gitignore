@@ -9,8 +9,8 @@ tmc/k8s-attach-manifest.yaml
 
 storage/csi-vsphere.conf
 
+acme_fitness/acme_fitness_demo
 emojivoto/emojivoto
-
 
 
 tds/gemfire/gemfire-operator-*.tgz
