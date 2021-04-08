@@ -7,7 +7,6 @@ K8S_PATH=acme_fitness_demo/kubernetes-manifests
 kapp deploy \
 -a acme-fitness \
 --into-ns acme-fitness \
--f ns.yml \
 -f <(kubectl create secret generic cart-redis-pass \
 --from-literal=password=acmefitness \
 --dry-run=client \
