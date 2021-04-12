@@ -16,7 +16,7 @@ kapp deploy -a velero -f <(velero install \
 -o yaml)
 
 
-# kubectl patch daemonset restic \
-# --namespace velero \
-# --type='json' \
-# --patch='[{"op": "replace", "path": "/spec/template/spec/containers/0/volumes/0/hostPath/path", "value":"/var/vcap/data/kubelet/pods"}]'
+kubectl patch daemonset restic \
+--namespace velero \
+--type='json' \
+--patch='[{"op": "replace", "path": "/spec/template/spec/volumes/0/hostPath/path", "value":"/var/vcap/data/kubelet/pods"}]'
