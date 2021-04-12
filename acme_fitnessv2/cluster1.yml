@@ -58,17 +58,9 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/redis
               name: redis-data
-#            - mountPath: /etc/redis
-#              name: redis-config
       volumes:
         - name: redis-data
           emptyDir: {}
-#        - name: redis-config
-#          configMap:
-#            name: redis-config
-#            items:
-#              - key: redis-config
-#                path: redis.conf
 ---
 apiVersion: v1
 kind: Service
@@ -185,7 +177,7 @@ spec:
         - name: USERS_HOST
           value: 'users'
         - name: CATALOG_HOST
-          value: 'catalog.acme.com'
+          value: 'catalog.tsm.demo'
         - name: ORDER_HOST
           value: 'order'
         - name: CART_HOST
@@ -260,9 +252,6 @@ spec:
       volumes:
         - name: mongodata
           emptyDir: {}
-#        - name: mongodata
-#          persistentVolumeClaim:
-#            claimName: mongodata
 ---
 apiVersion: v1
 kind: Service
@@ -466,9 +455,6 @@ spec:
         - name: mongo-initdb
           configMap:
             name: users-initdb-config
-#        - name: mongodata
-#          persistentVolumeClaim:
-#            claimName: mongodata
 ---
 apiVersion: v1
 kind: Service

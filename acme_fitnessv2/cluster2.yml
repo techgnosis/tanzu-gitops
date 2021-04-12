@@ -80,9 +80,6 @@ spec:
         - name: mongo-initdb
           configMap:
             name: catalog-initdb-config
-#        - name: mongodata
-#          persistentVolumeClaim:
-#            claimName: mongodata
 ---
 apiVersion: v1
 kind: Service
