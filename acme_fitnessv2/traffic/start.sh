@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-locust --host=http://shopping.apps.lab.home
+locust --host=https://acme-fitness.lab.home
 

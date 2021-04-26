@@ -19,7 +19,7 @@ class GuestUserBrowsing(TaskSequence):
         self.getProducts()
 
     def listCatalogItems(self):
-        items = self.client.get("/products").json()["data"]
+        items = self.client.get("/products",verify=False).json()["data"]
         for item in items:
             products.append(item["id"])
         return products
@@ -27,14 +27,14 @@ class GuestUserBrowsing(TaskSequence):
     @task(1)
     def getProducts(self):
         logging.info("Guest User - Get Products")
-        self.client.get("/products")
+        self.client.get("/products",verify=False)
 
     @task(2)
     def getProduct(self):
         logging.info("Guest User - Get a product")
         products = self.listCatalogItems()
         id = random.choice(products)
-        product = self.client.get("/products/"+ id).json()
+        product = self.client.get("/products/"+ id,verify=False).json()
         logging.info("Product info - " +  str(product))
         products[:] = []
 
@@ -49,14 +49,14 @@ class AuthUserBrowsing(TaskSequence):
     def login(self):
         user = random.choice(users)
         logging.info("Auth User - Login user " + user)
-        body = self.client.post("/login/", json={"username": user, "password":"vmware1!"}).json()
+        body = self.client.post("/login/", json={"username": user, "password":"vmware1!"},verify=False).json()
         self.locust.userid = body["token"]
 
     @seq_task(2)
     @task(1)
     def getProducts(self):
         logging.info("Auth User - Get Catalog")
-        self.client.get("/products")
+        self.client.get("/products",verify=False)
 
     @seq_task(3)
     @task(2)
@@ -64,7 +64,7 @@ class AuthUserBrowsing(TaskSequence):
         logging.info("Auth User - Get a product")
         products = self.listCatalogItems()
         id = random.choice(products)
-        product = self.client.get("/products/"+ id).json()
+        product = self.client.get("/products/"+ id,verify=False).json()
         logging.info("Product info - " +  str(product))
         products[:] = []
 
@@ -81,14 +81,14 @@ class AuthUserBrowsing(TaskSequence):
                   "shortDescription": "Test add to cart",
                   "quantity": random.randint(1,2),
                   "itemid": productid
-                })
+                },verify=False)
         products[:] = []
 
     
     @seq_task(5)
     @task(1)
     def checkout(self):
-        userCart = self.client.get("/cart/items/" + self.locust.userid).json()
+        userCart = self.client.get("/cart/items/" + self.locust.userid,verify=False).json()
         order = self.client.post("/order/add/"+ self.locust.userid, json={ "userid":"8888",
                 "firstname":"Eric",
                 "lastname": "Cartman",
@@ -111,18 +111,18 @@ class AuthUserBrowsing(TaskSequence):
                     {"id":"1234", "description":"redpants", "quantity":"1", "price":"4"},
                     {"id":"5678", "description":"bluepants", "quantity":"1", "price":"4"}
                 ],
-                "total":"100"})
+                "total":"100"},verify=False)
 
 
     def listCatalogItems(self):
-        items = self.client.get("/products").json()["data"]
+        items = self.client.get("/products",verify=False).json()["data"]
         for item in items:
             products.append(item["id"])
         return products
 
     @task(2)
     def index(self):
-        self.client.get("/")
+        self.client.get("/",verify=False)
 
 
 class UserBehavior(TaskSet):
