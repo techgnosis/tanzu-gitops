@@ -3,6 +3,5 @@
 set -euo pipefail
 
 kapp deploy \
---into-ns acme-fitness \
 -a acme-fitness-cluster1-istio \
 -f istio.yml

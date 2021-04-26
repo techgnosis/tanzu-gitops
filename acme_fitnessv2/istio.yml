@@ -2,24 +2,29 @@ apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   name: acme-gateway
+  namespace: acme-fitness
 spec:
   selector:
     istio: ingressgateway # use istio default controller
   servers:
   - port:
-      number: 80
-      name: http
-      protocol: HTTP
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: acme-fitness-tls
     hosts:
-    - "*"
+    - "acme-fitness.lab.home"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: acme
+  namespace: acme-fitness
 spec:
   hosts:
-  - "*"
+  - "acme-fitness.lab.home"
   gateways:
   - acme-gateway
   http:
@@ -30,4 +35,17 @@ spec:
     - destination:
         host: shopping
         port:
-          number: 3000 
+          number: 3000
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: acme-fitness-tls
+  namespace: istio-system
+spec:
+  dnsNames:
+  - "acme-fitness.lab.home"
+  issuerRef:
+    kind: ClusterIssuer
+    name: mkcert
+  secretName: acme-fitness-tls
