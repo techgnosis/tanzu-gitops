@@ -13,10 +13,10 @@ KUBECTL_VSPHERE_PASSWORD=Tkgs-admin1! \
 kubectl vsphere login \
 --server=10.0.3.2 \
 --vsphere-username tkgs-admin@vsphere.local \
---tanzu-kubernetes-cluster-name jmusselwhite-shared-services \
+--tanzu-kubernetes-cluster-name jmusselwhite-frontend \
 --tanzu-kubernetes-cluster-namespace myfriendthenamespace \
 --insecure-skip-tls-verify
 
-kubectl config use-context jmusselwhite-shared-services
+kubectl config use-context jmusselwhite-frontend
 export DIGEST=$(cat image/digest)
 kubectl -n ${namespace} set image deployment/${deployment} ${container}=${harbordomain}/library/${image}@${DIGEST}
