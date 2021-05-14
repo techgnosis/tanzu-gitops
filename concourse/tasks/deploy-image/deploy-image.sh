@@ -17,5 +17,6 @@ kubectl vsphere login \
 --tanzu-kubernetes-cluster-namespace myfriendthenamespace \
 --insecure-skip-tls-verify
 
+kubectl config use-context jmusselwhite-shared-services
 export DIGEST=$(cat image/digest)
 kubectl -n ${namespace} set image deployment/${deployment} ${container}=${harbordomain}/library/${image}@${DIGEST}

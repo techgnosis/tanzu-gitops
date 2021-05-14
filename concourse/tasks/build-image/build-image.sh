@@ -17,7 +17,8 @@ kubectl vsphere login \
 --tanzu-kubernetes-cluster-namespace myfriendthenamespace \
 --insecure-skip-tls-verify
 
+kubectl config use-context jmusselwhite-shared-services
 cd source-code
 REVISION=$(git rev-parse HEAD)
-kp -n demo-app-image image patch ${image} --git-revision ${REVISION}
+kp -n demo-app image patch ${image} --git-revision ${REVISION}
 
